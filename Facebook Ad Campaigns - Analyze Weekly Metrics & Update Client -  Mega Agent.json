@@ -1,0 +1,802 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get All Ad Accounts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Ad Accounts": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Campaign Data Analyzer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        []
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Last 7 Days Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Campaign Data Weekly Digest",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Campaign Data Analyzer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Campaign Data Risk Anayzer",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        []
+      ]
+    },
+    "Campaign Data Analyzer": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Campaign Data Risk Anayzer": {
+      "main": [
+        []
+      ]
+    },
+    "Campaign Data Weekly Digest": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Contact on Notion": {
+      "main": [
+        [
+          {
+            "node": "Campaign Data Weekly Digest",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Campaign Data Risk Anayzer",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          },
+          {
+            "node": "Campaign Data Risk Anayzer",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Last 7 Days Metrics": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Campaign Data Analyzer",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-04T06:16:25.162Z",
+  "id": "Bbqh8xz7yqjd0DeF",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Facebook Ad Campaigns - Analyze Weekly Metrics & Update Client -  Mega Agent",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -720,
+        0
+      ],
+      "id": "9ebf8341-3e66-4a65-815f-d96e25c75645",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "ad_accounts",
+        "returnAll": true,
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "is_visible",
+              "condition": "eq",
+              "keyValue": "true"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -460,
+        0
+      ],
+      "id": "ee6e429d-a1ab-44e9-be05-6ce58b8a4dd0",
+      "name": "Get All Ad Accounts",
+      "credentials": {
+        "supabaseApi": {
+          "id": "HhO7yCFHyxbzmZWK",
+          "name": "Supabase Ads Database"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        560,
+        40
+      ],
+      "id": "028f12f5-67b3-43ab-972e-4b521a900313",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "sendTo": "arslan@salesgenius.co",
+        "subject": "={{ $('Loop Over Items').item.json.name }}'s Weekly Ad Performance Digest - {{ $('Find Contact on Notion').item.json.property_email }}",
+        "message": "={{ $json.output }}",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "SalesGenius"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3400,
+        300
+      ],
+      "id": "c1eff976-ee83-4585-8338-96307c919f7c",
+      "name": "Gmail",
+      "webhookId": "0257f4f9-55d0-496a-83c6-1a8db509a7f7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "R2ppJs5mnCWrQakn",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -240,
+        0
+      ],
+      "id": "f0f4702c-63fe-4aa3-aa9c-e33db07294ea",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        3020,
+        480
+      ],
+      "id": "e15e7095-6337-4353-bf96-75152c9a5d30",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "vvRYzeVE6A8mYyNt",
+          "name": "Anthropic - Claude"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Format Email to Custom Client Template and Send to Client",
+        "height": 520,
+        "width": 940,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2000,
+        120
+      ],
+      "typeVersion": 1,
+      "id": "bc020215-fccd-4eca-9689-20e9c66d66fd",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "# to do:\n## - Add to send on a timer (once a week)\n",
+        "height": 260,
+        "width": 520,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1440,
+        -540
+      ],
+      "typeVersion": 1,
+      "id": "db1f6ba8-817f-469f-bc71-36f31957a2f2",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-2024-11-20",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        260
+      ],
+      "id": "24152658-786d-4e37-afa6-b9d619947c33",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "claude-3-haiku-20240307",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        880,
+        780
+      ],
+      "id": "39f617c6-84ae-4e65-a7a2-794cd3b70091",
+      "name": "Anthropic Chat Model1",
+      "credentials": {
+        "anthropicApi": {
+          "id": "vvRYzeVE6A8mYyNt",
+          "name": "Anthropic - Claude"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2e905aab-e5f2-494a-9ca3-b95d43e5f497",
+              "leftValue": "={{ $json.output.total_leads }}",
+              "rightValue": "=0",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "3929e0f6-38a7-40ac-8075-e44e1110b2e3",
+              "leftValue": "={{ $json.output.total_cost_per_lead }}",
+              "rightValue": 25,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "looseTypeValidation": "=0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1220,
+        40
+      ],
+      "id": "15fee36f-6aa3-4a6f-8599-bf452436a916",
+      "name": "If",
+      "notesInFlow": true,
+      "notes": "If CPL is higher than $25"
+    },
+    {
+      "parameters": {
+        "content": "# 🚨 🚨 Send Slack Alert to the team 🚨 🚨\n# Notify them about high CPL",
+        "height": 460,
+        "width": 700,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2000,
+        -460
+      ],
+      "typeVersion": 1,
+      "id": "464d0e45-9917-4856-8512-e3af8f6914ee",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08AE0Z3AG5",
+          "mode": "list",
+          "cachedResultName": "n8n"
+        },
+        "text": "=:rotating_light: ALERT: Client with HIGH Cost per lead last week :rotating_light:\nName: {{ $('Loop Over Items').item.json.name }}\nNumber of Leads: {{ $json.output.total_leads_this_week }}\nCost Per Lead: {{ $json.output.weekly_cpl }}\n\n<https://adsmanager.facebook.com/adsmanager/manage/campaigns?act={{ $('Facebook Graph API').item.json.data[0].account_id }}|Click Here to view Ad Account>\n",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": false,
+          "unfurl_links": false,
+          "unfurl_media": true,
+          "sendAsUser": ""
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        2720,
+        -240
+      ],
+      "id": "4e4a6da9-9827-466d-876e-f3b99010f78c",
+      "name": "Slack",
+      "webhookId": "4a680f0d-4842-4df6-ab82-b38a018681a0",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are provided with an array of Facebook ad campaign insight objects (one per day for the last 7 days). Each object contains many fields; among them are:\n\n- \"impressions\": (number)\n- \"spend\": (number)\n- \"leads\": (number, may be null; treat null as 0 when summing)\n- \"clicks\": (number)\n- \"ctr\": (number)            // This is already computed (e.g., 1.6243 represents 1.6243%)\n- \"cost_per_lead\": (number)       // This is already computed (may be null)\n- \"date_start\": (string in YYYY-MM-DD format)\n\nUsing these daily records, please generate an aggregated JSON response with the following keys and rules:\n\n1. **total_impressions**: Sum all the \"impressions\" values, for all campaigns, for all the dates.\n2. **total_spend**: Sum all the \"spend\" values for all campaigns, for all the dates.\n3. **total_leads**: Sum all the \"leads\" values (treat null as 0).\n4. **total_cost_per_lead**: Compute the overall cost per lead by dividing the **total_spend** by **total_leads**. Round the result to two decimals.\n5. **total_clicks**: Sum all the \"clicks\" values.\n6. **average_ctr**: Calculate the overall click-through rate as (total_clicks / total_impressions * 100). Format this as a string with two decimals followed by a percent sign (for example, \"2.73%\").\n7. **best_performing_day_for_cpl**: Determine the day (i.e. the record) with the lowest non-null \"cost_per_lead\" value. Then, using that record’s data, construct a string exactly in the following format:  \n   `\"Our best day was YYYY-MM-DD, with X leads and a Cost Per Lead of $Y.YY.\"`  \n   Here, replace:\n   - `YYYY-MM-DD` with the record's \"date_start\"\n   - `X` with that day's \"leads\" (treat null as 0)\n   - `Y.YY` with that day's \"cost_per_lead\" value rounded to two decimals.\n\n**Important Notes:**\n\n- **Do not recalculate the daily \"ctr\" and \"cost_per_lead\" values.** Use the values provided in each record.\n- For best performing day calculation, ignore any records where \"cost_per_lead\" is null.\n- For best performing day calculation, ignore any records where \"total_leads\" is 0.\n- Return your final output as valid JSON with exactly the keys below:\n- If theres multiple campaigns in a day, remember to use all of them \n\n{\n  \"account_id\": \"{{ $('Loop Over Items').item.json.id }}\",\n\"account_name:\":\"{{ $('Loop Over Items').item.json.name }}\",\n  \"total_impressions\": <number>,\n  \"total_spend\": <number>,\n  \"total_leads\": <number>,\n  \"total_cost_per_lead\": <number>,\n  \"total_clicks\": <number>,\n  \"average_ctr\": \"<string>\",\n  \"best_performing_day_for_cpl\": \"<string>\"\n}\n\n\nHere is {{ $('Get All Ad Accounts').item.json.name }}'s campaign metric data from last week:\n\n{{ JSON.stringify($node[\"Aggregate\"].json, null, 2) }}\n\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        760,
+        40
+      ],
+      "id": "704e3bc7-777e-46cd-b7f1-42e49853cf3f",
+      "name": "Campaign Data Analyzer",
+      "alwaysOutputData": true,
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your job is to tell me if 2 things from the data:\n1. Total number of leads this week (Just the number)\n2. What was the Weekly (CPL) Cost Per Lead? (Just the number)\n\nHere is the data to analyze:\n{{ $json.output }}\n\nOutput should be a simple json with just the values, no other text. \nImportant: json values should never contain contain text, ONLY NUMBERS\n\nOutput json structure: \n{\n\t\"total_leads_this_week\": \"44\",\n\t\"weekly_cpl\": \"13.6\"\n}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        780,
+        600
+      ],
+      "id": "be9e553f-0e37-463a-ad7c-596f3539033b",
+      "name": "Campaign Data Risk Anayzer",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Transform the following facebook campaign performance data into an HTML email body in the boilerplate email template below.\n\nThe output should: Be HTML-only (no additional text or explanations).\n\nHere are the content that needs to be put into the email:\n\n{{ $('Campaign Data Analyzer').item.json.output }}\n\nHere is the email boiler plate: \n\n<!DOCTYPE html>\n<html>\n\n<head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n    <title>Email Report</title>\n    <style>\n        body,\n        table,\n        td {\n            font-family: Arial, sans-serif;\n            font-size: 16px;\n            color: #ffffff;\n        }\n\n        body {\n            margin: 0;\n            padding: 0;\n            background-color: #0d0d0d;\n            /* Full dark background */\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            background-color: #1a1a1a;\n            /* Dark container */\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);\n        }\n\n        .logo {\n            text-align: center;\n            padding: 10px 0;\n        }\n\n        .logo img {\n            width: 180px;\n        }\n\n        .content {\n            text-align: left;\n            padding: 20px;\n        }\n\n        .section {\n            margin-bottom: 20px;\n            padding: 15px;\n            border-radius: 6px;\n        }\n\n        .impressions {\n            background-color: #2a2a72;\n        }\n\n        /* Blue */\n        .clicks {\n            background-color: #1e5631;\n        }\n\n        /* Green */\n        .leads {\n            background-color: #722a2a;\n        }\n\n        /* Red */\n        .highlight {\n            font-weight: bold;\n            color: #ffd700;\n        }\n\n        /* Gold for key data */\n        .footer {\n            text-align: center;\n            font-size: 14px;\n            color: #aaaaaa;\n            padding: 20px;\n        }\n\n        @media screen and (max-width: 480px) {\n            .content {\n                padding: 10px;\n            }\n        }\n    </style>\n</head>\n\n<body>\n    <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n        <tbody>\n            <tr>\n                <td align=\"center\">\n                    <table class=\"container\">\n                        <tbody>\n                            <tr>\n                                <td class=\"logo\"><img src=\"https://assets.cdn.filesafe.space/zpjvSoJ3TMkdq8pcj7VJ/media/6499bf999db2c32f4ad9391e.png\" alt=\"SalesGenius Logo\"></td>\n                            </tr>\n                            <tr>\n                                <td class=\"content \">\n                                    <p>Hello <span class=\"highlight\">{{ $json.property_email_name }}</span>,</p>\n                                    <p>I hope you&apos;re doing well. Last week (<span class=\"highlight\">{{ $('Aggregate').item.json[\"[object Object]\"][0].data[0].date_start }} - {{ $('Aggregate').item.json[\"[object Object]\"][0].data[0].date_stop }}</span>), we spent <span class=\"highlight\">$[Total Spend]</span> on Facebook ads and generated <span class=\"highlight\">[Total Leads]</span> leads. That means each lead cost us <span class=\"highlight\">$[CPL]</span> (Cost Per Lead).</p>\n                                    <p><strong>How People Moved Through the Funnel:</strong></p><!-- Impressions Section -->\n                                    <div class=\"section impressions\">\n                                        <p><strong>👀 Impressions</strong></p>\n                                        <p>Your ads were shown <span class=\"highlight\">[Number of Impressions]</span> times. An impression is counted every time your ad is displayed on someone&rsquo;s screen in their Facebook or Instagram feed, regardless of whether they click or engage with it.</p>\n                                    </div><!-- Clicks Section -->\n                                    <div class=\"section clicks\">\n                                        <p><strong>☝️ Clicks</strong></p>\n                                        <p>Out of all the people who saw your ad, <span class=\"highlight\">[Number of Clicks]</span> clicked on it. Each click represents a potential lead who was interested enough to take action.</p>\n                                        <p>The <strong>Click-Through Rate (CTR)</strong> was&nbsp;<span class=\"highlight\">[CTR]%</span>. CTR is calculated as (Clicks &divide; Impressions) &times; 100. A higher CTR means more people found your ad engaging and relevant.<br><br>The benchmark we have at SalesGenius for <strong>CTR is 3%</strong>. This means your ad is <span class=\"highlight\"><strong>[Comparison with 3% benchmark, if lower then benchmark, be positive, and say our team is monitoring it].</strong></span></p>\n                                    </div><!-- Leads Section -->\n                                    <div class=\"section leads\">\n                                        <p><strong>👥 Leads</strong></p>\n                                        <p>From those clicks, we ended up with <span class=\"highlight\">[Total Leads]</span> leads. Leads are the most valuable part of our funnel since they show real potential customers.</p>\n                                        <p>The <strong>Cost Per Lead (CPL)</strong> was <span class=\"highlight\">$[CPL]</span>. CPL is calculated as <strong>(Total Spend &divide; Total Leads)</strong>. This means we spent&nbsp;<strong>$[CPL] for each new lead</strong> who showed interest in your offer.&nbsp;<br><br>The benchmark we have at SalesGenius for <strong>CPL is $20</strong>. This means your ad is <span class=\"highlight\"><strong>[Comparison with $20 CPL benchmark, if lower then benchmark, be positive, and say our team is monitoring it].</strong></span></p>\n                                    </div><!-- Best Performing Day -->\n                                    <p><strong>🌟 Best Performing Day</strong></p>\n                                    <p>Our best day was <span class=\"highlight\">[Best Day/Date]</span>, with <span class=\"highlight\">[Best Day Leads]</span> leads and a Cost Per Lead of <span class=\"highlight\">$[Best Day CPL]</span>. This day gave us the best value for our spend.</p>\n                                    <p>Thank you for reading! If you have any questions, feel free to reach out.</p>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td class=\"footer\">\n                                    <p>Best regards,</p>\n                                    <p><strong>The SalesGenius Team</strong></p>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n        </tbody>\n    </table>\n</body>\n\n</html>\n\n\n\nImportant: Do not change the boilerplate, the output should be html nothing else\nImportant: Do not output with any variable names, all variables should be filled out from the data",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        3040,
+        300
+      ],
+      "id": "77f28173-5c57-4d71-81fd-6c39520bad30",
+      "name": "Campaign Data Weekly Digest",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "1761d08c-4f5a-8016-89dd-f81384652240",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://www.notion.so/1761d08c4f5a801689ddf81384652240"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "ad_account_number|rich_text",
+              "condition": "equals",
+              "richTextValue": "={{ $('Loop Over Items').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2140,
+        320
+      ],
+      "id": "e6191af6-9f9a-4dde-8706-5f9904ffa67b",
+      "name": "Find Contact on Notion",
+      "alwaysOutputData": true,
+      "notesInFlow": false,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {
+          "prompt": "Instructions:\n--------------\n1. Total number of leads this week (Just the number)\n2. What was the Weekly (CPL) Cost Per Lead? (Just the number)\n\nOnly give json response and It should never contain contain text, ONLY NUMBERS\n\n--------------\nCompletion:\n--------------\n{\n\t\"Number of leads\": \"4\",\n    \"CPL\":\"25.22\"\n}\n\n--------------\n\nAbove, the Completion did not satisfy the constraints given in the Instructions.\n\nError:\n--------------\n{error} \nNumber of leads:No leads are directly reported\nCPL:No leads are directly reported\n\nIt should never contain contain text, ONLY NUMBERS\n--------------\n\nPlease try again. Please only respond with an answer that satisfies the constraints laid out in the Instructions:"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        880,
+        820
+      ],
+      "id": "29d9c870-d37c-4748-8cb9-6235726660f9",
+      "name": "Auto-fixing Output Parser"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"total_leads_this_week\": \"44\",\n\t\"weekly_cpl\": \"13.6\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        940,
+        1020
+      ],
+      "id": "11b6031c-a990-4ff8-a523-2d835229c93b",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "detailed_metrics",
+        "matchType": "allFilters",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "ad_account_id",
+              "condition": "eq",
+              "keyValue": "={{ $json.id.match(/\\d+/)[0] }}"
+            },
+            {
+              "keyName": "date_start",
+              "condition": "gt",
+              "keyValue": "={{ new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] }}"
+            },
+            {
+              "keyName": "date_stop",
+              "condition": "lt",
+              "keyValue": "={{ new Date().toISOString().split('T')[0] }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        40,
+        20
+      ],
+      "id": "632387dd-e1c2-4cd7-9f5c-58c589a704d2",
+      "name": "Get Last 7 Days Metrics",
+      "credentials": {
+        "supabaseApi": {
+          "id": "HhO7yCFHyxbzmZWK",
+          "name": "Supabase Ads Database"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "No Campaign Data Last Week"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "87c2498d-744a-4a1b-a11f-ce76651971e6",
+                    "leftValue": "={{ $json }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Campaign Data Exists"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        260,
+        20
+      ],
+      "id": "da121ea8-4c43-4723-9e09-1318fe7b78be",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"account_id\": \"\",\n  \"account_name\": \"\",\n  \"total_impressions\": \"\",\n  \"total_spend\": \"\",\n  \"total_leads\": \"\",\n  \"total_cost_per_lead\": \"\",\n  \"total_clicks\": \"\",\n  \"average_ctr\": \"\",\n  \"best_performing_day_for_cpl\": \"\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        940,
+        260
+      ],
+      "id": "95181196-a2a6-4051-aaf2-2ad1936b9efe",
+      "name": "Structured Output Parser1"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-04T06:16:25.178Z",
+      "updatedAt": "2025-02-04T06:16:25.178Z",
+      "role": "workflow:owner",
+      "workflowId": "Bbqh8xz7yqjd0DeF",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-11T15:24:33.000Z",
+  "versionId": "5c1090bb-2612-47c8-a63c-759fb6b60eeb"
+}
