@@ -1,0 +1,794 @@
+{
+  "active": true,
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items3": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-27T14:08:42.790Z",
+  "id": "MTzzVYZ6dHhUirNi",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Realtor Enrichment - Mauricios",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://api.search.brave.com/res/v1/web/search",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "=realtor name \\\"{{ $json.Name }}\\\" email {{ $json.Email }} phone {{ $json.Phone }}"
+            },
+            {
+              "name": "result_filter",
+              "value": "web"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        -320
+      ],
+      "id": "16cdd85a-b0ef-4f25-92e2-0c61716c0472",
+      "name": "HTTP Request",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "Em4kWGIddNLij3zX",
+          "name": "Brave Search API"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "13149aaf-2546-4744-9514-c258327872fb",
+              "name": "RawData",
+              "value": "={{ $json.RawData }}",
+              "type": "array"
+            },
+            {
+              "id": "d3e2ced5-86f7-4719-a92c-d212bce33b99",
+              "name": "Id",
+              "value": "={{ $json.Id }}",
+              "type": "string"
+            },
+            {
+              "id": "9e0353d1-6d81-409e-9569-bf06aa81b53b",
+              "name": "Name",
+              "value": "={{ $json.Name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        240
+      ],
+      "id": "015cdf0b-8a8f-483d-b22e-d04214e0e1ad",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const rawData = items[0].json.RawData;\nconst name = items[0].json.Name;\nconst id = items[0].json.Id;\n\nreturn rawData.map(item => ({\n  ...item,\n  Name: name,\n  Id: id\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        0
+      ],
+      "id": "bdbb460e-a964-411f-b984-bbeee25f1768",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Query: {{ $json.query }}\nData: {{ $json.results }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Try to answer the following questions based on the information the user provides:\n\n    What brokerage they work for\n\n    How many years they've been a realtor If you don’t have enough information to answer any of the questions, just respond with 'no data' to that question."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        20,
+        80
+      ],
+      "id": "f91a4787-5bfd-446a-abbb-f2a712ed056d",
+      "name": "AI Agent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\": {\n      \"type\": \"string\"\n    },\n    \"phone\": {\n      \"type\": \"string\"\n    },\n    \"email\": {\n      \"type\": \"string\"\n    },\n    \"brokerage\": {\n      \"type\": \"string\"\n    },\n    \"years\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\"name\", \"phone\", \"email\", \"brokerage\", \"years\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        180,
+        300
+      ],
+      "id": "32f27dd3-b3cf-454d-90ab-46aa12ba8823",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b6d34d0e-a3f3-41e7-abca-7bbdf59a6af9",
+              "name": "results",
+              "value": "={{ $json.web.results }}",
+              "type": "string"
+            },
+            {
+              "id": "ad540c1d-f5e2-45d0-90e8-991138e9d3a4",
+              "name": "query",
+              "value": "={{ $json.query.original }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        -340
+      ],
+      "id": "f8e99b01-a035-4387-9b53-d910e00bab72",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        300
+      ],
+      "id": "2b2b71d5-d05c-49b0-bea5-9115cdb03a57",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Get Imported data \n",
+        "height": 380,
+        "width": 640
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -400,
+        -460
+      ],
+      "typeVersion": 1,
+      "id": "283a455e-87bb-4f69-abe2-cc3f117536a6",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Get Realtors Data from Brave \n",
+        "height": 380,
+        "width": 660,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        240,
+        -460
+      ],
+      "typeVersion": 1,
+      "id": "8bae7099-e230-4fec-aa80-22435f65b6b6",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -160,
+        0
+      ],
+      "id": "3ac6cb07-9818-4259-954d-1ec160b0cfa6",
+      "name": "Loop Over Items2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "44cc4b4c-057c-4326-a978-933712d9743d",
+              "name": "Name",
+              "value": "={{ $json.Name[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "968001d9-566b-4785-8cc0-9640bf3ed7bc",
+              "name": "Phone",
+              "value": "={{ $json.Phone[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "72dc9b04-446f-4456-a7be-0738f09b7df2",
+              "name": "Email",
+              "value": "={{ $json.Email[0] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        60,
+        -320
+      ],
+      "id": "85a99d34-c9f2-4281-baee-13eaef80c771",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "content": "## Read Realtors Data from Brave with AI and storage in Realtor table",
+        "height": 520,
+        "width": 840,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -200,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "940dfce1-f682-4a66-9086-2c8fce4b22c0",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Transform RawData to results list",
+        "height": 520,
+        "width": 540,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        640,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "8f1736f0-e803-43e4-a4e8-820067050f3c",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        700,
+        -20
+      ],
+      "id": "0f965927-b97c-4819-b0bf-06c31cdd2e06",
+      "name": "Loop Over Items3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cce77cc0-b54a-4025-991a-a1ac8a264cca",
+              "name": "Id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "a9ca8c25-9213-4f6c-8b43-ddc1695c4b81",
+              "name": "RawData",
+              "value": "={{ $('Loop Over Items2').item.json.results }}",
+              "type": "array"
+            },
+            {
+              "id": "f87fbaf9-c279-48c9-a229-8a02643ef82e",
+              "name": "Name",
+              "value": "={{ $('AI Agent').item.json.output.name }}",
+              "type": "string"
+            },
+            {
+              "id": "11980a39-7b2a-4a39-ad66-f723c38f5eba",
+              "name": "Phone",
+              "value": "={{ $('AI Agent').item.json.output.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "6c46a44d-46ff-4f8c-9f6e-72a7cfe4cc6e",
+              "name": "Email",
+              "value": "={{ $('AI Agent').item.json.output.email }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        80
+      ],
+      "id": "47c14914-1afc-4121-aa36-a8e3178db596",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "MxXCyb2V0uTEKi8g",
+          "mode": "list",
+          "cachedResultName": "Realtor Enrichment - Mauricios Part 2"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1020,
+        240
+      ],
+      "id": "f439627b-ee2f-4b05-8900-ec57872b2e9b",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"1c81d08c-4f5a-80a7-bf00-efa7ae44e0d8\"\n  },\n  \"properties\": {\n    \"Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json.output.name }}\"\n          }\n        }\n      ]\n    },\n    \"Phone\": {\n      \"phone_number\": \"{{ $json.output.phone }}\"\n    },\n    \"Email\": {\n      \"email\": \"{{ $json.output.email }}\"\n    },\n    \"Years\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json.output.years }}\"\n          }\n        }\n      ]\n    },\n    \"Brokerage\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json.output.brokerage }}\"\n          }\n        }\n      ]\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        340,
+        80
+      ],
+      "id": "b3084236-f7a2-4db7-9072-10cf894e2eb8",
+      "name": "HTTP Request2",
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "testRealtor",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Phone"
+            },
+            {
+              "fieldLabel": "Email"
+            }
+          ]
+        },
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -360,
+        -380
+      ],
+      "id": "4a3598a1-12c4-4042-9ea0-f624c6c38f23",
+      "name": "On form submission",
+      "webhookId": "5ac36a52-0b3a-4864-997d-582d7ad5043a"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Name"
+            },
+            {
+              "fieldToAggregate": "Phone"
+            },
+            {
+              "fieldToAggregate": "Email"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        -320
+      ],
+      "id": "ca278080-7809-442e-b39a-e44cdd503a54",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "createRealtor",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -600,
+        -240
+      ],
+      "id": "9f1e8dbc-7a1a-434e-bd19-c8c875fb2c48",
+      "name": "Webhook",
+      "webhookId": "02d14957-5272-4c05-8177-e11588b84eae"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c0f06754-7ceb-4550-8886-a2bb416262cb",
+              "name": "Name",
+              "value": "={{ $json.body.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "03aa3275-5b6e-49ab-a330-c83ec4212ebc",
+              "name": "Phone",
+              "value": "={{ $json.body.Phone }}",
+              "type": "string"
+            },
+            {
+              "id": "e480952d-ce62-48e9-918d-6944f1ab25e2",
+              "name": "Email",
+              "value": "={{ $json.body.Email }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -380,
+        -240
+      ],
+      "id": "2e8a452c-6ed1-4b2f-a558-863cd5d88ef2",
+      "name": "Edit Fields2"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-03-27T14:08:42.801Z",
+      "updatedAt": "2025-03-27T14:08:42.801Z",
+      "role": "workflow:owner",
+      "workflowId": "MTzzVYZ6dHhUirNi",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 3,
+  "updatedAt": "2025-04-03T20:57:48.000Z",
+  "versionId": "d9979cfd-1176-441f-aa89-74bcf7bd05d6"
+}
