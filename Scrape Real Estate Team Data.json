@@ -1,0 +1,430 @@
+{
+  "active": false,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Query Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Query Set": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Data For Sheets": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Apify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify": {
+      "main": [
+        [
+          {
+            "node": "Set Data For Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-22T02:55:41.200Z",
+  "id": "9l5gJXEVVaNW5d2m",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Scrape Real Estate Team Data",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Real Estate Team Lead Gen",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "What Is Your Search Term?",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "What City To Search In? ",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "What Country To Search In?",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Number of Results?",
+              "placeholder": "Up to 10 Searches",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "What Is Your Business Name?",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "What Is Your Email Address?",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "330a2eaf-1e81-4ebb-987b-c178c180811e",
+      "name": "On form submission",
+      "webhookId": "69d482a3-c1eb-4871-9fee-4b9ae8974ebd"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0db8e2db-c882-40ab-ab19-a21c72e8d78e",
+              "name": "Search Term 1",
+              "value": "={{ $json['What Is Your Search Term?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f312f05e-8bdb-4a31-91c5-8ad0907ecff8",
+              "name": "Location",
+              "value": "={{ $json['What City To Search In? '] }},{{ $json['What Country To Search In?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "bf8874d6-640e-4efa-a82d-aa1383f70bc8",
+              "name": "Number Of Results",
+              "value": "={{ $json['Number of Results?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f2eb740b-1995-4711-ba7e-d80d0b9e37a5",
+              "name": "Business Name",
+              "value": "={{ $json['What Is Your Business Name?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "e86da179-1fff-465c-bee4-a5995907481f",
+              "name": "Email Address",
+              "value": "={{ $json['What Is Your Email Address?'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ],
+      "id": "ca6e8122-585e-4a8c-b275-19d19e5304b3",
+      "name": "Query Set"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4bc8e207-a75e-48cb-9f21-115f552dd6db",
+              "name": "Company Name",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "57f3a97e-f325-453e-a645-0c1ad9ca7493",
+              "name": "Description",
+              "value": "={{ $json.description }}",
+              "type": "string"
+            },
+            {
+              "id": "8a15b9c2-1fd3-4be3-ba27-a774c1c00de2",
+              "name": "Address",
+              "value": "={{ $json.street }},{{ $json.city }},{{ $json.state }}, {{ $json.countryCode }},{{ $json.postalCode }}",
+              "type": "string"
+            },
+            {
+              "id": "0c26cd5f-3a39-4193-88b4-9d767d2ebb12",
+              "name": "Phone Number",
+              "value": "={{ $json.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "49c2a2ba-fb5e-4319-ad82-f1ebbab96218",
+              "name": "Review Count",
+              "value": "={{ $json.reviewsCount }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1540,
+        0
+      ],
+      "id": "5ab68bbb-1fc0-41e0-a918-75cb6139d4f6",
+      "name": "Set Data For Sheets"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "13x6SbTwxw_2X5fsCIWhukOY7i8WfqPslaUcpuFPwdPU",
+          "mode": "list",
+          "cachedResultName": "Google Maps Lead Scraper",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13x6SbTwxw_2X5fsCIWhukOY7i8WfqPslaUcpuFPwdPU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13x6SbTwxw_2X5fsCIWhukOY7i8WfqPslaUcpuFPwdPU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Search Phrases",
+              "displayName": "Search Phrases",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Business Name",
+              "displayName": "Business Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Address",
+              "displayName": "Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Review Count",
+              "displayName": "Review Count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1720,
+        0
+      ],
+      "id": "6134f782-5a39-43d3-8ea7-f27a2f2f816b",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jY5tKr25WkWpDZPC",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "13x6SbTwxw_2X5fsCIWhukOY7i8WfqPslaUcpuFPwdPU",
+          "mode": "list",
+          "cachedResultName": "Google Maps Lead Scraper Template",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13x6SbTwxw_2X5fsCIWhukOY7i8WfqPslaUcpuFPwdPU/edit?usp=drivesdk"
+        },
+        "name": "=Team Leader Scraper In  {{ $('On form submission').item.json['What City To Search In? '] }} for {{ $('On form submission').item.json['What Is Your Business Name?'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        440,
+        0
+      ],
+      "id": "6c54e5cc-b72d-4eb1-bcc8-6e766811a258",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "Yvx6oPwBb0K1xMOi",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Actors",
+        "operation": "Run actor",
+        "actorId": {
+          "__rl": true,
+          "value": "2Mdma1N6Fd0y3QEjR",
+          "mode": "list",
+          "cachedResultName": "google-maps-extractor",
+          "cachedResultUrl": "https://console.apify.com/actors/undefined/input"
+        },
+        "timeout": 300,
+        "build": "latest",
+        "webhooks": "",
+        "useCustomBody": true,
+        "customBody": "={\n    \"language\": \"en\",\n    \"locationQuery\": \"{{ $('Query Set').item.json.Location }}\",\n    \"searchStringsArray\": [\n        \"{{ $('Query Set').item.json['Search Term 1'] }}\"\n    ],\n    \"skipClosedPlaces\": false\n} ",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        660,
+        0
+      ],
+      "id": "7337576d-b480-4895-aedb-5c767c7d6fe3",
+      "name": "Apify",
+      "credentials": {
+        "apifyApi": {
+          "id": "tENMcZ4Z66LpW8oE",
+          "name": "Apify account"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-01-22T02:55:41.209Z",
+      "updatedAt": "2025-01-22T02:55:41.209Z",
+      "role": "workflow:owner",
+      "workflowId": "9l5gJXEVVaNW5d2m",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-23T00:01:10.000Z",
+  "versionId": "8beb0aef-3dec-4fcd-8889-8de8d6a8856a"
+}
