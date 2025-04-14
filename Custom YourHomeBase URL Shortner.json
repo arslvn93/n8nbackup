@@ -1,0 +1,390 @@
+{
+  "active": true,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Yourls": {
+      "main": [
+        [
+          {
+            "node": "Form",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Form1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Yourls1": {
+      "main": [
+        [
+          {
+            "node": "Form2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Form3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Yourls1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Yourls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-21T19:56:32.817Z",
+  "id": "94mv7LFRG7Y2ITJg",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Custom YourHomeBase URL Shortner",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "={{ $json[\"Enter the Long URL\"] }}",
+        "additionalFields": {
+          "keyword": "={{ $json[\"Customize the URL\"] || '' }}",
+          "title": "={{ $json.Title  || '' }}"
+        }
+      },
+      "type": "n8n-nodes-base.yourls",
+      "typeVersion": 1,
+      "position": [
+        660,
+        280
+      ],
+      "id": "3fb8a4a1-b552-47e5-8e44-6a287487bb53",
+      "name": "Yourls",
+      "credentials": {
+        "yourlsApi": {
+          "id": "dObnySYjD1OI38EY",
+          "name": "Yourls account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "formTitle": "Shorten URL",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Enter the Long URL",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Customize the URL",
+              "placeholder": "go.yourhomebase.ca/CUSTOM"
+            },
+            {
+              "fieldLabel": "Title",
+              "placeholder": "Enter the Name of URL"
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "buttonLabel": "Shorten URL",
+          "path": "shorten",
+          "respondWithOptions": {
+            "values": {
+              "formSubmittedText": "Your URL has been shortened! "
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        140,
+        80
+      ],
+      "id": "c40a074e-c8ac-4c06-ab65-85c19e47360d",
+      "name": "On form submission",
+      "webhookId": "4846d838-b7fd-4da0-97e0-377a3905c2d6"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Done! Your Shortened URL is:",
+        "completionMessage": "={{ $json.shorturl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        840,
+        180
+      ],
+      "id": "1f918249-eb61-4fce-b61e-ec46bb90f77e",
+      "name": "Form",
+      "webhookId": "286ef99a-d410-44a2-a254-872e2fefc577"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "ERROR",
+        "completionMessage": "=Could not complete request. The url might already exist. Try Again. Error Message: {{ $json[\"error\"] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        840,
+        360
+      ],
+      "id": "61c28b9b-001f-4531-bfa7-8af606d691b7",
+      "name": "Form1",
+      "webhookId": "286ef99a-d410-44a2-a254-872e2fefc577"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('On form submission').item.json[\"Enter the Long URL\"] }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.yourls",
+      "typeVersion": 1,
+      "position": [
+        660,
+        -100
+      ],
+      "id": "5b26a983-45f7-4c05-83b6-37ca39c4863e",
+      "name": "Yourls1",
+      "credentials": {
+        "yourlsApi": {
+          "id": "dObnySYjD1OI38EY",
+          "name": "Yourls account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json[\"Customize the URL\"] }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "No Customization"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8d330007-e7ea-4d14-9c5e-33f99e48d33b",
+                    "leftValue": "={{ $json[\"Customize the URL\"] }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Custom URL"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        360,
+        80
+      ],
+      "id": "7f084062-6b74-4261-a875-6bac249c279e",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Done! Your Shortened URL is:",
+        "completionMessage": "={{ $json.shorturl }}",
+        "options": {
+          "formTitle": "COMPLETE"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        840,
+        -200
+      ],
+      "id": "69b93f9f-cd04-4ed2-aa78-e2a035d98bd1",
+      "name": "Form2",
+      "webhookId": "286ef99a-d410-44a2-a254-872e2fefc577"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "ERROR",
+        "completionMessage": "=Could not complete request. The url might already exist. Try Again. Error Message: {{ $json[\"error\"] }}\n\n",
+        "options": {
+          "formTitle": "ERROR"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        840,
+        -20
+      ],
+      "id": "144d80da-0afd-466e-aad5-7d58dbb00127",
+      "name": "Form3",
+      "webhookId": "286ef99a-d410-44a2-a254-872e2fefc577"
+    },
+    {
+      "parameters": {
+        "content": "## Access Here: https://n8n.salesgenius.co/form/shorten",
+        "height": 100,
+        "width": 500,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -60
+      ],
+      "id": "c162d8e0-e0be-4e0e-b9e5-d79ce5a8310e",
+      "name": "Sticky Note"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-21T19:56:32.823Z",
+      "updatedAt": "2025-02-21T19:56:32.823Z",
+      "role": "workflow:owner",
+      "workflowId": "94mv7LFRG7Y2ITJg",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-21T17:21:41.750Z",
+      "updatedAt": "2025-02-21T17:21:41.750Z",
+      "id": "hCxs00bYB7kqJnEo",
+      "name": "WORKING"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-02-21T20:36:14.000Z",
+  "versionId": "5b5a98af-86c2-4cce-8b2b-ab4458c56352"
+}
