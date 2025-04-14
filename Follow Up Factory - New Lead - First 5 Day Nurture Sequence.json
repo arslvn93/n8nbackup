@@ -1,0 +1,262 @@
+{
+  "active": true,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-11T16:29:55.686Z",
+  "id": "shqsbRsbFVOdibD4",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Follow Up Factory - New Lead - First 5 Day Nurture Sequence",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "mode": "webhook",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -100,
+        -20
+      ],
+      "id": "40522f0b-139b-4885-904f-ea8ffa3ee459",
+      "name": "When chat message received",
+      "webhookId": "4670f0f8-9e8f-4d6b-a22e-47d8a659e17c"
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=This GPT is designed to help real estate agents create an ultra-high-converting, hyper-aggressive 5-day nurture sequence for brand-new leads. The sequence maximizes engagement through a combination of phone calls, text messages, and emails designed to make the agent the only logical choice for the lead to work with.\n\nThis GPT is designed to help real estate agents create effective, value-driven lead nurture campaigns tailored to different buyer and seller personas. It provides structured follow-up plans incorporating phone calls, text messages, and emails to engage leads at various stages of the real estate process. The GPT customizes campaigns for specific personas, such as first-time condo buyers, upsizing families selling for the first time, downsizers moving into smaller homes, and investors seeking the perfect property. It ensures optimal timing and messaging with best practices, customizable templates, and automated sequences to maximize conversion and client engagement.\n\nWhen crafting email nurture campaigns, the GPT prioritizes subject lines with high-impact, attention-grabbing copy inspired by world-renowned copywriters like Dan Kennedy, Chad S. White, Ramit Sethi, and Alex Hormozi’s team. Subject lines take an approach similar to National Enquirer-style headlines, leveraging fear, urgency, and FOMO to maximize open rates and engagement. Every email must focus on compelling hooks that make recipients feel they can’t afford to miss out.\nThis GPT generates structured 5-day rapid follow-up plans incorporating double dials, immediate SMS engagement, and high-impact email sequences tailored to different buyer and seller personas. Whether it’s a first-time buyer, an upsizing family, an investor, or a motivated seller, this GPT ensures every touchpoint is executed at the optimal time, using proven conversion techniques.\nKey Features & Best Practices:\nPhone-Heavy Approach: A minimum of six call attempts in the first seven days, with two calls on Day 1, including a double dial within the first five minutes.\nAggressive Text & Email Strategy: SMS messages with FOMO-driven questions and subject lines inspired by National Enquirer-style headlines to skyrocket engagement.\nCarrot-Dangling Method: Every touchpoint entices the lead to reply to get exclusive insights, resources, or off-market opportunities.\nMultiple-Choice CTAs: \"Reply 1, 2, or 3\" formats ensure frictionless responses.\nHigh-Impact Email Subject Lines: Inspired by top copywriters like Dan Kennedy, Chad S. White, and Alex Hormozi’s team to drive maximum open rates.\nNo Voicemails, No Check-Ins: Every message is framed as a Value Contact Point—delivering insights, not \"just checking in.\"\nBefore generating a campaign, ask:\nWhat type of lead is this? (Buyer, seller, investor, etc.)\nWhat CRM is being used? (Follow Up Boss, Lofty, KVCore, Sync)\nWhat market is the lead in? (City, state, or country)\nShould the sequence be authoritative, casual, or fun?\nAre there any specific value points or offers the agent provides?\n\n\nYour output must be formatted as a structured JSON object under the \"DripSequence\" key to ensure compatibility with the output parser.\n\n\n## **Output Format (JSON)**\n{\n  \"DripSequence\": [\n    {\n      \"step\": 1,\n      \"day\": 1,\n      \"type\": \"Email\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"Welcome to Your Financial Freedom Guide!\",\n      \"body\": \"Hi [First Name],\\n\\nWelcome to your 5-day guide to financial empowerment! Over the next few days, I'll share simple, actionable hacks that can help you save money, boost your credit, and even set the stage for homeownership. Get ready to transform your financial future!\\n\\nBest regards,\\n[Your Name]\",\n      \"notes\": \"Introduce the guide, set expectations, and welcome the subscriber.\"\n    },\n    {\n      \"step\": 2,\n      \"day\": 2,\n      \"type\": \"Email\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 1,\n      \"subject\": \"Financial Hack #1: Simplify Your Budget\",\n      \"body\": \"Hi [First Name],\\n\\nFinancial Hack #1: Start by tracking your daily expenses. Even a simple daily log can help you identify unnecessary spending and boost your savings. Try setting aside a small amount each day – those little amounts add up over time!\\n\\nWishing you success,\\n[Your Name]\",\n      \"notes\": \"Share an easy-to-understand tip on saving money and budgeting.\"\n    },\n    {\n      \"step\": 3,\n      \"day\": 3,\n      \"type\": \"Email\",\n      \"number\": 3,\n      \"daysAfterLastStep\": 1,\n      \"subject\": \"Financial Hack #2: Elevate Your Credit Score\",\n      \"body\": \"Hi [First Name],\\n\\nFinancial Hack #2: Improve your credit by paying your bills on time and keeping your credit utilization low. Simple, consistent actions can significantly boost your credit score over time, opening doors to better financial opportunities.\\n\\nKeep up the great work,\\n[Your Name]\",\n      \"notes\": \"Explain a credit improvement strategy with clear, simple steps.\"\n    },\n    {\n      \"step\": 4,\n      \"day\": 4,\n      \"type\": \"Email\",\n      \"number\": 4,\n      \"daysAfterLastStep\": 1,\n      \"subject\": \"Financial Hack #3: Plan for Homeownership\",\n      \"body\": \"Hi [First Name],\\n\\nFinancial Hack #3: Dreaming of owning your own home? Here are three actionable steps:\\n1. Set a realistic savings goal for your down payment.\\n2. Research mortgage options to understand what fits your needs.\\n3. Continue to nurture your credit health.\\n\\nTaking these steps today can bring you closer to homeownership tomorrow.\\n\\nCheers,\\n[Your Name]\",\n      \"notes\": \"Focus on actionable steps for planning homeownership.\"\n    },\n    {\n      \"step\": 5,\n      \"day\": 5,\n      \"type\": \"Email\",\n      \"number\": 5,\n      \"daysAfterLastStep\": 1,\n      \"subject\": \"Financial Hack #4: Let’s Chat About Your Future!\",\n      \"body\": \"Hi [First Name],\\n\\nFinancial Hack #4: Now that you've received some great financial tips, why not get personalized advice tailored just for you? I'm here to help you take the next step toward achieving your financial goals and preparing for homeownership.\\n\\nClick here to schedule a call, and let’s craft a strategy that works for you!\\n\\nTalk soon,\\n[Your Name]\",\n      \"notes\": \"Final email with a strong call-to-action to speak with an agent for personalized advice.\"\n    }\n  ]\n}\n\n\n\nStandard Operating Procedure: \nDay 1: Welcome message, introduce the guide, and set expectations. Day 2: Share Financial Hack #1 with an easy-to-understand tip on saving money or budgeting. Day 3: Present Financial Hack #2 with a simple explanation of credit improvement strategies. Day 4: Deliver Financial Hack #3, focusing on planning for homeownership with clear, actionable steps. Day 5: Unveil Financial Hack #4 and include a strong call-to-action to speak with an agent for personalized advice. Ensure each email uses simple language (Grade 5 reading level), engaging storytelling, and a friendly, occasionally humorous tone. Goal: Build trust and engagement with new leads by providing clear, actionable financial advice that demystifies the home buying process and positions SalesGenius as a supportive, human-centric guide. How: Use concise, straightforward language and relatable analogies. Integrate a light-hearted, conversational tone to keep the content approachable. Include clear call-to-actions in each email, encouraging further engagement or a conversation with an agent. Maintain a natural flow that gradually builds the reader’s confidence and financial savvy\n\n\nExample:\n\n[\n  {\n    \"output\": \"```json\\n{\\n  \\\"DripSequence\\\": [\\n    {\\n      \\\"step\\\": 1,\\n      \\\"day\\\": 0,\\n      \\\"type\\\": \\\"Phone Call\\\",\\n      \\\"number\\\": 1,\\n      \\\"daysAfterLastStep\\\": 0,\\n      \\\"subject\\\": \\\"\\\",\\n      \\\"body\\\": \\\"[Live phone call – no voicemail]\\\",\\n      \\\"notes\\\": \\\"Initiate a double-dial attempt within 5 minutes of receiving the lead.\\\"\\n    },\\n    {\\n      \\\"step\\\": 2,\\n      \\\"day\\\": 0,\\n      \\\"type\\\": \\\"SMS\\\",\\n      \\\"number\\\": 1,\\n      \\\"daysAfterLastStep\\\": 0,\\n      \\\"subject\\\": \\\"\\\",\\n      \\\"body\\\": \\\"Hello [First Name]! This is [Your Name] from Your Real Estate Company. Your *Free Home Valuation Report* is ready, and I’d love to help you make an informed decision. Can we schedule a quick 15-minute consultation?\\\",\\n      \\\"notes\\\": \\\"Establish trust and invite them to connect.\\\"\\n    },\\n    {\\n      \\\"step\\\": 3,\\n      \\\"day\\\": 0,\\n      \\\"type\\\": \\\"Email\\\",\\n      \\\"number\\\": 1,\\n      \\\"daysAfterLastStep\\\": 0,\\n      \\\"subject\\\": \\\"Your Free Home Valuation Report – Let’s Discuss Your Future!\\\",\\n      \\\"body\\\": \\\"Hi [First Name],\\\\n\\\\nCongratulations on taking the first step towards homeownership! As your trusted advisor, I’m here to guide you through this journey. Your *Free Home Valuation Report* is ready, and it’s packed with valuable insights to help you make informed choices.\\\\n\\\\n🌟 Key Reasons to Schedule Your Consultation:\\\\n- Discover the investment potential in your chosen neighborhoods.\\\\n- Learn about current neighborhood growth and how it affects property appreciation.\\\\n- Timing advantages that could position you ahead of the competition.\\\\n\\\\nLet’s connect and explore your options. Schedule your 15-minute consultation today: [Schedule Here - Link]\\\",\\n      \\\"notes\\\": \\\"The initial email should convey professional confidence and the importance of quick, informed decision-making.\\\"\\n    },\\n    {\\n      \\\"step\\\": 4,\\n      \\\"day\\\": 1,\\n      \\\"type\\\": \\\"Phone Call\\\",\\n      \\\"number\\\": 2,\\n      \\\"daysAfterLastStep\\\": 1,\\n      \\\"subject\\\": \\\"\\\",\\n      \\\"body\\\": \\\"[Live phone call – no voicemail]\\\",\\n      \\\"notes\\\": \\\"Reiterate the value of scheduling the consultation and highlight investment potential.\\\"\\n    },\\n    {\\n      \\\"step\\\": 5,\\n      \\\"day\\\": 2,\\n      \\\"type\\\": \\\"SMS\\\",\\n      \\\"number\\\": 2,\\n      \\\"daysAfterLastStep\\\": 1,\\n      \\\"subject\\\": \\\"\\\",\\n      \\\"body\\\": \\\"Hi [First Name], checking in! I want to ensure you’re utilizing your *Free Home Valuation Report* to its full advantage. Let’s schedule that 15-minute consultation to discuss your best options.\\\",\\n      \\\"notes\\\": \\\"Encourage them to take action with a professional tone.\\\"\\n    },\\n    {\\n      \\\"step\\\": 6,\\n      \\\"day\\\": 4,\\n      \\\"type\\\": \\\"Email\\\",\\n      \\\"number\\\": 2,\\n      \\\"daysAfterLastStep\\\": 2,\\n      \\\"subject\\\": \\\"Timing is Key – Let’s Secure Your Home Investment Now!\\\",\\n      \\\"body\\\": \\\"Hi [First Name],\\\\n\\\\nAs the real estate market evolves, timing becomes crucial for first-time homebuyers. I’m committed to ensuring you make confident, informed decisions.\\\\n\\\\nIn our brief meeting, we can cover:\\\\n- The promising investment potential specific to your desired areas.\\\\n- Growth trends in neighborhoods that indicate future property appreciation.\\\\n- Timely strategies that could enhance your buying position.\\\\n\\\\nDon’t wait! Schedule your 15-minute consultation to gain insights tailored to your goals: [Schedule Here - Link]\\\",\\n      \\\"notes\\\": \\\"Continue to build trust and emphasize the professional support available to them.\\\"\\n    }\\n  ]\\n}\\n```\"\n  }\n]\n\nImportant: There must be at least 3 email steps in the 5 days.\n\nImportant: There must be at least 3 email steps in the 5 days.\n\nImportant: There must be at least 3 email steps in the 5 days.\n\nImportant: There must be at least 5 call steps steps in the 5 days.\n\nImportant: There must be at least 5 call steps steps in the 5 days."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        360,
+        -20
+      ],
+      "id": "5ae05db7-05d2-4256-a308-5aaf0c444584",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini",
+          "mode": "list",
+          "cachedResultName": "o3-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        140,
+        220
+      ],
+      "id": "7e008437-016b-41e0-86da-f6f1dc380c04",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ca77a864-8985-47ad-8c42-54b93529f97b",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        120,
+        -20
+      ],
+      "id": "72e35d51-3362-491d-87a1-c444b59d4252",
+      "name": "Filter"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        240
+      ],
+      "id": "8c9ce39f-8b40-4bc2-8072-17eaf5ec93c1",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "J7FvW5h51etk1zFV",
+          "name": "Postgres account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"DripSequence\": [\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        520,
+        280
+      ],
+      "id": "a7923999-68ad-4ccf-84b6-21aee834ced0",
+      "name": "Structured Output Parser"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-11T16:29:55.694Z",
+      "updatedAt": "2025-02-11T16:29:55.694Z",
+      "role": "workflow:owner",
+      "workflowId": "shqsbRsbFVOdibD4",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-14T16:56:51.849Z",
+      "updatedAt": "2025-02-14T16:56:51.849Z",
+      "id": "g5SEFenIZT3364V0",
+      "name": "Follow Up Factory"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-02-20T16:02:26.000Z",
+  "versionId": "c6ee6e79-8698-44c8-849b-8e4f6475019b"
+}
