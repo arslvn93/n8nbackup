@@ -1,0 +1,1262 @@
+{
+  "active": false,
+  "connections": {
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Get Client folder url Prime",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Create sub folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Generate subfolders json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Create sub folder 1st Level",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop 1st level subfolders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Get Client folder url Prime1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "Create sub folder 2nd levell",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields6": {
+      "main": [
+        [
+          {
+            "node": "Get Client folder url Prime2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recive Folders structure": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop 1st level folders": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If subfolder?": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop 1st level folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate subfolders json": {
+      "main": [
+        [
+          {
+            "node": "Loop 1st level subfolders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop 1st level subfolders": {
+      "main": [
+        [
+          {
+            "node": "Loop 1st level folders",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create sub folder": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create sub folder 1st Level": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create sub folder 2nd levell": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Loop 1st level folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Update Client folder url Prime1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Client folder url Prime2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Client folder url Prime1": {
+      "main": [
+        [
+          {
+            "node": "If subfolder?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Client folder url Prime": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Client folder url Prime2": {
+      "main": [
+        [
+          {
+            "node": "If subfolder?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Client folder url Prime1": {
+      "main": [
+        [
+          {
+            "node": "Update Client folder url Prime3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Client folder url Prime3": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Client folder url Prime2": {
+      "main": [
+        [
+          {
+            "node": "Update Client folder url Prime",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Client folder url Prime": {
+      "main": [
+        [
+          {
+            "node": "Loop 1st level subfolders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields7": {
+      "main": [
+        [
+          {
+            "node": "Get Client folder url Prime3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Client folder url Prime3": {
+      "main": [
+        [
+          {
+            "node": "Notify new folder Prime",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-09T17:52:12.232Z",
+  "id": "dMfn4k6AI7l93VDS",
+  "meta": null,
+  "name": "Prime Subfolders",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "92479f0d-eac6-4ece-93b1-084a76de281b",
+              "name": "subfolders",
+              "value": "={{ $('Loop 1st level folders').item.json.subfolders }}",
+              "type": "array"
+            },
+            {
+              "id": "9455fb21-0073-4fb1-8d8f-8d4933d80cf9",
+              "name": "Parent",
+              "value": "={{ $('Edit Fields2').item.json.Untitled }}",
+              "type": "string"
+            },
+            {
+              "id": "efed6e93-bc91-4c90-aa1e-ef183a9921c3",
+              "name": "clientId",
+              "value": "={{ $('Get Client folder url Prime').item.json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -440,
+        80
+      ],
+      "id": "731c83a3-9b95-4c6f-b46e-13457e21600b",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "686d3486-3658-484f-8a1a-d3bb476e432a",
+              "name": "=Id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b8f8ee97-e6cb-43ec-8ed7-eeb6372ee6f6",
+              "name": "folder",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "78a2f2df-b53f-4b38-afc2-99ccb97df2a9",
+              "name": "Answer",
+              "value": "={{ $json.name }}: {{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "0046ffeb-6e28-4862-9169-01e70741dd31",
+              "name": "clientId",
+              "value": "={{ $('Edit Fields').item.json.clientId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -60,
+        -140
+      ],
+      "id": "4b71d4a4-044d-4a7f-aee5-34c55118f047",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "047db31e-6035-4c48-9ac7-8fc5c712dbde",
+              "name": "sf",
+              "value": "={{ $json.sf }}",
+              "type": "number"
+            },
+            {
+              "id": "33ba8a95-907f-4ca4-9916-23c22450ae09",
+              "name": "clientId",
+              "value": "={{ $json.clientId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -460,
+        -140
+      ],
+      "id": "af340d6c-a0c7-46a1-97ab-3a4aaf320b7f",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "37febcae-15ac-4323-b2a5-b0f94f5116bd",
+              "name": "sf",
+              "value": "={{ $json.sf }}",
+              "type": "number"
+            },
+            {
+              "id": "fbe0e3e8-abc2-48d1-8cef-cb5bc5ccf49c",
+              "name": "clientId",
+              "value": "={{ $json.clientId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        280,
+        100
+      ],
+      "id": "06641dd7-29c0-416f-b7a8-e0dfa8e02f81",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e5ab3e5f-1a38-417c-a93c-06fd69958484",
+              "leftValue": "={{ $('Edit Fields1').item.json.sf }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -740,
+        400
+      ],
+      "id": "943a412a-62e0-40fd-a334-58fe29412baa",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "686d3486-3658-484f-8a1a-d3bb476e432a",
+              "name": "=Id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "1d7049ca-15af-4a1b-a12b-67560ecc2fd1",
+              "name": "folder",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "12feb17c-ce26-4368-ac5e-84f302283f36",
+              "name": "Answer",
+              "value": "={{ $json.name }}: {{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "50dbe298-8f73-4e24-811d-bf1b537775ee",
+              "name": "clientId",
+              "value": "={{ $('Edit Fields1').item.json.clientId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        100
+      ],
+      "id": "564f6c89-17ec-4972-891e-7f10ddf0d385",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4f17da11-7d21-4cf6-992b-59371242043e",
+              "name": "subfolders",
+              "value": "={{ $('Recive Folders structure').item.json.subfolders }}",
+              "type": "array"
+            },
+            {
+              "id": "ded9f6fa-0ea1-4b2e-9a8e-5f3c0f26fba7",
+              "name": "Parent",
+              "value": "={{ $json[\"02\"][\" Marketing Hub\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "1d63bc3d-bb49-4daf-a7dc-32aadaec8e99",
+              "name": "clientId",
+              "value": "={{ $('Edit Fields4').item.json.clientId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -400,
+        400
+      ],
+      "id": "d154f449-9e30-4a95-a666-e00cd17672fc",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "686d3486-3658-484f-8a1a-d3bb476e432a",
+              "name": "=Id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "61f24b94-ba59-452f-94f0-9173de4a4630",
+              "name": "folder",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "a9be47ab-6f11-4abf-86e4-200519d571c3",
+              "name": "Answer",
+              "value": "={{ $json.name }}: {{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "f3b6d561-591b-4d36-a435-6073b291ae49",
+              "name": "clientId",
+              "value": "={{ $('Edit Fields5').item.json.clientId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        20,
+        400
+      ],
+      "id": "8bf2210e-66b4-49b6-b11b-6342895d7429",
+      "name": "Edit Fields6"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "c055762a-8fe7-4141-a639-df2372f30060",
+      "typeVersion": 1.1,
+      "name": "Recive Folders structure",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -1520,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -700,
+        -160
+      ],
+      "id": "4e46b840-ee06-4cd3-b29b-7d95657a9ee6",
+      "name": "Loop 1st level folders"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a2d5e54f-79c4-4eb5-bda8-771710cc2308",
+              "leftValue": "={{ $('Edit Fields').item.json.sf }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -660,
+        100
+      ],
+      "id": "962941d2-dd66-4d63-957f-c0488d68caca",
+      "name": "If subfolder?"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtener los subfolders y el Parent del primer item\nconst folders = items[0].json.subfolders;\nconst parentId = items[0].json.Parent;\nconst clientId = items[0].json.clientId;\n\n// Procesar cada hijo directo del array subfolders\nconst outputItems = folders.map(folder => {\n    if (typeof folder === 'string') {\n        return {\n            json: {\n                name: folder,\n                sf: 0,\n                Parent: parentId,\n                clientId: clientId\n            }\n        };\n    }\n\n    const hasSubfolders = Array.isArray(folder.subfolders);\n    \n    return {\n        json: {\n            ...folder,\n            sf: hasSubfolders ? 1 : 0,\n            Parent: parentId,\n            clientId: clientId\n        }\n    };\n});\n\nreturn outputItems;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -260,
+        80
+      ],
+      "id": "b75dc68a-3b65-45df-a2e3-dc6fb91daaf4",
+      "name": "Generate subfolders json"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        0,
+        80
+      ],
+      "id": "009910d4-b809-4b6b-8232-3f4398ed6f21",
+      "name": "Loop 1st level subfolders"
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Loop 1st level folders').item.json.name }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Loop 1st level folders').item.json.parentfolder }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -240,
+        -140
+      ],
+      "id": "34e80784-8883-46c2-ae3f-3c2829422a7d",
+      "name": "Create sub folder",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "tEDUQKIOBAWPpPPb",
+          "name": "Google Drive account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Loop 1st level subfolders').item.json.name }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Loop 1st level subfolders').item.json.Parent }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        500,
+        100
+      ],
+      "id": "da5d1c2a-208f-468b-8acc-87b2b85b302b",
+      "name": "Create sub folder 1st Level",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "tEDUQKIOBAWPpPPb",
+          "name": "Google Drive account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $json.folder.name }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.folder.parentfolder }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -180,
+        400
+      ],
+      "id": "88afde8d-f970-4197-be88-3ab74939fd7b",
+      "name": "Create sub folder 2nd levell",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "tEDUQKIOBAWPpPPb",
+          "name": "Google Drive account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Folders \n",
+        "height": 300,
+        "width": 1080
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -780,
+        -260
+      ],
+      "typeVersion": 1,
+      "id": "90b1a6a3-f62a-4d53-b11a-36fdcf17097f",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## 1st Level sub folders",
+        "height": 280,
+        "width": 1680,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -780,
+        40
+      ],
+      "typeVersion": 1,
+      "id": "ee458655-8537-443d-8443-6bb11c4c8782",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## 2nd level subfolders",
+        "height": 300,
+        "width": 960,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -780,
+        320
+      ],
+      "typeVersion": 1,
+      "id": "83d6084b-bd4e-494d-9ec7-e88bfc7a9087",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a681ef23-c93c-4281-bc80-94b39184eb83",
+              "name": "clientId",
+              "value": "={{ $json.clientId[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "c8b994e6-7ecb-4800-beab-bb40c63ef677",
+              "name": "name",
+              "value": "={{ $json.content[0] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -400,
+        -520
+      ],
+      "id": "a09c2174-a502-425f-8109-6cb8016a4695",
+      "name": "Edit Fields7"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extraer los datos de folders de la entrada\nconst folders = items[0].json.folders;\nconst clientId = items[0].json.clientId;\n\n// Asegurarnos de que solo devolvemos los 3 elementos con su contenido y clientId incluido\nconst outputItems = folders.map(folder => ({\n    json: {\n        ...folder,\n        clientId\n    }\n}));\n\nreturn outputItems;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1120,
+        20
+      ],
+      "id": "24b17dd3-d089-43fb-854d-e4b2090172fc",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('Edit Fields2').item.json.clientId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Client Subfolders\": {\n      \"type\": \"rich_text\",\n      \"rich_text\": [\n        {\n          \"type\": \"text\",\n          \"text\": {\n            \"content\": \"{{ $('Edit Fields2').item.json.Answer }}\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        600,
+        -280
+      ],
+      "id": "1d9fd3aa-ef46-42a7-b329-e7f262ac2c88",
+      "name": "Update Client folder url Prime1",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "25d05533-a5ff-4b30-85b3-bfaaca4697e2",
+              "leftValue": "={{ $json.properties['Client Subfolders'].rich_text }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        360,
+        -140
+      ],
+      "id": "4a8054f6-9c58-4cf4-bc5b-8cf5e0058590",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('Edit Fields2').item.json.clientId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Client Subfolders\": {\n      \"type\": \"rich_text\",\n      \"rich_text\": [\n        {\n          \"type\": \"text\",\n          \"text\": {\n            \"content\": \"{{ $('Get Client folder url Prime').item.json.properties['Client Subfolders'].rich_text[0].text.content }}, {{ $('Edit Fields2').item.json.Answer }}\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        -100
+      ],
+      "id": "0a49a4c3-9cab-4d1a-ad95-b5d8ae5ad60e",
+      "name": "Update Client folder url Prime2",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.notion.com/v1/pages/{{ $json.clientId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        140,
+        -140
+      ],
+      "id": "92227cbf-098d-46e0-8a5c-5d3411d21561",
+      "name": "Get Client folder url Prime",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('Edit Fields2').item.json.clientId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Client Subfolders\": {\n      \"type\": \"rich_text\",\n      \"rich_text\": [\n        {\n          \"type\": \"text\",\n          \"text\": {\n            \"content\": \"{{ $('Get Client folder url Prime').item.json.properties['Client Subfolders'].rich_text[0].text.content }}, -{{ $('Edit Fields2').item.json.Answer }}\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        120
+      ],
+      "id": "c2a75590-42ef-4145-ba5f-a213275337fc",
+      "name": "Update Client folder url Prime3",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.notion.com/v1/pages/{{ $json.clientId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        940,
+        120
+      ],
+      "id": "f2dfeb9a-f4ce-493b-b78b-453a807db8f0",
+      "name": "Get Client folder url Prime1",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('Edit Fields2').item.json.clientId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Client Subfolders\": {\n      \"type\": \"rich_text\",\n      \"rich_text\": [\n        {\n          \"type\": \"text\",\n          \"text\": {\n            \"content\": \"{{ $('Get Client folder url Prime').item.json.properties['Client Subfolders'].rich_text[0].text.content }}, --{{ $('Edit Fields2').item.json.Answer }}\"\n          }\n        }\n      ]\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        420,
+        400
+      ],
+      "id": "448c9462-0db4-4144-af60-9e7a21da27fc",
+      "name": "Update Client folder url Prime",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.notion.com/v1/pages/{{ $json.clientId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        400
+      ],
+      "id": "2e926843-aae1-4184-9232-0da82a8e08a1",
+      "name": "Get Client folder url Prime2",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "tests",
+          "mode": "name"
+        },
+        "text": "=:gear: *Automation Update:* Premiere Client Google Drive Folder Created: *{{ $json.properties.Client.title[0].text.content }}* <{{ $json.properties['Client Folder'].url }}| *Click Here to Access*>",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "unfurl_links": false
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        -80,
+        -500
+      ],
+      "id": "adec4057-fb20-452f-a557-5d9d852c189f",
+      "name": "Notify new folder Prime",
+      "webhookId": "ce742f32-520f-409e-8b06-27356ddfef30",
+      "executeOnce": true,
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "clientId"
+            },
+            {
+              "fieldToAggregate": "properties.Client.title[0].text.content"
+            }
+          ]
+        },
+        "options": {
+          "mergeLists": true
+        }
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -580,
+        -540
+      ],
+      "id": "2db39c7f-d436-4ecc-8c44-a9edf3405010",
+      "name": "Aggregate",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "url": "=https://api.notion.com/v1/pages/{{ $json.clientId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -280,
+        -640
+      ],
+      "id": "4b144690-7735-48ab-87aa-5d8717b9a13f",
+      "name": "Get Client folder url Prime3",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-04-09T17:52:12.239Z",
+      "updatedAt": "2025-04-09T17:52:12.239Z",
+      "role": "workflow:owner",
+      "workflowId": "dMfn4k6AI7l93VDS",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-09T21:42:39.000Z",
+  "versionId": "889bc995-d58f-401a-bdfe-b7bc4168e3fb"
+}
