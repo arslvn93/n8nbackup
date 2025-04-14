@@ -1,0 +1,382 @@
+{
+  "active": true,
+  "connections": {
+    "gpt-4o": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Get Brave Tools": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Execute Brave Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-22T00:49:14.399Z",
+  "id": "ZHU1zr6YBeYtMdPA",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "MCP Agent - Search Web",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c69c932d-e823-4487-a354-9389cb1091ab",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1300,
+        220
+      ],
+      "typeVersion": 1.8
+    },
+    {
+      "parameters": {
+        "public": true,
+        "options": {
+          "responseMode": "lastNode"
+        }
+      },
+      "id": "1ecfa089-79d0-4e86-88bf-035e85cd4219",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        800,
+        220
+      ],
+      "webhookId": "68e54e15-548a-44df-ad06-7fb9e4e912a9",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {},
+      "id": "27dcdf62-12ad-4281-b4b5-7948306c8ebc",
+      "name": "MCP Get Brave Tools",
+      "type": "n8n-nodes-mcp.mcpClientTool",
+      "position": [
+        1260,
+        680
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "mcpClientApi": {
+          "id": "NaNIXpSYcsx41xX2",
+          "name": "Brave Search MCP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeTool",
+        "toolName": "={{ $fromAI('tool', 'Set this with the specific tool name') }}",
+        "toolParameters": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Tool_Parameters', ``, 'json') }}"
+      },
+      "id": "0653cec7-3d68-4359-b655-e7613926b4eb",
+      "name": "MCP Execute Brave Search",
+      "type": "n8n-nodes-mcp.mcpClientTool",
+      "position": [
+        1520,
+        680
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "mcpClientApi": {
+          "id": "NaNIXpSYcsx41xX2",
+          "name": "Brave Search MCP"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "88fd6898-e31b-4f37-9e82-d7f6363556fa",
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        940,
+        680
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "id": "41addc6e-d483-4b66-9e06-de69226e389c",
+      "name": "gpt-4o",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        680,
+        680
+      ],
+      "typeVersion": 1.2,
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 1️⃣ MCP Get Brave Tools",
+        "height": 280,
+        "color": 4
+      },
+      "id": "b98f78ca-fcc0-43d5-b234-57cdb8d04254",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1180,
+        560
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 2️⃣ MCP Execute Brave Search",
+        "height": 280,
+        "color": 4
+      },
+      "id": "c91f32de-68f9-4beb-be23-78a712b9953f",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1440,
+        560
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Short Term Chat Memory",
+        "height": 280,
+        "color": 3
+      },
+      "id": "692a153c-28c2-41b7-ae4b-760282634cc7",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        860,
+        560
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Cloud LLM",
+        "height": 280,
+        "color": 5
+      },
+      "id": "b6f75363-5d7e-4103-a7d3-18b54e6826c5",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        600,
+        560
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# 💥🛠️Your First Simple MCP AI Chatbot using Brave Search\nhttps://github.com/nerding-io/n8n-nodes-mcp\nhttps://brave.com/search/api/",
+        "height": 920,
+        "width": 1200,
+        "color": 7
+      },
+      "id": "ef6d3425-8405-4750-ae6f-6cd503d791ca",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        560,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 🛠️ MCP Toolbox\nhttps://github.com/nerding-io/n8n-nodes-mcp\nhttps://brave.com/search/api/",
+        "height": 440,
+        "width": 580
+      },
+      "id": "8f6803c8-d38e-47c2-993f-5d70811ccdc6",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1140,
+        440
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 👍Try Me!",
+        "height": 240,
+        "width": 300,
+        "color": 4
+      },
+      "id": "f80f49df-74cf-41c2-8e95-ae9d188db07f",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        700,
+        160
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### **Who is this for?**\nThis workflow is ideal for developers, automation enthusiasts, and businesses looking to integrate AI-powered chat capabilities into their workflows. It's particularly useful for those leveraging Brave Search and MCP tools to enhance user interactions and streamline data retrieval.\n\n### **What problem is this workflow solving?**\nThis workflow addresses the challenge of creating an intelligent chatbot that can process user queries, execute searches using Brave Search, and provide responses enriched by AI. It simplifies the integration of multiple tools into a cohesive system, saving time and effort for users who need a robust conversational AI solution.\n\n### **What this workflow does**\n- Listens for incoming chat messages using the **Chat Trigger** node.\n- Processes user input with an **AI Agent** powered by GPT-4o.\n- Retrieves relevant tools using the **MCP Get Brave Tools** node.\n- Executes specific search queries via the **MCP Execute Brave Search** node.\n- Maintains short-term memory of conversations with the **Simple Memory** node.\n\n### **Setup**\n1. **Prerequisites**:\n   - Access to an n8n instance (self-hosted).\n   - API credentials for OpenAI and MCP Client Tools.\n   - Brave Search API key.\n\n2. **Steps**:\n   - Import the workflow JSON into your n8n instance.\n   - Configure the API credentials for OpenAI and MCP Client Tools in their respective nodes.\n   - Set up your Brave Search API key in the MCP nodes. https://brave.com/search/api/\n\n3. **Testing**:\n   - Use the built-in chat interface to send test messages.\n   - Verify that the chatbot processes queries and returns results as expected.\n\n### **How to customize this workflow to your needs**\n- Modify the AI Agent's prompt settings to tailor responses to your specific use case.\n- Adjust the memory buffer in the Simple Memory node to retain more or less conversational context.\n- Replace or add additional tools in the MCP nodes to expand functionality.\n",
+        "height": 1040,
+        "width": 520
+      },
+      "id": "972e00b1-fb80-4b78-b3d5-40bb19cd4ac4",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 🤖 AI Agent with Tools",
+        "height": 280,
+        "width": 580
+      },
+      "id": "ab65effc-6a6d-42ce-9f2b-1cff5d6e434a",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1140,
+        120
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-03-22T00:49:14.405Z",
+      "updatedAt": "2025-03-22T00:49:14.405Z",
+      "role": "workflow:owner",
+      "workflowId": "ZHU1zr6YBeYtMdPA",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-21T17:21:41.750Z",
+      "updatedAt": "2025-02-21T17:21:41.750Z",
+      "id": "hCxs00bYB7kqJnEo",
+      "name": "WORKING"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-03-22T04:08:38.000Z",
+  "versionId": "57cfaae4-90bb-4c6c-827e-46e6d2a4d70a"
+}
