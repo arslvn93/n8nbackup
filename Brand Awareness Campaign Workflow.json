@@ -1,0 +1,1001 @@
+{
+  "active": true,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Levels of Awareness Content Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Levels of Awareness Content Generator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Levels of Awareness Content Generator",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI2": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Reelscripts Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reelscripts Vector Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "Problem Awareness Script Writer",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Problem Awareness Script Writer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Problem Awareness Script Writer",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Levels of Awareness Content Generator": {
+      "main": [
+        [
+          {
+            "node": "Problem Awareness Script Writer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Solution Awareness Script Writer1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Product Awareness Script Writer2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Reelscripts Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reelscripts Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Solution Awareness Script Writer1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Solution Awareness Script Writer1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Solution Awareness Script Writer1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Reelscripts Vector Store2",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reelscripts Vector Store2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Product Awareness Script Writer2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Product Awareness Script Writer2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser3": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Product Awareness Script Writer2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Problem Awareness Script Writer": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Levels of Awareness Content Generator",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Solution Awareness Script Writer1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Product Awareness Script Writer2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Trigger": {
+      "main": [
+        [
+          {
+            "node": "Levels of Awareness Content Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-28T21:57:13.620Z",
+  "id": "RNYhlcuXWRR8fcmt",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Brand Awareness Campaign Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -80,
+        -20
+      ],
+      "id": "190bab2e-1ced-4664-9c7a-f5c4981ffbe0",
+      "name": "When chat message received",
+      "webhookId": "aed20938-0c99-4866-8955-50b2ed8eec0f"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        200
+      ],
+      "id": "6a8b0c71-b7ae-431e-8cc5-f99b23688401",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"ProblemAwareness\": [\n    {\n      \"ideaTitle\": \"Feeling Stuck With No Way Out\",\n      \"ideaDescription\": \"Show why trying many fixes leads to stress and no results.\"\n    },\n    {\n      \"ideaTitle\": \"Why Quick Fixes Do Not Work\",\n      \"ideaDescription\": \"Explain how short cuts fail and leave you feeling lost.\"\n    },\n    {\n      \"ideaTitle\": \"Tired Of Empty Promises\",\n      \"ideaDescription\": \"Reveal why people give up when nothing seems to help.\"\n    }\n  ],\n  \"SolutionAwareness\": [\n    {\n      \"ideaTitle\": \"Finding A Simple Plan\",\n      \"ideaDescription\": \"Share an easy way to move forward and start seeing wins.\"\n    },\n    {\n      \"ideaTitle\": \"Turning Problems Into Steps\",\n      \"ideaDescription\": \"Show how one small change can bring big results.\"\n    },\n    {\n      \"ideaTitle\": \"Building Confidence Fast\",\n      \"ideaDescription\": \"Explain how a clear method helps you trust your progress.\"\n    }\n  ],\n  \"ProductAwareness\": [\n    {\n      \"ideaTitle\": \"Meet Your New Go To Tool\",\n      \"ideaDescription\": \"Show the main features that solve problems fast.\"\n    },\n    {\n      \"ideaTitle\": \"Why This Product Stands Out\",\n      \"ideaDescription\": \"Explain how it helps others reach success with less effort.\"\n    },\n    {\n      \"ideaTitle\": \"Last Chance To Grab Yours\",\n      \"ideaDescription\": \"Create urgency by sharing a limited offer that sparks action.\"\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        620,
+        200
+      ],
+      "id": "26d58068-84b4-4615-a2a8-f46b7b221d94",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "content": "## Brand Awareness Content Idea Generator\n### Brand Awareness Campaign\n",
+        "height": 440,
+        "width": 560,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        200,
+        -40
+      ],
+      "id": "91fed823-4fe7-44bb-8185-e5b4db16f490",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Today you are acting as Eugene Schwartz and working wtih Sabri Suby. You are an expert in content creation & coming up with catchy content titles based on levels of awareness for 2025.\n\nYou will be providing me SPECIFIC content ideas for my target avatar.\n\nI need you to give the users:\n3 Problem Awaresness Content Ideas\n3 Solution Awareness Content Ideas\n3 Product Awareness Content Ideas \n\nThese should be high convert content ideas that will be used for Educational and Entertaining Instagram Reels at each level of awareness.\n\nHeres how you will do it:\nReview The Market Research Bible avatar\nYour output is alwasy grade 4 reading level\nYou necver use emojis\nyou never use : in your titles.\n\nYou will provide your content ideas in .json\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        360,
+        80
+      ],
+      "id": "390c6411-fe03-4612-802c-34d1c0124193",
+      "name": "Levels of Awareness Content Generator",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "bf5128cd-80b8-4cf9-988c-24d0875c1ad1",
+      "name": "Embeddings OpenAI2",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1340,
+        -360
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "reel_script_tool",
+        "toolDescription": "IMPORTANT: This tool MUST ONLY query the [reelscripts] table for knowledge base information. DO NOT use or reference the generic documents table.\n\n\n\n\nThis reel_script_tool uses the data reelscripts table to help create engaging video scripts that capture audience attention instantly. Using proven scriptwriting frameworks and best practices, it generates scripts designed to hook viewers and drive action. When provided with specific scripting requirements, it delivers relevant techniques, frameworks, and attention-grabbing elements to help craft effective scripts. Always responds based on established scriptwriting data; requests clarification when needed. References the reelscripts table",
+        "tableName": {
+          "__rl": true,
+          "value": "reelscripts",
+          "mode": "list",
+          "cachedResultName": "reelscripts"
+        },
+        "options": {
+          "queryName": "match_reelscripts"
+        }
+      },
+      "id": "c45594b5-0769-4e2f-9ce0-8adb5dac7b97",
+      "name": "Reelscripts Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        -500
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1200,
+        -580
+      ],
+      "id": "48a54fd9-315b-4a32-85aa-39f773450040",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"scripts\": [\n    {\n      \"ScriptTitle\": \"Script Title #1\",\n      \"Hook\": \"Want to win something amazing?\",\n      \"Body\": \"Here’s your chance to join our big giveaway. It takes just a moment to enter, and you could walk away with a prize that makes your day better. Don’t miss out!\",\n      \"CallToAction\": \"Hit the link right now to sign up. Let’s get you closer to winning!\"\n    },\n    {\n      \"ScriptTitle\": \"Script Title #2\",\n      \"Hook\": \"Ready to grab a free prize?\",\n      \"Body\": \"Our giveaway is live, and you can enter in seconds. This is your shot at winning something that saves you time or money—or both! You have nothing to lose.\",\n      \"CallToAction\": \"Click the link below and sign up. Hurry—spots are filling up fast!\"\n    },\n    {\n      \"ScriptTitle\": \"Script Title #3\",\n      \"Hook\": \"Could today be your lucky day?\",\n      \"Body\": \"We’re handing out a prize that could make life a little easier. Entering is quick and simple—no tricks, no fuss. It’s all here for you!\",\n      \"CallToAction\": \"Tap the link to join. Don’t let this chance slip away!\"\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1620,
+        -580
+      ],
+      "id": "90821f01-981b-4002-a839-ff12475226c9",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "content": "# Instagram Script Writer\n## Problem Awareness Scripts\n",
+        "height": 620,
+        "width": 600
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        -820
+      ],
+      "id": "2f054883-7bbf-49ac-8ef9-2f3f9bd8fe1d",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Problem Awareness Video Idea #1\n{{ $json.output.ProblemAwareness[0].ideaTitle }}\n{{ $json.output.ProblemAwareness[0].ideaDescription }}\n\nProblem Awareness Video Idea #2\n{{ $json.output.ProblemAwareness[1].ideaTitle }}\n{{ $json.output.ProblemAwareness[1].ideaDescription }}\n\nProblem Awareness Video Idea #3\n{{ $json.output.ProblemAwareness[2].ideaTitle }}\n{{ $json.output.ProblemAwareness[2].ideaDescription }}\n\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Step 1: You must reference the reel_script_tool Before You Begin. \n\nStep 2: Today, you’re a **world-class short-form scriptwriter** who specializes in creating **high-converting Instagram Reel scripts**. \n\nYou know how to hook viewers in the first few seconds, maintain their attention, and compel them to take action—especially when it comes to giveaways.\n\nYour job is to create me three different high converting instagram reel scripts based on our target audiences Problems\n\nHere are the video ideas. Focus on Problem Awareness Only.\n\n1. Create **3 different 30-60 second instagram scripts for each of the following video ideas.\n\nProblem Awareness Video Idea #1\n{{ $json.output.ProblemAwareness[0].ideaTitle }}\n{{ $json.output.ProblemAwareness[0].ideaDescription }}\n\nProblem Awareness Video Idea #2\n{{ $json.output.ProblemAwareness[1].ideaTitle }}\n{{ $json.output.ProblemAwareness[1].ideaDescription }}\n\nProblem Awareness Video Idea #3\n{{ $json.output.ProblemAwareness[2].ideaTitle }}\n{{ $json.output.ProblemAwareness[2].ideaDescription }}\n\nUsing various reel strategies (ex. story telling, copywriting formulas, etc.) for our new giveaway campaign that we can record as Instagram Reels.\n\n2. Use a **4th grade reading level**, making the language and ideas simple yet compelling.\n3. **No emojis** in any script.\n4. These are educational so the call to action will be if you found this helpful, follow me mfor more tips.\n\n**Guidelines**:\n\n- Each script should be concise, **no more than 30 seconds** when read out loud at a normal speaking pace.\n- Write the scripts in a way that feels fresh, unique, and captivating to our audience.\n- **Output**: Return all scripts in **valid JSON** format.\n\nAlways References the reelscripts table"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1300,
+        -700
+      ],
+      "id": "8b1148a0-f95b-4f7e-a502-92c2a23971ca",
+      "name": "Problem Awareness Script Writer",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "576d82d6-b8af-47aa-8e94-c9f4800895b6",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1340,
+        460
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "reel_script_tool",
+        "toolDescription": "IMPORTANT: This tool MUST ONLY query the [reelscripts] table for knowledge base information. DO NOT use or reference the generic documents table.\n\n\n\n\nThis reel_script_tool uses the data reelscripts table to help create engaging video scripts that capture audience attention instantly. Using proven scriptwriting frameworks and best practices, it generates scripts designed to hook viewers and drive action. When provided with specific scripting requirements, it delivers relevant techniques, frameworks, and attention-grabbing elements to help craft effective scripts. Always responds based on established scriptwriting data; requests clarification when needed. References the reelscripts table",
+        "tableName": {
+          "__rl": true,
+          "value": "reelscripts",
+          "mode": "list",
+          "cachedResultName": "reelscripts"
+        },
+        "options": {
+          "queryName": "match_reelscripts"
+        }
+      },
+      "id": "4c9b74a6-48c6-4e5d-8e68-bfef29bf927a",
+      "name": "Reelscripts Vector Store1",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        320
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1220,
+        200
+      ],
+      "id": "ff88c77e-0b06-4118-b8cd-91eecb630bab",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"scripts\": [\n    {\n      \"ScriptTitle\": \"Script Title #1\",\n      \"Hook\": \"Want to win something amazing?\",\n      \"Body\": \"Here’s your chance to join our big giveaway. It takes just a moment to enter, and you could walk away with a prize that makes your day better. Don’t miss out!\",\n      \"CallToAction\": \"Hit the link right now to sign up. Let’s get you closer to winning!\"\n    },\n    {\n      \"ScriptTitle\": \"Script Title #2\",\n      \"Hook\": \"Ready to grab a free prize?\",\n      \"Body\": \"Our giveaway is live, and you can enter in seconds. This is your shot at winning something that saves you time or money—or both! You have nothing to lose.\",\n      \"CallToAction\": \"Click the link below and sign up. Hurry—spots are filling up fast!\"\n    },\n    {\n      \"ScriptTitle\": \"Script Title #3\",\n      \"Hook\": \"Could today be your lucky day?\",\n      \"Body\": \"We’re handing out a prize that could make life a little easier. Entering is quick and simple—no tricks, no fuss. It’s all here for you!\",\n      \"CallToAction\": \"Tap the link to join. Don’t let this chance slip away!\"\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1580,
+        200
+      ],
+      "id": "8e37bbdc-3b02-4986-9d42-e809ac01d79f",
+      "name": "Structured Output Parser2"
+    },
+    {
+      "parameters": {
+        "content": "# Instagram Script Writer\n## Solution Awareness Scripts\n",
+        "height": 660,
+        "width": 600
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        -40
+      ],
+      "id": "a647e3c9-f51f-4585-b0d1-e9c893a9ffbf",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "83491222-eecd-461a-b524-058ccd47094e",
+      "name": "Embeddings OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1340,
+        1260
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "reel_script_tool",
+        "toolDescription": "IMPORTANT: This tool MUST ONLY query the [reelscripts] table for knowledge base information. DO NOT use or reference the generic documents table.\n\n\n\n\nThis reel_script_tool uses the data reelscripts table to help create engaging video scripts that capture audience attention instantly. Using proven scriptwriting frameworks and best practices, it generates scripts designed to hook viewers and drive action. When provided with specific scripting requirements, it delivers relevant techniques, frameworks, and attention-grabbing elements to help craft effective scripts. Always responds based on established scriptwriting data; requests clarification when needed. References the reelscripts table",
+        "tableName": {
+          "__rl": true,
+          "value": "reelscripts",
+          "mode": "list",
+          "cachedResultName": "reelscripts"
+        },
+        "options": {
+          "queryName": "match_reelscripts"
+        }
+      },
+      "id": "d79352bf-d066-402b-8408-4a869beaa272",
+      "name": "Reelscripts Vector Store2",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        1120
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1220,
+        1000
+      ],
+      "id": "df78d514-66f0-4982-b598-3a5bddf5003d",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"scripts\": [\n    {\n      \"ScriptTitle\": \"Script Title #1\",\n      \"Hook\": \"Want to win something amazing?\",\n      \"Body\": \"Here’s your chance to join our big giveaway. It takes just a moment to enter, and you could walk away with a prize that makes your day better. Don’t miss out!\",\n      \"CallToAction\": \"Hit the link right now to sign up. Let’s get you closer to winning!\"\n    },\n    {\n      \"ScriptTitle\": \"Script Title #2\",\n      \"Hook\": \"Ready to grab a free prize?\",\n      \"Body\": \"Our giveaway is live, and you can enter in seconds. This is your shot at winning something that saves you time or money—or both! You have nothing to lose.\",\n      \"CallToAction\": \"Click the link below and sign up. Hurry—spots are filling up fast!\"\n    },\n    {\n      \"ScriptTitle\": \"Script Title #3\",\n      \"Hook\": \"Could today be your lucky day?\",\n      \"Body\": \"We’re handing out a prize that could make life a little easier. Entering is quick and simple—no tricks, no fuss. It’s all here for you!\",\n      \"CallToAction\": \"Tap the link to join. Don’t let this chance slip away!\"\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1600,
+        1000
+      ],
+      "id": "1f154784-4775-4a2f-a39b-6a3560a719f7",
+      "name": "Structured Output Parser3"
+    },
+    {
+      "parameters": {
+        "content": "# Instagram Script Writer\n## Brand Awareness Scripts\n",
+        "height": 660,
+        "width": 600
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        740
+      ],
+      "id": "ba55c0f7-c5cf-4dc2-b88d-2ae507f33345",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=\nSolution Awareness Video Idea #1\n{{ $json.output.SolutionAwareness[0].ideaTitle }}\n{{ $json.output.SolutionAwareness[0].ideaDescription }}\n\nSolution Awareness Video Idea #2\n{{ $json.output.SolutionAwareness[1].ideaTitle }}\n{{ $json.output.SolutionAwareness[1].ideaDescription }}\n\nSolution Awareness Video Idea #3\n{{ $json.output.SolutionAwareness[2].ideaTitle }}\n{{ $json.output.SolutionAwareness[2].ideaDescription }}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Step 1: You must reference the reel_script_tool Before You Begin. \n\nStep 2: Today, you’re a **world-class short-form scriptwriter** who specializes in creating **high-converting Instagram Reel scripts**. \n\nYou know how to hook viewers in the first few seconds, maintain their attention, and compel them to take action—especially when it comes to giveaways.\n\nYour job is to create me three different high converting instagram reel scripts based on our target audiences Problems\n\nHere are the video ideas. Focus on Solution Awareness Only.\n\n1. Create **3 different 30-60 second instagram scripts for each of the following video ideas.\n\n\nSolution Awareness Video Idea #1\n{{ $json.output.SolutionAwareness[0].ideaTitle }}\n{{ $json.output.SolutionAwareness[0].ideaDescription }}\n\nSolution Awareness Video Idea #2\n{{ $json.output.SolutionAwareness[1].ideaTitle }}\n{{ $json.output.SolutionAwareness[1].ideaDescription }}\n\nSolution Awareness Video Idea #3\n{{ $json.output.SolutionAwareness[2].ideaTitle }}\n{{ $json.output.SolutionAwareness[2].ideaDescription }}\n\n\nUsing various reel strategies (ex. story telling, copywriting formulas, etc.) for our new giveaway campaign that we can record as Instagram Reels.\n\n2. Use a **4th grade reading level**, making the language and ideas simple yet compelling.\n3. **No emojis** in any script.\n4. These are educational so the call to action will be if you found this helpful, follow me mfor more tips.\n\n**Guidelines**:\n\n- Each script should be concise, **no more than 30 seconds** when read out loud at a normal speaking pace.\n- Write the scripts in a way that feels fresh, unique, and captivating to our audience.\n- **Output**: Return all scripts in **valid JSON** format.\n\nAlways References the reelscripts table"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1280,
+        80
+      ],
+      "id": "dd546d51-178a-4d41-9cc7-7974f4924ec7",
+      "name": "Solution Awareness Script Writer1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Product Awareness Video Idea #1\n{{ $json.output.ProductAwareness[0].ideaTitle }}\n{{ $json.output.ProductAwareness[0].ideaDescription }}\n\nProduct Awareness Video Idea #2\n{{ $json.output.ProductAwareness[1].ideaTitle }}\n{{ $json.output.ProductAwareness[1].ideaDescription }}\n\nProduct Awareness Video Idea #3\n{{ $json.output.ProductAwareness[2].ideaTitle }}\n{{ $json.output.ProductAwareness[2].ideaDescription }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Step 1: You must reference the reel_script_tool Before You Begin. \n\nStep 2: Today, you’re a **world-class short-form scriptwriter** who specializes in creating **high-converting Instagram Reel scripts**. \n\nYou know how to hook viewers in the first few seconds, maintain their attention, and compel them to take action—especially when it comes to giveaways.\n\nYour job is to create me three different high converting instagram reel scripts based on our target audiences Problems\n\nHere are the video ideas. Focus on Product Awareness Only.\n\n1. Create **3 different 30-60 second instagram scripts for each of the following video ideas.\n\nProduct Awareness Video Idea #1\n{{ $json.output.ProductAwareness[0].ideaTitle }}\n{{ $json.output.ProductAwareness[0].ideaDescription }}\n\nProduct Awareness Video Idea #2\n{{ $json.output.ProductAwareness[1].ideaTitle }}\n{{ $json.output.ProductAwareness[1].ideaDescription }}\n\nProduct Awareness Video Idea #3\n{{ $json.output.ProductAwareness[2].ideaTitle }}\n{{ $json.output.ProductAwareness[2].ideaDescription }}\n\nUsing various reel strategies (ex. story telling, copywriting formulas, etc.) for our new giveaway campaign that we can record as Instagram Reels.\n\n2. Use a **4th grade reading level**, making the language and ideas simple yet compelling.\n3. **No emojis** in any script.\n4. These are educational so the call to action will be if you found this helpful, follow me mfor more tips.\n\n**Guidelines**:\n\n- Each script should be concise, **no more than 30 seconds** when read out loud at a normal speaking pace.\n- Write the scripts in a way that feels fresh, unique, and captivating to our audience.\n- **Output**: Return all scripts in **valid JSON** format.\n\nAlways References the reelscripts table"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1320,
+        880
+      ],
+      "id": "95e86ff7-271e-4de9-bce4-022d724927be",
+      "name": "Product Awareness Script Writer2",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        420,
+        240
+      ],
+      "id": "b19b8d0e-1c43-4d8b-aa21-045228dc011f",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "nZMNWnEAM8PAaDOP",
+          "name": "SupaBase Postgres - IPv4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "119jEn8lSijk4T7x31Ohp_BOOGktbyXi8slGDIQrapY8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/119jEn8lSijk4T7x31Ohp_BOOGktbyXi8slGDIQrapY8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Script Title": "={{ $json.output.scripts[0].ScriptTitle }}",
+            "Hook ": "={{ $json.output.scripts[0].Hook }}",
+            "Body": "={{ $json.output.scripts[0].Body }}",
+            "Call to Action": "={{ $json.output.scripts[0].CallToAction }}",
+            "Script Title 2 ": "={{ $json.output.scripts[1].ScriptTitle }}",
+            "Hook 2": "={{ $json.output.scripts[1].Hook }}",
+            "Body 2": "={{ $json.output.scripts[1].Body }}",
+            "Call to Action 2": "={{ $json.output.scripts[1].CallToAction }}",
+            "Script Title 3": "={{ $json.output.scripts[2].ScriptTitle }}",
+            "Hook 3": "={{ $json.output.scripts[2].Hook }}",
+            "Body 3": "={{ $json.output.scripts[2].Body }}",
+            "Call to Action 3": "={{ $json.output.scripts[2].CallToAction }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Script Type",
+              "displayName": "Script Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Script Title",
+              "displayName": "Script Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hook ",
+              "displayName": "Hook ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Body",
+              "displayName": "Body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call to Action",
+              "displayName": "Call to Action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Script Title 2 ",
+              "displayName": "Script Title 2 ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hook 2",
+              "displayName": "Hook 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Body 2",
+              "displayName": "Body 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call to Action 2",
+              "displayName": "Call to Action 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Script Title 3",
+              "displayName": "Script Title 3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hook 3",
+              "displayName": "Hook 3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Body 3",
+              "displayName": "Body 3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call to Action 3",
+              "displayName": "Call to Action 3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2260,
+        80
+      ],
+      "id": "eecb13ed-80c4-43c8-9780-0d8d984d4a15",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NhjQ6L8wmj50Ohkp",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08AE0Z3AG5",
+          "mode": "id"
+        },
+        "text": "=*Script Title 1*:\n{{ $json[\"Script Title\"] }}\n\nHook 1\n{{ $json[\"Hook \"] }}\n\nBody 1\n{{ $json.Body }}\n\nCall to Action 1\n{{ $json[\"Call to Action\"] }}\n\n*Script Title 2*:\n{{ $json[\"Script Title 2 \"] }}\n\nHook 2\n{{ $json[\"Hook 2\"] }}\n\nBody 2\n{{ $json['Body 2'] }}\n\nCall to Action 1\n{{ $json[\"Call to Action 2\"] }}\n\n*Script Title 1*:\n{{ $json[\"Script Title 3\"] }}\n\nHook 1\n{{ $json[\"Hook 3\"] }}\n\nBody 1\n{{ $json['Body 3'] }}\n\nCall to Action 1\n{{ $json[\"Call to Action 3\"] }}\n\n",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        2480,
+        80
+      ],
+      "id": "02b041fe-6d4c-4552-b8f2-a06e57ffe4ba",
+      "name": "Slack",
+      "webhookId": "25ad2529-ec6d-4c14-bedc-89080b8d73d1",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "Q9s7afg3"
+      },
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -80,
+        180
+      ],
+      "id": "79a7feb3-68bf-4063-82ad-2d5fc0b2b830",
+      "name": "Typeform Trigger",
+      "webhookId": "6686cabd-52d1-4ce8-969c-d2091bb6d4a0",
+      "credentials": {
+        "typeformApi": {
+          "id": "hZKxcP6jseCjV38y",
+          "name": "Typeform account"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-01-28T21:57:13.626Z",
+      "updatedAt": "2025-01-28T21:57:13.626Z",
+      "role": "workflow:owner",
+      "workflowId": "RNYhlcuXWRR8fcmt",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": {
+    "node:Typeform Trigger": {
+      "webhookId": "n8n-xg9unxeaxu"
+    }
+  },
+  "tags": [],
+  "triggerCount": 3,
+  "updatedAt": "2025-01-29T04:44:46.000Z",
+  "versionId": "b5d2eec4-4293-4e8a-9b5a-5ef16b76f681"
+}
