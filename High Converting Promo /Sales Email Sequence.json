@@ -1,0 +1,430 @@
+{
+  "active": false,
+  "connections": {
+    "Subject Line Form": {
+      "main": [
+        [
+          {
+            "node": "Subject Line Creator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Subject Line Creator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Subject Line Creator",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subject Line Creator": {
+      "main": [
+        [
+          {
+            "node": "Email Copywriter Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Email Copywriter Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Email Copywriter Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Email_Copywriting_Vector_Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email_Copywriting_Vector_Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "Email Copywriter Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Copywriter Agent": {
+      "main": [
+        [
+          {
+            "node": "Email Consultant Bot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Email Consultant Bot",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-29T03:09:36.110Z",
+  "id": "1ahBUiiZ1ULZCdYc",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "High Converting Promo /Sales Email Sequence",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Subject Line Form",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Target Market + Pain Point",
+              "placeholder": "Here you need to insert who your target market is and their main pain point.",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "[Unique Solution]",
+              "placeholder": "Here you need to insert a nickname or neologism for your unique solution (which can be a product or service or movement or action) that delivers the benefits + what benefits it provides."
+            },
+            {
+              "fieldLabel": "Credible Proof",
+              "placeholder": "Here you need to insert any specific proof that supports your claims. For example, niche experts, universities, studies, personal experiences, etc."
+            },
+            {
+              "fieldLabel": "Social Proof",
+              "placeholder": "Here you need to insert how many people your Unique Solution has already helped achieve their desired outcomes."
+            },
+            {
+              "fieldLabel": "Common But Disliked Solutions",
+              "placeholder": "Here you need to insert the common but disliked solutions your target market uses."
+            },
+            {
+              "fieldLabel": "What Is Your Offer Called?",
+              "placeholder": "Insert The Name Of Your Offer"
+            },
+            {
+              "fieldLabel": "What Is The Price Of Your Offer?",
+              "placeholder": "Insert The Price Of Your Offer"
+            },
+            {
+              "fieldLabel": "What Is The Outcome The Target Audience Will Get From Your Offer?",
+              "placeholder": "This should tell them the exact outcome they could get from your offer"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c6ef0f32-a356-45e5-b60f-f499a40e9d9c",
+      "name": "Subject Line Form",
+      "webhookId": "54940d4d-d09d-4dfa-ad5f-d75af87bd07d"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        200,
+        200
+      ],
+      "id": "25f82121-4be4-4c00-b4e0-945d4212a9ff",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        340,
+        220
+      ],
+      "id": "9d12845c-cf43-49cc-9d79-65561130d0d3",
+      "name": "Window Buffer Memory",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "[\n  {\n    \"Target Market + Pain Point\": \"Real Estate Agents\",\n    \"[Unique Solution]\": \"Secret Follow Up Strategy\",\n    \"Credible Proof\": \"3 appointments booked in the last 24 hours\",\n    \"Social Proof\": \"Training 3000+ agents\",\n    \"Common But Disliked Solutions\": \"cold calling strangers who don't want to hear from me\",\n    \"submittedAt\": \"2025-01-29T04:10:39.641+01:00\",\n    \"formMode\": \"test\"\n  }\n]",
+        "options": {
+          "systemMessage": "=Today, you’re an email marketer and master of creating gripping subject lines that would give people anxiety if they didn’t click. We’re going to write 40 new subject lines.\nHere’s some information on how:\nCommon themes for subject lines include warnings, danger signals, recalls, explaining why a problem happens, announcing a new discovery that solves problem, saying a well known remedy is wrong/bad, or evoking a dominant emotion.\nTopical news events and addressing relevant issues in subject lines can also be sued to grab attention.\nOther useful strategies include focusing on a story, using a quiz format, or adding texture to your subject line with names, numbers, brackets, etc.\nElements such as credibility, specificity, ease of results and timeframes can make subject lines stronger.\nHere’s more context for each of those points:\nThemes For Emails:\nContrarian\nWarning\nThe Real Reason Why\nBig Promise\nLittle Result, Big Outcome\nStory\nQuiz\nNew Cause Discovered\nNew Mechanism\nDominant Emotion\nAdding “Texture” to Subject Lines:\nUse [brackets] and (parentheses)\nUse a Combination of UPPER-CASE and lowercase\nUse numbers, quotes and uncommon letters (3, “”, z)\nExample of subject line with “texture”: THIS makes online biz easy (just 3 steps)\nAdding Credibility:\nUse authority figures (top vet, top m.d., wall street banker, a-list copywriter) and proof (trusted by 3,416 mothers, etc.)\nAdding Specificity:\nBe as specific as possible, “i.e. 3-minutes, get 3-5x appointments, made me $3564 in a day.”\nAdding “Ease” of Results:\nMake it seem easy to get results, i.e. “1-minute, fast, simple, just THIS.”\nExamples of good subject lines:\ndo this 1 minute workout to fix saggy arms\n[quiz] top 5 dog gut “warning signs”\nTHIS “at-home” dog superfood fixes digestion\ntop vet: 5 homemade food for dogs\nUgandan copywriter gets offered full-time copywriting gig\nThe “Einstein Path” to 10k/mo\nWhy most “high-ticket” businesses never crack 500k/m\n40+ quality calls delivered or you don’t pay\n7-Second “olive oil” trick fixes doggy guts\n3-Step AI Formula Making Marketers Millionaires Overnight\nUsing these principles, please give me 40 subject lines with maximum variety.\nAdd as much urgency, texture and specificity as possible. Build incredible curiosity and intrigue, so that our audience feels COMPELLED to open the email. If they fail to open the email, they should be thinking about it all day. We want to create a curiosity “itch” that needs to be scratched.\n\n\nExamples\n\nExample #1 Health Niche - Prompt 1\nToday, you’re an email marketer and master of creating gripping subject lines that would give people anxiety if they didn’t click. We’re going to write 40 new subject lines.\nHere’s some information on how:\nCommon themes for subject lines include warnings, danger signals, recalls, explaining why a problem happens, announcing a new discovery that solves problem, saying a well known remedy is wrong/bad, or evoking a dominant emotion.\nTopical news events and addressing relevant issues in subject lines can also be sued to grab attention.\nOther useful strategies include focusing on a story, using a quiz format, or adding texture to your subject line with names, numbers, brackets, etc.\nElements such as credibility, specificity, ease of results and timeframes can make subject lines stronger.\nHere’s more context for each of those points:\nThemes For Emails:\nContrarian\nWarning\nThe Real Reason Why\nBig Promise\nLittle Result, Big Outcome\nStory\nQuiz\nNew Cause Discovered\nNew Mechanism\nDominant Emotion\nAdding “Texture” to Subject Lines:\nUse [brackets] and (parentheses)\nUse a Combination of UPPER-CASE and lowercase\nUse numbers, quotes and uncommon letters (3, “”, z)\nExample of subject line with “texture”: THIS makes online biz easy (just 3 steps)\nAdding Credibility:\nUse authority figures (top vet, top m.d., wall street banker, a-list copywriter) and proof (trusted by 3,416 mothers, etc.)\nAdding Specificity:\nBe as specific as possible, “i.e. 3-minutes, get 3-5x appointments, made me $3564 in a day.”\nAdding “Ease” of Results:\nMake it seem easy to get results, i.e. “1-minute, fast, simple, just THIS.”\nExamples of good subject lines:\ndo this 1 minute workout to fix saggy arms\n[quiz] top 5 dog gut “warning signs”\nTHIS “at-home” dog superfood fixes digestion\ntop vet: 5 homemade food for dogs\nUgandan copywriter gets offered full-time copywriting gig\nThe “Einstein Path” to 10k/mo\nWhy most “high-ticket” businesses never crack 500k/m\n40+ quality calls delivered or you don’t pay\n7-Second “olive oil” trick fixes doggy guts\n3-Step AI Formula Making Marketers Millionaires Overnight\nUsing these principles, please give me 40 subject lines with maximum variety.\nAdd as much urgency, texture and specificity as possible. Build incredible curiosity and intrigue, so that our audience feels COMPELLED to open the email. If they fail to open the email, they should be thinking about it all day. We want to create a curiosity “itch” that needs to be scratched.\nPlease use the following information (if any) for context:\n[Target Market + Pain Point] = middle-aged men who suffer from ED.\n[Unique Solution] = \"Iron Fist\" routine that boosts your natural vigor, enhances your confidence and makes you a stallion in the bedroom again...\n[Opening Quote/Testimonial] = \"At 65, I'm feeling like a virile 20-year-old again! Within just 48 hours, I had my wife grinning from ear to ear... Couldn't believe the 'rock hard' transformation!\"\n[Specific Proof] = Research from Stanford University.\n[Common But Disliked Solutions] = Blue pills cause dependency\nExample #1 Weight Loss Niche - Output\nAlright, let's craft those compelling subject lines for middle-aged men suffering from ED, with the given context:\n1. \"The Dangerous Truth About Blue Pills – You NEED to Know!\"\n2. \"Throw Away the Blue Pills – Here's Why [Stanford Research Inside]\"\n3. \"[Warning] Are Blue Pills Making Your Problem Worse?\"\n4. \"Revolutionize Your Nights with THIS: No Pills Needed!\"\n5. \"Say Goodbye to Dependency: The 'Iron Fist' Routine Revealed\"\n6. \"How I Regained My Virility at 65 (without ANY pills!)\"\n7. \"This Man Dumped Blue Pills and Got RESULTS [True Story]\"\n8. \"[Quiz] How Bad is Your Dependency on Blue Pills?\"\n9. \"Discover the 'Iron Fist' Routine – The Natural Path Back to Vitality\"\n10. \"65-Year-Olds OUTPERFORMING 20-Year-Olds: Here's Their Secret!\"\n11. \"Stanford University CONFIRMS: THIS Beats Blue Pills Every Time!\"\n12. \"At 65, He Shocked His Wife – WITHOUT Blue Pills!\"\n13. \"A Natural Vigor BOOST that Pills Can't Provide: Unveiled!\"\n14. \"[Breaking News] New Research Turns ED Treatment On Its Head\"\n15. \"Why the 'Iron Fist' is Terrifying Big Pharma\"\n16. \"Shocking Discovery! How THIS Man's Vigor Beat a 20-Year-Old's\"\n17. \"‘Rock Hard’ Transformation in Just 48 Hours? (No Joke!)\"\n18. \"Why Men Everywhere Are Ditching Pills for the 'Iron Fist'\"\n19. \"[Urgent] Is Your Solution Making You Weaker? See the Science Inside!\"\n20. \"Never Depend on Blue Pills Again: Here's How!\"\n21. \"‘Iron Fist’ Routine: Master Your Bedroom Confidence Effortlessly!\"\n22. \"Get the Results He Got: Become A Stallion in Just 48 Hours!\"\n23. \"THIS is What Stanford University Says About ED [Must Read]\"\n24. \"Your 'Iron Fist' Guide: [3 Simple Steps] To Natural Vitality\"\n25. \"Ditch Blue Pills, Here's the Routine Trusted by Thousands\"\n26. \"[Confession] How I Turned My Bedroom Game Around Overnight!\"\n27. \"Reignite Passion & Power: Your Natural Solution Inside\"\n28. \"Get The Spark Back! 48-Hour Routine that's Changing Lives\"\n29. \"Blue Pills EXPOSED: Why THIS Natural Method is Taking Over\"\n30. \"Exclusive: Inside Look at the 'Iron Fist' That's Disrupting the Industry!\"\n31. \"Men Over 50: This Simple Routine is TRANSFORMING Lives\"\n32. \"The 'Iron Fist' Routine vs Blue Pills: See Shocking Results!\"\n33. \"Unlock Unbelievable Vigor: Here's the Secret No One's Telling You!\"\n34. \"Is This the END of ED? Revolutionary Routine Revealed!\"\n35. \"No More Pills, No More Shame: The Iron Fist Revolution is Here!\"\n36. \"The Bedroom Miracle Middle-Aged Men Swear By: Dive In!\"\n37. \"Real Results. No Blue Pills. Your New Life Starts Now!\"\n38. \"Stanford's Shocking Research: Why the 'Iron Fist' Routine is ALL You Need\"\n39. \"This Man's 'Rock Hard' Story Will Change Everything You Think About ED\"\n40. \"Urgent Alert: How Blue Pills Might Be Sabotaging Your Vigor!\"\nThese subject lines are designed to invoke curiosity and the urge to click. The key is to test and see which ones resonate best with your audience and produce the highest open rates.\n\nExample #2 Golf Niche - Prompt\nToday, you’re an email marketer and master of creating gripping subject lines that would give people anxiety if they didn’t click. We’re going to write 40 new subject lines.\nHere’s some information on how:\nCommon themes for subject lines include warnings, danger signals, recalls, explaining why a problem happens, announcing a new discovery that solves problem, saying a well known remedy is wrong/bad, or evoking a dominant emotion.\nTopical news events and addressing relevant issues in subject lines can also be sued to grab attention.\nOther useful strategies include focusing on a story, using a quiz format, or adding texture to your subject line with names, numbers, brackets, etc.\nElements such as credibility, specificity, ease of results and timeframes can make subject lines stronger.\nHere’s more context for each of those points:\nThemes For Emails:\nContrarian\nWarning\nThe Real Reason Why\nBig Promise\nLittle Result, Big Outcome\nStory\nQuiz\nNew Cause Discovered\nNew Mechanism\nDominant Emotion\nAdding “Texture” to Subject Lines:\nUse [brackets] and (parentheses)\nUse a Combination of UPPER-CASE and lowercase\nUse numbers, quotes and uncommon letters (3, “”, z)\nExample of subject line with “texture”: THIS makes online biz easy (just 3 steps)\nAdding Credibility:\nUse authority figures (top vet, top m.d., wall street banker, a-list copywriter) and proof (trusted by 3,416 mothers, etc.)\nAdding Specificity:\nBe as specific as possible, “i.e. 3-minutes, get 3-5x appointments, made me $3564 in a day.”\nAdding “Ease” of Results:\nMake it seem easy to get results, i.e. “1-minute, fast, simple, just THIS.”\nExamples of good subject lines:\ndo this 1 minute workout to fix saggy arms\n[quiz] top 5 dog gut “warning signs”\nTHIS “at-home” dog superfood fixes digestion\ntop vet: 5 homemade food for dogs\nUgandan copywriter gets offered full-time copywriting gig\nThe “Einstein Path” to 10k/mo\nWhy most “high-ticket” businesses never crack 500k/m\n40+ quality calls delivered or you don’t pay\n7-Second “olive oil” trick fixes doggy guts\n3-Step AI Formula Making Marketers Millionaires Overnight\nUsing these principles, please give me 40 subject lines with maximum variety.\nAdd as much urgency, texture and specificity as possible. Build incredible curiosity and intrigue, so that our audience feels COMPELLED to open the email. If they fail to open the email, they should be thinking about it all day. We want to create a curiosity “itch” that needs to be scratched.\nPlease use the following information (if any) for context:\n[Target Market + Pain Point] = Golfers who want longer drives.\n[Unique Solution] = \"Eagle Swing\" routine that can massively improve your drive distance, impress your friends and make you the golf course sensation...\n[Opening Quote/Testimonial] = \"Holy smokes! Just two weeks in, and I'm outdriving my buddies by 20 yards...even the young bucks. The cart girls can't stop giggling and asking about my 'secret weapon'.\"\n[Specific Proof] = A study from the Golf Science Lab.\n[Common But Disliked Solutions] = Traditional driving techniques and expensive high-tech clubs may actually limit your driving distance by enforcing an unnatural swing.\nExample #2 Golf Niche - Output\n1. WARNING: The #1 Mistake Costing Golfers 30 Yards on Their Drives\n2. [Exposed] The Shocking Truth About High-Tech Golf Clubs\n3. \"Outdrive Your Buddies by 20 Yards\": The Eagle Swing Secret!\n4. Golf Science Lab CONFIRMS: This Routine Outperforms Expensive Clubs\n5. Traditional Techniques Killing Your Drive? Discover the \"Eagle Swing\" Today!\n6. [Quiz] What's Really Holding Back Your Golf Drive Distance?\n7. THIS will make your friends envious: Unlock 20 extra yards FAST!\n8. Outdated Driving Techniques? Try THIS Modern Swing for Maximum Yards\n9. Get the Edge on the Course: \"Eagle Swing\" Revealed!\n10. “Even the Young Bucks Couldn’t Compete” - The Eagle Swing Phenomenon\n11. Why Your $500 Club Can't Beat This Simple Routine...\n12. The 3-Step Eagle Swing Method: Longer Drives in Just Days\n13. Forget Traditional Drives: The Sensation Taking the Golf World by Storm\n14. Want to Impress the Cart Girls? Here's Your Secret Weapon...\n15. [MUST-READ] How I Outdrove Every Single Friend (without changing my club!)\n16. STOP! Your Club Might Be Stunting Your Drive – Try This Instead\n17. Eagle Swing vs. High-Tech Clubs: The Undisputed Champion Revealed!\n18. Danger Ahead: Common Techniques That Sabotage Your Drives\n19. \"Holy smokes! My Secret Weapon Revealed...\" – The Eagle Swing Experience\n20. Warning! 90% of Golfers Are Unknowingly Limiting Their Drives. Are You?\n21. Attention Golfers: The Real Reason Your Drive Isn't Improving\n22. [Proven by Golf Science Lab] The Ultimate Solution to Boost Your Drive\n23. Ditch Your Expensive Clubs: Unlock More Yards with THIS Routine\n24. Just 3 Weeks to Becoming the Golf Course Sensation – Are You Ready?\n25. QUIZ: What’s Your Driving Distance Potential? (Hint: It's More Than You Think!)\n26. [Real Story] How I Became the Envy of My Golf Mates Overnight\n27. Attention: Your Traditional Swing Could Be Your Worst Enemy\n28. Golfing Elite Secret Exposed: The Eagle Swing Mastery Method\n29. Discover the \"Eagle Swing\" & Never Worry About Being Outdriven Again!\n30. \"I Couldn't Believe My Eyes!\" - The 3-Step Routine Every Golfer Needs\n31. Revealed: The Golf Technique Trusted by Thousands for Maximum Distance\n32. Driving Blues? Instantly Add 20+ Yards with THIS Proven Solution\n33. 5 Reasons Why Your $1000 Club Is Inferior to the Eagle Swing Routine\n34. [Secret Weapon] Ready to Dominate the Course Like Never Before?\n35. The One Routine You Need to Try Before Your Next Golf Outing\n36. SHOCKING: How Traditional Techniques Are Crippling Your Driving Power\n37. Get Ready to Steal the Show: The Eagle Swing Method Unveiled!\n38. Are Your Expensive Clubs Actually Worth It? The Unpleasant Truth Inside...\n39. Unlock Your True Driving Potential: Say Hello to the \"Eagle Swing\"\n40. WARNING: Continue with Your Current Swing & Leave 30 Yards Behind!\nRemember, while these subject lines are crafted for maximum engagement, it's important to ensure that the content of the email delivers on the promise or curiosity evoked by the subject line. Providing consistent value to your audience is key to building and maintaining trust.\nExample #3 Anti-Aging Niche - Prompt\nToday, you’re an email marketer and master of creating gripping subject lines that would give people anxiety if they didn’t click. We’re going to write 40 new subject lines.\nHere’s some information on how:\nCommon themes for subject lines include warnings, danger signals, recalls, explaining why a problem happens, announcing a new discovery that solves problem, saying a well known remedy is wrong/bad, or evoking a dominant emotion.\nTopical news events and addressing relevant issues in subject lines can also be sued to grab attention.\nOther useful strategies include focusing on a story, using a quiz format, or adding texture to your subject line with names, numbers, brackets, etc.\nElements such as credibility, specificity, ease of results and timeframes can make subject lines stronger.\nHere’s more context for each of those points:\nThemes For Emails:\nContrarian\nWarning\nThe Real Reason Why\nBig Promise\nLittle Result, Big Outcome\nStory\nQuiz\nNew Cause Discovered\nNew Mechanism\nDominant Emotion\nAdding “Texture” to Subject Lines:\nUse [brackets] and (parentheses)\nUse a Combination of UPPER-CASE and lowercase\nUse numbers, quotes and uncommon letters (3, “”, z)\nExample of subject line with “texture”: THIS makes online biz easy (just 3 steps)\nAdding Credibility:\nUse authority figures (top vet, top m.d., wall street banker, a-list copywriter) and proof (trusted by 3,416 mothers, etc.)\nAdding Specificity:\nBe as specific as possible, “i.e. 3-minutes, get 3-5x appointments, made me $3564 in a day.”\nAdding “Ease” of Results:\nMake it seem easy to get results, i.e. “1-minute, fast, simple, just THIS.”\nExamples of good subject lines:\ndo this 1 minute workout to fix saggy arms\n[quiz] top 5 dog gut “warning signs”\nTHIS “at-home” dog superfood fixes digestion\ntop vet: 5 homemade food for dogs\nUgandan copywriter gets offered full-time copywriting gig\nThe “Einstein Path” to 10k/mo\nWhy most “high-ticket” businesses never crack 500k/m\n40+ quality calls delivered or you don’t pay\n7-Second “olive oil” trick fixes doggy guts\n3-Step AI Formula Making Marketers Millionaires Overnight\nUsing these principles, please give me 40 subject lines with maximum variety.\nAdd as much urgency, texture and specificity as possible. Build incredible curiosity and intrigue, so that our audience feels COMPELLED to open the email. If they fail to open the email, they should be thinking about it all day. We want to create a curiosity “itch” that needs to be scratched.\nPlease use the following information (if any) for context:\n[Target Market + Pain Point] = Women who suffer from wrinkles and dark spots.\n[Unique Solution] = \"Youthful Glow\" ritual that can smooth away wrinkles, erase dark spots, and reveal the youthful, radiant beauty hidden beneath...\n[Opening Quote/Testimonial] = \"I was absolutely stunned! In just 14 days, my mirror showed me a face I hadn't seen in years... Smooth, glowing, free of those pesky wrinkles and dark spots. My husband can't stop complimenting me!\"\n[Specific Proof] = Scientists from the renowned University of Cambridge\n[Common But Disliked Solutions] = Over-the-counter creams and pricey laser treatments may actually accelerate skin aging and promote pigmentation...\nExample #3 Anti-Aging Niche - Output\nAlright, using the provided context and principles, here are 40 intriguing subject lines for your email marketing campaign:\n1. 🚨WARNING: Those over-the-counter creams might be AGING you faster!\n2. [Quiz] How fast is your skin REALLY aging? Find out NOW.\n3. \"I saw my 20's face in just 14 days!\" - The \"Youthful Glow\" Ritual Secret\n4. Scientists STUNNED! The new anti-aging breakthrough NOT in stores\n5. The *real* reason behind those stubborn dark spots (NOT what you think)\n6. Why laser treatments might be your BIGGEST beauty mistake\n7. This [Youthful Glow Ritual] erases 10 years in just 14 days – PROVEN!\n8. You WON’T believe this: The dark side of popular anti-wrinkle creams\n9. The UGLY truth about those pricey skin treatments [Must Read]\n10. “In 14 days, my wrinkles VANISHED” – Can you guess this secret ritual?\n11. Are you making this skin-aging mistake? Find out NOW!\n12. University of Cambridge discovery: The “Youthful Glow” skin SECRET\n13. [Proof Inside] How 3,416 women turned back the clock without lasers!\n14. Break the aging cycle NOW with this 14-day miracle ritual\n15. *URGENT* Popular creams may be HARMING your skin – Here's the solution\n16. Your “youthful glow” is 14 days away... Are you ready to unveil it?\n17. **SHOCKING** Why your skin care might be a ticking aging bomb!\n18. Fast-track to youthful skin without breaking the bank\n19. Top dermatologist ALERT: The HIDDEN dangers of common beauty treatments\n20. [MUST SEE] One woman's journey to flawless skin in 14 days... No lasers!\n21. Instantly ditch wrinkles & dark spots with THIS Cambridge-approved ritual\n22. “My husband can’t believe his eyes!” - Discover the simple ritual she used\n23. Dark spots BEGONE! The secret Cambridge scientists are raving about\n24. **LIMITED** Exclusive access to the anti-aging ritual of 2023!\n25. Frustrated with skin treatments? You’ve been lied to!\n26. The ONLY ritual trusted by 3,416 women to unveil radiant beauty\n27. [BREAKING] Why you might regret that last skin cream purchase!\n28. 14 days away from the BEST skin of your life. Click to find out!\n29. Quick & simple: Reveal youthful skin without lasers or overpriced creams\n30. *REVEALED* The age-defying secret women across the globe are talking about!\n31. From wrinkles to radiant: The “Youthful Glow” journey of Sarah J.\n32. The skin care industry doesn’t want you to know THIS!\n33. University of Cambridge calls it the “BIGGEST skin breakthrough!”\n34. Over-the-counter creams exposed! Here’s the SAFE route to glowing skin\n35. “I look 20 again!” – Join thousands who’ve discovered the “Youthful Glow”\n36. Time's running out! Get glowing skin faster than ever\n37. Risky skin treatments VS The “Youthful Glow” ritual. Choose wisely!\n38. Say GOODBYE to wrinkles: Start this ritual tonight & see magic!\n39. Ever dreamt of perfect skin in 2 weeks? Dream no more...\n40. Is your cream stealing your youth? This ritual RETURNS it!\nRemember, while these subject lines are designed to pique curiosity, always ensure that the content within your email matches the promise of the subject line, to maintain trust and credibility with your audience.\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        240,
+        0
+      ],
+      "id": "fc075b1f-a878-435d-a745-9c7b796d8a4d",
+      "name": "Subject Line Creator"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        580,
+        180
+      ],
+      "id": "2504c956-47e3-4b19-99e9-51b331128200",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"emailTemplate\": {\n    \"subjectLineOptions\": [\n      \"\",\n      \"\",\n      \"\"\n    ],\n    \"salutation\": \"\",\n    \"shockingStatement\": \"\",\n    \"bulletPoints\": [\n      \"\",\n      \"\",\n      \"\"\n    ],\n    \"strongOffer\": \"\",\n    \"callToActionWithUrgency\": \"\",\n    \"signOff\": \"\",\n    \"ps\": \"\"\n  }\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        980,
+        200
+      ],
+      "id": "8c0a0489-b20d-47a5-9919-a2306bff1cbb",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "979fb22f-c684-45ba-bedc-535a7ed14274",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        760,
+        500
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Here are some other relevant details for you:\nTarget Market & Problem{{ $('Subject Line Form').item.json['Target Market + Pain Point'] }}\nUniquee Solution: {{ $('Subject Line Form').item.json['[Unique Solution]'] }}\nCredible Proof:{{ $('Subject Line Form').item.json['Credible Proof'] }}\nSoial Proof:{{ $('Subject Line Form').item.json['Social Proof'] }}\nCommon But Disliked Solutions:{{ $('Subject Line Form').item.json['Common But Disliked Solutions'] }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Step 1: IMPORTANT: This tool MUST ONLY query the email_copywriting table for knowledge base information. DO NOT use or reference the generic documents table.\n\nStep 2:\nToday, you’re a world-class direct response email copywriter, you've studied Eugene Schwartz, Dan Kennedy, Sabri Suby, Alex Hormozi & others. You know how how to craft high converting sales emails based on top subject lines that have been written for you.\n\nYou are able to deliver on the subject line and make viewers thankful that they read your emails. \n\nYou follow this structure:\nSaluation,\nShocking Statement/Fact\nThree highly compelling bullet points...\nA strong offer for a product or service\nA call to action and reason why they should take ation now,\nSign Off\nPS after the sign off\n\nHere is are our offer details:\nOffer Name: {{ $('Subject Line Form').item.json['What Is Your Offer Called?'] }}\nOffer Price: {{ $('Subject Line Form').item.json['What Is The Price Of Your Offer?'] }}\nOutcome They Will get: {{ $('Subject Line Form').item.json['What Is The Outcome The Target Audience Will Get From Your Offer?'] }}\n\n\nYour job is to review these 40 subject lines:{{ $json.output }}\nFind your top 3 convering subject lines\nCraft a high converting email following the strucutre above that is both education and entertaining. This should make readers thankful they read it even if they don't buy, they should learn something.\nKeep it grade 4 reading level.\nReference the vector database for any relevant audience pain points, desires, or interests. However, do not use any personal names or identifying details in your final email.\nProvide your final answer in valid JSON.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        700,
+        0
+      ],
+      "id": "f9199642-3374-4f76-9eaa-00fca2c84430",
+      "name": "Email Copywriter Agent",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "email_copywriting_tool",
+        "toolDescription": "=IMPORTANT: This tool MUST ONLY query the email_copywriting table for knowledge base information. DO NOT use or reference the generic documents table.Giveaway Promotion Email Tool\nThis tool is designed to craft high-conversion promotional emails for giveaways using proven copywriting formulas (AIDA, PAS, HSO). It must exclusively query the [email_copywriting] table for all subject lines, body copy, and calls to action—never referencing the generic documents table. Its goal is to maximize entries, leveraging powerful frameworks and persuasive language to ensure readers are motivated to participate.",
+        "tableName": {
+          "__rl": true,
+          "value": "email_copywriting",
+          "mode": "list",
+          "cachedResultName": "email_copywriting"
+        },
+        "topK": 20,
+        "options": {
+          "queryName": "match_email_copywriting"
+        }
+      },
+      "id": "8662878d-da26-4bf2-9a69-14c80e7f83e2",
+      "name": "Email_Copywriting_Vector_Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        700,
+        320
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output.emailTemplate }}",
+        "options": {
+          "systemMessage": "=You are a world class copywriter. You understand the principals of human psychology.\n\nToday you are acting as a consultant and master copywriter for our company.\n\nYou understand if an email flow correctly, or if he audience is missing any context. \n\nYou always think about the audience and what objections the audience would have for not wanting to take action.\n\nYou answer the \"so what, why me, why should I do this right now\"\n\nYour job is to review this email:{{ $json.output }}\n\nYou will first criqtique it yourself and then once you have criqtuied it you will re-create the email to convert at a higher rate.\n\nYou must keep the same structure:\nSaluation: {{ $json.output.emailTemplate.salutation }}\nShocking Statement:{{ $json.output.emailTemplate.shockingStatement }}\nBullet Point 1: {{ $json.output.emailTemplate.bulletPoints[0] }}\nBullet Point 2: {{ $json.output.emailTemplate.bulletPoints[1] }}\nBullet Point 3: {{ $json.output.emailTemplate.bulletPoints[2] }}\nOffer: {{ $json.output.emailTemplate.strongOffer }}\nCTA:{{ $json.output.emailTemplate.callToActionWithUrgency }}\nSign Off:{{ $json.output.emailTemplate.signOff }}\nPS{{ $json.output.emailTemplate.ps }}\n\nYou use our audiences terminology and lingo.\nYou use short sentences.\nIt doens't sound like AI.\nYou always write at a 4th grade reading level.\nYou NEVER use emojis.\n\nYou are clear, not clever with your copy.\nYou use copywriting techniques to make our clients want to whip out their credit card."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1200,
+        0
+      ],
+      "id": "53fb23e2-1041-475f-a180-99b1e2dce73a",
+      "name": "Email Consultant Bot"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1180,
+        220
+      ],
+      "id": "e7a32dec-d163-4822-969d-a629cd5685d1",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-01-29T03:09:36.122Z",
+      "updatedAt": "2025-01-29T03:09:36.122Z",
+      "role": "workflow:owner",
+      "workflowId": "1ahBUiiZ1ULZCdYc",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-01-30T02:46:08.000Z",
+  "versionId": "2db3201b-a51e-4126-8c65-05cb1deae9ba"
+}
