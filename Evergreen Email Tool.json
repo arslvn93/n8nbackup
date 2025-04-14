@@ -1,0 +1,183 @@
+{
+  "active": false,
+  "connections": {
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Evergreen Email Tool",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Evergreen Email Tool",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Input Trigger": {
+      "main": [
+        [
+          {
+            "node": "Evergreen Email Tool",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-30T02:55:54.428Z",
+  "id": "SxQbYjYbsZgjODZb",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Evergreen Email Tool",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "73b14371-ff23-4c1b-9845-98fa1b38c661",
+      "name": "Workflow Input Trigger"
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        360,
+        240
+      ],
+      "id": "19056372-3d15-452c-a8a2-def86ba85397",
+      "name": "Window Buffer Memory",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        220,
+        240
+      ],
+      "id": "6086dbe2-0ef7-4105-9eb8-d97dbbb62ce5",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Today, you’re an email marketer and master of creating highly valuable education emails.\n\nYour job is to get our audience to be shocked in the value we're giving away for free.\n\nYou never try to sell anything.\n\nYour call to action is always a \"reply with a simple word\" if you agree or if you like this.\n\nYou always write in 4th grade reading level.\nThe information always feels exciting.\n\n\nHere are some examples of what I really like:\n\nNever use \"Mozi Moni Minute\" in your output, this is just something I like.\n\nExample #1\nMozi Money Minute: The 3-7-30 Method\n\nMost businesses get leads. Then, follow up 1-2 times. Then, stop. But the majority of customers don’t buy that fast. Meaning, by only following up 1-2 times, you are losing probably half of your sales or more. People just need more information to make a purchase. But, most businesses don’t know how to follow up without saying “just buy my thing” over and over again. No bueno. You can fix this ‘not knowing how to follow up’ issue with a simple framework I call \"The 3-7-30 Method.\"\n\n \n\nHere's how it works:\n\nFirst 3 Days: Share your best case study day 1, best client transformation day 2, and biggest industry insight day 3.\n\n \n\nNext 7 Days: One touch every other day focused on removing specific objections. Each email tackles ONE fear/concern your prospects typically have. Think of this as a reverse FAQ with proof woven in. \n\n \n\nNext 30 Days: Two touches per week alternating between success stories and industry insights. The key: make each valuable enough to stand alone. If you are reading this email for example, you are here.\n\n \n\nNote: Don't think \"follow-up.\" Think \"value sequence.\" Every touch should make them think \"Damn, this is good stuff even if I don't buy.\"\n\n \n\nReal example:\n\nWe implemented this with a portfolio company and changed their follow up from 3 emails to using the 3-7-30 method. Result: Lead conversion doubled…yea.\n\n \n\nAs promised, money in under a minute.\n\n \n\nWant a free personalized scaling roadmap? It’ll identify where you’re at, and what you need to do across each business function to graduate to the next level. It breaks down everything I learned going from $0 to $100M in multiple $100M+ companies & industries across 10 stages of growth.\n\n \n\nIt’s the most valuable thing I created last year. Grab yours here\n\n \n\nDon’t forget to follow up,\n\nAlex\n\n \n\nPS - Your leads when they realize they weren’t dead, they were just sleeping… (btw, this meme is really good.)\n\nExample #2\n\nhe 4R Customer Journey\n\nMost businesses get customers. Some of those customers refer, others stick around, some leave reviews, some buy more stuff. And all of those are good things. And most times, those good things happen on accident. I’ve found I get significantly more customers to do what I want if I design it on purpose.\n\n \n\nHere’s how I do it:\n\nI use a simple customer journey system. It’s easy to remember. It’s 4 Rs: Retain, Review, Refer, Resell. Most businesses get maybe one of these. Here's how to get all four:\n\n \n\nRetain: Increase the likelihood they stay by clearly mapping out exactly what happens in days 1-30-90. Show them the finish line before they start running. Your customers can't hit a target they can't see.\n\n \n\nReview: Make it simple. Send them a review link 72 hours after their first win (not 72 hours after purchase). Include a before/after template they can fill in. Ex: \"Before working with [company], I struggled with X. After working with them, I achieved Y in just Z time.\" People respond to structure.\n\n \n\nRefer: Give them a reason AND a reminder. Most businesses ask once, then quit. Instead, create a \"Referral Moment\" - the exact time when customers are most likely to refer. For a gym, it's when they hit their first goal. For software, it's after their first successful export. Whatever it is - systematize then incentivize.\n\n \n\nResell: The easiest sale you'll ever make is to someone who already bought. But timing is everything. The key: move your upsell from an arbitrary timeline to the moment of greatest need for the new solution. Sometimes it’s immediate. Sometimes it’s at a delay. It just depends on what you sell and when they are most aware of the problem that needs solving. Offer your upsell/resell then.\n\n \n\nAt the very least, plan SOMETHING to happen for each of the 4Rs and you’ll increase the likelihood they happen. \n\n \n\nAs promised, money in under a minute.\n\n \n\nWant more ways to get customers to give you more money? Come to a Scaling Workshop at my HQ in Vegas. Ask questions. Talk to my actual portfolio team that does this everyday. Get specific answers to unlock scale for your business. Click here to check dates.\n\n \n\nBuild the system, bank the value,\n\nAlex\n\n \n\nPS - If you haven’t grabbed your personalized scaling roadmap (it’s free). It’s the best thing I made last year. Grab yours here. \n\n \n\nP.P.S -  The warm, cozy feeling you get when a customer tells you about their experience with a competitor…\n\nExample #3\n\nBelief Breaking Formula\n\nPeople talk about breaking the beliefs of your prospect all the time. But no one talks about how to do it. This is the four step framework I use. Worth teaching your sales team when you need to confront a prospect with poor beliefs.\n\nSay their wrong belief from the first person (so it’s not offensive): “I used to think that getting lawncare services was a luxury only the rich could afford.”\nSay why it’s wrong: “It takes me half a day to do it myself, then I'm exhausted.”\nSay what’s right: “Then I realized if I make more than a lawncare worker, then it’s actually cheaper for me to let someone else do it, and work my main job in the meantime.”\nProof: “John went from dreading his Sundays (when he used to take care of the yard) to working for a couple hours then spending the rest of the time with his family. He no longer keeps up with the Joneses. He IS the Joneses.”\nIf selling 1 on 1 - Repeat with an avatar as similar to the person you’re talking to as possible. \n\nIf selling 1 to many - add different avatars to represent each avatar you sell to. \n\n \n\nThat is all. As promised, under a minute. \n\n \n\nBusiness owners* looking to scale -  apply for a seat at our next Scaling Workshop in Vegas on Dec 4/5\n\n*We dont let everyone in to keep the room legit. Context: At our last workshop 25% of attendees did over $5M+ in revenue. 50% did $1M+.\n\n \n\nSlay the day, \n\nAlex\n\n \n\nPS - whenever a salesman says our prospects come in with a bad mindset…\n\nEmail #4\n\nHow To Email #1 - Marketing Focused\nSubject: 3 Ways to Re-Engage Your Database In January (Without Being Cringey)\nBody:\n\n\nMost agents start January stuck.\n\n\nThey’re obsessed with finding new leads, because they don’t want to bother their old ones “too early.”\n\nBut here’s the truth… \n\nYour database can be your biggest source of business—if you approach it the right way.\n\nYou probably already have enough leads to hit your goals this year.\n\nSo how do you reach out in January 2025 without sounding desperate or salesy?\n\nLaunch the “Equity Checkpoint Program”\nPeople love to know their home’s worth.\nTell them: \"Home values shift fast (especially with constant interest rate changes). Want to know what yours is worth in January 2025 vs. June 2025? Join my Equity Checkpoint Program for two updates this year.\"\nThis positions you as their trusted market expert & guarantees two check-ins with them.\n\nShare a Quick Win\nValue always wins. Give them info they want.\nExample: \"Here’s the #1 way to prep your home for a higher sale price in 2025.\"\nQuick tips build trust and keep you top of mind.\n\nShare Your Predictions\nEveryone loves a sneak peek into the future.\nExample:\"I’ve been analyzing the 2025 market trends. Here’s what I predict: [Insert one or two quick insights]. Want to know how these could impact your home’s value?\"\n\nRe-engaging your database doesn’t have to be awkward.\n\nRe-engaging your database isn’t about luck—it’s about strategy.\n\nStart these conversations today, and you’ll see more appointments, more listings, and more closings on your calendar this year.\n\nGet Rollin’ In 2025,\nEmma & Ryan.\n\nPS: The biggest mistake agents make? Thinking their database is “done” after one email.\nFollow up. Be consistent. And don’t overthink it.\n\nEmail #5\n\nHow To Email #2 - Productivity Focused\nSubject: How to Be More Productive Without Burning Out In 2025\n\nBody:\nMost people think productivity means doing more.\n\nIt doesn’t.\n\nReal productivity is about doing less—but doing it better.\n\nHere’s how you can crush 2025 without burning out:\n\nSunday: Plan Your Week\n\nTake 20 minutes every Sunday.\nList out everything you need and want to do this week.\n\nBig, small, personal, and professional.\n\nOnce that’s done, sort everything into the Eisenhower Matrix.\n\nThe Eisenhower Matrix? WTF is that?\nIt’s your secret weapon—and it’s free. (Google it.)\n\nThis tool sorts tasks into 4 categories:\n\nUrgent & Important: Do these first.\n\nImportant, Not Urgent: Schedule these next.\n\nUrgent, Not Important: Delegate.\n\nNot Urgent, Not Important: Delete.\n\nMost people waste their time in categories 3 and 4.\n\nFocus on 1 and 2, and watch your productivity explode.\n\nCut the Noise\n\nDistractions kill focus.\n\nEvery time you check your phone, you lose momentum.\n\nTurn off notifications. Work in blocks of time.\n\nThe Truth About Productivity\n\n2025 isn’t about grinding harder.\n\nIt’s about working smarter.\n\nStart this week.\n\nYou’ll get more done, feel less stress, and become unstoppable.\n\nTalk soon,\nEmma & Ryan\n\nPS: The first step? Write down your weekly priorities this Sunday…or start sooner if you want faster results. Small actions = big wins.\n\nEmail #5\n\nHow To Email #3 -Sales Focused\nSubject: Why Following Up Is the Most Underrated Sales Skill\nBody:\n\n\nMost agents focus on the first touch.\n\nThe initial call, the pitch, the perfect script.\n\nBut here’s the real secret:\n\nFollow-up is where deals are made—or lost.\n\nMost agents don’t follow up enough.\n\n\nWhy?\n\n\nThey think, “If they were interested, they’d call me back.”\n\nWrong.\n\nHere’s why follow-up is the most underrated sales skill—and how to do it right:\n\n1. Timing Beats Talent\nThe first call plants the seed.\nThe follow-up is when they’re ready to buy.\nMost people aren’t ready on Day 1.\nBut the agent who follows up on Day 10?\nThat’s the one they remember.\n\n\n2. Be the Trusted Expert\nEvery follow-up isn’t about selling.\nIt’s about solving.\nAsk a simple question:\n\"What’s the biggest challenge you’re facing with [buying/selling/moving] right now?\"\nListen. Solve. Stay top of mind.\n\n3. Use Multiple Methods\nText. Call. Email.\nMix it up so they don’t tune you out.\nOne client may prefer texts,while another responds to emails at 10 PM.\n\nFollowing up isn’t annoying—it’s what pros do.\n\nWhen done right, it shows consistency, care, and credibility.\n\nStart now.\n\n\nBecause the agent who follows up is the agent who wins.\n\nWe’ll Follow Up With Another Email Soon, \nEmma & Ryan\n\nPS: Not sure where to start? Pick three people you’ve talked to this month and reach out. A quick check-in could turn into your next deal.\n\nEmail #6\n\nHow To Email #4 - Operations Hacks\nSubject: 5 Free Tools That’ll Save You Hours Every Week\nBody:\n\nMost agents waste hours on stuff they could automate or streamline.\n\nScheduling appointments, chasing follow-ups, managing tasks...\n\nIt’s time to fix that.\n\nHere are 5 free tools to save you hours every week (if you actually use them):\n\n1. Google Calendar\nGoogle Cal isn’t just for appointments.\nHere’s the hack: block recurring time for prospecting, follow-ups, and admin.\nColor-code everything.\nWhen you open your calendar, it should tell you exactly what to do.\n\n2. Loom\nStop writing novels in your emails.\nRecord a 2-minute video instead.\nLoom is perfect for explaining contracts or sharing quick updates.\nIt’s faster and makes you look like a pro.\n\n3. Asana\nYour brain isn’t a to-do list.\nUse Asana to organize deals, tasks, and marketing plans.\nDrag and drop your way to sanity.\n\n4. Grain\nEver forget what was said on a call?\nGrain records and transcribes your Zoom meetings,\nso you can actually focus on the conversation instead of scribbling notes.\n\n5. Calendly\nTired of the “Does Tuesday at 3 work for you?” emails?\nSend your Calendly link.\nLet clients book directly into your schedule and save yourself the back-and-forth.\n\nTime is your most valuable asset.\n\n\nStop wasting it on things these tools can handle for free.\n\nPut them to work this week, and you’ll get hours back—guaranteed.\n\nYour “Work Smarter, Not Harder” Coaches,\nEmma & Ryan\n\nPS: Got a favorite free tool I didn’t mention? Hit reply and let me know—I’m always looking for new ways to save time!\n\n",
+        "options": {
+          "systemMessage": "="
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        280,
+        0
+      ],
+      "id": "009f7015-a8ae-4fec-aada-27682ae0245c",
+      "name": "Evergreen Email Tool"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-01-30T02:55:54.462Z",
+      "updatedAt": "2025-01-30T02:55:54.462Z",
+      "role": "workflow:owner",
+      "workflowId": "SxQbYjYbsZgjODZb",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-30T02:46:48.736Z",
+      "updatedAt": "2025-01-30T02:47:12.493Z",
+      "id": "128iQZCWkjXvD7wg",
+      "name": "Single Use Tools"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-30T03:05:25.000Z",
+  "versionId": "0e8dd5ca-2be6-46d2-844a-9e6f3b72fade"
+}
