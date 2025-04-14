@@ -1,0 +1,725 @@
+{
+  "active": true,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Find Client Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Campaign": {
+      "main": [
+        [
+          {
+            "node": "Create Ad Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Page ID": {
+      "main": [
+        []
+      ]
+    },
+    "Create Ad Set": {
+      "main": [
+        [
+          {
+            "node": "Create Hot List URL ReDirect",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Ad Creative": {
+      "main": [
+        [
+          {
+            "node": "Create Ad",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Client Details": {
+      "main": [
+        [
+          {
+            "node": "Find Client Details1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Client Details1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Lead Form": {
+      "main": [
+        [
+          {
+            "node": "Download Ad Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ad Image Upload": {
+      "main": [
+        [
+          {
+            "node": "Create Ad Creative",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Hot List URL ReDirect": {
+      "main": [
+        [
+          {
+            "node": "Create Lead Form",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Ad Image": {
+      "main": [
+        []
+      ]
+    },
+    "Download Ad Image": {
+      "main": [
+        [
+          {
+            "node": "Ad Image Upload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Create Campaign",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-23T18:28:01.469Z",
+  "id": "Yssy0UXyvOldpRns",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Hot List, Hot Shot",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Hot List Ad Creator",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name of Hot List",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Budget Per Day",
+              "fieldType": "number",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email of Client",
+              "fieldType": "email",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "path": "hotlist"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -80,
+        260
+      ],
+      "id": "a00b23c5-cef2-486b-9c7e-09ac614c9e41",
+      "name": "On form submission",
+      "webhookId": "77cb2c73-9a0e-4a0d-9c36-7a1a2ae15058"
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/campaigns",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"{{ $json.output.campaignName }} - SalesGenius\",\n  \"optimization_goal\": \"LEAD_GENERATION\",\n  \"objective\": \"OUTCOME_LEADS\",\n  \"status\": \"PAUSED\",\n  \"special_ad_categories\": \"none\"\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        240
+      ],
+      "id": "12d3b638-a903-4c46-8b3f-c87cb169361d",
+      "name": "Create Campaign",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=1074316633770404/owned_pages?fields=id,name",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        500
+      ],
+      "id": "3dc1e7e0-d916-4be5-80d6-97afe504bd98",
+      "name": "Get Page ID",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/adsets",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"{{ $('AI Agent').item.json.output.campaignName }} - Ad Set\",\n  \"campaign_id\": \"{{ $('Create Campaign').item.json.id }}\",\n  \"daily_budget\": {{ Number($('On form submission').item.json['Budget Per Day']) * 100 }},\n  \"start_time\": \"{{ new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1, 6, 0, 0).toISOString() }}\",\n  \"billing_event\": \"IMPRESSIONS\",\n  \"optimization_goal\": \"LEAD_GENERATION\",\n  \"bid_strategy\": \"LOWEST_COST_WITHOUT_CAP\",\n  \"targeting\": {\n    \"geo_locations\": {\n      \"cities\": [\n        {\n          \"key\": \"296875\",\n          \"radius\": 15,\n          \"distance_unit\": \"mile\"\n        }\n      ]\n    },\n    \"publisher_platforms\": [\"instagram\"],\n    \"instagram_positions\": [\"stream\"]\n  },\n  \"promoted_object\": {\n    \"page_id\": \"{{ $('Find Client Details1').item.json.property_facebook_page_id }}\"\n  },\n  \"status\": \"PAUSED\",  \n  \"destination_type\": \"ON_AD\"\n\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        240
+      ],
+      "id": "2fb53604-c4f9-4883-b4ad-6901bc561a2f",
+      "name": "Create Ad Set",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=/search?type=adgeolocation&q=Toronto&location_types=[\"city\"]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        720
+      ],
+      "id": "04963773-10e0-44a5-bca6-494a2068e142",
+      "name": "Get City ID",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/ads",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"{{ $('AI Agent').item.json.output.campaignName }} - Ad\",\n  \"adset_id\": \"{{ $('Create Ad Set').item.json.id }}\",\n  \"creative\": { \"creative_id\": \"{{ $json.id }}\" },\n  \"status\": \"PAUSED\"\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        2180,
+        240
+      ],
+      "id": "734b48e6-320e-4bc8-b2c5-4ee38ca2d4cb",
+      "name": "Create Ad",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/adcreatives",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"Dynamic Creative\",\n  \"object_story_spec\": {\n    \"page_id\": \"{{ $('Find Client Details1').item.json.property_facebook_page_id }}\",\n    \"link_data\": {\n      \"message\": \"{{ $('AI Agent').item.json.output.primaryText[0] }}\",\n      \"image_hash\": \"{{ $json.images['365407283_614619890658463_4618795059015039771_n_c6362e5ece.jpg'].hash }}\",\n      \"link\": \"{{ $('Create Hot List URL ReDirect').item.json.shorturl }}\",\n      \"call_to_action\": {\n        \"type\": \"LEARN_MORE\",\n        \"value\": {\n          \"lead_gen_form_id\": \"{{ $('Create Lead Form').item.json.id }}\"\n        }\n      },\n      \"name\": \"{{ $('AI Agent').item.json.output.headline[0] }}\",\n      \"description\": \"{{ $('AI Agent').item.json.output.primaryText[0] }}\\n{{ $('AI Agent').item.json.output.primaryText[1] }}\"\n    }\n  }\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        240
+      ],
+      "id": "dc8c60b8-0f58-4f2e-9ec9-b08105951b51",
+      "name": "Create Ad Creative",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "1761d08c-4f5a-8016-89dd-f81384652240",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://www.notion.so/1761d08c4f5a801689ddf81384652240"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "email|email",
+              "condition": "equals",
+              "emailValue": "={{ $json[\"Email of Client\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        120,
+        260
+      ],
+      "id": "7aa609ee-fcc2-44d7-93b2-f9a61c0bd7d1",
+      "name": "Find Client Details",
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e6ec4113-2368-4f2c-ab1d-25d9a91eb7ec",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        260
+      ],
+      "id": "bc750350-10dc-4922-9afb-8aa70afd2f76",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.property_clients_brands[0] }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        300,
+        260
+      ],
+      "id": "22a739e1-7d4d-4942-8625-4b5584852fb0",
+      "name": "Find Client Details1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details1').item.json.property_facebook_page_id }}/leadgen_forms",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"{{ $('AI Agent').item.json.output.campaignName }}\",  \n  \"allow_organic_lead_retrieval\": true,\n  \"block_display_for_non_targeted_viewer\": false,\n  \"follow_up_action_url\": \"{{ $json.shorturl }}\",\n  \"is_for_canvas\": false,\n  \"is_optimized_for_quality\": true,\n  \"locale\": \"EN_US\",\n  \n  \"privacy_policy\": {\n    \"url\": \"{{ $('If').item.json.property_privacy_policy }}\",\n    \"link_text\": \"Privacy Policy\"\n  },\n  \"question_page_custom_headline\": \"Get Instant Access to the Hot List Now\",\n  \"questions\": [\n    {\n      \"key\": \"question1\",\n      \"type\": \"FULL_NAME\",\n      \"inline_context\": \"Enter your complete name.\"\n    },\n    {\n      \"key\": \"question2\",\n      \"type\": \"EMAIL\",\n      \"inline_context\": \"Enter your primary email.\"\n    },\n    {\n      \"key\": \"question3\",\n      \"type\": \"PHONE\",\n      \"inline_context\": \"Include country code.\"\n    },\n    {\n      \"key\": \"question4\",\n      \"label\": \"{{ $('AI Agent').item.json.output.formQuestions[0].question }}\",\n      \"type\": \"CUSTOM\",\n      \"inline_context\": \"{{ $('AI Agent').item.json.output.formQuestions[0].question }}\",\n      \"options\": [\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[0].options[0] }}\", \"key\": \"option1\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[0].options[1] }}\", \"key\": \"option2\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[0].options[2] }}\", \"key\": \"option3\" }\n      ]\n    },\n    {\n      \"key\": \"question5\",\n      \"label\": \"{{ $('AI Agent').item.json.output.formQuestions[1].question }}\",\n      \"type\": \"CUSTOM\",\n      \"inline_context\": \"{{ $('AI Agent').item.json.output.formQuestions[1].question }}\",\n      \"options\": [\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[1].options[0] }}\", \"key\": \"option1\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[1].options[1] }}\", \"key\": \"option2\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[1].options[2] }}\", \"key\": \"option3\" }\n      ]\n    },\n    {\n      \"key\": \"question6\",\n      \"label\": \"{{ $('AI Agent').item.json.output.formQuestions[2].question }}\",\n      \"type\": \"CUSTOM\",\n      \"inline_context\": \"{{ $('AI Agent').item.json.output.formQuestions[2].question }}\",\n      \"options\": [\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[2].options[0] }}\", \"key\": \"option1\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[2].options[1] }}\", \"key\": \"option2\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[2].options[2] }}\", \"key\": \"option3\" }\n      ]\n    }\n  ],\n  \"thank_you_page\": {\n    \"title\": \"Check Your Email!\",\n    \"body\": \"I've just sent you something you're going to love...\",\n    \"short_message\": \"{{ $('AI Agent').item.json.output.adName }}\",\n    \"button_text\": \"View Hot List Now\",\n    \"button_description\": \"Get Instant Access Now\",\n    \"enable_messenger\": false,\n    \"website_url\": \"{{ $json.shorturl }}\",\n    \"button_type\": \"VIEW_WEBSITE\",\n    \"country_code\": \"CA\"\n  },\n  \"tracking_parameters\": {\n    \"campaign\": \"{{ $('AI Agent').item.json.output.campaignName }}\",\n    \"source\": \"salesgenius\"\n  }\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        240
+      ],
+      "id": "270f5bc8-7edd-4a42-b72b-e683b5ca68fe",
+      "name": "Create Lead Form",
+      "retryOnFail": false,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/adimages",
+        "sendBinaryData": true,
+        "binaryPropertyName": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        240
+      ],
+      "id": "68412917-b5ed-4261-ab90-ae2219f98ab9",
+      "name": "Ad Image Upload",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://app.realmmlp.ca/{{ $('AI Agent').item.json.output.urlSlug }}4",
+        "additionalFields": {
+          "keyword": "={{ $('AI Agent').item.json.output.urlSlug }}2",
+          "title": "={{ $('On form submission').item.json[\"Name of Hot List\"] }} - {{ $('Find Client Details1').item.json.name }} - HOT"
+        }
+      },
+      "type": "n8n-nodes-base.yourls",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        240
+      ],
+      "id": "6294323d-763f-4b92-a287-ff6c67e98545",
+      "name": "Create Hot List URL ReDirect",
+      "credentials": {
+        "yourlsApi": {
+          "id": "dObnySYjD1OI38EY",
+          "name": "Yourls account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": " a spacious open-concept loft with high ceilings and large windows allowing natural light to flood in. The walls might be exposed brick, giving a rustic charm, while the floor features polished hardwood or concrete. \\n\\nIn one corner, there's a modern kitchen with sleek cabinetry, a large island for cooking and entertaining, and stainless steel appliances. The living area is furnished with a comfortable sectional sofa, a stylish coffee table, and a statement piece of art hanging on the wall. \\n\\nYou might see a cozy reading nook with a floor lamp and bookshelves laden with books. A dining table made from reclaimed wood could be set for an intimate dinner. \\n\\nUpstairs, there could be a lofted bedroom area, accessed by a spiral staircase, featuring a minimalist bed arrangement with soft linens, lots of throw pillows, and a view over the living space",
+        "options": {
+          "quality": "standard",
+          "size": "1024x1024",
+          "returnImageUrls": false,
+          "binaryPropertyOutput": "data"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -640,
+        920
+      ],
+      "id": "11de7740-1084-47fb-bb1d-8fd490c5e397",
+      "name": "Generate Ad Image",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "url": "https://decormatters-blog-uploads.s3.amazonaws.com/365407283_614619890658463_4618795059015039771_n_c6362e5ece.jpg",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        240
+      ],
+      "id": "c6047bf4-bf01-48c4-b0d5-bf986f34f0da",
+      "name": "Download Ad Image"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Name of Hot List Chosen: {{ $('On form submission').item.json[\"Name of Hot List\"] }},\nCity/Neighbourhood Target: Toronto\nName of Realtor:  {{ $('Find Client Details1').item.json.name }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Context & Goal\nYou are a professional real estate copywriter. Your task is to write persuasive ad content for a real estate agent running a “Hot List” campaign on Instagram and Facebook. The purpose of this campaign is to generate buyer leads by showcasing a unique, filtered list of currently available residential properties in a specific city or neighborhood.\n\nThe “Hot List” might focus on various property features and buyer lifestyles—e.g., family-friendly homes, move-in ready properties for busy professionals, homes under a certain budget, properties with outdoor spaces, etc.\n\nOutput Format\nYou must return your output as valid JSON with the following structure (using property names exactly as shown below):\n\njson\nCopy\nEdit\n{\n  \"campaignName\": \"Simple Campaign Name\",\n  \"adSetName\": \"Simple Ad Set Name\",\n  \"urlSlug\": \"Simple URL Slug for Hot List Redirect URL\",\n  \"leadFormName\": \"Simple Lead Form Name\",\n  \"adName\": \"Simple Ad Name\",\n  \"headline\": [\n    \"Headline 1\",\n    \"Headline 2\",\n    \"Headline 3\"\n  ],\n  \"primaryText\": [\n    \"Primary text 1\",\n    \"Primary text 2\",\n    \"Primary text 3\"\n  ],\n  \"formQuestions\": [\n    {\n      \"question\": \"Form question 1\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    },\n    {\n      \"question\": \"Form question 2\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    },\n    {\n      \"question\": \"Form question 3\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    }\n  ]\n}\nDetailed Requirements\n\nCampaign Name\n\nKeep it short and descriptive (e.g., “Family-Friendly Homes Hot List” or “Move-In Ready Hot List”).\nAd Set Name\n\nAlso short, but convey the target audience or focus (e.g., “Busy Professionals,” “Budget Buyers,” “Luxury Seeker”).\nURL Slug\n\nA simple slug for the Hot List landing page (e.g., “/hot-list-families” or “/hot-list-move-in”).\nLead Form Name\n\nKeep it short and relevant (e.g., “Family Homes Lead Form,” “Ready to Move Lead Form”).\nAd Name\n\nBriefly reference the theme (e.g., “Family Hot List Ad #1,” “Move-In Ready Ad #1”).\nHeadline (Array of at least 3)\n\nEngaging, clear, and consistent with the “Hot List” theme.\nExamples:\n“Top 5 Family-Friendly Homes in [CITY]”\n“Move-In Ready Listings for Busy Professionals”\n“Homes with Outdoor Spaces You’ll Love”\nPrimary Text (Array of at least 3)\n\nPersuasive short paragraphs or sentences that describe the offer.\nUse benefits-based language and a clear call to action (CTA).\nExamples:\n“Discover the best homes with space to grow in [CITY]! Click below for your exclusive list.”\n“Don’t settle for fixer-uppers. Get turn-key properties perfect for busy schedules.”\n“Love to entertain? Check out these stunning homes with modern kitchens and big backyards.”\nForm Questions (Array of at least 3 objects)\n\nEach object must have a “question” field and an “options” array.\nQuestions should help qualify leads (e.g., property interests, timeline to move, etc.).\nExamples:\nQuestion: “What type of property are you looking for?”\nOptions: [“Single-family home,” “Condo,” “Townhouse”]\nQuestion: “When do you plan to move?”\nOptions: [“Immediately,” “Within 3 months,” “3+ months”]\nQuestion: “What’s your approximate budget?”\nOptions: [“Under $400K,” “$400K-$700K,” “$700K+”]\nStyle & Tone\n\nPersuasive but concise.\nUse clear, benefit-driven language.\nMake sure CTAs are direct and actionable (e.g., “Click ‘Learn More’ to see the Hot List now!”).\nImportant\n\nYou must include at least 3 headlines, 3 primary texts, and 3 form questions (each with 3 options).\nDo not include any extra fields beyond those specified in the JSON.\nMaintain a consistent “Hot List” theme that aligns with generating buyer leads.\nIf referencing a location or neighborhood, use placeholder text like “[CITY/NEIGHBORHOOD]” so it can be quickly customized.\nDeliverable\nA single JSON block—no additional formatting or explanation around it."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        720,
+        240
+      ],
+      "id": "33d19650-e5c7-4fc7-bfe2-19d910d55203",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"campaignName\": \"Simple Campaign Name\",\n  \"adSetName\": \"Simple Ad Set Name\",\n  \"urlSlug\": \"Simple URL Slug for Hot List Redirect URL\",\n  \"leadFormName\": \"Simple Lead Form Name\",\n  \"adName\": \"Simple Ad Name\",\n  \"headline\": [\n    \"Headline 1\",\n    \"Headline 2\",\n    \"Headline 3\"\n  ],\n  \"primaryText\": [\n    \"Primary text 1\",\n    \"Primary text 2\",\n    \"Primary text 3\"\n  ],\n  \"formQuestions\": [\n    {\n      \"question\": \"Form question 1\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    },\n    {\n      \"question\": \"Form question 2\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    },\n    {\n      \"question\": \"Form question 3\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        900,
+        520
+      ],
+      "id": "b4a60f18-d74c-4549-958d-c897d46d823b",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        540,
+        640
+      ],
+      "id": "bce2b0c1-2f15-4819-80e7-7f5ac0a6f70a",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "vvRYzeVE6A8mYyNt",
+          "name": "Anthropic - Claude"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "o3-mini-2025-01-31"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        720,
+        520
+      ],
+      "id": "ead84504-d02f-4871-8b66-8fabb0c2c9f0",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-23T18:28:01.482Z",
+      "updatedAt": "2025-02-23T18:28:01.482Z",
+      "role": "workflow:owner",
+      "workflowId": "Yssy0UXyvOldpRns",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-21T17:21:41.750Z",
+      "updatedAt": "2025-02-21T17:21:41.750Z",
+      "id": "hCxs00bYB7kqJnEo",
+      "name": "WORKING"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-02-28T16:17:38.000Z",
+  "versionId": "d0cd37f2-c5bf-4e0b-8230-8a6ada58af63"
+}
