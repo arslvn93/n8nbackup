@@ -1,0 +1,780 @@
+{
+  "active": true,
+  "connections": {
+    "Find Contact on Notion1": {
+      "main": [
+        [
+          {
+            "node": "Contact Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contact Exists?": {
+      "main": [
+        [
+          {
+            "node": "Find Client",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create new Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create new Contact": {
+      "main": [
+        [
+          {
+            "node": "Create new Client",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create new Client": {
+      "main": [
+        [
+          {
+            "node": "set fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "set client fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Create Client Deliverables Page for Giveaway",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Client": {
+      "main": [
+        [
+          {
+            "node": "set client fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Trigger": {
+      "main": [
+        [
+          {
+            "node": "All Inputs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Client Deliverables Page for Giveaway": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Create New Service Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "All Inputs": {
+      "main": [
+        [
+          {
+            "node": "Find Contact on Notion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Prepare Tasks Array1": {
+      "main": [
+        [
+          {
+            "node": "Create All Tasks1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create All Tasks1": {
+      "main": [
+        []
+      ]
+    },
+    "Create New Service Request": {
+      "main": [
+        [
+          {
+            "node": "Code - Prepare Tasks Array1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-10T15:14:57.282Z",
+  "id": "nJzVJur895fgW3dy",
+  "meta": null,
+  "name": "New Video Editing Request",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "1761d08c-4f5a-8016-89dd-f81384652240",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://www.notion.so/1761d08c4f5a801689ddf81384652240"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "email|email",
+              "condition": "equals",
+              "emailValue": "={{ $('Typeform Trigger').first().json.Email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -660,
+        -280
+      ],
+      "id": "94d558d6-1b27-43d0-adff-b6d45df7ba34",
+      "name": "Find Contact on Notion1",
+      "alwaysOutputData": true,
+      "notesInFlow": false,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0c01aa16-f3be-440a-935f-c9acc54f7ab9",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -440,
+        -280
+      ],
+      "id": "be80159c-aa31-48fe-be34-ee4218fa6451",
+      "name": "Contact Exists?"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "1761d08c-4f5a-8016-89dd-f81384652240",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://www.notion.so/1761d08c4f5a801689ddf81384652240"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Client Name|title",
+              "title": "={{ $('Typeform Trigger').first().json[\"First name\"] }} {{ $('Typeform Trigger').first().json[\"Last name\"] }}"
+            },
+            {
+              "key": "email_name|rich_text",
+              "textContent": "={{ $('Typeform Trigger').first().json[\"First name\"] }}"
+            },
+            {
+              "key": "email|email",
+              "emailValue": "={{ $('Typeform Trigger').first().json[\"Email\"] }}"
+            },
+            {
+              "key": "Type|select",
+              "selectValue": "Listing Ad"
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "Created through New Listing Ad Submission"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -220,
+        -180
+      ],
+      "id": "fc5a8f68-30d0-4f14-aafd-4aac6417fddb",
+      "name": "Create new Contact",
+      "alwaysOutputData": false,
+      "notesInFlow": false,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "1491d08c-4f5a-8088-8995-c96c2350b25d",
+          "mode": "list",
+          "cachedResultName": "Our Clients",
+          "cachedResultUrl": "https://www.notion.so/1491d08c4f5a80888995c96c2350b25d"
+        },
+        "title": "={{ $json.name }}",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Contacts|relation",
+              "relationValue": [
+                "={{ $json.id }}"
+              ]
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "Created through New Listing Ad Submission"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        -180
+      ],
+      "id": "9edcd2b4-5a5d-4d84-8fc8-3eeb08108395",
+      "name": "Create new Client",
+      "alwaysOutputData": false,
+      "notesInFlow": false,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e3e1905c-f295-479b-8eb9-a2ddab717559",
+              "name": "notion contact id",
+              "value": "={{ $('Create new Contact').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "0170b413-ddcd-403b-9aef-dc2613fb63da",
+              "name": "notion client id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "18e83fc0-cd45-445c-af50-cd0328944eef",
+              "name": "first name",
+              "value": "={{ $('Typeform Trigger').first().json[\"First name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "693b605d-0f1a-49aa-96c2-664e38d5cf47",
+              "name": "email",
+              "value": "={{ $('Typeform Trigger').first().json.Email }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        -180
+      ],
+      "id": "fa6fad5d-62f6-4653-b568-246424ed96bb",
+      "name": "set fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e3e1905c-f295-479b-8eb9-a2ddab717559",
+              "name": "notion contact id",
+              "value": "={{ $('Find Contact on Notion1').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "0170b413-ddcd-403b-9aef-dc2613fb63da",
+              "name": "notion client id",
+              "value": "={{ $('Find Contact on Notion1').item.json.property_clients_brands[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "18e83fc0-cd45-445c-af50-cd0328944eef",
+              "name": "first name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "693b605d-0f1a-49aa-96c2-664e38d5cf47",
+              "name": "email",
+              "value": "={{ $('Find Contact on Notion1').item.json.property_email }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        -380
+      ],
+      "id": "451cb0e4-e1bf-4c4d-9ad2-4cd1d34bbadc",
+      "name": "set client fields"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        440,
+        -280
+      ],
+      "id": "6ad23377-a9e4-4297-8640-1e5f5c7346ca",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.property_clients_brands[0] }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        -380
+      ],
+      "id": "75192c84-5cce-486c-8935-bea3b6fd9cef",
+      "name": "Find Client",
+      "alwaysOutputData": true,
+      "notesInFlow": false,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "formId": "H9XPgQte"
+      },
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1100,
+        -280
+      ],
+      "id": "68f5e200-e5d1-4b7c-8093-950c6f809689",
+      "name": "Typeform Trigger",
+      "webhookId": "50af9921-8596-40d4-9bd4-006ad3a262b9",
+      "credentials": {
+        "typeformApi": {
+          "id": "hZKxcP6jseCjV38y",
+          "name": "Typeform account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "1c01d08c-4f5a-80b2-a3ea-c867420dcda2",
+          "mode": "list",
+          "cachedResultName": "Client Deliverables",
+          "cachedResultUrl": "https://www.notion.so/1c01d08c4f5a80b2a3eac867420dcda2"
+        },
+        "title": "={{ $('Merge').first().json[\"first name\"] }} - Video Editing Request",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Our Clients|relation",
+              "relationValue": [
+                "={{ $('Merge').first().json[\"notion client id\"] }}"
+              ]
+            },
+            {
+              "key": "Type|select",
+              "selectValue": "Video Editing"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        660,
+        -280
+      ],
+      "id": "132cacc8-3644-4a98-8974-812965515331",
+      "name": "Create Client Deliverables Page for Giveaway",
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// --- Code Node for Creating Service Request Page ---\n\n// Use try...catch for robust error handling\ntry {\n  // --- 1. Get Data from Previous Nodes ---\n  const formData = $('Typeform Trigger').first().json; // Original Typeform data\n\n  // Get the Client ID from the Merge node\n  const clientId = $('Merge').first().json[\"notion client id\"];\n  if (!clientId) {\n      throw new Error(\"Could not find 'notion client id' from Merge node.\");\n  }\n\n  // Get the Campaign ID from the node where the campaign page was created\n  // *** IMPORTANT: Verify this node name is correct. Is it 'Create New Listing Ad Campaign' or 'Create Client Campaign Page'? Using the one from your code block. ***\n\n  // --- 2. Define Values for Properties ---\n  let serviceRequestName; // Declare variable\n\n  // Get the actual Client Name passed through the Merge node (ASSUMES upstream nodes pass 'clientName')\n  const clientName = $('Merge').first().json[\"first name\"];\n   if (!clientName) {\n      // Fallback if clientName wasn't found in Merge node output\n      console.warn(\"Client Name ('clientName' field) not found in Merge node output. Falling back to Typeform First Name.\");\n      const firstNameFallback = formData['First name'] || 'Unknown Client';\n      serviceRequestName = `${firstNameFallback} - Video Editing Request`;\n  } else {\n       // Construct the desired service request name using the Client Name\n       serviceRequestName = `${clientName} - Video Editing Request`;\n  }\n\n  const requestTypeValue = \"Video Editing\"; // Set the type specifically\n  const submissionDateISO = new Date().toISOString(); // Get current date/time in UTC ISO format\n\n  // --- 3. Generate Content Blocks (Page Body from Typeform) ---\n  const contentBlocks = [];\n\n  // Add a title block to the page body for clarity\n  contentBlocks.push({\n    object: \"block\",\n    type: \"heading_1\",\n    heading_1: {\n      rich_text: [{\n        type: \"text\",\n        text: { content: serviceRequestName } // Use the defined name\n      }]\n    }\n  });\n\n  // Add a divider\n  contentBlocks.push({ object: \"block\", type: \"divider\", divider: {} });\n\n  // Loop through original Typeform data to create Q&A blocks\n  for (const [question, answer] of Object.entries(formData)) {\n    // Skip internal/metadata fields\n    if (question.startsWith('_') || question === 'markdown' || question === 'error' || question === 'event_id' || question === 'event_type' || question === 'form_response') {\n      continue;\n    }\n\n    const formattedQuestion = question.replace(/\\*/g, '').trim();\n\n    // Add question as heading\n    contentBlocks.push({\n      object: \"block\",\n      type: \"heading_3\",\n      heading_3: {\n        rich_text: [{ type: \"text\", text: { content: formattedQuestion } }],\n         \"color\": \"default\"\n      }\n    });\n\n    // Format the answer\n    let formattedAnswer;\n    if (answer === undefined || answer === null || answer === '') {\n      formattedAnswer = 'Not provided';\n    } else if (Array.isArray(answer)) {\n      formattedAnswer = answer.join(', ');\n    } else if (typeof answer === 'object' && answer !== null && !Array.isArray(answer) && !(answer instanceof Date)) {\n       if (answer.hasOwnProperty('url') && answer.hasOwnProperty('name')) {\n          formattedAnswer = answer.url; // Handle file objects\n       } else {\n           formattedAnswer = JSON.stringify(answer); // Stringify other objects\n       }\n    } else if (typeof answer === 'boolean') {\n      formattedAnswer = answer ? 'Yes' : 'No';\n    } else {\n      formattedAnswer = String(answer);\n    }\n\n    // Check for image URLs\n    const isImageUrl = typeof formattedAnswer === 'string' &&\n                    (formattedAnswer.includes('api.typeform.com/responses/files') ||\n                     (formattedAnswer.startsWith('http') &&\n                      (formattedAnswer.endsWith('.jpg') || formattedAnswer.endsWith('.png') ||\n                       formattedAnswer.endsWith('.jpeg') || formattedAnswer.endsWith('.gif'))));\n\n    if (isImageUrl) {\n      // Add image block\n      contentBlocks.push({\n        object: \"block\", type: \"image\", image: { type: \"external\", external: { url: formattedAnswer } }\n      });\n    } else {\n      // Add text block\n      contentBlocks.push({\n        object: \"block\", type: \"paragraph\", paragraph: { rich_text: [{ type: \"text\", text: { content: formattedAnswer } }], \"color\": \"default\" }\n      });\n    }\n     // Optional spacer\n     contentBlocks.push({ object: \"block\", type: \"paragraph\", paragraph: { rich_text: [] } });\n  } // End of Q&A loop\n\n  // --- 4. Prepare Data for Notion API ---\n  const notionDataPayload = {\n    parent: {\n      // The Database ID for your *Service Requests* database\n      database_id: \"1b41d08c4f5a80c1a843f04215bd0fd0\"\n    },\n    icon: {\n      type: \"emoji\",\n      emoji: \"🎥\" // Using Gift icon as requested in previous code block\n    },\n    properties: {\n      // Title Property: Name\n      \"Name\": {\n        title: [{ text: { content: serviceRequestName } }] // Now uses Client Name - Giveaway\n      },\n      // Select Property: Request Type\n      \"Request Type\": {\n        select: { // Assumes 'select' type. If multi_select, change structure\n          name: requestTypeValue\n        }\n        /* --- If Request Type is MULTI_SELECT, use this instead: ---\n        multi_select: [\n          { name: requestTypeValue }\n        ]\n        */\n      },\n      // Relation Property: Client\n      \"Client\": {\n        relation: [{ id: clientId }]\n      },\n\n      // Date Property: Submission Date\n      \"Submission Date\": {\n        date: {\n          start: submissionDateISO // Use the ISO UTC string\n        }\n      }\n    },\n    // Page Body Content: Children\n    children: contentBlocks\n  };\n\n  // --- 5. Return the Payload ---\n  // Output the data needed for the subsequent HTTP Request node\n  return { json: { notionData: notionDataPayload } };\n\n} catch (error) {\n  // --- Error Handling ---\n  console.error('Error preparing Service Request Notion data:', error.message);\n  // Throw the error again to potentially stop the workflow or let error workflow handle it\n  throw error; // Stop workflow on error\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        -280
+      ],
+      "id": "f1c717c4-83e0-4aad-8ca6-950188c3c926",
+      "name": "Code",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer ntn_y77938235783grxbphRwEazxtixxh4eENsIdl2RRJyW9fy"
+            },
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Code').item.json.notionData }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        -280
+      ],
+      "id": "751f34e1-b9e9-4cc4-9dc7-3c1468a7fae9",
+      "name": "Create New Service Request",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ae7f38a3-9c4d-4709-b97d-ef9a91e450fb",
+              "name": "First name",
+              "value": "={{ $json[\"First name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "5adf8686-a85e-4a28-9259-8d6734fc7fa7",
+              "name": "Email",
+              "value": "={{ $json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "ee164571-8bb5-42c7-a982-4cfafaf28746",
+              "name": "VideoType",
+              "value": "={{ $json[\"*What type of video do you need edited?*\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "e0f4286b-ce72-4843-a00c-57ef00cef268",
+              "name": "VideoSource",
+              "value": "={{ $json[\"*Provide the Google Drive link to your video files.*\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4e312197-e90e-4541-89a1-c702dfd596ce",
+              "name": "ExtraElements",
+              "value": "={{ $json[\"*Do you have any Branding, B-Roll, Photos Or Other Content You'd Like Used In The Edits?*\"] }}",
+              "type": "boolean"
+            },
+            {
+              "id": "04487757-3be7-4669-a65b-b075574fa786",
+              "name": "ExtraElementsSource",
+              "value": "={{ $json[\"*Please provide the Google Drive URL for the additional Branding, B-Roll, Photos Or Other Content You'd Like to be used*\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "5b7ca059-6500-4a70-ab94-c6d6abf7aee7",
+              "name": "Edits",
+              "value": "={{ $json[\"*What edits would you like us to make? *\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "90d383b7-d590-4ce5-960f-571b44ebb7db",
+              "name": "OtherEdits",
+              "value": "={{ $json[\"*What other edits would you like us to make?*\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "e15233df-dfaf-45ed-ac64-31ec2d8fdcf3",
+              "name": "DateRequired",
+              "value": "={{ $json[\"*When is your planned date to post this video?*\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -880,
+        -280
+      ],
+      "id": "02babff3-a128-42bd-9e95-c2ac7a7a234f",
+      "name": "All Inputs"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Code Node: Video Editing Task Generator\n\ntry {\n    // --- 1. Get Data from Previous Nodes ---\n    const mergeOutput = $('Merge').first().json;\n    const clientRelationId = mergeOutput['notion client id'];\n    const clientName = mergeOutput['first name'];\n\n    if (!clientRelationId) { throw new Error(\"Could not get clientRelationId from Merge node.\"); }\n    if (!clientName) { throw new Error(\"Could not get 'first name' from Merge node.\"); }\n\n    // --- Get Service Request ID and URL ---\n    const serviceRequestNode = $('Create New Service Request');\n    const serviceRequestOutput = serviceRequestNode.first();\n    const serviceRelationId = serviceRequestOutput?.json?.id;\n    const serviceRequestUrl = serviceRequestOutput?.json?.url;\n    \n    if (!serviceRelationId || typeof serviceRelationId !== 'string') {\n        throw new Error(`Failed to get a valid page ID from node 'Create New Service Request'.`);\n    }\n\n    // --- Get Original Typeform Data ---\n    const formData = $('Typeform Trigger').first().json;\n    if (!formData) {\n        throw new Error(\"Could not get data from Typeform Trigger node.\");\n    }\n\n    // Extract relevant information from form data\n    const videoType = formData[\"*What type of video do you need edited?*\"] || \"Video\";\n    const videoLink = formData[\"*Provide the Google Drive link to your video files.*\"] || \"\";\n    const hasBranding = formData[\"*Do you have any Branding, B-Roll, Photos Or Other Content You'd Like Used In The Edits?*\"] || false;\n    const brandingLink = formData[\"*Please provide the Google Drive URL for the additional Branding, B-Roll, Photos Or Other Content You'd Like to be used*\"] || \"\";\n    const requestedEdits = formData[\"*What edits would you like us to make? *\"] || [];\n    const otherEdits = formData[\"*What other edits would you like us to make?*\"] || \"\";\n    const plannedPostDate = formData[\"*When is your planned date to post this video?*\"] || \"\";\n\n    // --- 2. Define Assignee IDs ---\n    const assigneeMatyas = \"135d872b-594c-815e-8bb4-0002be26fee3\";\n    const assigneeFernanda = \"135d872b-594c-815e-8bb4-0002be26fee3\";\n\n    // --- 3. Due Date Calculation ---\n    function getBusinessDaysDueDate(businessDays) {\n        let d = new Date(); let addedDays = 0;\n        if (businessDays === 0) { const day = d.getDay(); if (day !== 0 && day !== 6) return d.toISOString().split('T')[0]; else businessDays = 1; }\n        while (addedDays < businessDays) { d.setDate(d.getDate() + 1); const day = d.getDay(); if (day !== 0 && day !== 6) addedDays++; }\n        return d.toISOString().split('T')[0];\n    }\n    \n    const dueDateToday = getBusinessDaysDueDate(0);\n    const dueDateNextDay = getBusinessDaysDueDate(1);\n    const dueDate2Days = getBusinessDaysDueDate(2);\n\n    // --- 4. Helper Functions ---\n    function formatBlock(type, content, options = {}) { \n        const block = { object: \"block\", type: type }; \n        const data = {}; \n        if (type === 'paragraph' || type.startsWith('heading') || type.endsWith('list_item') || ['toggle', 'quote', 'callout'].includes(type)) { \n            data.rich_text = options.contentRich || [{ type: \"text\", text: { content: content || \"\" } }]; \n            if(options.annotations && !options.contentRich) {data.rich_text[0].annotations = { ...options.annotations };} \n            if (options.color) data.color = options.color; \n            if (options.is_toggleable) data.is_toggleable = options.is_toggleable; \n        } else if (type === 'to_do') { \n            data.rich_text = typeof content === 'string' ? [{ type: \"text\", text: { content: content } }] : (Array.isArray(content) ? content : [{ type: \"text\", text: { content: content || \"\" } }]); \n            if(options.annotations && data.rich_text[0]) {data.rich_text[0].annotations = { ...options.annotations };} \n            data.checked = options.checked || false; \n            if (options.color) data.color = options.color; \n            if (options.children && Array.isArray(options.children)) { \n                data.children = options.children.map(child => formatBlock(child.type, child.content, child)); \n            } \n        } else if (type === 'image') { \n            data.type = \"external\"; \n            data.external = { url: options.url || content || 'https://via.placeholder.com/150' }; \n        } else if (type === 'divider') {} \n        \n        block[type] = data; \n        return block; \n    }\n    \n    // Create service request link block\n    function createServiceRequestLinkBlocks() {\n        const blocks = [];\n        blocks.push(formatBlock(\"divider\", {}));\n        blocks.push(formatBlock(\"heading_3\", \"Client Information\"));\n        \n        if (serviceRequestUrl) {\n            // Create rich text with link\n            blocks.push({\n                object: \"block\",\n                type: \"paragraph\",\n                paragraph: {\n                    rich_text: [\n                        {\n                            type: \"text\",\n                            text: {\n                                content: \"View Client Service Request Details\",\n                                link: { url: serviceRequestUrl }\n                            },\n                            annotations: {\n                                bold: true,\n                                color: \"blue\"\n                            }\n                        }\n                    ]\n                }\n            });\n        } else {\n            blocks.push(formatBlock(\"paragraph\", \"Service Request URL not available\"));\n        }\n        \n        return blocks;\n    }\n\n    // Create form data blocks\n    function createFormDataBlocks() {\n        const blocks = [];\n        blocks.push(formatBlock(\"divider\", {}));\n        blocks.push(formatBlock(\"heading_3\", \"Form Data\"));\n        \n        // Video Type\n        blocks.push(formatBlock(\"paragraph\", `Video Type: ${videoType}`));\n        \n        // Video Link\n        if (videoLink) {\n            blocks.push({\n                object: \"block\",\n                type: \"paragraph\",\n                paragraph: {\n                    rich_text: [\n                        {\n                            type: \"text\",\n                            text: {\n                                content: \"Video Files: \",\n                            }\n                        },\n                        {\n                            type: \"text\",\n                            text: {\n                                content: videoLink,\n                                link: { url: videoLink }\n                            },\n                            annotations: {\n                                color: \"blue\"\n                            }\n                        }\n                    ]\n                }\n            });\n        }\n        \n        // Branding Materials\n        if (hasBranding && brandingLink) {\n            blocks.push({\n                object: \"block\",\n                type: \"paragraph\",\n                paragraph: {\n                    rich_text: [\n                        {\n                            type: \"text\",\n                            text: {\n                                content: \"Branding Materials: \",\n                            }\n                        },\n                        {\n                            type: \"text\",\n                            text: {\n                                content: brandingLink,\n                                link: { url: brandingLink }\n                            },\n                            annotations: {\n                                color: \"blue\"\n                            }\n                        }\n                    ]\n                }\n            });\n        }\n        \n        // Requested Edits\n        if (requestedEdits && requestedEdits.length > 0) {\n            blocks.push(formatBlock(\"paragraph\", \"Requested Edits:\"));\n            \n            // Convert array to bulleted list\n            const editArray = Array.isArray(requestedEdits) ? requestedEdits : [requestedEdits];\n            editArray.forEach(edit => {\n                blocks.push(formatBlock(\"bulleted_list_item\", edit));\n            });\n        }\n        \n        // Other Edits\n        if (otherEdits) {\n            blocks.push(formatBlock(\"paragraph\", `Additional Edit Requests: ${otherEdits}`));\n        }\n        \n        // Planned Post Date\n        if (plannedPostDate) {\n            blocks.push(formatBlock(\"paragraph\", `Planned Post Date: ${plannedPostDate}`));\n        }\n        \n        return blocks;\n    }\n\n    const serviceRequestLinkBlocks = createServiceRequestLinkBlocks();\n    const formDataBlocks = createFormDataBlocks();\n\n    // --- 5. Create Tasks Array ---\n    let tasksToCreate = [\n        // Task 1: Edit the videos\n        { \n            taskTitle: `Video Editing | ${clientName} | ${videoType}`, \n            taskAssignee: [assigneeMatyas], \n            taskPriority: \"High\", \n            taskDueDate: dueDate2Days, \n            taskStatus: \"Ready To-Do\", \n            taskBlocks: [\n                formatBlock(\"paragraph\", `Edit the ${videoType} based on client requirements.`),\n                ...formDataBlocks,\n                ...serviceRequestLinkBlocks\n            ] \n        },\n        // Task 2: Send Video to Client for Approval\n        { \n            taskTitle: `Video Editing | ${clientName} | Send for Approval`, \n            taskAssignee: [assigneeFernanda], \n            taskPriority: \"Medium\", \n            taskDueDate: plannedPostDate ? new Date(plannedPostDate) < new Date(dueDate2Days) ? dueDateNextDay : dueDate2Days : dueDate2Days,\n            taskStatus: \"Ready To-Do\", \n            taskBlocks: [\n                formatBlock(\"paragraph\", \"Send edited video to client for review and approval.\"),\n                formatBlock(\"paragraph\", \"Include a feedback form and instructions for requesting revisions if needed.\"),\n                ...serviceRequestLinkBlocks\n            ] \n        }\n    ];\n\n    // --- 6. Add Common Properties to Each Task ---\n    tasksToCreate.forEach(task => {\n        task.taskClientRelationId = [clientRelationId];\n        task.taskServiceRelationId = [serviceRelationId];\n        task.taskTags = [\"Video Editing\"];\n    });\n\n    // --- 7. Return the Array of Tasks ---\n    return tasksToCreate;\n\n} catch (error) {\n    console.error(\"Error in Video Editing Task Generator:\", error.message);\n    throw error; // Re-throw error to stop workflow\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        -280
+      ],
+      "id": "c4a54a2a-aa82-487b-8be8-a52f4b6e45be",
+      "name": "Code - Prepare Tasks Array1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer ntn_y77938235783grxbphRwEazxtixxh4eENsIdl2RRJyW9fy"
+            },
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"1491d08c-4f5a-8010-9e47-c82ce7f1f1ea\"\n  },\n  \"icon\": {\n    \"type\": \"emoji\",\n    \"emoji\": \"📝\"\n  },\n  \"properties\": {\n    \"Task Title\": {\n      \"title\": [ { \"text\": { \"content\": \"{{ $json.taskTitle ?? 'Untitled Task' }}\" } } ]\n    },\n    \"Client\": {\n       \"relation\": {{ $json.taskClientRelationId ? JSON.stringify($json.taskClientRelationId.map(id => ({ id: id })) ) : '[]' }}\n    },\n    \"Client Ad Campaigns\": {\n       \"relation\": {{ $json.taskCampaignRelationId ? JSON.stringify($json.taskCampaignRelationId.map(id => ({ id: id })) ) : '[]' }}\n     },\n     \"⚠️ Service Portal Requests\": {\n         \"relation\": {{ $json.taskServiceRelationId ? JSON.stringify($json.taskServiceRelationId.map(id => ({ id: id })) ) : '[]' }}\n     },\n     \"Assignee\": {\n        \"people\": {{ $json.taskAssignee ? JSON.stringify($json.taskAssignee.map(id => ({ id: id })) ) : '[]' }}\n     },\n    \"Due\": {\n       \"date\": {{ $json.taskDueDate ? JSON.stringify({ start: $json.taskDueDate }) : null }}\n    },\n    \"Tags\": {\n        \"multi_select\": {{ $json.taskTags ? JSON.stringify($json.taskTags.map(tag => ({ name: tag })) ) : '[]' }}\n    },\n    \"Status\": {\n        \"status\": { \"name\": \"{{ $json.taskStatus }}\" }\n    },\n    \"Priority\": {\n        \"select\": { \"name\": \"{{ $json.taskPriority }}\" }\n    }\n  },\n  \"children\": {{ $json.taskBlocks ? JSON.stringify($json.taskBlocks) : '[]' }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1540,
+        -280
+      ],
+      "id": "476862e8-691f-42b7-ace9-b84cacdba475",
+      "name": "Create All Tasks1",
+      "retryOnFail": true
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-04-10T15:14:57.290Z",
+      "updatedAt": "2025-04-10T15:14:57.290Z",
+      "role": "workflow:owner",
+      "workflowId": "nJzVJur895fgW3dy",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": {
+    "node:Typeform Trigger": {
+      "webhookId": "n8n-p9jhwgqiux"
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2025-02-21T17:21:41.750Z",
+      "updatedAt": "2025-02-21T17:21:41.750Z",
+      "id": "hCxs00bYB7kqJnEo",
+      "name": "WORKING"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-04-10T15:52:37.000Z",
+  "versionId": "4d590a60-37a0-4be1-97b4-7b964797e736"
+}
