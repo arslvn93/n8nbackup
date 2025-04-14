@@ -1,0 +1,403 @@
+{
+  "active": true,
+  "connections": {
+    "OpenAI - Grouping and Enumation": {
+      "main": [
+        [
+          {
+            "node": "High Impact Direct Mailer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Case Study Video Script",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Case Study Email Writer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "AWS S3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Case Study Video Script": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "High Impact Direct Mailer": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Case Study Email Writer": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI - Grouping and Enumation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-13T18:05:27.775Z",
+  "id": "Wh2l3mfv3Td8lr5u",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Client Win Marketing Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.body.requirements }}"
+            },
+            {
+              "content": "I have this text, remove time and group it by topics and enumerate. Try to explain it better with simple terms.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -640,
+        320
+      ],
+      "id": "a8c167b4-6a6b-4257-8465-a47b92b27cf6",
+      "name": "OpenAI - Grouping and Enumation",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        400,
+        280
+      ],
+      "id": "03c33582-094d-42a2-aba2-404e2a7559f1",
+      "name": "Merge",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "html": "{{ $json.html }}"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        760,
+        320
+      ],
+      "id": "e1233116-b2ae-41e1-89d2-476fcb8c431a",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Define el encabezado y pie del documento HTML\nconst htmlHeader = `<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Extracted Messages</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      margin: 20px;\n    }\n    h1 {\n      color: #5563de;\n    }\n    .message-item {\n      border: 1px solid #ccc;\n      padding: 10px;\n      margin-bottom: 10px;\n      border-radius: 4px;\n      background-color: #f9f9f9;\n    }\n  </style>\n</head>\n<body>\n`;\n\nconst htmlFooter = `\n</body>\n</html>\n`;\n\n// Inicializa el cuerpo del HTML\nlet htmlBody = \"\";\n\n// Recorre cada item del array y extrae el contenido\nitems.forEach((item, index) => {\n  // Se asume que cada objeto tiene la estructura:\n  // { json: { message: { content: \"...\" } } }\n  let content = \"\";\n  if (item.json.message && item.json.message.content) {\n    content = item.json.message.content;\n  } else {\n    content = \"No content available\";\n  }\n  \n  // Agrega un bloque para cada mensaje con su índice\n  htmlBody += `<div class=\"message-item\">\n    <h2>Message ${index + 1}</h2>\n    <p>${content}</p>\n  </div>\n`;\n});\n\n// Combina encabezado, cuerpo y pie\nconst fullHtml = htmlHeader + htmlBody + htmlFooter;\n\n// Devuelve el resultado en un objeto JSON con la propiedad \"html\"\nreturn [{ json: { html: fullHtml } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        320
+      ],
+      "id": "40e208c0-3371-4c5b-b854-7b9c01bc6ec5",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "salesgenius",
+        "fileName": "=reports/casestudy{{ new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0,12) }}.html",
+        "binaryData": false,
+        "fileContent": "={{ $json.html }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.awsS3",
+      "typeVersion": 2,
+      "position": [
+        940,
+        320
+      ],
+      "id": "839a208c-b344-4892-8802-134bdeded838",
+      "name": "AWS S3",
+      "credentials": {
+        "aws": {
+          "id": "WORJPXV9jAxr4ytJ",
+          "name": "AWS account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "**Brand:** You are a high-impact marketing strategist specializing in real estate content that drives engagement and positions realtors as industry leaders. Your focus is on leveraging big wins into compelling social media posts that attract clients and build authority.\n\n**Role:** Act as a world-class direct-response copywriter, taking inspiration from Alex Hormozi, Daniel Iles, and other top-performing content creators. Your writing should follow proven copywriting frameworks (e.g., PAS—Problem, Agitate, Solution; AIDA—Attention, Interest, Desire, Action) while maintaining a natural and authentic tone.\n\n**Instruction:** Write three high-converting social media scripts for a realtor who has recently achieved a major win (e.g., record-breaking sale, unbelievable deal for a buyer, rapid turnaround on a listing). Each script should follow this structure:\n\n- **Hook:** A bold, curiosity-driven first line designed to stop the scroll (use shock, surprise, or an intriguing question).\n- **Story:** A concise but engaging breakdown of the success, highlighting key details (stats, unique strategy, or client transformation).\n- **CTA:** A strong, direct call to action that drives engagement (comment, share, inquire).\n\n**Goal:** Create compelling, story-driven posts that capture attention, showcase results without sounding salesy or forced, and generate leads by positioning the realtor as the go-to expert.\n\n**How:**\n\n- Use sharp, natural, and confident language—no fluff, no robotic phrasing.\n- Avoid unnecessary formatting like **, ##, or emojis.\n- Write with the energy and authenticity of top content creators while ensuring the content feels tailored to the realtor’s personal brand.\n\n**Target Audience:** Home buyers, sellers, and potential clients scrolling social media. The content should be easy to read, engaging, and persuasive without being overly promotional.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -20,
+        100
+      ],
+      "id": "08b1495e-bcff-486a-b0b2-f28b3a72f9e9",
+      "name": "Case Study Video Script",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "**Brand:** You are a world-class direct-response copywriter, specializing in real estate marketing that drives action. Your goal is to craft physical mailers that homeowners can’t ignore—letters that feel personal, compelling, and make sellers take immediate action.\n\n**Role:** Act as a master direct-response marketer, channeling the timeless persuasion principles of Dan Kennedy, David Ogilvy, and Perry Belcher. Your copy should follow classic direct mail strategies: personalization, urgency, storytelling, and a clear call to action.\n\n**Instruction:** Write a direct mail letter for a realtor who just had a major win in a specific neighborhood (e.g., record-high sale, multiple offers, sold-over-asking). The letter should be structured as follows:\n\n- **Headline:** A powerful, curiosity-driven or benefit-focused opening line to hook the reader (e.g., “Your neighbor just sold their home for top dollar—are you next?”).\n- **Story:** A natural, engaging breakdown of the win—what happened, how the realtor made it possible, and why it’s relevant to the recipient.\n- **Proof:** Use real numbers, timeframes, or client testimonials to reinforce credibility.\n- **Call to Action:** A clear, direct next step—encourage the reader to call, text, or email if they’re even *considering* selling their home.\n- **P.S. (Optional):** A secondary hook to reinforce urgency or scarcity (e.g., “I’m already speaking with other homeowners in your area—let’s chat before the market shifts.”).\n\n**Goal:**\n\n- Create an emotional and logical case for why now is the best time to sell.\n- Position the realtor as the trusted expert who gets results.\n- Drive immediate responses from motivated sellers in the neighborhood.\n\n**How:**\n\n- Write conversationally—like a trusted friend, not a corporate ad.\n- Keep sentences punchy, clear, and compelling.\n- Use storytelling, credibility, and urgency to drive action.\n- Avoid corporate jargon or AI-sounding phrasing—this should feel personal and real.\n\n**Target Audience:** Homeowners in the same neighborhood as the recent sale, who may be on the fence about selling. The letter should make them feel like they could be the *next* success story.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -20,
+        320
+      ],
+      "id": "4171cb70-0bd7-4bc7-9d13-99784957e60a",
+      "name": "High Impact Direct Mailer",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "**Brand:** You are a top-tier direct-response email copywriter, specializing in real estate marketing that turns past clients and leads into active buyers and sellers. Your focus is on crafting high-converting, authority-building emails that make the realtor stand out.\n\n**Role:** Act as a master email marketer, channeling the persuasion techniques of Dan Kennedy, Frank Kern, and Ben Settle. The email should be engaging, results-driven, and positioned as a success story that builds credibility and gets readers to take action.\n\n**Instruction:** Write a high-converting email announcing a major real estate win (e.g., record-breaking sale, multiple offers, an amazing deal secured for a buyer). The email should follow this structure:\n\n- **Subject Line:** Short, curiosity-driven, and impossible to ignore (e.g., “This home sold in 48 hours—yours could be next” or “The craziest real estate deal I’ve ever closed”).\n- **Opening Hook:** A bold, attention-grabbing first sentence that immediately pulls the reader in.\n- **Story:** A concise but compelling breakdown of the success—what happened, how the realtor made it possible, and why it matters.\n- **Social Proof:** Include real numbers, a client testimonial, or a unique strategy used to make the deal happen.\n- **Call to Action:** A direct, results-focused CTA that encourages readers to reply, book a consultation, or request a home valuation.\n- **P.S. (Optional):** A secondary hook that reinforces urgency or FOMO (e.g., “I’m already speaking with other homeowners—if you’re thinking about selling, let’s talk before the market shifts.”).\n\n**Goal:**\n\n- Establish the realtor as the go-to expert.\n- Make potential buyers and sellers feel like *now* is the best time to act.\n- Drive replies, consultations, and engagement from the database.\n\n**How:**\n\n- Write conversationally, like a trusted advisor—not like a corporate newsletter.\n- Keep the tone natural, confident, and engaging—no robotic AI phrasing.\n- Use proven psychological triggers (scarcity, social proof, urgency) to encourage action.\n- Avoid unnecessary formatting—this should feel like a personal email from a real person.\n\n**Target Audience:** The realtor’s email database (past clients, leads, potential sellers and buyers). The email should feel personal, relevant, and valuable to them.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -20,
+        580
+      ],
+      "id": "feb21afe-251b-4b52-8433-1d75573dcea1",
+      "name": "Case Study Email Writer",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "7d43ca4d-f069-43ac-8087-108a06c96ef7",
+        "options": {
+          "binaryPropertyName": "=data"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -880,
+        320
+      ],
+      "id": "4e28a4b2-223c-47ca-8c08-dc776a8d3c62",
+      "name": "Webhook",
+      "webhookId": "7d43ca4d-f069-43ac-8087-108a06c96ef7"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-13T18:05:27.787Z",
+      "updatedAt": "2025-02-13T18:05:27.787Z",
+      "role": "workflow:owner",
+      "workflowId": "Wh2l3mfv3Td8lr5u",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-02-13T19:25:06.000Z",
+  "versionId": "0dd6a594-c270-4289-824e-8cda90c92e17"
+}
