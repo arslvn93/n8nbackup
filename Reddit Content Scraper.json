@@ -1,0 +1,2301 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "APIFY Reddit Scraper Lite",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Group data by post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Open-AI processing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Switch ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Group data by post": {
+      "main": [
+        [
+          {
+            "node": "Clean comments ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean comments ": {
+      "main": [
+        [
+          {
+            "node": "Preprocessing and Engagement calculations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preprocessing and Engagement calculations": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Open-AI processing": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Switch ": {
+      "main": [
+        [
+          {
+            "node": "r/RealEstate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RealEstateAdvice",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 2
+          }
+        ],
+        [
+          {
+            "node": "TorontoRealEstate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "RidiculousRealEstate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 3
+          }
+        ],
+        [
+          {
+            "node": "RealEstateTechnology ",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RealEstateMarketing ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "r/RealEstate": {
+      "main": [
+        []
+      ]
+    },
+    "RealEstateAdvice": {
+      "main": [
+        []
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Content Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Summary": {
+      "main": [
+        [
+          {
+            "node": "Content split",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Content sheets",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Top Post",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Market insight",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Content ideas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "APIFY Reddit Scraper Lite": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TorontoRealEstate": {
+      "main": [
+        []
+      ]
+    },
+    "Content split": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content ideas": {
+      "main": [
+        [
+          {
+            "node": "Combine Ideas ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine Ideas ": {
+      "main": [
+        [
+          {
+            "node": "Generate Html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Html": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-11T20:28:40.919Z",
+  "id": "WIMFXk0Q8zT54mGO",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Reddit Content Scraper",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0d522812-d5bc-4237-b058-62a335084308",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "title, body, upVotes, numberOfComments, createdAt, numberOfreplies, url, dataType",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        440,
+        0
+      ],
+      "id": "e2327c06-1b6f-4a3d-b719-51eb03ecc12c",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "qwen-plus",
+          "mode": "list",
+          "cachedResultName": "QWEN-PLUS"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a digital marketing strategist and real estate content analyzer specialized in generating innovative ideas for social media content. Your role is to analyze real estate posts and provide actionable insights alongside creative content suggestions designed to inspire content creation that works across diverse channels. Focus on identifying trending topics, evaluating sentiment, and delivering succinct market insights while inspiring visually engaging and dynamic content ideas.\n",
+              "role": "system"
+            },
+            {
+              "content": "=Analyze the following real estate post and provide your evaluation. Your analysis should inspire creative content ideas by focusing on visuals, engaging captions, trending hashtags, and dynamic call-to-actions—all using generic recommendations that instruct to \"create content\" rather than naming specific social media platforms.\n\nTitle: {{ $json[\"Post Title\"] }}\n\nContent: {{ $json[\"Post Content\"] }}\n\nComments: {{ $json[\"Comments\"] }}\n\nReturn your analysis in this exact JSON structure:\n{\n    \"key_topics\": [\"topic1\", \"topic2\", \"topic3\"],\n    \"sentiment\": \"positive/negative/neutral\",\n    \"market_insights\": \"brief market insight text\",\n    \"action_items\": [\"item1\", \"item2\"],\n    \"engagement_quality\": number\n}\n\nNotes:\n- \"key_topics\": Extract three main topics or themes from the post that could spark creative content ideas.\n- \"sentiment\": Evaluate the overall tone of the content (e.g., upbeat, skeptical, cautious).\n- \"market_insights\": Provide a sharp, succinct summary of the market trends or insights reflected in the post.\n- \"action_items\": Offer creative and actionable suggestions that instruct to \"create content\" (for example, \"create a content piece demonstrating...\", \"develop a short-form video with dynamic transitions...\", or \"design visuals with before-and-after comparisons\") without mentioning specific platform names.\n- \"engagement_quality\": Provide an objective numeric score or rating that reflects the potential engagement quality of the content.\n\nAdditional Considerations:\n- Include recommendations that leverage emerging visual storytelling techniques, such as split-screen comparisons, animated transitions, or live narrative sequences.\n- Ensure that suggestions incorporate concise call-to-actions and attention-grabbing text overlays.\n- Your output must be valid JSON with no additional commentary."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1760,
+        0
+      ],
+      "id": "f0e15f50-04d6-461b-80e3-f3257a7f15e6",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "QccaR7Fie6P9G5P6",
+          "name": "QWEN"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2300,
+        440
+      ],
+      "id": "d5d9abdc-6856-42bc-b722-b6c875119087",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Function to extract post ID from URL\ndef extract_post_id(url):\n    parts = url.split('/')\n    for i, part in enumerate(parts):\n        if part == \"comments\":\n            return parts[i + 1]\n    return None\n\n# Initialize dictionary to store posts and their comments\nposts_dict = {}\n\n# First pass: Organize posts\nfor item in _input.all():\n    data = item.json\n    \n    if data.get('dataType') == 'post':\n        post_id = extract_post_id(data['url'])\n        if post_id:\n            posts_dict[post_id] = {\n                'title': data.get('title', ''),\n                'body': data.get('body', ''),\n                'upVotes': data.get('upVotes', 0),\n                'numberOfComments': data.get('numberOfComments', 0),\n                'createdAt': data.get('createdAt', ''),\n                'url': data.get('url', ''),\n                'comments': []\n            }\n\n# Second pass: Add comments to their respective posts\nfor item in _input.all():\n    data = item.json\n    \n    if data.get('dataType') == 'comment':\n        post_id = extract_post_id(data['url'])\n        if post_id and post_id in posts_dict:\n            comment = {\n                'body': data.get('body', ''),\n                'upVotes': data.get('upVotes', 0),\n                'createdAt': data.get('createdAt', ''),\n                'numberOfreplies': data.get('numberOfreplies', 0)\n            }\n            posts_dict[post_id]['comments'].append(comment)\n\n# Convert dictionary to list of items for n8n\noutput = []\nfor post in posts_dict.values():\n    output.append({'json': post})\n\nreturn output"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "b697b3e6-026d-4d37-a698-259a3811d791",
+      "name": "Group data by post"
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "def format_comments(comments):\n    if not comments:\n        return \"\"\n    # Format comments as a structured string\n    formatted_comments = []\n    for comment in comments:\n        comment_text = (\n            f\"Comment: {comment['body']}\\n\"\n            f\"Upvotes: {comment['upVotes']}\\n\"\n            f\"Created: {comment['createdAt']}\\n\"\n            f\"Replies: {comment['numberOfreplies']}\\n\"\n            f\"---\"\n        )\n        formatted_comments.append(comment_text)\n    return \"\\n\\n\".join(formatted_comments)\n\ndef process_data():\n    output = []\n    for item in _input.all():\n        post = item.json\n        \n        # Create a row for each post with formatted data\n        row = {\n            'Post Title': post['title'],\n            'Post Date': post['createdAt'],\n            'Subreddit': post['url'].split('/')[4],  # Extract subreddit from URL\n            'Post URL': post['url'],\n            'Upvotes': post['upVotes'],\n            'Number of Comments': post['numberOfComments'],\n            'Post Content': post['body'].replace('\\n', ' ').strip(),  # Remove line breaks\n            'Comments': format_comments(post['comments'])\n        }\n        output.append({'json': row})\n    \n    return output\n\n# Execute the processing\nreturn process_data()"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        0
+      ],
+      "id": "eaf725c4-2420-4aae-9395-e698a6b714cb",
+      "name": "Clean comments "
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "def calculate_engagement_metrics(post):\n    # Calculate engagement rate\n    upvotes = post.get('Upvotes', 0)\n    num_comments = post.get('Number of Comments', 0)\n    engagement_rate = (upvotes + num_comments) / 100\n    \n    # Calculate post age in hours\n    from datetime import datetime, timezone\n    post_date = datetime.fromisoformat(post['Post Date'].replace('Z', '+00:00'))\n    now = datetime.now(timezone.utc)\n    age_hours = (now - post_date).total_seconds() / 3600\n    \n    # Calculate velocity (engagement per hour)\n    velocity = engagement_rate / age_hours if age_hours > 0 else 0\n    \n    return {\n        'engagement_rate': round(engagement_rate, 3),\n        'post_age_hours': round(age_hours, 1),\n        'engagement_velocity': round(velocity, 4)\n    }\n\n# Main processing function\nitems = []\nfor item in _input.all():\n    post = item.json\n    \n    # Calculate metrics\n    metrics = calculate_engagement_metrics(post)\n    \n    # Create new output item with all data\n    output_item = {\n        'Post Title': post['Post Title'],\n        'Post Date': post['Post Date'],\n        'Subreddit': post['Subreddit'],\n        'Post URL': post['Post URL'],\n        'Upvotes': post['Upvotes'],\n        'Number of Comments': post['Number of Comments'],\n        'Post Content': post['Post Content'],\n        'Comments': post['Comments'],\n        'Engagement Rate': metrics['engagement_rate'],\n        'Post Age (Hours)': metrics['post_age_hours'],\n        'Engagement Velocity': metrics['engagement_velocity']\n    }\n    \n    items.append({'json': output_item})\n\nreturn items"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        0
+      ],
+      "id": "1d7822e0-cfe2-4f05-b8f3-811557e2a6e4",
+      "name": "Preprocessing and Engagement calculations"
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import json\nimport logging\nfrom typing import Any, Dict, List\n\n# Configure logging with a basic configuration\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')\nlogger = logging.getLogger(__name__)\n\ndef parse_n8n_messages(input_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:\n    \"\"\"\n    Parse the contents of n8n messages by extracting and decoding the JSON\n    contained in the 'message.content' field for each input item.\n\n    Each input item is expected to have a structure like:\n      {\n          \"json\": {\n              \"message\": {\n                  \"role\": \"...\",\n                  \"content\": \"<JSON string here>\"\n              },\n              ...\n          },\n          ...\n      }\n\n    Parameters:\n        input_data (List[Dict[str, Any]]): A list of input items from n8n.\n\n    Returns:\n        List[Dict[str, Any]]: A list of parsed dictionaries (one per item) which\n                              will be returned under the \"json\" key.\n    \"\"\"\n    parsed_messages: List[Dict[str, Any]] = []\n\n    for item in input_data:\n        try:\n            # Each item is expected to have a \"json\" key\n            json_data: Dict[str, Any] = item.get(\"json\", {})\n            message: Dict[str, Any] = json_data.get(\"message\", {})\n            if not message:\n                logger.warning(\"Skipping item with no 'message' field: %s\", item)\n                continue\n\n            content = message.get(\"content\")\n            if content is None:\n                logger.warning(\"Skipping message with no 'content': %s\", message)\n                continue\n\n            # Parse the JSON string contained in the 'content' field\n            parsed_content = json.loads(content)\n            parsed_messages.append(parsed_content)\n        except json.JSONDecodeError as e:\n            logger.error(\"JSON decoding error: %s in item: %s\", e, item)\n        except Exception as e:\n            logger.error(\"Unexpected error: %s in item: %s\", e, item)\n\n    return parsed_messages\n\n# n8n passes input items via _input; no __main__ section is used in a Code node.\ntry:\n    # _input.all() returns an array of items structured as dictionaries.\n    input_data = _input.all()  # type: ignore\nexcept Exception as e:\n    logger.error(\"Error accessing input data: %s\", e)\n    # Return an error message as a valid output item.\n    return [{\"json\": {\"error\": \"Error processing input data\"}}]\n\n# Parse the input messages\nparsed = parse_n8n_messages(input_data)\n\n# Prepare the output: each parsed message is returned as a dictionary under \"json\".\nresult = [{\"json\": item} for item in parsed]\n\n# Return the result as an array of dictionaries. This is the required output structure.\nreturn result"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        0
+      ],
+      "id": "41b0bdf5-e3c4-497a-b691-67b40726df6d",
+      "name": "Open-AI processing"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Subreddit }}",
+                    "rightValue": "RealEstate",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "RealEstate"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7bf028be-aebf-45df-a7d2-b90a23565982",
+                    "leftValue": "={{ $json.Subreddit }}",
+                    "rightValue": "RealEstateAdvice",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "RealEstateAdvice"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e1081c83-20c0-434c-90af-403e083dc347",
+                    "leftValue": "={{ $json.Subreddit }}",
+                    "rightValue": "TorontoRealEstate",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "TorontoRealEstate"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "d9b9aedd-28e3-49a4-80e0-587a4fa1a988",
+                    "leftValue": "={{ $json.Subreddit }}",
+                    "rightValue": "RidiculousRealEstate",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "RidiculousRealEstate"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0e3a0432-edcd-47bb-a0ce-f41e1b0bb179",
+                    "leftValue": "={{ $json.Subreddit }}",
+                    "rightValue": "RealEstateTechnology",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "RealEstateTechnology"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "62e1b12c-2417-49b0-b9d2-aa84bd018b97",
+                    "leftValue": "={{ $json.Subreddit }}",
+                    "rightValue": "RealEstateMarketing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "RealEstateMarketing"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2480,
+        800
+      ],
+      "id": "e08c734d-d3a5-4725-876d-070ddf2df7be",
+      "name": "Switch "
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "=1R86JZjTmgQY8NdPdNIWfRqwupmIUeWPKpLGMh7_dM0M",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "RealEstate",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Post Date": "={{ $json[\"Post Date\"] }}",
+            "Post Title": "={{ $json[\"Post Title\"] }}",
+            "Upvotes": "={{ $json.Upvotes }}",
+            "Number of Comments": "={{ $json[\"Number of Comments\"] }}",
+            "Engagement Rate": "={{ $json[\"Engagement Rate\"] }}",
+            "Engagement Velocity": "={{ $json[\"Engagement Velocity\"] }}",
+            "Key Topics": "={{ $json.key_topics }}",
+            "Sentiment": "={{ $json.sentiment }}",
+            "Market Insights": "={{ $json[\"market_insights\"] }}",
+            "Content Quality Score": "={{ $json.engagement_quality }}",
+            " Post URL": "={{ $json[\"Post URL\"] }}"
+          },
+          "matchingColumns": [
+            "Post Date"
+          ],
+          "schema": [
+            {
+              "id": "Post Date",
+              "displayName": "Post Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post Title",
+              "displayName": "Post Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Upvotes",
+              "displayName": "Upvotes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Number of Comments",
+              "displayName": "Number of Comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Engagement Rate",
+              "displayName": "Engagement Rate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Engagement Velocity",
+              "displayName": "Engagement Velocity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Key Topics",
+              "displayName": "Key Topics",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Market Insights",
+              "displayName": "Market Insights",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Content Quality Score",
+              "displayName": "Content Quality Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": " Post URL",
+              "displayName": " Post URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3040,
+        260
+      ],
+      "id": "55be292d-7b68-4775-a110-c8ec65dd7b1b",
+      "name": "r/RealEstate",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jY5tKr25WkWpDZPC",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 4
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3600,
+        1080
+      ],
+      "id": "1f77d46a-89e8-404c-a014-c93818fa8cd6",
+      "name": "Merge1",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "=1R86JZjTmgQY8NdPdNIWfRqwupmIUeWPKpLGMh7_dM0M",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1150330036,
+          "mode": "list",
+          "cachedResultName": "RealEstateAdvice",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit#gid=1150330036"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Post Date": "={{ $json[\"Post Date\"] }}",
+            "Post Title": "={{ $json[\"Post Title\"] }}",
+            "Upvotes": "={{ $json.Upvotes }}",
+            "Number of Comments": "={{ $json[\"Number of Comments\"] }}",
+            "Engagement Rate": "={{ $json[\"Engagement Rate\"] }}",
+            "Sentiment": "={{ $json.sentiment }}",
+            "Market Insights": "={{ $json.market_insights }}",
+            "Content Quality Score": "={{ $json.engagement_quality }}",
+            " Post URL": "={{ $json[\"Post URL\"] }}",
+            "Engagement Velocity": "={{ $json[\"Engagement Velocity\"] }}",
+            "Key Topics": "={{ $json.key_topics }}"
+          },
+          "matchingColumns": [
+            "Post Date"
+          ],
+          "schema": [
+            {
+              "id": "Post Date",
+              "displayName": "Post Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post Title",
+              "displayName": "Post Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Upvotes",
+              "displayName": "Upvotes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Number of Comments",
+              "displayName": "Number of Comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Engagement Rate",
+              "displayName": "Engagement Rate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Engagement Velocity",
+              "displayName": "Engagement Velocity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Key Topics",
+              "displayName": "Key Topics",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Market Insights",
+              "displayName": "Market Insights",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Content Quality Score",
+              "displayName": "Content Quality Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": " Post URL",
+              "displayName": " Post URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3040,
+        440
+      ],
+      "id": "26d7965c-8734-46e3-889e-8589da1279ab",
+      "name": "RealEstateAdvice",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jY5tKr25WkWpDZPC",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "from datetime import datetime\n\ndef processItems(items):\n    # Initialize summary dictionary for each subreddit\n    summary_by_subreddit = {}\n    \n    # Process all items\n    for item in items:\n        # Get the actual data from the item\n        data = item.get('json', item)  # Try to get json property, fallback to item itself\n        \n        # Extract subreddit from Post URL\n        post_url = data.get(' Post URL', '') or data.get('Post URL', '')\n        subreddit = 'Unknown'\n        \n        if 'reddit.com/r/' in post_url:\n            subreddit = post_url.split('/r/')[1].split('/')[0]\n        \n        # Initialize subreddit data if not exists\n        if subreddit not in summary_by_subreddit:\n            summary_by_subreddit[subreddit] = {\n                'totalPosts': 0,\n                'totalComments': 0,\n                'totalUpvotes': 0,\n                'totalEngagement': 0,\n                'totalQualityScore': 0,\n                'topPosts': [],\n                'keyInsights': set(),\n                'keyTopics': set(),\n                'contentIdeas': []  # New property for content ideas\n            }\n        \n        summary = summary_by_subreddit[subreddit]\n        \n        try:\n            # Update summary data\n            summary['totalPosts'] += 1\n            summary['totalComments'] += int(data.get('Number of Comments', 0))\n            summary['totalUpvotes'] += int(data.get('Upvotes', 0))\n            summary['totalEngagement'] += float(data.get('Engagement Rate', 0))\n            summary['totalQualityScore'] += float(data.get('Content Quality Score', 0))\n            \n            # Add to top posts if meets criteria\n            if float(data.get('Engagement Rate', 0)) > 0.05 or float(data.get('Content Quality Score', 0)) > 3:\n                summary['topPosts'].append({\n                    'title': data.get('Post Title', ''),\n                    'url': post_url,\n                    'engagement_rate': data.get('Engagement Rate', 0),\n                    'upvotes': data.get('Upvotes', 0),\n                    'comments': data.get('Number of Comments', 0),\n                    'quality_score': data.get('Content Quality Score', 0),\n                    'date': data.get('Post Date', '')\n                })\n            \n            # Add content ideas extraction\n            for action_item in data.get('action_items', []):\n                summary['contentIdeas'].append({\n                    'content_idea': action_item,\n                    'post_title': data.get('Post Title', ''),\n                    'post_url': post_url,\n                    'Market_insight': data.get('market_insights', \"\"),\n                    'engagement_rate': float(data.get('Engagement Rate', 0)),\n                    'quality_score': float(data.get('Content Quality Score', 0))\n                })\n            \n            # Add market insights and topics\n            if data.get('Market Insights'):\n                summary['keyInsights'].add(data.get('Market Insights'))\n            if data.get('Key Topics'):\n                for topic in data.get('Key Topics').split(', '):\n                    summary['keyTopics'].add(topic)\n                    \n        except Exception as e:\n            print(f\"Error processing item: {e}\")\n            continue\n    \n    # Format output items\n    output_items = []\n    \n    for subreddit, data in summary_by_subreddit.items():\n        # Calculate averages\n        total_posts = data['totalPosts']\n        avg_engagement = data['totalEngagement'] / total_posts if total_posts > 0 else 0\n        avg_quality = data['totalQualityScore'] / total_posts if total_posts > 0 else 0\n        \n        # Sort top posts by engagement rate\n        sorted_posts = sorted(data['topPosts'], \n                            key=lambda x: (x['engagement_rate'], x['comments'], x['upvotes']), \n                            reverse=True)\n        \n        # Sort and select top content ideas\n        sorted_content_ideas = sorted(\n            data['contentIdeas'],\n            key=lambda x: (-x['engagement_rate'], -x['quality_score'])\n        )[:7]\n        \n        summary_item = {\n            'Subreddit': subreddit,\n            'Date': datetime.now().strftime('%Y-%m-%d'),\n            'Summary': {\n                'Total Posts': total_posts,\n                'Total Comments': data['totalComments'],\n                'Total Upvotes': data['totalUpvotes'],\n                'Average Engagement': round(avg_engagement, 3),\n                'Average Quality Score': round(avg_quality, 2)\n            },\n            'Top Posts': sorted_posts[:5],  # Top 5 posts\n            'Key Market Insights': list(data['keyInsights']),\n            'Trending Topics': list(data['keyTopics'])[:10],  # Top 10 topics\n            'ContentIdeas': [{\n                'Content Idea': idea['content_idea'],\n                'Post Title': idea['post_title'],\n                'Post URL': idea['post_url'], \n              'Market Insight': idea['Market_insight']  \n                 \n            } for idea in sorted_content_ideas]\n        }\n        output_items.append({'json': summary_item})  # Wrap in json property for n8n\n    \n    return output_items\n\n# Process the input items directly\nreturn processItems(items)"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4040,
+        820
+      ],
+      "id": "4eea8297-aa56-43dd-a012-20c1805a4b30",
+      "name": "Content Summary"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "summary",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7366d147-9dac-41cc-b0fe-f59889996110",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "top_post",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "50bca9a4-7769-4f9b-ba9c-9c3fbdf06272",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "insights",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1038bb96-4fc6-4f2b-9a85-9a668bbe940a",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "content_idea",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        4640,
+        280
+      ],
+      "id": "11af71e0-c7a3-4cb9-89ec-304c2b18ac25",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU",
+          "mode": "list",
+          "cachedResultName": "Reddit Scraping Trial (Kingsley)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2086413958,
+          "mode": "list",
+          "cachedResultName": "Content Summary",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit#gid=2086413958"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $json.Date }}",
+            "Subreddit": "={{ $json.Subreddit }}",
+            "Total Comments": "={{ $json.Total_Comments }}",
+            "Average Engagement": "={{ $json.Average_Engagement }}",
+            "Total Upvotes": "={{ $json.Total_Upvotes }}",
+            "Average Quality Score": "={{ $json.Average_Quality_Score }}",
+            "Total Post scrapped ": "={{ $json.Total_Posts }}"
+          },
+          "matchingColumns": [
+            "Date"
+          ],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Subreddit",
+              "displayName": "Subreddit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Total Post scrapped ",
+              "displayName": "Total Post scrapped ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Total Comments",
+              "displayName": "Total Comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Total Upvotes",
+              "displayName": "Total Upvotes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Average Engagement",
+              "displayName": "Average Engagement",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Average Quality Score",
+              "displayName": "Average Quality Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        5300,
+        -260
+      ],
+      "id": "7c32f6c8-96e3-49f3-a7d0-1962bee7acdf",
+      "name": "Content sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NhjQ6L8wmj50Ohkp",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU",
+          "mode": "list",
+          "cachedResultName": "Reddit Scraping Trial (Kingsley)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1350558014,
+          "mode": "list",
+          "cachedResultName": "Market Insights",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit#gid=1350558014"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Subreddit",
+              "displayName": "Subreddit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Market_Insights",
+              "displayName": "Market_Insights",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Trending_Topics",
+              "displayName": "Trending_Topics",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        5300,
+        440
+      ],
+      "id": "02a68f4d-5e27-404d-9053-9add1fab8b0c",
+      "name": "Market insight",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NhjQ6L8wmj50Ohkp",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/trudax~reddit-scraper-lite/run-sync-get-dataset-items?token=apify_api_PheizFgwbeO2Mx8MwqwFsx6CDOydoc4DD1qi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n    \"debugMode\": false,\n    \"includeNSFW\": true,\n    \"maxComments\": 20,\n    \"maxCommunitiesCount\": 2,\n    \"maxItems\": 700,\n    \"maxPostCount\": 10,\n    \"maxUserCount\": 5,\n    \"proxy\": {\n        \"useApifyProxy\": true,\n        \"apifyProxyGroups\": [\n            \"RESIDENTIAL\"\n        ]\n    },\n    \"scrollTimeout\": 60,\n    \"searchComments\": false,\n    \"searchCommunities\": false,\n    \"searchPosts\": false,\n    \"searchUsers\": false,\n    \"skipComments\": false,\n    \"skipCommunity\": false,\n    \"skipUserPosts\": false,\n    \"sort\": \"new\",\n     \"startUrls\": [\n         { \"url\": \"https://www.reddit.com/r/RealEstate/new\", \"method\": \"GET\" },\n         { \"url\": \"https://www.reddit.com/r/TorontoRealEstate/new\", \"method\": \"GET\" },\n         { \"url\": \"https://www.reddit.com/r/RidiculousRealEstate/new\", \"method\": \"GET\" },\n         { \"url\": \"https://www.reddit.com/r/RealEstateAdvice/new\", \"method\": \"GET\" },\n         { \"url\": \"https://www.reddit.com/r/RealEstateTechnology/new\", \"method\": \"GET\" },\n         { \"url\": \"https://www.reddit.com/r/RealEstateMarketing/new\", \"method\": \"GET\" }\n     ]\n}",
+        "options": {
+          "timeout": 1000000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "21039922-870a-4770-9610-aa973f104125",
+      "name": "APIFY Reddit Scraper Lite"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "=1R86JZjTmgQY8NdPdNIWfRqwupmIUeWPKpLGMh7_dM0M",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 776831708,
+          "mode": "list",
+          "cachedResultName": "TorontoRealEstate",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit#gid=776831708"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Post Date": "={{ $json[\"Post Date\"] }}",
+            "Post Title": "={{ $json[\"Post Title\"] }}",
+            "Upvotes": "={{ $json.Upvotes }}",
+            "Number of Comments": "={{ $json[\"Number of Comments\"] }}",
+            "Sentiment": "={{ $json.sentiment }}",
+            "Content Quality Score": "={{ $json.engagement_quality }}",
+            " Post URL": "={{ $json[\"Post URL\"] }}",
+            "Engagement Velocity": "={{ $json[\"Engagement Velocity\"] }}",
+            "Engagement Rate": "={{ $json[\"Engagement Rate\"] }}",
+            "Market Insights": "={{ $json.market_insights }}",
+            "Key Topics": "={{ $json.key_topics }}"
+          },
+          "matchingColumns": [
+            "Post Date"
+          ],
+          "schema": [
+            {
+              "id": "Post Date",
+              "displayName": "Post Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post Title",
+              "displayName": "Post Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Upvotes",
+              "displayName": "Upvotes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Number of Comments",
+              "displayName": "Number of Comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engagement Rate",
+              "displayName": "Engagement Rate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engagement Velocity",
+              "displayName": "Engagement Velocity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Key Topics",
+              "displayName": "Key Topics",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Market Insights",
+              "displayName": "Market Insights",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Content Quality Score",
+              "displayName": "Content Quality Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": " Post URL",
+              "displayName": " Post URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3040,
+        620
+      ],
+      "id": "ada39e98-5abb-4768-8ef9-c3a71633a345",
+      "name": "TorontoRealEstate",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jY5tKr25WkWpDZPC",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import json\n\ndef processItems(items):\n    print(f\"Input type: {type(items)}\")\n    print(f\"Input length: {len(items) if isinstance(items, (list, str)) else 'N/A'}\")\n    \n    all_items = []\n    \n    # If input is a string, try to parse JSON\n    if isinstance(items, str):\n        try:\n            items = json.loads(items)\n        except json.JSONDecodeError as e:\n            print(f\"JSON parsing error: {e}\")\n            return []\n    \n    # Process each item. In n8n a given item might be of the form {\"json\": {...}}\n    for item in items:\n        # Get actual data from the item. If \"json\" exists, use it.\n        data = item.get(\"json\", item)\n        \n        try:\n            # Process Summary item\n            all_items.append({\n                \"json\": {\n                    \"type\": \"summary\",\n                    \"Date\": data[\"Date\"],\n                    \"Subreddit\": data[\"Subreddit\"],\n                    \"Total_Posts\": data[\"Summary\"][\"Total Posts\"],\n                    \"Total_Comments\": data[\"Summary\"][\"Total Comments\"],\n                    \"Total_Upvotes\": data[\"Summary\"][\"Total Upvotes\"],\n                    \"Average_Engagement\": data[\"Summary\"][\"Average Engagement\"],\n                    \"Average_Quality_Score\": data[\"Summary\"][\"Average Quality Score\"]\n                }\n            })\n            \n            # Process each Top Post item\n            for post in data[\"Top Posts\"]:\n                all_items.append({\n                    \"json\": {\n                        \"type\": \"top_post\",\n                        \"Date\": data[\"Date\"],\n                        \"Subreddit\": data[\"Subreddit\"],\n                        \"Post_Title\": post[\"title\"],\n                        \"URL\": post[\"url\"],\n                        \"Engagement_Rate\": post[\"engagement_rate\"],\n                        \"Comments\": post[\"comments\"],\n                        \"Upvotes\": post[\"upvotes\"],\n                        \"Quality_Score\": post[\"quality_score\"],\n                        \"Post_Date\": post[\"date\"]\n                    }\n                })\n            \n            # Process Content Ideas items\n            if \"ContentIdeas\" in data:\n                for idea in data[\"ContentIdeas\"]:\n                    all_items.append({\n                        \"json\": {\n                            \"type\": \"content_idea\",\n                            \"Date\": data[\"Date\"],\n                            \"Subreddit\": data[\"Subreddit\"],\n                            \"Content_Idea\": idea[\"Content Idea\"],\n                            \"Post_Title\": idea[\"Post Title\"],\n                            \"Market Insight\": idea['Market Insight'],\n                            \"Post_URL\": idea[\"Post URL\"]\n                        }\n                    })\n            \n            # Process Insights item\n            all_items.append({\n                \"json\": {\n                    \"type\": \"insights\",\n                    \"Date\": data[\"Date\"],\n                    \"Subreddit\": data[\"Subreddit\"],\n                    \"Market_Insights\": \"\\n\\n\".join(data[\"Key Market Insights\"]),\n                    \"Trending_Topics\": \", \".join(data[\"Trending Topics\"])\n                }\n            })\n            \n        except Exception as e:\n            print(f\"Error processing item: {str(e)}\")\n            print(\"Problematic item data:\", data)\n    \n    print(f\"Generated {len(all_items)} output items\")\n    return all_items\n\ndef debug_process(items):\n    print(\"Starting processing...\")\n    result = processItems(items)\n    print(\"Processing complete\")\n    print(f\"Output length: {len(result)}\")\n    return result\n\n# Process the input items with debugging\nreturn debug_process(items)"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4700,
+        820
+      ],
+      "id": "ba434226-aba2-4777-b34e-68a6e03154e2",
+      "name": "Content split"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU",
+          "mode": "list",
+          "cachedResultName": "Reddit Scraping Trial (Kingsley)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 697747529,
+          "mode": "list",
+          "cachedResultName": "Content Ideas",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit#gid=697747529"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $json.Date }}",
+            "Subreddit": "={{ $json.Subreddit }}",
+            "Content Idea": "={{ $json.Content_Idea }}",
+            "Post": "={{ $json.Post_Title }}",
+            "LInk Post": "={{ $json.Post_URL }}",
+            "Market Insight": "={{ $json[\"Market Insight\"] }}"
+          },
+          "matchingColumns": [
+            "Post"
+          ],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Subreddit",
+              "displayName": "Subreddit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Content Idea",
+              "displayName": "Content Idea",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post",
+              "displayName": "Post",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Market Insight",
+              "displayName": "Market Insight",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LInk Post",
+              "displayName": "LInk Post",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        5300,
+        740
+      ],
+      "id": "bdfff0c0-cede-449c-84a6-c5609f249d06",
+      "name": "Content ideas",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NhjQ6L8wmj50Ohkp",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "emma@salesgenius.co, arslan@salesgenius.co",
+        "subject": "=WEEKLY CONTENT IDEAS ",
+        "message": "={{$json[\"emailContent\"]}}",
+        "options": {
+          "senderName": ""
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        6120,
+        720
+      ],
+      "id": "f418f1c8-e0e7-4ede-abd5-568a77acea63",
+      "name": "Gmail",
+      "webhookId": "6cf9ede7-fbd0-4c4a-98f1-d02d14aa05db",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "R2ppJs5mnCWrQakn",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nlet contentIdeas = items.map((item, index) => ({\n  number: index + 1,\n  idea: item.json[\"Content Idea\"],\n  post: item.json[\"Post\"],\n  link: item.json[\"LInk Post\"],\n  Market_Insight: item.json['Market Insight']\n}));\n\nreturn [{\n  json: {\n    date: items[0].json.Date,\n    subreddit: items[0].json.Subreddit,\n    contentIdeas: contentIdeas\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5520,
+        740
+      ],
+      "id": "5e1b22c7-19b4-43ce-a3dd-7b7bdd990fff",
+      "name": "Combine Ideas "
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst data = items[0].json;\n\n// Add responsive meta tag and CSS\nconst responsiveStyles = `\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<style>\n  @media screen and (max-width: 600px) {\n    .container {\n      padding: 15px !important;\n    }\n    .content-wrapper {\n      padding: 20px !important;\n    }\n    .header-title {\n      font-size: 24px !important;\n    }\n    .content-card {\n      padding: 20px !important;\n      margin: 15px 0 !important;\n    }\n    .meta-info {\n      flex-direction: column !important;\n      gap: 10px !important;\n    }\n    .source-section {\n      flex-direction: column !important;\n      gap: 15px !important;\n      align-items: flex-start !important;\n    }\n    .idea-number {\n      position: static !important;\n      display: inline-block !important;\n      margin-bottom: 10px !important;\n    }\n  }\n</style>`;\n\nlet contentIdeasHtml = data.contentIdeas.map(item => `\n  <div class=\"content-card\" style=\"\n    background-color: #ffffff; \n    border: 1px solid #e1e8ed; \n    border-radius: 12px; \n    padding: 25px; \n    margin: 25px 0; \n    box-shadow: 0 4px 6px rgba(0,0,0,0.06);\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\n    position: relative;\n    overflow: hidden;\">\n    \n    <div style=\"\n      border-left: 4px solid #3498db; \n      padding-left: 20px;\n      position: relative;\">\n      <span class=\"idea-number\" style=\"\n        position: absolute;\n        top: -5px;\n        right: 0;\n        font-size: 13px;\n        color: #95a5a6;\n        background: #f8f9fa;\n        padding: 4px 8px;\n        border-radius: 12px;\">\n        #${item.number}\n      </span>\n      <h3 style=\"\n        color: #2c3e50; \n        margin: 0 0 20px 0; \n        font-size: 20px;\n        font-weight: 600;\n        letter-spacing: -0.5px;\">\n        Content Idea\n      </h3>\n      <p style=\"\n        color: #34495e; \n        margin: 0 0 20px 0; \n        font-size: 16px; \n        line-height: 1.7;\n        font-weight: 400;\n        word-wrap: break-word;\">\n        ${item.idea}\n      </p>\n    </div>\n\n    <div style=\"\n      background-color: #f8f9fa; \n      border-radius: 10px; \n      padding: 20px; \n      margin-top: 20px;\n      border: 1px solid #eef2f7;\">\n      <h4 style=\"\n        color: #2c3e50; \n        margin: 0 0 12px 0; \n        font-size: 17px;\n        font-weight: 600;\">\n        💡 Market Insight\n      </h4>\n      <p style=\"\n        color: #5d6d7e; \n        margin: 0; \n        font-size: 15px; \n        line-height: 1.7;\n        word-wrap: break-word;\">\n        ${item.Market_Insight}\n      </p>\n    </div>\n\n    <div class=\"source-section\" style=\"\n      margin-top: 20px; \n      padding-top: 20px; \n      border-top: 1px solid #eef2f7; \n      font-size: 14px; \n      color: #7f8c8d;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\">\n      <div style=\"word-wrap: break-word; max-width: 70%;\">\n        <strong style=\"color: #34495e;\">Source:</strong> \n        <span style=\"color: #7f8c8d;\">${item.post}</span>\n      </div>\n      <a href=\"${item.link}\" style=\"\n        color: #3498db; \n        text-decoration: none; \n        display: inline-flex;\n        align-items: center;\n        font-weight: 500;\n        transition: color 0.2s ease;\n        white-space: nowrap;\">\n        View Original Post \n        <span style=\"margin-left: 4px;\">→</span>\n      </a>\n    </div>\n  </div>\n`).join('');\n\nconst emailHtml = `\n<!DOCTYPE html>\n<html>\n<head>\n  ${responsiveStyles}\n</head>\n<body style=\"margin: 0; padding: 0;\">\n  <div class=\"container\" style=\"\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; \n    max-width: 850px; \n    margin: 0 auto; \n    padding: 30px; \n    background-color: #f9fafb;\">\n    \n    <div class=\"content-wrapper\" style=\"\n      background-color: #ffffff; \n      padding: 40px; \n      border-radius: 16px; \n      box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 10px 15px rgba(0,0,0,0.1);\">\n      \n      <div style=\"text-align: center; margin-bottom: 40px;\">\n        <h1 class=\"header-title\" style=\"\n          color: #2c3e50; \n          margin-bottom: 15px; \n          font-size: 28px;\n          font-weight: 700;\n          letter-spacing: -0.5px;\">\n          Weekly Content Ideas Report\n        </h1>\n        <div style=\"\n          width: 60px;\n          height: 4px;\n          background: linear-gradient(to right, #3498db, #2980b9);\n          margin: 0 auto;\">\n        </div>\n      </div>\n      \n      <div style=\"\n        background: linear-gradient(to right, #f8f9fa, #f1f4f6); \n        border-radius: 12px; \n        padding: 20px;\n        margin-bottom: 35px;\n        border: 1px solid #eef2f7;\">\n        <div class=\"meta-info\" style=\"\n          color: #7f8c8d; \n          font-size: 16px;\n          display: flex;\n          justify-content: space-between;\n          flex-wrap: wrap;\n          gap: 15px;\">\n          <div>\n            <strong style=\"color: #34495e;\">Date:</strong> ${data.date}\n          </div>\n          <div>\n            <strong style=\"color: #34495e;\">Subreddit:</strong> r/${data.subreddit}\n          </div>\n        </div>\n      </div>\n\n      <div style=\"margin: 35px 0;\">\n        <h2 style=\"\n          color: #2c3e50; \n          margin-bottom: 25px; \n          font-size: 22px;\n          font-weight: 600;\">\n          Top Content Ideas\n        </h2>\n        ${contentIdeasHtml}\n      </div>\n\n      <div style=\"\n        margin-top: 40px; \n        padding-top: 25px; \n        border-top: 1px solid #eef2f7; \n        color: #95a5a6; \n        font-size: 14px; \n        text-align: center;\">\n        <p style=\"line-height: 1.6;\">\n          This report is automatically generated based on trending discussions\n          and engagement analysis from r/${data.subreddit}.\n        </p>\n      </div>\n    </div>\n  </div>\n</body>\n</html>`;\n\n// Return the result as an array of items\nreturn items.map(item => ({\n  json: {\n    emailContent: emailHtml\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5740,
+        740
+      ],
+      "id": "f1008e3a-d490-4c2e-bc2e-16e5825237c4",
+      "name": "Generate Html"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "=1R86JZjTmgQY8NdPdNIWfRqwupmIUeWPKpLGMh7_dM0M",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 24083149,
+          "mode": "list",
+          "cachedResultName": "RidiculousRealEstate ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit#gid=24083149"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Post Date": "={{ $json[\"Post Date\"] }}",
+            "Post Title": "={{ $json[\"Post Title\"] }}",
+            "Upvotes": "={{ $json.Upvotes }}",
+            "Number of Comments": "={{ $json[\"Number of Comments\"] }}",
+            "Sentiment": "={{ $json.sentiment }}",
+            "Content Quality Score": "={{ $json.engagement_quality }}",
+            " Post URL": "={{ $json[\"Post URL\"] }}",
+            "Engagement Velocity": "={{ $json[\"Engagement Velocity\"] }}",
+            "Engagement Rate": "={{ $json[\"Engagement Rate\"] }}",
+            "Key Topics": "={{ $json.key_topics }}"
+          },
+          "matchingColumns": [
+            "Post Date"
+          ],
+          "schema": [
+            {
+              "id": "Post Date",
+              "displayName": "Post Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post Title",
+              "displayName": "Post Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Upvotes",
+              "displayName": "Upvotes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Number of Comments",
+              "displayName": "Number of Comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engagement Rate",
+              "displayName": "Engagement Rate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engagement Velocity",
+              "displayName": "Engagement Velocity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Key Topics",
+              "displayName": "Key Topics",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Content Quality Score",
+              "displayName": "Content Quality Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": " Post URL",
+              "displayName": " Post URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3040,
+        820
+      ],
+      "id": "a5d7e3f3-2e03-43b7-bfc8-8af41feddf32",
+      "name": "RidiculousRealEstate",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jY5tKr25WkWpDZPC",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "=1R86JZjTmgQY8NdPdNIWfRqwupmIUeWPKpLGMh7_dM0M",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "=980374689",
+          "mode": "id"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Post Date": "={{ $json[\"Post Date\"] }}",
+            "Post Title": "={{ $json[\"Post Title\"] }}",
+            "Upvotes": "={{ $json.Upvotes }}",
+            "Number of Comments": "={{ $json[\"Number of Comments\"] }}",
+            "Sentiment": "={{ $json.sentiment }}",
+            "Content Quality Score": "={{ $json.engagement_quality }}",
+            " Post URL": "={{ $json[\"Post URL\"] }}",
+            "Engagement Velocity": "={{ $json[\"Engagement Velocity\"] }}",
+            "Engagement Rate": "={{ $json[\"Engagement Rate\"] }}",
+            "Market Insights": "={{ $json.market_insights }}",
+            "Key Topics": "={{ $json.key_topics }}"
+          },
+          "matchingColumns": [
+            "Post Date"
+          ],
+          "schema": [
+            {
+              "id": "Post Date",
+              "displayName": "Post Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post Title",
+              "displayName": "Post Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Upvotes",
+              "displayName": "Upvotes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Number of Comments",
+              "displayName": "Number of Comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engagement Rate",
+              "displayName": "Engagement Rate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engagement Velocity",
+              "displayName": "Engagement Velocity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Key Topics",
+              "displayName": "Key Topics",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Market Insights",
+              "displayName": "Market Insights",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Action Items",
+              "displayName": "Action Items",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Content Quality Score",
+              "displayName": "Content Quality Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": " Post URL",
+              "displayName": " Post URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3040,
+        1040
+      ],
+      "id": "7f3585d8-0222-4f79-9f91-01dcea7dcdc8",
+      "name": "RealEstateTechnology ",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jY5tKr25WkWpDZPC",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "=1R86JZjTmgQY8NdPdNIWfRqwupmIUeWPKpLGMh7_dM0M",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1388363071,
+          "mode": "list",
+          "cachedResultName": "RealEstateMarketing ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit#gid=1388363071"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Post Date": "={{ $json[\"Post Date\"] }}",
+            "Post Title": "={{ $json[\"Post Title\"] }}",
+            "Upvotes": "={{ $json.Upvotes }}",
+            "Number of Comments": "={{ $json[\"Number of Comments\"] }}",
+            "Sentiment": "={{ $json.sentiment }}",
+            "Content Quality Score": "={{ $json.engagement_quality }}",
+            " Post URL": "={{ $json[\"Post URL\"] }}",
+            "Engagement Velocity": "={{ $json[\"Engagement Velocity\"] }}",
+            "Engagement Rate": "={{ $json[\"Engagement Rate\"] }}",
+            "Market Insights": "={{ $json.market_insights }}",
+            "Key Topics": "={{ $json.key_topics }}"
+          },
+          "matchingColumns": [
+            "Post Date"
+          ],
+          "schema": [
+            {
+              "id": "Post Date",
+              "displayName": "Post Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post Title",
+              "displayName": "Post Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Upvotes",
+              "displayName": "Upvotes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Number of Comments",
+              "displayName": "Number of Comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engagement Rate",
+              "displayName": "Engagement Rate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engagement Velocity",
+              "displayName": "Engagement Velocity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Key Topics",
+              "displayName": "Key Topics",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Market Insights",
+              "displayName": "Market Insights",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Action Items",
+              "displayName": "Action Items",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Content Quality Score",
+              "displayName": "Content Quality Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": " Post URL",
+              "displayName": " Post URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3040,
+        1280
+      ],
+      "id": "74c79bdb-5d45-4084-9c5f-3bb889209642",
+      "name": "RealEstateMarketing ",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jY5tKr25WkWpDZPC",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU",
+          "mode": "list",
+          "cachedResultName": "Reddit Scraping Trial (Kingsley)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1946634543,
+          "mode": "list",
+          "cachedResultName": "Top Posts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13WDGwo1v91hDTslICaZ8efpbJLZvkV_QMMJ6zWelKXU/edit#gid=1946634543"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Subreddit": "={{ $json.Subreddit }}",
+            "Engagement Rate": "={{ $json.Engagement_Rate }}",
+            "Post": "={{ $json.Post_Title }}",
+            "Comments": "={{ $json.Comments }}",
+            "Upvotes": "={{ $json.Upvotes }}",
+            "Content Quality Score": "={{ $json.Quality_Score }}",
+            "Link Post": "={{ $json.URL }}",
+            "Date": "={{ $json.Date }}"
+          },
+          "matchingColumns": [
+            "Date"
+          ],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Subreddit",
+              "displayName": "Subreddit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post",
+              "displayName": "Post",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Engagement Rate",
+              "displayName": "Engagement Rate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Comments",
+              "displayName": "Comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Upvotes",
+              "displayName": "Upvotes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Content Quality Score",
+              "displayName": "Content Quality Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Link Post",
+              "displayName": "Link Post",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        5300,
+        100
+      ],
+      "id": "8061855b-33b4-423e-b5ed-86e6859afe6d",
+      "name": "Top Post",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NhjQ6L8wmj50Ohkp",
+          "name": "Google Sheets account 2"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-11T20:28:40.926Z",
+      "updatedAt": "2025-02-11T20:28:40.926Z",
+      "role": "workflow:owner",
+      "workflowId": "WIMFXk0Q8zT54mGO",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-12T21:52:59.000Z",
+  "versionId": "def5ec4a-f316-410a-ba44-ab017d042bad"
+}
