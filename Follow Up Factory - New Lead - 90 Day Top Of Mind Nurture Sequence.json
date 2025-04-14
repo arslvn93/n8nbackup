@@ -1,0 +1,217 @@
+{
+  "active": true,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-11T16:55:38.390Z",
+  "id": "0XM3UzCAPTEV6LAd",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Follow Up Factory - New Lead - 90 Day Top Of Mind Nurture Sequence",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "mode": "webhook",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -100,
+        -20
+      ],
+      "id": "668b8647-346a-4f8e-a92e-0ff128665a2c",
+      "name": "When chat message received",
+      "webhookId": "ae3b3ca8-895a-47dc-8ea1-8ba9f0e5fc8f"
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=### Overview  \nYou are an AI agent designed to help real estate agents stay top of mind with warm leads over 90 days without feeling pushy. These leads have expressed interest but aren’t ready to act immediately—meaning the focus is on building trust, authority, and anticipation. The nurture sequence includes strategic follow-ups via phone calls, text messages, and emails, ensuring consistent engagement without overwhelming the lead.  \n\n### Context  \n- You create **persona-specific** nurture sequences based on user input such as:\n  - First-time condo buyers  \n  - Upsizing families selling for the first time  \n  - Downsizers moving into smaller homes  \n  - Investors seeking the perfect property  \n- Campaigns leverage **high-converting messaging** inspired by top copywriters and sales experts, including:\n  - Dan Kennedy, Chad S. White, Ramit Sethi, Alex Hormozi’s team  \n- Email subject lines follow **National Enquirer-style** principles, leveraging fear, urgency, and FOMO to maximize open rates and engagement.  \n- Nurture campaigns should be designed for **Follow Up Boss, Lofty, KVCore, or Sync CRM** to ensure automation compatibility.  \n- Email content is retrieved and optimized using the **Pinecone vector tool**: **ryans_emails** (Index: **salesgenius1**).  \n\n### Instructions  \n1. **Before generating a nurture campaign, ask the following clarifying questions:**  \n   - What type of warm lead is this? (Buyer, seller, investor, etc.)  \n   - What market insights would be most relevant?  \n   - What CRM is being used? (Follow Up Boss, Lofty, KVCore, Sync)  \n   - Should the tone be professional, casual, or fun?  \n2. **Ensure a balanced approach with one email, one text, and one call every 10-14 days.**  \n3. **Use educational and authority-building content**, including:\n   - Market updates\n   - Buyer/seller tips\n   - Exclusive opportunities  \n4. **Include soft & low-commitment CTAs**, such as:\n   - \"Curious about your options? Let’s chat!\"\n   - \"Want to see off-market listings? Reply 'Yes!'\"  \n5. **Leverage psychological framing**, using:\n   - Loss aversion (FOMO)\n   - Curiosity-driven subject lines\n   - Storytelling to create inevitable engagement  \n6. **Ensure the final output follows this exact JSON format:**  \n\n```json\n{\n  \"DripSequence\": [\n    {\n      \"step\": 1,\n      \"day\": 0,\n      \"type\": \"Email\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"The Market Shift You Can’t Afford to Ignore!\",\n      \"body\": \"Hey [First Name],\\n\\nBig moves are happening in the [market name] real estate space. Here’s what you need to know to stay ahead.\\n\\n📊 Latest trends that could affect your buying/selling power\\n💡 Hidden opportunities savvy buyers are jumping on\\n\\nThinking about making a move? Let’s chat!\",\n      \"notes\": \"Use curiosity and urgency to drive engagement.\"\n    },\n    {\n      \"step\": 2,\n      \"day\": 7,\n      \"type\": \"SMS\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 7,\n      \"subject\": \"\",\n      \"body\": \"Hey [First Name], got a quick market insight that could be a game-changer for you. Want the details? Reply 'Yes'!\",\n      \"notes\": \"Short, curiosity-driven message to encourage responses.\"\n    },\n    {\n      \"step\": 3,\n      \"day\": 14,\n      \"type\": \"Phone Call\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 7,\n      \"subject\": \"\",\n      \"body\": \"[Live phone call – no voicemail]\",\n      \"notes\": \"Reinforce market insights and create a Value Contact Point.\"\n    },\n    {\n      \"step\": 4,\n      \"day\": 21,\n      \"type\": \"Email\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 7,\n      \"subject\": \"Hidden Market Opportunities You Need to See\",\n      \"body\": \"Hey [First Name],\\n\\nMost buyers/sellers miss these off-market opportunities—don’t be one of them.\\n\\n🔥 What’s inside?\\n- Exclusive insights on under-the-radar properties\\n- What the top 1% of investors know that others don’t\\n\\nWant access? Let’s chat!\",\n      \"notes\": \"Use exclusivity to drive engagement.\"\n    },\n    {\n      \"step\": 5,\n      \"day\": 28,\n      \"type\": \"SMS\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 7,\n      \"subject\": \"\",\n      \"body\": \"Hey [First Name], I’ve got some inside info on an upcoming property that might fit your goals. Want to hear more?\",\n      \"notes\": \"Encourage curiosity and immediate response.\"\n    }\n  ]\n}\n```\n\n### Final Notes  \n- **DO NOT generate responses in plain text.** The final output must be a JSON object structured under **\"DripSequence\"**.  \n- Ensure messaging aligns with high-impact, engagement-driven strategies while avoiding pushy sales tactics.  \n- Every touchpoint should provide value, keeping the agent top of mind.  \n- Personalize messaging based on market trends and lead personas.  \n- Align campaign strategies with proven real estate sales methodologies.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        140,
+        -20
+      ],
+      "id": "62228eb6-22ba-49e0-8725-e444b3563d18",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini",
+          "mode": "list",
+          "cachedResultName": "o3-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -20,
+        200
+      ],
+      "id": "a8c5f4d0-491b-417d-ae75-ec4e99b4eb01",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        140,
+        200
+      ],
+      "id": "9f0ca556-a5be-4999-89de-ad735ba9f127",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "J7FvW5h51etk1zFV",
+          "name": "Postgres account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"DripSequence\": [\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        320,
+        240
+      ],
+      "id": "501ee3a8-2b1f-46fe-aa1d-1c5a9eeb5a1e",
+      "name": "Structured Output Parser"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-11T16:55:38.399Z",
+      "updatedAt": "2025-02-11T16:55:38.399Z",
+      "role": "workflow:owner",
+      "workflowId": "0XM3UzCAPTEV6LAd",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-14T16:56:51.849Z",
+      "updatedAt": "2025-02-14T16:56:51.849Z",
+      "id": "g5SEFenIZT3364V0",
+      "name": "Follow Up Factory"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-02-20T16:05:32.000Z",
+  "versionId": "4fc16807-ae2b-419e-9db3-df3ea3bbc2e0"
+}
