@@ -1,0 +1,536 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "OpenAI - Grouping and Enumation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - Grouping and Enumation": {
+      "main": [
+        [
+          {
+            "node": "OpenAI - For 3 Blogs",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI1 - For 3 Podcast",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI - For 3 Video Script",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI - For 3 Email Newsletters",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI - 9 Social Media Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - For 3 Blogs": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI - 9 Social Media Posts": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "OpenAI1 - For 3 Podcast": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - For 3 Email Newsletters": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "AWS S3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - For 3 Video Script": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-12T16:12:57.235Z",
+  "id": "yTspf6NN8XVCK1MJ",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Podcast Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "13f54295-1edd-42da-824c-0b4f447e869f",
+        "options": {
+          "binaryPropertyName": "data"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -840,
+        320
+      ],
+      "id": "ba54671b-f183-4267-9fcb-363cfe32df8a",
+      "name": "Webhook",
+      "webhookId": "13f54295-1edd-42da-824c-0b4f447e869f"
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "binaryPropertyName": "data0",
+        "options": {
+          "keepSource": "json"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        320
+      ],
+      "id": "350709bc-29f8-412f-a911-e2dea4eb30dc",
+      "name": "Extract from File",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "From this text, create:\n- 03 Podcast outlines.\n\nThe sum of all podcasts must cover all enumerated points.\nWell explained and ready to recording.\n\nAlso create by each:\n- Podcast content.\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4160b8d3-7bd5-4381-9d35-6ca3400f8a49",
+      "name": "OpenAI1 - For 3 Podcast",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.data }}"
+            },
+            {
+              "content": "I have this text, remove time and group it by topics and enumerate. Try to explain it better with simple terms.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -400,
+        320
+      ],
+      "id": "ea28a00a-1162-49a3-b00e-4ea83ba62fcb",
+      "name": "OpenAI - Grouping and Enumation",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "From this text, create:\n- 03 Blog drafts.\nThe sum of all blog draft must cover all enumerated points.\nWell explained and ready to publish.\nAlso create by each:\n- Blog content.\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        160
+      ],
+      "id": "f1bbe016-f7e4-464b-b8a7-9816d3db08ae",
+      "name": "OpenAI - For 3 Blogs",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "From this text, create:\n- 03 Email newsletters.\nThe sum of all email newsletters must cover all enumerated points.\nWell explained and ready to send.\nAlso create by each:\n- Call to Actions buttons.\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        480
+      ],
+      "id": "f88a8676-5cb9-478e-b74f-8a0ccb569ed8",
+      "name": "OpenAI - For 3 Email Newsletters",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "From this text, create:\n- 03 for tweets, Facebook, Instagram carousels.\nThe sum of all the text generated by each social network must cover all the points listed.\nWell explained and ready to post.\nAlso consider by each:\n- Small messages due to social networks guidelines.\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        640
+      ],
+      "id": "6bea59d4-3efd-4b32-b14a-f167a0d2b6b5",
+      "name": "OpenAI - 9 Social Media Posts",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 5
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        400,
+        280
+      ],
+      "id": "e18f4d65-9371-4e64-9c4d-6187f9fcaf1f",
+      "name": "Merge",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "html": "{{ $json.html }}"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        760,
+        320
+      ],
+      "id": "f970ada9-f641-4017-8ead-afe33caf94e4",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "From this text, create:\n- 03 video scripts.\nThe sum of all video scripts must cover all enumerated points.\nWell explained and ready to generate.\nAlso create by each:\n- Background, colors, and actors prompt\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        320
+      ],
+      "id": "eb6a07e6-3a66-4d61-a815-babca203dc95",
+      "name": "OpenAI - For 3 Video Script",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Define el encabezado y pie del documento HTML\nconst htmlHeader = `<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Extracted Messages</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      margin: 20px;\n    }\n    h1 {\n      color: #5563de;\n    }\n    .message-item {\n      border: 1px solid #ccc;\n      padding: 10px;\n      margin-bottom: 10px;\n      border-radius: 4px;\n      background-color: #f9f9f9;\n    }\n  </style>\n</head>\n<body>\n`;\n\nconst htmlFooter = `\n</body>\n</html>\n`;\n\n// Inicializa el cuerpo del HTML\nlet htmlBody = \"\";\n\n// Recorre cada item del array y extrae el contenido\nitems.forEach((item, index) => {\n  // Se asume que cada objeto tiene la estructura:\n  // { json: { message: { content: \"...\" } } }\n  let content = \"\";\n  if (item.json.message && item.json.message.content) {\n    content = item.json.message.content;\n  } else {\n    content = \"No content available\";\n  }\n  \n  // Agrega un bloque para cada mensaje con su índice\n  htmlBody += `<div class=\"message-item\">\n    <h2>Message ${index + 1}</h2>\n    <p>${content}</p>\n  </div>\n`;\n});\n\n// Combina encabezado, cuerpo y pie\nconst fullHtml = htmlHeader + htmlBody + htmlFooter;\n\n// Devuelve el resultado en un objeto JSON con la propiedad \"html\"\nreturn [{ json: { html: fullHtml } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        320
+      ],
+      "id": "fed8041c-1fcb-4b8e-9ade-f036b1eb98b6",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "salesgenius",
+        "fileName": "=reports/report{{ new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0,12) }}.html",
+        "binaryData": false,
+        "fileContent": "={{ $json.html }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.awsS3",
+      "typeVersion": 2,
+      "position": [
+        940,
+        320
+      ],
+      "id": "02c946b3-af21-49b4-9ee5-4aae4cc4ff9c",
+      "name": "AWS S3",
+      "credentials": {
+        "aws": {
+          "id": "WORJPXV9jAxr4ytJ",
+          "name": "AWS account"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-12T16:12:57.246Z",
+      "updatedAt": "2025-02-12T16:12:57.246Z",
+      "role": "workflow:owner",
+      "workflowId": "yTspf6NN8XVCK1MJ",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-02-12T17:31:47.000Z",
+  "versionId": "a8c031e3-9831-48d2-9925-83e5a117dde9"
+}
