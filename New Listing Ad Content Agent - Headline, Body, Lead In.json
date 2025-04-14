@@ -1,0 +1,1523 @@
+{
+  "active": false,
+  "connections": {
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Headline Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Body Copy Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Lead In Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "AWS S3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AWS S3": {
+      "main": [
+        [
+          {
+            "node": "Slack1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instagram Reel Script": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Email Content Writer": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Landing Page Content Creator": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "HTML1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AWS S31": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML1": {
+      "main": [
+        [
+          {
+            "node": "AWS S31",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Survey Questions": {
+      "main": [
+        [
+          {
+            "node": "Instagram Reel Script1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instagram Reel Script1": {
+      "main": [
+        [
+          {
+            "node": "Email Content Writer again",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Email Content Writer again": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 4
+          },
+          {
+            "node": "Landing Page Content Creator1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Landing Page Content Creator1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 6
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Body Copy Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Headline Agent": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Body Copy Agent": {
+      "main": [
+        [
+          {
+            "node": "Lead In Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lead In Agent": {
+      "main": [
+        [
+          {
+            "node": "Headline Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "ad body copies": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Body Copy Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ad lead ins": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Lead In Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ad headlines": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Headline Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Combine & Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine & Clean": {
+      "main": [
+        [
+          {
+            "node": "Combine & Clean1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Create Notion Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine & Clean1": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T19:22:50.849Z",
+  "id": "8bhgUn6o6rwM5m0z",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "New Listing Ad Content Agent - Headline, Body, Lead In",
+  "nodes": [
+    {
+      "parameters": {
+        "model": "=claude-3-7-sonnet-20250219",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        -480,
+        1360
+      ],
+      "id": "b5393b64-6597-4a41-bb27-b86a3c6df689",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "vvRYzeVE6A8mYyNt",
+          "name": "Anthropic - Claude"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "vujZTuzj"
+      },
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -940,
+        1240
+      ],
+      "id": "ed4fc472-d8aa-45d4-bb52-5e9c1f9811c5",
+      "name": "Typeform Trigger",
+      "webhookId": "03fab30e-7faa-4775-9383-dbff595b0bbf",
+      "credentials": {
+        "typeformApi": {
+          "id": "hZKxcP6jseCjV38y",
+          "name": "Typeform account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 7
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2100,
+        1480
+      ],
+      "id": "bac14987-f6f1-49b6-a4dc-9f9cf79d7433",
+      "name": "Merge",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "html": "{{ $json.html }}"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        2620,
+        1260
+      ],
+      "id": "6146ecbf-bf52-4cd3-9707-d52f7f4fc8e4",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Define el encabezado y pie del documento HTML\nconst htmlHeader = `<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Extracted Messages</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      margin: 20px;\n    }\n    h1 {\n      color: #5563de;\n    }\n    .message-item {\n      border: 1px solid #ccc;\n      padding: 10px;\n      margin-bottom: 10px;\n      border-radius: 4px;\n      background-color: #f9f9f9;\n    }\n  </style>\n</head>\n<body>\n`;\n\nconst htmlFooter = `\n</body>\n</html>\n`;\n\n// Inicializa el cuerpo del HTML\nlet htmlBody = \"\";\n\n// Recorre cada item del array y extrae el contenido\nitems.forEach((item, index) => {\n  // Se asume que cada objeto tiene la estructura:\n  // { json: { message: { content: \"...\" } } }\n  let content = \"\";\n  if (item.json.message && item.json.message.content) {\n    content = item.json.message.content;\n  } else {\n    content = \"No content available\";\n  }\n  \n  // Agrega un bloque para cada mensaje con su índice\n  htmlBody += `<div class=\"message-item\">\n    <h2>Message ${index + 1}</h2>\n    <p>${content}</p>\n  </div>\n`;\n});\n\n// Combina encabezado, cuerpo y pie\nconst fullHtml = htmlHeader + htmlBody + htmlFooter;\n\n// Devuelve el resultado en un objeto JSON con la propiedad \"html\"\nreturn [{ json: { html: fullHtml } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2420,
+        1260
+      ],
+      "id": "bcbdec36-4392-4600-81e9-6ef30ce9a27e",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "salesgenius",
+        "fileName": "=reports/giveaway{{ new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0,12) }}.html",
+        "binaryData": false,
+        "fileContent": "={{ $json.html }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.awsS3",
+      "typeVersion": 2,
+      "position": [
+        2820,
+        1260
+      ],
+      "id": "acf4d85e-b110-4328-aa21-6ac6f104425c",
+      "name": "AWS S3",
+      "credentials": {
+        "aws": {
+          "id": "WORJPXV9jAxr4ytJ",
+          "name": "AWS account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "=Create an engaging and exciting script for a real estate agent to introduce a giveaway in a video. The script should:Start with an attention-grabbing opening that highlights the exciting giveaway offer, using specific details from the answers about the giveaway preferences. Clearly explain the prize and why it&rsquo;s valuable, emphasizing how it relates to the target audience (e.g., homeowners, renters, or people interested in home improvement). Incorporate the questions generated for leads as part of the signup process, weaving them naturally into the explanation of how to enter the giveaway. Use persuasive and energetic language to build excitement and urgency, encouraging viewers to sign up. End with a strong call-to-action directing viewers to the signup link, form, or landing page. Here&rsquo;s an example structure:Opening Hook: Start with a bold statement or question that grabs attention (e.g., \"Who&rsquo;s ready to transform their home with an amazing giveaway?!\"). Prize Description: Briefly describe the giveaway prize and how it can help improve their home or lifestyle. How to Enter: Explain the signup process, introducing the generated questions in a conversational tone. Value and Urgency: Emphasize the exclusivity or limited-time nature of the giveaway to drive urgency. Call-to-Action: End with an enthusiastic prompt to sign up (e.g., \"Click the link now and join the fun!\").\n\n\nInput Giveaway details: \n{{ JSON.stringify($node[\"Typeform Trigger1\"].json) }}\n\n\n\nPurpose: To generate excitement, engagement, and signups for the giveaway while capturing valuable lead information. Expected Output: A 60-90 second video script that is energetic, easy to follow, and effectively communicates the value of the giveaway while encouraging signups.\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1600,
+        1240
+      ],
+      "id": "be52ce31-0d14-448a-aba8-a50fb5f6ab58",
+      "name": "Instagram Reel Script",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "=You are a professional email copywriter who understand human psychology and specializes in getting extremely high open rates, and click through rates.\n\nYour Task is to Create an engaging email inviting the realtors client and lead database to sign up for a giveaway. The email should:Start with an attention-grabbing subject line that highlights the giveaway&rsquo;s value and exclusivity. Begin with a compelling opening that grabs attention and excites the recipient about the giveaway. Clearly explain the giveaway prize and why it&rsquo;s valuable, using details provided in the responses. Explain how to participate, incorporating any generated questions as part of the signup process. Include persuasive language that builds urgency and emphasizes why they should act now. End with a strong call-to-action, encouraging the recipient to click a link to sign up for the giveaway. Use proper email formatting:A friendly greeting. Short, engaging paragraphs. A call-to-action button or link to enter the giveaway. A professional and warm closing. \n\n\n\nInput Giveaway details: \n{{ JSON.stringify($node[\"Typeform Trigger1\"].json) }}\n\nPurpose: To excite recipients, drive signups for the giveaway.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1600,
+        1480
+      ],
+      "id": "0c327c85-33a2-454f-be57-20ee75b5b368",
+      "name": "Email Content Writer",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "=Today, you're a world-class landing page copywriter who excels at grabbing attention, building intrigue, and compelling users to keep scrolling and take action. You know how to use eye-catching eyebrow copy, powerful headlines, and resonant subheadlines to engage readers instantly. You also know how to craft benefit-driven bullet points that make people want to sign up or participate immediately.\n\nYour job is to create landing page copy for a giveaway:\n\n   - Use the provided giveaway details as inspiration, but do not simply copy the text verbatim.\n   - Analyze and reflect on proven landing page strategies—such as clear hero sections, persuasive copy, and strong calls-to-action—to create a unified, engaging experience.\n   - Craft distinct sections including:\n     - **Hero/Header Section:** A bold headline, subheadline, and prominent call-to-action (CTA) that captures attention immediately.\n     - **Overview/About Section:** A concise explanation of the giveaway, its benefits, and key details, using persuasive language.\n     - **Framework-Inspired Messaging:** Integrate dynamic and engaging elements inspired by the AIDA, PAS, and HSO frameworks to guide users through the narrative.\n     - **Additional Persuasion Sections:** Include sections inspired by email template content and benefits bullet points, ensuring the messaging is energetic and benefit-focused.\n     - **Footer:** Summarize key details, provide disclaimers if necessary, and include a final call-to-action.\n\nThe copy must be written at a 4th grade reading level and should exclude any emojis.\n\n\nInput Giveaway details: \n{{ JSON.stringify($node[\"Typeform Trigger1\"].json) }}",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1600,
+        1720
+      ],
+      "id": "07aab7ac-a77e-4bf6-ac17-9348c5b16e54",
+      "name": "Landing Page Content Creator",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini",
+          "mode": "list",
+          "cachedResultName": "O3-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Giveaway Details: {{ $('OpenAI - Grouping and Enumation').item.json.message.content }}\n\nMore Context Around the Giveaway, including the questions that will be asked, the script the realtor will record to promote it, an email that will be sent to the realtors database of clients and leads:\n{{ JSON.stringify($json.data) }}\n\nRemember the purpose is to get people to sign up for the giveaway, ideally people who will buy / sell real estate with the realtor whos running it. Be creative."
+            },
+            {
+              "content": "=You are to generate a complete, modern, and fully functional one-page HTML landing page for a giveaway. The giveaway details—containing frameworks, email templates, and landing page copy—will be provided by the user. Instead of merely restating the input, you must analyze, ruminate, and incorporate best practices from high-converting landing pages to create an amazing, cohesive design.\n\nRequirements:\n1. **Self-Contained Code:** All HTML and CSS must reside in a single file. Include all styling within a <style> tag in the head; no external CSS or JavaScript files are allowed.\n2. **Modern, Responsive Design:** Create a visually appealing and responsive layout that works seamlessly on both mobile and desktop screens. Use a contemporary color palette, typography, and layout that reflect high-quality design principles.\n3. **Content Integration & Analysis:** \n   - Use the provided giveaway details (frameworks, email templates, landing page copy) as inspiration, but do not simply copy the text verbatim.\n   - Analyze and reflect on proven landing page strategies—such as clear hero sections, persuasive copy, and strong calls-to-action—to create a unified, engaging experience.\n   - Craft distinct sections including:\n     - **Hero/Header Section:** A bold headline, subheadline, and prominent call-to-action (CTA) that captures attention immediately.\n     - **Overview/About Section:** A concise explanation of the giveaway, its benefits, and key details, using persuasive language.\n     - **Framework-Inspired Messaging:** Integrate dynamic and engaging elements inspired by the AIDA, PAS, and HSO frameworks to guide users through the narrative.\n     - **Additional Persuasion Sections:** Include sections inspired by email template content and benefits bullet points, ensuring the messaging is energetic and benefit-focused.\n     - **Footer:** Summarize key details, provide disclaimers if necessary, and include a final call-to-action.\n4. **Semantic & Accessible HTML:** Utilize semantic HTML5 elements (e.g., <header>, <section>, <footer>) and ensure the page adheres to accessibility best practices.\n5. **Persuasive Tone & Language:** The landing page copy should be persuasive, clear, and benefit-driven, reflecting an analysis of high-performing landing pages while integrating the provided input as creative inspiration.\n\nGenerate a single HTML file that, when opened in a browser, displays an outstanding, high-impact landing page for the giveaway. Your output should reflect a deep analysis of landing page design and integrate the provided input into a cohesive, modern, and persuasive experience.\n",
+              "role": "system"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        2520,
+        1560
+      ],
+      "id": "7931b434-0717-4d8f-85e3-f9c3558567de",
+      "name": "OpenAI",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "salesgenius",
+        "fileName": "=reports/giveawaylandingpage{{ new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0,12) }}.html",
+        "binaryData": false,
+        "fileContent": "={{ $json.html }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.awsS3",
+      "typeVersion": 2,
+      "position": [
+        3020,
+        1560
+      ],
+      "id": "874e43ff-a381-4a45-be81-eb82fe351b21",
+      "name": "AWS S31",
+      "credentials": {
+        "aws": {
+          "id": "WORJPXV9jAxr4ytJ",
+          "name": "AWS account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "{{ $json.message.content.html }}"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        2840,
+        1560
+      ],
+      "id": "8825c794-4f71-4b00-b677-617757e8ce24",
+      "name": "HTML1"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        1560
+      ],
+      "id": "b6d327af-8c61-4bbf-853b-72f8ba23e77f",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "content": "## Access Here: https://salesgenius.s3.ca-central-1.amazonaws.com/reports/giveaway.html ",
+        "height": 140,
+        "width": 440,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3020,
+        1240
+      ],
+      "id": "1777e7ff-c447-4690-93f0-88b0374bc9fc",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "=Youre a world class direct response copywriter who specializes in writing attention-grabbing, high-curiosity quizzes. You&rsquo;re a master of the underlying principles of human psychology. We will be hosting free giveaways to affluent audiences, they can answer 4 questions to enter into the draw in exchange for their contact information. Your job today is to craft me questions for my giveaway funnel that will help me identify highly qualified prospects through my questions. These questions MUST be \"trojan horse\" questions. Meaning the SOLE purpose of the questions is that the prospect will be answering questions that they don't know are qualification questions.We are looking for people who could be qualified to purchase or sell a home. \n\nExamples could be: People who are members or a private golf course, if we were giving away a golf experience. People who have traveled to vineyards, if we were giving away a wine package. Etc.I will provide some important information about our current giveaway to help you craft the quiz questions.[Giveaway] = 3 Passes to &ldquo;Othership&rdquo; a cold plunge and sauna experience in Toronto. [Promise] = The ultimate relaxation and reset package. [Dream Target Audience] = Entrepreneurs, or people with high paying, high stress jobsWrite me 4 &ldquo;trojan&rdquo; horse questions to find me qualified prospects through the entry form prospects will fill out. Example Answer: Myles Questions How often do you prioritize personal wellness activities, such as meditation, exercise, or relaxation sessions in your weekly routine? Purpose: Individuals who prioritize wellness likely value experiences that help them manage stress, indicating an interest in premium health and relaxation services.Which of the following best describes your work environment? (Options: High-paced corporate setting, Own business/startup, Freelance/remote work, Flexible office schedule) Purpose: This question identifies high-stress professionals like entrepreneurs or executives who are likely to seek relaxation through premium wellness experiences.When was the last time you took a break to disconnect from work or recharge? (Options: Within the last week, Within the last month, It's been a while, I can't remember)\" Purpose: A long gap since their last break hints at someone in need of a \"reset\"&mdash;the exact target audience for this type of luxury giveaway.Which wellness experiences have you enjoyed the most? (Options: Spa treatments, Meditation retreats, Cold plunges/saunas, None yet, but I&rsquo;m interested) Purpose: This identifies those with an interest in or openness to premium wellness experiences, signaling potential interest in high-end services like Othership.1. How often do you prioritize personal wellness activities, such as meditation, exercise, or relaxation sessions in your weekly routine? Daily A few times a week Once a week Rarely2. Work is often a cause for stress. Which of the following best describes your work environment? High-paced corporate setting I run my own business Freelance/remote work Flexible, but with frequent deadlines3. When was the last time you took a break to disconnect from work or recharge? Within the last week Within the last month It&rsquo;s been a while I can&rsquo;t remember4. Which (if any) of the following wellness experiences have you enjoyed the most? Spa treatments Meditation retreats Cold plunges or saunas None yet, but I&rsquo;m interested. So your job is to take the answers and provide me with the questions.\n\nSo your job is to take the answers from the user to the questions below and provide me with the survey questions. \n\n{{ JSON.stringify($node[\"Typeform Trigger1\"].json) }}",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1580,
+        1000
+      ],
+      "id": "dc63fdc1-ce1b-4dc3-a202-948acc64acd8",
+      "name": "Survey Questions",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "=Your Job is to Create an engaging and exciting script for a real estate agent to introduce a giveaway in a video. The script should:Start with an attention-grabbing opening that highlights the exciting giveaway offer, using specific details from the answers about the giveaway preferences. Clearly explain the prize and why it&rsquo;s valuable, emphasizing how it relates to the target audience (e.g., homeowners, renters, or people interested in home improvement). Incorporate the questions generated for leads as part of the signup process, weaving them naturally into the explanation of how to enter the giveaway. Use persuasive and energetic language to build excitement and urgency, encouraging viewers to sign up. End with a strong call-to-action directing viewers to the signup link, form, or landing page. Here&rsquo;s an example structure:Opening Hook: Start with a bold statement or question that grabs attention (e.g., \"Who&rsquo;s ready to transform their home with an amazing giveaway?!\"). Prize Description: Briefly describe the giveaway prize and how it can help improve their home or lifestyle. How to Enter: Explain the signup process, introducing the generated questions in a conversational tone. Value and Urgency: Emphasize the exclusivity or limited-time nature of the giveaway to drive urgency. Call-to-Action: End with an enthusiastic prompt to sign up (e.g., \"Click the link now and join the fun!\").\n\n\nInput Giveaway details: \n{{ JSON.stringify($node[\"Typeform Trigger1\"].json) }}\n\nSurvery Questions that will be asked for this giveaway:\n{{ JSON.stringify($node[\"Survey Questions\"].json) }}\n\n\n\nPurpose: To generate excitement, engagement, and signups for the giveaway while capturing valuable lead information. Expected Output: A 60-90 second video script that is energetic, easy to follow, and effectively communicates the value of the giveaway while encouraging signups. Don't have the specific questions be part of the script.\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1980,
+        1000
+      ],
+      "id": "5dd0f43e-e603-46e6-8230-fe4d3822e5b7",
+      "name": "Instagram Reel Script1",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "=You are a professional email copywriter who understand human psychology and specializes in getting extremely high open rates, and click through rates. You love your job.\n\nYour Task is to Create an engaging email inviting the realtors client and lead database to sign up for a giveaway. The email should:Start with an attention-grabbing subject line that highlights the giveaway&rsquo;s value and exclusivity. Begin with a compelling opening that grabs attention and excites the recipient about the giveaway. Clearly explain the giveaway prize and why it&rsquo;s valuable, using details provided in the responses. Explain how to participate, incorporating any generated questions as part of the signup process. Include persuasive language that builds urgency and emphasizes why they should act now. End with a strong call-to-action, encouraging the recipient to click a link to sign up for the giveaway. Use proper email formatting:A friendly greeting. Short, engaging paragraphs. A call-to-action button or link to enter the giveaway. A professional and warm closing. \n\n\nContext:\n\nGiveaway details: \n{{ JSON.stringify($node[\"Typeform Trigger1\"].json) }}\n\nSurvery Questions that will be asked for this giveaway:\n{{ JSON.stringify($node[\"Survey Questions\"].json) }}\n\nReel Script that will be recorded by the realtor to promote this giveaway:\n{{ JSON.stringify($node[\"Instagram Reel Script1\"].json) }}\n\n\nPurpose: To excite recipients, drive signups for the giveaway. Remember this email will be sent to the realtors existing database of clients and leads that they will be mass emailing to. Don't actually include the specific questions in the email. ",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        2400,
+        1000
+      ],
+      "id": "6a885f12-65da-465b-989b-32d752277b34",
+      "name": "Email Content Writer again",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "=Today, you're a world-class landing page copywriter who excels at grabbing attention, building intrigue, and compelling users to keep scrolling and take action. You know how to use eye-catching eyebrow copy, powerful headlines, and resonant subheadlines to engage readers instantly. You also know how to craft benefit-driven bullet points that make people want to sign up or participate immediately.\n\nYour job is to create landing page copy for a giveaway:\n\n   - Use the provided giveaway details as inspiration, but do not simply copy the text verbatim.\n   - Analyze and reflect on proven landing page strategies—such as clear hero sections, persuasive copy, and strong calls-to-action—to create a unified, engaging experience.\n   - Craft distinct sections including:\n     - **Hero/Header Section:** A bold headline, subheadline, and prominent call-to-action (CTA) that captures attention immediately.\n     - **Overview/About Section:** A concise explanation of the giveaway, its benefits, and key details, using persuasive language.\n     - **Framework-Inspired Messaging:** Integrate dynamic and engaging elements inspired by the AIDA, PAS, and HSO frameworks to guide users through the narrative.\n     - **Additional Persuasion Sections:** Include sections inspired by email template content and benefits bullet points, ensuring the messaging is energetic and benefit-focused.\n     - **Footer:** Summarize key details, provide disclaimers if necessary, and include a final call-to-action.\n\nThe copy must be written at a 4th grade reading level and should exclude any emojis.\n\nContext:\n\nGiveaway details: \n{{ JSON.stringify($node[\"Typeform Trigger1\"].json) }}\n\nSurvery Questions that will be asked for this giveaway:\n{{ JSON.stringify($node[\"Survey Questions\"].json) }}\n\nReel Script that will be recorded by the realtor to promote this giveaway:\n{{ JSON.stringify($node[\"Instagram Reel Script1\"].json) }}\n\nEmail that will be sent to realtors existing database of clients to promote the giveaway:\n{{ JSON.stringify($node[\"Email Content Writer again\"].json) }}",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        2820,
+        1000
+      ],
+      "id": "ee9bfe42-bb0e-46ae-927b-25a2b608f646",
+      "name": "Landing Page Content Creator1",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08AE0Z3AG5",
+          "mode": "list",
+          "cachedResultName": "n8n"
+        },
+        "text": "=Giveaway Landing Page: https://salesgenius.s3.ca-central-1.amazonaws.com/reports/giveawaylandingpage{{ new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0,12) }}.html",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "link_names": false,
+          "unfurl_links": false
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        3240,
+        1560
+      ],
+      "id": "c389514d-02b8-4c27-86ee-76e70bca779f",
+      "name": "Slack",
+      "webhookId": "d4f0fcca-7521-4955-8240-41d72e72d655",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08AE0Z3AG5",
+          "mode": "list",
+          "cachedResultName": "n8n"
+        },
+        "text": "=Giveaway Package Complete: https://salesgenius.s3.ca-central-1.amazonaws.com/reports/giveaway.html?report=giveaway{{ new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0,12) }}.html",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "link_names": false,
+          "unfurl_links": false
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        3000,
+        1260
+      ],
+      "id": "ae933ef4-a644-491f-a7cf-17c5feff8bee",
+      "name": "Slack1",
+      "webhookId": "d4f0fcca-7521-4955-8240-41d72e72d655",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "85777823-62f2-4d19-9b55-8d86bc69b239",
+              "name": "Address",
+              "value": "={{ $json[\"Address\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "8855c0da-52cf-4b84-a5ff-4c6500358fa5",
+              "name": "City/Town",
+              "value": "={{ $json[\"City/Town\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "19d24efe-3314-4bb6-80b8-c5f5a0801eac",
+              "name": "State/Region/Province",
+              "value": "={{ $json[\"State/Region/Province\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "cda2b4e7-981e-4d81-a5f2-1830391013fa",
+              "name": "Zip/Post Code",
+              "value": "={{ $json[\"Zip/Post Code\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "7bfe01b6-9016-4e0c-8f16-29f6c3e59f66",
+              "name": "Country",
+              "value": "={{ $json[\"Country\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "58b357ed-d34c-4e76-bc9e-6be935953456",
+              "name": "*What Is The Objective Of Your Ad?*",
+              "value": "={{ $json[\"*What Is The Objective Of Your Ad?*\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "0c2eb890-51ce-4cb0-a1e4-c293ffc9d12c",
+              "name": "What type of property is this? (Condo, Freehold, Townhouse, Multi-Unit, Other – Please specify.)",
+              "value": "={{ $json[\"What type of property is this? (Condo, Freehold, Townhouse, Multi-Unit, Other – Please specify.)\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "3449ecdd-516d-4954-a102-c77c5c3650e7",
+              "name": "What is the listing price? (e.g., $599,000.)",
+              "value": "={{ $json[\"What is the listing price? (e.g., $599,000.)\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a4039104-cb16-4f8d-b4b1-bede14e87821",
+              "name": "Do you want the listing price shown in the ad or only in the email follow-up? (Show In Ad, Only Show In Email Sequence)",
+              "value": "={{ $json[\"Do you want the listing price shown in the ad or only in the email follow-up? (Show In Ad, Only Show In Email Sequence)\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "e87752fa-1ae6-4375-9054-b2a17518f568",
+              "name": "How many bedrooms? ",
+              "value": "={{ $json[\"How many bedrooms? \"] }}",
+              "type": "string"
+            },
+            {
+              "id": "3ef3f0a4-24e3-4121-bc58-bf7f9ff3248d",
+              "name": "How many bathrooms? ",
+              "value": "={{ $json[\"How many bathrooms? \"] }}",
+              "type": "string"
+            },
+            {
+              "id": "104ffc45-d707-42f8-b631-b3a4bd8e5098",
+              "name": "What are the top 3-5 selling features of this home? (Examples: Open-concept kitchen, large backyard, lake view, school zone, etc.)",
+              "value": "={{ $json[\"What are the top 3-5 selling features of this home? (Examples: Open-concept kitchen, large backyard, lake view, school zone, etc.)\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "955b68b3-0b54-407a-93d7-dac72192958f",
+              "name": "What's the biggest WOW factor about this home?",
+              "value": "={{ $json[\"What’s the biggest WOW factor about this home?\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "86ad2395-9f08-4708-836a-0395e40fd41c",
+              "name": "What's one thing people LOVE when they walk in?",
+              "value": "={{ $json[\"What’s one thing people LOVE when they walk in?\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "62296e42-7f80-423f-af26-7072a08b4a43",
+              "name": "What are some things people don't immediately notice but should?",
+              "value": "={{ $json[\"What are some things people don’t immediately notice but should?\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "254b9379-2081-4350-89ff-537f22fabf7f",
+              "name": "Who do you think the perfect buyer is? (Buyer Profile #1) (Examples: Young professionals, first-time buyers, retirees, investors, growing families, etc.)",
+              "value": "={{ $json[\"Who do you think the perfect buyer is? (Buyer Profile #1) (Examples: Young professionals, first-time buyers, retirees, investors, growing families, etc.)\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "69ed1a35-bc7e-4044-b8e1-2cdba7caddd4",
+              "name": "Buyer Profile #2 (Golfers, Skiers, Dog Owners, Etc.)",
+              "value": "={{ $json[\"Buyer Profile #2 (Golfers, Skiers, Dog Owners, Etc.)\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "39db1e70-c265-4ebf-bfb9-9c4e25bc16bf",
+              "name": "Buyer Profile #3 (If another type of buyer applies.)",
+              "value": "={{ $json[\"Buyer Profile #3 (If another type of buyer applies.)\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "40cdb3fe-2d8a-4698-a3d0-6000caba144d",
+              "name": "What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)[0]",
+              "value": "={{ $json[\"What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)\"][0] }}",
+              "type": "string"
+            },
+            {
+              "id": "12fc5531-2f2f-475c-ad42-352dd4f8f4f3",
+              "name": "What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)[1]",
+              "value": "={{ $json[\"What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)\"][1] }}",
+              "type": "string"
+            },
+            {
+              "id": "a0b1d36b-ab17-47b4-920b-5cdb270222ed",
+              "name": "What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)[2]",
+              "value": "={{ $json[\"What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)\"][2] }}",
+              "type": "string"
+            },
+            {
+              "id": "db192850-bfec-4728-b0be-3550dbff2cfd",
+              "name": "What makes this home better than similar listings in the area?",
+              "value": "={{ $json[\"What makes this home better than similar listings in the area?\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "3d55e100-9028-432d-92bb-e0ea6f7d997b",
+              "name": "What emotions do you want potential buyers to feel when they see this ad? (Excited, Curious, Urgency, Trust, Luxury, Other – Please Specify.)",
+              "value": "={{ $json[\"What emotions do you want potential buyers to feel when they see this ad? (Excited, Curious, Urgency, Trust, Luxury, Other – Please Specify.)\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "74cf4200-c85f-4d9d-bfbd-c0955f2539b0",
+              "name": "Is this an investment property?",
+              "value": "={{ $json[\"Is this an investment property?\"] }}",
+              "type": "boolean"
+            },
+            {
+              "id": "f2d9fe9c-59cf-45f0-a08d-57bf43ceae3c",
+              "name": "What is your total daily budget for ads? ",
+              "value": "={{ $json[\"What is your total daily budget for ads? \"] }}",
+              "type": "string"
+            },
+            {
+              "id": "fef5a3fd-da32-409c-90ed-30e192bc6b4b",
+              "name": "Enter Branded Photo Tour / 3D Tour URL ",
+              "value": "={{ $json[\"Enter Branded Photo Tour / 3D Tour URL \"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a4ceb728-d6e3-4f1e-b472-12da38857856",
+              "name": "Upload THE BEST raw listing photo.",
+              "value": "={{ $json[\"Upload THE BEST raw listing photo.\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "587030b6-245d-4960-982d-7040d202d0df",
+              "name": "Copy & Paste the current listing description here. (We'll refine and optimize it for ad effectiveness!)",
+              "value": "={{ $json[\"Copy & Paste the current listing description here. (We’ll refine and optimize it for ad effectiveness!)\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "c3456e0b-7e4d-46ab-ab51-ab02d31f9226",
+              "name": "First name",
+              "value": "={{ $json[\"First name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "6d6ad49d-1980-4e96-8064-0be5c8d02ae5",
+              "name": "=Last name",
+              "value": "={{ $json[\"Last name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a5a9ec05-feda-485d-91da-6950ddc7e4f7",
+              "name": "Phone number",
+              "value": "={{ $json[\"Phone number\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "8357e6fd-6ed0-4db1-bb2e-f5ece4836e69",
+              "name": "Email",
+              "value": "={{ $json[\"Email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "26cbf96a-a654-41f0-a6dc-74505b0ffb4f",
+              "name": "Company",
+              "value": "={{ $json[\"Company\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -740,
+        1240
+      ],
+      "id": "519fd4eb-80a6-4700-b234-ce9d38e0d006",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=YOUR ROLE\nYou are a consortium of the world's most renowned headline specialists including Sabri Suby, Alex Hormozi, Perry Belcher, Clayton Makepeace, Gary Halbert, Joseph Sugarman, and John Carlton. You create headlines so compelling they achieve 6%+ CTRs on Facebook consistently.\nINPUT DATA\nProperty Essence\nProperty Type: {{ $('Edit Fields1').item.json['What type of property is this? (Condo, Freehold, Townhouse, Multi-Unit, Other – Please specify.)'] }}\nPrice Point: {{ $('Edit Fields1').item.json['What is the listing price? (e.g., $599,000.)'] }}[RULE: Only reference if \"Show In Ad\" is selected]\nLocation: {{ $('Edit Fields1').item.json['City/Town'] }}, {{ $('Edit Fields1').item.json['State/Region/Province'] }}\nKey Feature: {{ $('Edit Fields1').item.json['What\\'s the biggest WOW factor about this home?'] }}\nKey Emotion: {{ $('Edit Fields1').item.json['What emotions do you want potential buyers to feel when they see this ad? (Excited, Curious, Urgency, Trust, Luxury, Other – Please Specify.)'] }}\nTarget Audience Composite\nCombined profile of all three buyer personas:\nPrimary: {{ $('Edit Fields1').item.json['Who do you think the perfect buyer is? (Buyer Profile #1) (Examples: Young professionals, first-time buyers, retirees, investors, growing families, etc.)'] }}\nSecondary: {{ $('Edit Fields1').item.json['Buyer Profile #2 (Golfers, Skiers, Dog Owners, Etc.)'] }}\nTertiary: {{ $('Edit Fields1').item.json['Buyer Profile #3 (If another type of buyer applies.)'] }}\nPreviously Generated Content\n[INCLUDE EXAMPLES OF LEAD-INS AND BODY COPIES]\n\nLead Ins:\n1. {{ $('Lead In Agent').item.json.output.ad_lead_ins[0].lead_ins[0].lead_in }} \n2. {{ $('Lead In Agent').item.json.output.ad_lead_ins[0].lead_ins[1].lead_in }} \n3. {{ $('Lead In Agent').item.json.output.ad_lead_ins[0].lead_ins[2].lead_in }} \n4. {{ $('Lead In Agent').item.json.output.ad_lead_ins[1].lead_ins[0].lead_in }} \n5. {{ $('Lead In Agent').item.json.output.ad_lead_ins[1].lead_ins[1].lead_in }} \n6. {{ $('Lead In Agent').item.json.output.ad_lead_ins[1].lead_ins[2].lead_in }} \n7. {{ $('Lead In Agent').item.json.output.ad_lead_ins[2].lead_ins[0].lead_in }} \n8. {{ $('Lead In Agent').item.json.output.ad_lead_ins[2].lead_ins[1].lead_in }} \n9. {{ $('Lead In Agent').item.json.output.ad_lead_ins[2].lead_ins[2].lead_in }} \n\nBody Copies:\nBODY COPY 1: {{ $('Body Copy Agent').item.json.output.ad_body_copies[0].body_copy }} \nBODY COPY 2: {{ $('Body Copy Agent').item.json.output.ad_body_copies[1].body_copy }}\nBODY COPY 3: {{ $('Body Copy Agent').item.json.output.ad_body_copies[2].body_copy }}\n\nTASK\nCreate 10 pattern-interrupting Facebook ad headlines that stop scrollers dead in their tracks and compel them to read the ad. These headlines must achieve 6%+ click-through rates on Facebook.\nSTYLE GUIDELINES\nUniversal Requirements\nCharacter Limit: Maximum 40 characters (including spaces)\nMust create immediate cognitive dissonance or curiosity\nMust be compatible with all three buyer profiles\nMust relate to real estate without using generic real estate terms\nProperty-Specific Styling\nFOR PROPERTIES UNDER $500K:\nTone: Urgent opportunity, insider access, smart move\nVoice: Friendly expert, helpful guide\nAppeal: Value, timing, accessible luxury\nFOR PROPERTIES $500K-$1M:\nTone: Elevated lifestyle, strategic advantage, impressive value\nVoice: Confident advisor, trend spotter\nAppeal: Status elevation, life improvement, wise investment\nFOR PROPERTIES OVER $1M:\nTone: Exclusive access, rarefied opportunity, prestige\nVoice: Luxury insider, confidential advisor\nAppeal: Status, legacy, uncompromising standards\nTECHNICAL SPECIFICATIONS\nEach headline must use one of these proven techniques:\nPattern interruption with unexpected contrast\nControversial/counterintuitive claim\nSecret/insider revelation format\nPop culture reference with property connection\nImplied scarcity/exclusivity\n\"Who Else Wants...\" format modernized\nSpecific, unusual benefit statement\n\"How To\" format with unexpected twist\nCuriosity gap (information asymmetry)\nIdentity-level statement that resonates with target buyers\nStrategic Capitalization Rules:\nNo all-caps headlines\nMaximum 3 strategic words in ALL CAPS per headline\nCapitalize first word and principal words (title case)\nLanguage Pattern Rules:\nNo headlines can begin with the same word\nNo headlines can use the same sentence structure\nNo headlines can end with the same word\nEach headline must have a unique psychological trigger\nCOPYWRITING TECHNIQUES\nEach headline must embody one master copywriter's signature approach:\nSabri Suby: Bold claim that creates immediate FOMO\nAlex Hormozi: Value-equation focused headline\nPerry Belcher: Story hook that implies a twist\nClayton Makepeace: Emotionally charged power words\nGary Halbert: Ultra-specific claim with implied proof\nJoseph Sugarman: Psychological curiosity trigger\nJohn Carlton: \"Outrageous\" claim with credibility element\nEugene Schwartz: Market sophistication-appropriate revelation\nGary Bencivenga: Research-implied credibility hook\nDavid Deutsch: \"Information gap\" headline\nFORBIDDEN ELEMENTS\nNever use: \"must see,\" \"dream home,\" \"perfect,\" \"stunning,\" or \"beautiful\"\nNever use exclamation points\nNever use ellipses at the end of headlines\nNever use questions that can be answered with \"no\"\nNever use generic descriptors that could apply to any property\nNever directly mention \"real estate,\" \"property,\" or \"home\" unless used in a pattern-interrupting way\nOUTPUT FORMAT\n[FACEBOOK AD HEADLINES: {Property Type} in {Location}]\n{headline text} [Sabri Suby Style]\n{headline text} [Alex Hormozi Style]\n{headline text} [Perry Belcher Style]\n{headline text} [Clayton Makepeace Style]\n{headline text} [Gary Halbert Style]\n{headline text} [Joseph Sugarman Style]\n{headline text} [John Carlton Style]\n{headline text} [Eugene Schwartz Style]\n{headline text} [Gary Bencivenga Style]\n{headline text} [David Deutsch Style]\nSUCCESS CRITERIA\nA 6%+ CTR headline will:\nForce a pattern interrupt in the Facebook feed\nCreate immediate, irresistible curiosity\nSpeak directly to the desires/fears of the target audience\nAvoid all real estate marketing clichés\nFeel unlike any other real estate ad headline\nBe impossible to scroll past without clicking\nWork effectively with all lead-ins and body copies\nStand out visually in a crowded Facebook feed\nCreate a \"I need to know more\" response\nLeverage a psychological trigger that bypasses logical resistance\n\nYou must respond ONLY with the requested JSON and no other text. Do not include explanations, introductions, or anything other than the JSON object.\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -280,
+        1640
+      ],
+      "id": "c1f1e25c-85df-48d7-9dec-9ac1d3852535",
+      "name": "Headline Agent"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=YOUR ROLE\nYou are a consortium of the world's elite lead-in specialists, including Sabri Suby, Gary Bencivenga, Eugene Schwartz, John Caples, Robert Collier, and David Ogilvy. Your sole mission is to craft the perfect opening line that compels prospects to read the next sentence.\n\nINPUT DATA\nProperty Essence\nProperty Type: {{ $('Edit Fields1').item.json['What type of property is this? (Condo, Freehold, Townhouse, Multi-Unit, Other – Please specify.)'] }}\nPrice Point: {{ $('Edit Fields1').item.json['What is the listing price? (e.g., $599,000.)'] }}[RULE: Only reference if \"Show In Ad\" is selected]\nLocation: {{ $('Edit Fields1').item.json['City/Town'] }}, {{ $('Edit Fields1').item.json['State/Region/Province'] }}\nKey Feature: {{ $('Edit Fields1').item.json['What\\'s the biggest WOW factor about this home?'] }}\nKey Emotion: {{ $('Edit Fields1').item.json['What emotions do you want potential buyers to feel when they see this ad? (Excited, Curious, Urgency, Trust, Luxury, Other – Please Specify.)'] }}\nTarget Audience Composite\nCombined profile of all three buyer personas:\nPrimary: {{ $('Edit Fields1').item.json['Who do you think the perfect buyer is? (Buyer Profile #1) (Examples: Young professionals, first-time buyers, retirees, investors, growing families, etc.)'] }}\nSecondary: {{ $('Edit Fields1').item.json['Buyer Profile #2 (Golfers, Skiers, Dog Owners, Etc.)'] }}\nTertiary: {{ $('Edit Fields1').item.json['Buyer Profile #3 (If another type of buyer applies.)'] }}\nPreviously Generated Content\n[INCLUDE EXAMPLES OF LEAD-INS AND BODY COPIES]\n\nBody Copies\nBODY COPY 1: {{ $('Body Copy Agent').item.json.output.ad_body_copies[0].body_copy }} \nBODY COPY 2: {{ $('Body Copy Agent').item.json.output.ad_body_copies[1].body_copy }}\nBODY COPY 3: {{ $('Body Copy Agent').item.json.output.ad_body_copies[2].body_copy }}\nTASK\nGenerate five unique, high-converting lead-in sentences for each of the three body copies (15 total) that will appear at the very beginning of the Facebook ad.\nSTYLE GUIDELINES\nUniversal Rules\nMaximum Length: 60 characters (including spaces)\nMust fit entirely on one line on mobile devices\nMust transition seamlessly into its associated body copy\nMust create immediate interest within the first 3-4 words\nProfile-Specific Styling\nFor Body Copy 1 ({{ $('Body Copy Agent').item.json.output.ad_body_copies[0].buyer_profile }}):\nIf the profile includes \"first-time buyer\" or \"young family\":\nTone: Exciting, approachable (max 1 strategic emoji)\nVoice: Direct \"you\" address, acting as a helpful insider\nAppeal: Affordability, opportunity, perfect timing\nIf the profile includes \"luxury\" or \"high-end\":\nTone: Exclusive and refined, with no emojis\nVoice: Authoritative with understated confidence\nAppeal: Status, distinction, limited access\nIf the profile includes \"investor\":\nTone: Urgent and data-driven, with no emojis\nVoice: Fellow investor and strategic advisor\nAppeal: ROI, market timing, competitive advantage\nAdapt styles similarly for Body Copies 2 and 3 based on their respective profiles.\nTECHNICAL REQUIREMENTS\nFor each set of five lead-ins:\nLocation: At least two must mention the location specifically\nUrgency: At least one must create a sense of urgency (without using the word \"urgent\")\nWOW Factor: At least one must focus on the WOW factor\nExclusivity: At least one must leverage exclusivity or scarcity\nPrice: If \"Show In Ad\" is selected for the price, at least two must include the price\nRestrictions:\nNo lead-in should begin with \"Introducing\" or \"Just Listed\"\nNo lead-in should end with an ellipsis (...)\nNo lead-in should include exclamation points\nEach lead-in within a set must utilize a different psychological trigger\nCOPYWRITING TECHNIQUES\nEach set of five lead-ins must include one example of each master's signature approach:\nSabri Suby Style: Bold claim that creates immediate FOMO\nGary Bencivenga Style: Specific, credible promise of value\nEugene Schwartz Style: Taps into existing market desire with a new angle\nJohn Caples Style: Curiosity-driven headline that promises news\nDavid Ogilvy Style: Direct, specific benefit statement\nOUTPUT FORMAT\nLead-ins for Body Copy 1 ({{ $('Body Copy Agent').item.json.output.ad_body_copies[0].buyer_profile }}):\n{lead-in text} [Sabri Suby Style]\n{lead-in text} [Gary Bencivenga Style]\n{lead-in text} [Eugene Schwartz Style]\n{lead-in text} [John Caples Style]\n{lead-in text} [David Ogilvy Style]\nLead-ins for Body Copy 2 ({{ $('Body Copy Agent').item.json.output.ad_body_copies[1].buyer_profile }}):\n{lead-in text} [Sabri Suby Style]\n{lead-in text} [Gary Bencivenga Style]\n{lead-in text} [Eugene Schwartz Style]\n{lead-in text} [John Caples Style]\n{lead-in text} [David Ogilvy Style]\nLead-ins for Body Copy 3 ({{ $('Body Copy Agent').item.json.output.ad_body_copies[2].buyer_profile }}):\n{lead-in text} [Sabri Suby Style]\n{lead-in text} [Gary Bencivenga Style]\n{lead-in text} [Eugene Schwartz Style]\n{lead-in text} [John Caples Style]\n{lead-in text} [David Ogilvy Style]\nSUCCESS CRITERIA\nA successful lead-in will:\nImmediately capture the reader's attention and make them stop scrolling\nSpark high curiosity, making the body copy irresistible to read\nClearly resonate with its specific buyer profile\nAvoid all real estate clichés\nSeamlessly flow into its corresponding body copy\n\n\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -280,
+        1240
+      ],
+      "id": "286a406c-edbb-451f-a0f6-f7d688bdbca4",
+      "name": "Lead In Agent"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=YOUR ROLE\nYou are a consortium of the world's elite lead-in specialists, including Sabri Suby, Gary Bencivenga, Eugene Schwartz, John Caples, Robert Collier, and David Ogilvy. Your sole mission is to craft the perfect opening line that compels prospects to read the next sentence.\n\nINPUT DATA\nProperty Essence\nProperty Type: {{ $('Edit Fields1').item.json['What type of property is this? (Condo, Freehold, Townhouse, Multi-Unit, Other – Please specify.)'] }}\nPrice Point: {{ $('Edit Fields1').item.json['What is the listing price? (e.g., $599,000.)'] }}[RULE: Only reference if \"Show In Ad\" is selected]\nLocation: {{ $('Edit Fields1').item.json['City/Town'] }}, {{ $('Edit Fields1').item.json['State/Region/Province'] }}\nKey Feature: {{ $('Edit Fields1').item.json['What\\'s the biggest WOW factor about this home?'] }}\nKey Emotion: {{ $('Edit Fields1').item.json['What emotions do you want potential buyers to feel when they see this ad? (Excited, Curious, Urgency, Trust, Luxury, Other – Please Specify.)'] }}\nTarget Audience Composite\nCombined profile of all three buyer personas:\nPrimary: {{ $('Edit Fields1').item.json['Who do you think the perfect buyer is? (Buyer Profile #1) (Examples: Young professionals, first-time buyers, retirees, investors, growing families, etc.)'] }}\nSecondary: {{ $('Edit Fields1').item.json['Buyer Profile #2 (Golfers, Skiers, Dog Owners, Etc.)'] }}\nTertiary: {{ $('Edit Fields1').item.json['Buyer Profile #3 (If another type of buyer applies.)'] }}\n\nYou are a collective of the world's greatest Facebook ad copywriters including Sabri Suby, Alex Hormozi, Gary Halbert, Joseph Sugarman, Clayton Makepeace, and Claude Hopkins. Your expertise lies in creating emotionally compelling Facebook ad copy that triggers immediate desire and action from highly specific buyer personas.\n\nFull Address: {{ $('Edit Fields1').item.json['Address'] }}, {{ $('Edit Fields1').item.json['City/Town'] }}, {{ $('Edit Fields1').item.json['State/Region/Province'] }}, {{ $('Edit Fields1').item.json['Zip/Post Code'] }}\nProperty Type: {{ $('Edit Fields1').item.json['What type of property is this? (Condo, Freehold, Townhouse, Multi-Unit, Other – Please specify.)'] }}\nPrice: {{ $('Edit Fields1').item.json['What is the listing price? (e.g., $599,000.)'] }} [RULE: Only mention price if \"{{ $('Edit Fields1').item.json['Do you want the listing price shown in the ad or only in the email follow-up? (Show In Ad, Only Show In Email Sequence)'] }}\" = \"Show In Ad\"]\nBedrooms: {{ $('Edit Fields1').item.json['How many bedrooms? '] }}\nBathrooms: {{ $('Edit Fields1').item.json['How many bathrooms? '] }}\nTop Features: {{ $('Edit Fields1').item.json['What are the top 3-5 selling features of this home? (Examples: Open-concept kitchen, large backyard, lake view, school zone, etc.)'] }}\nWOW Factor: {{ $('Edit Fields1').item.json['What\\'s the biggest WOW factor about this home?'] }}\nFirst Impression: {{ $('Edit Fields1').item.json['What\\'s one thing people LOVE when they walk in?'] }}\nHidden Benefits: {{ $('Edit Fields1').item.json['What are some things people don\\'t immediately notice but should?'] }}\nKey Differentiator: {{ $('Edit Fields1').item.json['What makes this home better than similar listings in the area?'] }}\nRecent Upgrades: \nInvestment Details: [IF {{ $('Edit Fields1').item.json['Is this an investment property?'] }} = YES, THEN ]\nListing Description: {{ $('Edit Fields1').item.json['Copy & Paste the current listing description here'][' (We\\'ll refine and optimize it for ad effectiveness!)'] }}\nAdditional Context: \nBUYER PROFILES\nPrimary Buyer: {{ $('Edit Fields1').item.json['Who do you think the perfect buyer is? (Buyer Profile #1) (Examples: Young professionals, first-time buyers, retirees, investors, growing families, etc.)'] }}\nSecondary Buyer: {{ $('Edit Fields1').item.json['Buyer Profile #2 (Golfers, Skiers, Dog Owners, Etc.)'] }}\nTertiary Buyer: {{ $('Edit Fields1').item.json['Buyer Profile #3 (If another type of buyer applies.)'] }}\nLOCAL AMENITIES\nParks: {{ $('Edit Fields1').item.json['What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)'][0] == 'Parks' ? 'Yes' : 'No' }}\nSchools: {{ $('Edit Fields1').item.json['What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)'].includes('Schools') ? 'Yes' : 'No' }}\nRestaurants: {{ $('Edit Fields1').item.json['What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)'].includes('Restaurants') ? 'Yes' : 'No' }}\nShopping: {{ $('Edit Fields1').item.json['What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)'].includes('Shopping') ? 'Yes' : 'No' }}\nPublic Transit: {{ $('Edit Fields1').item.json['What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)'].includes('Public Transit') ? 'Yes' : 'No' }}\nHighway Access: {{ $('Edit Fields1').item.json['What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)'].includes('Highway Access') ? 'Yes' : 'No' }}\nWaterfront: {{ $('Edit Fields1').item.json['What local amenities would attract buyers? (Choose up to 3: Parks, Schools, Restaurants, Shopping, Public Transit, Highway Access, Waterfront, Other – Please Specify.)'].includes('Waterfront') ? 'Yes' : 'No' }}\nCAMPAIGN OBJECTIVE\n{{ $('Edit Fields1').item.json['*What Is The Objective Of Your Ad?*'] }}\nDESIRED EMOTION\n{{ $('Edit Fields1').item.json['What emotions do you want potential buyers to feel when they see this ad? (Excited, Curious, Urgency, Trust, Luxury, Other – Please Specify.)'] }}\n\n\nTASK\nCreate 3 distinct Facebook ad body copies, each targeting one of the buyer profiles provided. Each body copy must generate intense desire and curiosity that compels the reader to take the specific action based on the campaign objective.\nSTYLE GUIDELINES\nBuyer Profile #1:\nIF \"first-time buyer\" OR \"young family\" OR \"starter home\" in profile:\nReading Level: Grade 4-5 (Flesch-Kincaid)\nTone: Excited, approachable, empowering\nEmoji Usage: 2-3 strategic emojis maximum\nFocus: Affordability, potential, lifestyle fit, future value\nIF \"luxury\" OR \"$2M+\" OR \"affluent\" OR \"executive\" in profile:\nReading Level: Grade 6-8 (sophisticated but not pretentious)\nTone: Exclusive, refined, prestigious\nEmoji Usage: None\nFocus: Craftsmanship, status, uniqueness, legacy value\nIF \"investor\" OR \"rental\" OR \"income\" in profile:\nReading Level: Grade 5 (straightforward, practical)\nTone: Analytical, opportunity-focused\nEmoji Usage: None\nFocus: ROI, market advantage, value appreciation, tenant appeal\nRepeat style adaptation for Buyer Profiles #2 and #3 based on their characteristics\nFORMAT REQUIREMENTS\nLength: Exactly 125-175 words per body copy\nSentence Structure: 70% short sentences (under 15 words), 30% medium sentences (15-25 words)\nParagraph Structure: 1-2 sentence paragraphs, never more than 2 sentences per paragraph\nUse 1 line break between paragraphs for mobile readability\nInclude exactly 5 specifics/data points about the property in each body copy\nEach body copy must include the property address or neighborhood name at least once\nMust explicitly reference it's a property \"listing\" or \"opportunity\" to clarify it's a real estate ad\nMust end with a clear call-to-action based on campaign objective (see CTA section below)\nCALL-TO-ACTION REQUIREMENTS\nFOR LEAD GENERATION OBJECTIVE:\nMust end with a strong call-to-action that offers valuable property information in exchange for contact details\nUse action phrases like: \"Click 'Learn More' for instant access to the full property details,\" \"Tap now to see additional photos and floor plans,\" \"Get the complete property package by clicking below,\" \"Discover pricing and availability details when you click 'Learn More'\"\nCreate a sense that more valuable information exists behind the lead form\nFocus on the exclusive information they'll receive rather than commitments like viewings\nEmphasize ease and immediacy of the information exchange (e.g., \"Takes just seconds to unlock all details\")\nFor luxury properties, emphasize exclusivity of information (e.g., \"Request access to the private property portfolio\")\n\n\nFOR MAXIMUM EXPOSURE OBJECTIVE:\nMust end with a call-to-action focused on further engagement with the property\nUse action phrases like: \"Discover more photos,\" \"Take the virtual tour,\" \"See all the details,\" \"Learn more about this opportunity\"\nCreate interest in learning more details rather than immediate contact\nFocus on the specific next step in the property discovery journey\nTECHNICAL RULES\nNever use all caps for more than 3 words in sequence\nAvoid real estate jargon unless targeting investors\nNo exclamation points in luxury property copy\nMaximum of 2 questions per body copy\nNever begin with a question\nNever use the phrases \"must see,\" \"won't last,\" or \"dream home\"\nNever repeat the same adjective within a single body copy\nMust be instantly recognizable as a Facebook ad, not a listing description\nUse \"you\" and \"your\" language to directly engage the reader\nInclude at least one element that creates time pressure or scarcity\nOUTPUT FORMAT\nProvide 3 distinct Facebook ad body copies labeled: [FACEBOOK AD BODY COPY 1: {Buyer Profile #1}] {body copy text with appropriate CTA based on objective}\n[FACEBOOK AD BODY COPY 2: {Buyer Profile #2}] {body copy text with appropriate CTA based on objective}\n[FACEBOOK AD BODY COPY 3: {Buyer Profile #3}] {body copy text with appropriate CTA based on objective}\nSUCCESS CRITERIA\nA successful Facebook ad body copy will:\nBe instantly identifiable as a Facebook ad targeting its specific buyer profile\nContain zero generic descriptions that could apply to any property\nCreate a clear mental image of at least 3 specific property features\nEvoke the exact emotional response specified in \"Desired Emotion\"\nMake at least one non-obvious connection between a property feature and a buyer benefit\nDrive the specific action based on the campaign objective\nFeel like it's written specifically to drive Facebook engagement and clicks\nCreate a sense of urgency or FOMO (Fear Of Missing Out)\n\nYou must respond ONLY with the requested JSON and no other text. Do not include explanations, introductions, or anything other than the JSON object.",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -280,
+        860
+      ],
+      "id": "e20f46c1-c3b7-402d-ad59-d8a1af3075f2",
+      "name": "Body Copy Agent"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n \"ad_body_copies\": [\n   {\n     \"buyer_profile\": \"\",\n     \"body_copy\": \"\",\n     \"cta\": \"\"\n   },\n   {\n     \"buyer_profile\": \"\",\n     \"body_copy\": \"\",\n     \"cta\": \"\"\n   },\n   {\n     \"buyer_profile\": \"\",\n     \"body_copy\": \"\",\n     \"cta\": \"\"\n   }\n ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -120,
+        1080
+      ],
+      "id": "088d1f9a-2a2f-482f-a56e-cb62d47d9190",
+      "name": "ad body copies"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n \"ad_lead_ins\": [\n   {\n     \"buyer_profile\": \"\",\n     \"lead_ins\": [\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       }\n     ]\n   },\n   {\n     \"buyer_profile\": \"\",\n     \"lead_ins\": [\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       }\n     ]\n   },\n   {\n     \"buyer_profile\": \"\",\n     \"lead_ins\": [\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       },\n       {\n         \"lead_in\": \"\",\n         \"style\": \"\"\n       }\n     ]\n   }\n ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -120,
+        1480
+      ],
+      "id": "0ff42803-d3e6-4b45-9644-7ec1913c25b0",
+      "name": "ad lead ins"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n \"ad_headlines\": [\n   {\n     \"headline\": \"\",\n     \"style\": \"\"\n   },\n   {\n     \"headline\": \"\",\n     \"style\": \"\"\n   },\n   {\n     \"headline\": \"\",\n     \"style\": \"\"\n   }\n ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -120,
+        1880
+      ],
+      "id": "356ed214-1629-4d0f-a499-6451ab1fafbf",
+      "name": "ad headlines"
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        280,
+        1240
+      ],
+      "id": "5ac5d218-cd43-4c79-aa3b-5ea5e7e6f352",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Transform multiple items into a single clean JSON object\nfunction transformToCleanJson() {\n  // Initialize our new structure\n  const cleanJson = {};\n  \n  // Process all items\n  $input.all().forEach(item => {\n    // Make sure we have an item with output property\n    if (item && item.json && item.json.output) {\n      // Get the key from this item's output (assuming each item has a different key)\n      const outputKeys = Object.keys(item.json.output);\n      \n      // Add each key-value pair to our clean JSON\n      outputKeys.forEach(key => {\n        cleanJson[key] = item.json.output[key];\n      });\n    }\n  });\n  \n  // Return as a single item\n  return [{ json: cleanJson }];\n}\n\n// Process all input items\nreturn transformToCleanJson();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        1240
+      ],
+      "id": "e55b426e-2bcc-4de5-92a1-1d783847ee43",
+      "name": "Combine & Clean"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Function to convert the combined JSON data to markdown\nfunction convertToMarkdown(jsonData) {\n  let markdown = '';\n  \n  // Check if we have valid data to convert\n  if (!jsonData) return '# No data available';\n  \n  // Add headline section\n  if (jsonData.ad_headlines && jsonData.ad_headlines.length > 0) {\n    markdown += '# Ad Headlines\\n\\n';\n    \n    jsonData.ad_headlines.forEach(headline => {\n      markdown += `## ${headline.headline}\\n`;\n      markdown += `*${headline.style}*\\n\\n`;\n    });\n    \n    markdown += '---\\n\\n';\n  }\n  \n  // Add lead-ins section\n  if (jsonData.ad_lead_ins && jsonData.ad_lead_ins.length > 0) {\n    markdown += '# Ad Lead-Ins\\n\\n';\n    \n    jsonData.ad_lead_ins.forEach(leadInGroup => {\n      markdown += `## ${leadInGroup.buyer_profile}\\n\\n`;\n      \n      if (leadInGroup.lead_ins && leadInGroup.lead_ins.length > 0) {\n        leadInGroup.lead_ins.forEach(leadIn => {\n          markdown += `- **${leadIn.lead_in}** *(${leadIn.style})*\\n`;\n        });\n        markdown += '\\n';\n      }\n    });\n    \n    markdown += '---\\n\\n';\n  }\n  \n  // Add body copies section\n  if (jsonData.ad_body_copies && jsonData.ad_body_copies.length > 0) {\n    markdown += '# Ad Body Copies\\n\\n';\n    \n    jsonData.ad_body_copies.forEach(bodyCopy => {\n      markdown += `## For ${bodyCopy.buyer_profile}\\n\\n`;\n      markdown += `${bodyCopy.body_copy}\\n\\n`;\n      markdown += `**CTA:** ${bodyCopy.cta}\\n\\n`;\n      markdown += '---\\n\\n';\n    });\n  }\n  \n  return markdown;\n}\n\n// For use in n8n JavaScript Code node\nfunction processJSON() {\n  // Get the JSON data from the input\n  const inputData = $input.first().json;\n  \n  // Convert it to markdown\n  const markdownOutput = convertToMarkdown(inputData);\n  \n  // Return the markdown as a string in the json property\n  return [{\n    json: {\n      markdown: markdownOutput\n    }\n  }];\n}\n\n// Process the input and return markdown\nreturn processJSON();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        820,
+        1520
+      ],
+      "id": "451f1b28-2348-4f5d-87aa-24262e2def68",
+      "name": "Combine & Clean1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "1af1d08c-4f5a-8013-a4cb-ed1633f9429c",
+          "mode": "list",
+          "cachedResultName": "Ad Content Generations",
+          "cachedResultUrl": "https://www.notion.so/1af1d08c4f5a8013a4cbed1633f9429c"
+        },
+        "title": "={{ $('Edit Fields1').first().json.Address }}",
+        "simple": false,
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Type|select",
+              "selectValue": "Listing Ad"
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "type": "heading_1",
+              "textContent": "=Headlines"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_headlines[0].headline }} ({{ $json.ad_headlines[0].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_headlines[1].headline }} ({{ $json.ad_headlines[1].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_headlines[2].headline }} ({{ $json.ad_headlines[2].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_headlines[3].headline }} ({{ $json.ad_headlines[3].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_headlines[4].headline }} ({{ $json.ad_headlines[4].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_headlines[5].headline }} ({{ $json.ad_headlines[5].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_headlines[6].headline }} ({{ $json.ad_headlines[6].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_headlines[7].headline }} ({{ $json.ad_headlines[7].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_headlines[8].headline }} ({{ $json.ad_headlines[8].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_headlines[9].headline }} ({{ $json.ad_headlines[9].style }})"
+            },
+            {
+              "type": "heading_1",
+              "textContent": "=Lead-ins"
+            },
+            {
+              "type": "heading_3",
+              "textContent": "={{ $json.ad_lead_ins[0].buyer_profile }} Lead-ins"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[0].lead_ins[0].lead_in }} ({{ $json.ad_lead_ins[0].lead_ins[0].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[0].lead_ins[1].lead_in }} ({{ $json.ad_lead_ins[0].lead_ins[1].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[0].lead_ins[2].lead_in }} ({{ $json.ad_lead_ins[0].lead_ins[2].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[0].lead_ins[3].lead_in }} ({{ $json.ad_lead_ins[0].lead_ins[3].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[0].lead_ins[4].lead_in }} ({{ $json.ad_lead_ins[0].lead_ins[4].style }})"
+            },
+            {
+              "type": "heading_3",
+              "textContent": "={{ $json.ad_lead_ins[1].buyer_profile }} Lead-ins"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[1].lead_ins[0].lead_in }} ({{ $json.ad_lead_ins[1].lead_ins[0].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[1].lead_ins[1].lead_in }} ({{ $json.ad_lead_ins[1].lead_ins[1].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[1].lead_ins[2].lead_in }} ({{ $json.ad_lead_ins[1].lead_ins[2].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[1].lead_ins[3].lead_in }} ({{ $json.ad_lead_ins[1].lead_ins[3].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[1].lead_ins[4].lead_in }} ({{ $json.ad_lead_ins[1].lead_ins[4].style }})"
+            },
+            {
+              "type": "heading_3",
+              "textContent": "={{ $json.ad_lead_ins[2].buyer_profile }} Lead-ins"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[2].lead_ins[0].lead_in }} ({{ $json.ad_lead_ins[2].lead_ins[0].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[2].lead_ins[1].lead_in }} ({{ $json.ad_lead_ins[2].lead_ins[1].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[2].lead_ins[2].lead_in }} ({{ $json.ad_lead_ins[2].lead_ins[2].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[2].lead_ins[3].lead_in }} ({{ $json.ad_lead_ins[2].lead_ins[3].style }})"
+            },
+            {
+              "type": "bulleted_list_item",
+              "textContent": "={{ $json.ad_lead_ins[2].lead_ins[4].lead_in }} ({{ $json.ad_lead_ins[2].lead_ins[4].style }})"
+            },
+            {
+              "type": "heading_1",
+              "textContent": "=Body Copies"
+            },
+            {
+              "type": "heading_2",
+              "textContent": "={{ $json.ad_body_copies[0].buyer_profile }} Body Copy:"
+            },
+            {
+              "textContent": "={{ $json.ad_body_copies[0].body_copy }}"
+            },
+            {
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "Call To Action: ",
+                    "annotationUi": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "text": "={{ $json.ad_body_copies[0].cta }}",
+                    "annotationUi": {}
+                  }
+                ]
+              }
+            },
+            {
+              "type": "heading_2",
+              "textContent": "={{ $json.ad_body_copies[1].buyer_profile }} Body Copy:"
+            },
+            {
+              "textContent": "={{ $json.ad_body_copies[1].body_copy }}"
+            },
+            {
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "Call To Action: ",
+                    "annotationUi": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "text": "={{ $json.ad_body_copies[1].cta }}",
+                    "annotationUi": {}
+                  }
+                ]
+              }
+            },
+            {
+              "type": "heading_2",
+              "textContent": "={{ $json.ad_body_copies[2].buyer_profile }} Body Copy:"
+            },
+            {
+              "textContent": "={{ $json.ad_body_copies[2].body_copy }}"
+            },
+            {
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "Call To Action: ",
+                    "annotationUi": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "text": "={{ $json.ad_body_copies[2].cta }}",
+                    "annotationUi": {}
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        1120
+      ],
+      "id": "92a55464-056a-466d-ac28-108460778a5c",
+      "name": "Create Notion Page",
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-03-07T19:22:50.857Z",
+      "updatedAt": "2025-03-07T19:22:50.857Z",
+      "role": "workflow:owner",
+      "workflowId": "8bhgUn6o6rwM5m0z",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": {
+    "node:Typeform Trigger": {
+      "webhookId": "n8n-abnr5otv2g"
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-03-07T21:56:14.000Z",
+  "versionId": "57cb5b9f-c27f-4cf5-9e42-fe49ff23f32f"
+}
