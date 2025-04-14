@@ -1,0 +1,857 @@
+{
+  "active": false,
+  "connections": {
+    "Create Campaign": {
+      "main": [
+        [
+          {
+            "node": "Create Ad Set - Dynamic Creative",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Page ID": {
+      "main": [
+        []
+      ]
+    },
+    "Create Ad Set": {
+      "main": [
+        []
+      ]
+    },
+    "Create Ad Creative": {
+      "main": [
+        []
+      ]
+    },
+    "Find Client Details": {
+      "main": [
+        [
+          {
+            "node": "Find Client Details1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Client Details1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Lead Form": {
+      "main": [
+        [
+          {
+            "node": "Download Ad Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ad Image Upload": {
+      "main": [
+        [
+          {
+            "node": "Create Ad Creative1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Ad Image": {
+      "main": [
+        []
+      ]
+    },
+    "Download Ad Image": {
+      "main": [
+        [
+          {
+            "node": "Ad Image Upload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Create Campaign",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Trigger": {
+      "main": [
+        [
+          {
+            "node": "Find Client Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "URL ReDirect": {
+      "main": [
+        [
+          {
+            "node": "Create Lead Form",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Ad Set - Dynamic Creative": {
+      "main": [
+        [
+          {
+            "node": "URL ReDirect",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Ad Creative1": {
+      "main": [
+        [
+          {
+            "node": "Create Ad",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-06T19:51:30.258Z",
+  "id": "Zkv66iVKQLcGBcRg",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "New Listing Ad - Create & Post copy",
+  "nodes": [
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/campaigns",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"{{ $json.output.campaignName }} - SalesGenius\",\n  \"optimization_goal\": \"LEAD_GENERATION\",\n  \"objective\": \"OUTCOME_LEADS\",\n  \"status\": \"PAUSED\",\n  \"special_ad_categories\": \"housing\"\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        240
+      ],
+      "id": "7598bfa3-3cf2-47a9-9dee-28f371026e2d",
+      "name": "Create Campaign",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=1074316633770404/owned_pages?fields=id,name",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        500
+      ],
+      "id": "9acee620-6745-4eeb-97aa-dc804469985e",
+      "name": "Get Page ID",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/adsets",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"{{ $('AI Agent').item.json.output.campaignName }} - Ad Set\",\n  \"campaign_id\": \"{{ $('Create Campaign').item.json.id }}\",\n  \"daily_budget\": 1000,\n  \"start_time\": \"{{ new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1, 6, 0, 0).toISOString() }}\",\n  \"billing_event\": \"IMPRESSIONS\",\n  \"optimization_goal\": \"LEAD_GENERATION\",\n  \"bid_strategy\": \"LOWEST_COST_WITHOUT_CAP\",\n  \"targeting\": {\n    \"geo_locations\": {\n      \"cities\": [\n        {\n          \"key\": \"296875\",\n          \"radius\": 15,\n          \"distance_unit\": \"mile\"\n        }\n      ]\n    },\n    \"publisher_platforms\": [\"instagram\"],\n    \"instagram_positions\": [\"stream\"]\n  },\n  \"promoted_object\": {\n    \"page_id\": \"{{ $('Find Client Details1').item.json.property_facebook_page_id }}\"\n  },\n  \"status\": \"PAUSED\",  \n  \"destination_type\": \"ON_AD\"\n\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        -40
+      ],
+      "id": "9e429b62-f288-4a34-9458-c1e83e13f82e",
+      "name": "Create Ad Set",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=/search?type=adgeolocation&q=Toronto&location_types=[\"city\"]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        720
+      ],
+      "id": "5804817d-6f00-4560-93ba-ebed251b4eed",
+      "name": "Get City ID",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').first().json.property_ad_account_number }}/ads",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"{{ $('AI Agent').first().json.output.campaignName }} - Ad\",\n  \"adset_id\": \"{{ $('Create Ad Set - Dynamic Creative').item.json.id }}\",\n  \"status\": \"PAUSED\",\n  \"creative\": {\n    \"name\": \"Dynamic Lead Creative\",\n    \"object_story_spec\": {\n      \"page_id\": \"102691959562800\"\n    },\n    \"asset_feed_spec\": {\n      \"images\": [\n        {\n          \"hash\": \"6ed95540568b540e1377c8dfe0905a10\"\n        }\n      ],\n      \"bodies\": [\n        {\n          \"text\": \"Begin Your Adventure\"\n        }\n      ],\n      \"titles\": [\n        {\n          \"text\": \"Level Up\"\n        }\n      ],\n      \"descriptions\": [\n        {\n          \"text\": \"First Dynamic Ad Creative Sample\"\n        }\n      ],\n      \"ad_formats\": [\n        \"SINGLE_IMAGE\"\n      ],\n      \"call_to_action_types\": [\n        \"LEARN_MORE\"\n      ],\n      \"link_urls\": [\n        {\n          \"website_url\": \"http://fb.me/\"\n        }\n      ]\n    }\n  },\n  \"lead_gen_form_id\": \"565363066552147\"\n}"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        2180,
+        240
+      ],
+      "id": "4a4bf544-0d2c-44f4-acca-cebeeb830d57",
+      "name": "Create Ad",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/adcreatives",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"Dynamic Creative\",\n  \"object_story_spec\": {\n    \"page_id\": \"{{ $('Find Client Details1').item.json.property_facebook_page_id }}\",\n    \"link_data\": {\n      \"message\": \"{{ $('AI Agent').item.json.output.primaryText[0] }}\",\n      \"image_hash\": \"{{ $json.images['365407283_614619890658463_4618795059015039771_n_c6362e5ece.jpg'].hash }}\",\n      \"link\": \"{{ $('URL ReDirect').item.json.shorturl }}\",\n      \"call_to_action\": {\n        \"type\": \"LEARN_MORE\",\n        \"value\": {\n          \"lead_gen_form_id\": \"{{ $('Create Lead Form').item.json.id }}\"\n        }\n      },\n      \"name\": \"{{ $('AI Agent').item.json.output.headline[0] }}\",\n      \"description\": \"{{ $('AI Agent').item.json.output.primaryText[0] }}\\n{{ $('AI Agent').item.json.output.primaryText[1] }}\"\n    }\n  }\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        -120
+      ],
+      "id": "f2a681f7-abc0-469d-bbbf-4e0d6ec9aa5a",
+      "name": "Create Ad Creative",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "1761d08c-4f5a-8016-89dd-f81384652240",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://www.notion.so/1761d08c4f5a801689ddf81384652240"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "email|email",
+              "condition": "equals",
+              "emailValue": "=daaron@property.ca"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        120,
+        260
+      ],
+      "id": "3753b599-4cc9-42ae-b075-f6293e37ab56",
+      "name": "Find Client Details",
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e6ec4113-2368-4f2c-ab1d-25d9a91eb7ec",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        260
+      ],
+      "id": "486768af-2464-48e7-833c-bf493680e8a5",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.property_clients_brands[0] }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        300,
+        260
+      ],
+      "id": "29385717-41e0-411e-ba40-1d6e351e70ae",
+      "name": "Find Client Details1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details1').item.json.property_facebook_page_id }}/leadgen_forms",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"168 king st e #1212 New Listing Ad8\",\n  \"allow_organic_lead_retrieval\": true,\n  \"block_display_for_non_targeted_viewer\": false,\n  \"follow_up_action_url\": \"https://go.yourhomebase.ca/168-king-st-e-condo5\",\n  \"is_optimized_for_quality\": true,\n  \"locale\": \"EN_US\",\n  \"privacy_policy\": {\n    \"url\": \"https://property.ca/privacy\",\n    \"link_text\": \"Privacy Policy\"\n  },\n  \"question_page_custom_headline\": \"Get Instant Access to the Hot List Now\",\n  \"questions\": [\n    {\n      \"key\": \"question1\",\n      \"type\": \"FULL_NAME\"\n    },\n    {\n      \"key\": \"question2\",\n      \"type\": \"EMAIL\"\n    },\n    {\n      \"key\": \"question3\",\n      \"type\": \"PHONE\"\n    },\n    {\n      \"key\": \"question4\",\n      \"label\": \"When are you looking to purchase?\",\n      \"type\": \"CUSTOM\",\n      \"options\": [\n        { \"value\": \"Within 30 days\", \"key\": \"option1\" },\n        { \"value\": \"3-6 months\", \"key\": \"option2\" },\n        { \"value\": \"6+ months\", \"key\": \"option3\" }\n      ]\n    }\n  ],\n  \"thank_you_page\": {\n    \"title\": \"Check Your Email!\",\n    \"body\": \"I've just sent you something you're going to love...\",\n    \"button_text\": \"View Hot List Now\",\n    \"website_url\": \"https://go.yourhomebase.ca/168-king-st-e-condo5\",\n    \"button_type\": \"VIEW_WEBSITE\",\n    \"country_code\": \"CA\"\n  },\n  \"tracking_parameters\": {\n    \"campaign\": \"168 king st e #1212 New Listing Ad\",\n    \"source\": \"salesgenius\"\n  }\n}"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        240
+      ],
+      "id": "1af5c38c-c802-458f-82cc-b8ebe1ba2d5b",
+      "name": "Create Lead Form",
+      "retryOnFail": false,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/adimages",
+        "sendBinaryData": true,
+        "binaryPropertyName": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        240
+      ],
+      "id": "421791d3-0e71-4fd3-b5ed-55eed3202011",
+      "name": "Ad Image Upload",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": " a spacious open-concept loft with high ceilings and large windows allowing natural light to flood in. The walls might be exposed brick, giving a rustic charm, while the floor features polished hardwood or concrete. \\n\\nIn one corner, there's a modern kitchen with sleek cabinetry, a large island for cooking and entertaining, and stainless steel appliances. The living area is furnished with a comfortable sectional sofa, a stylish coffee table, and a statement piece of art hanging on the wall. \\n\\nYou might see a cozy reading nook with a floor lamp and bookshelves laden with books. A dining table made from reclaimed wood could be set for an intimate dinner. \\n\\nUpstairs, there could be a lofted bedroom area, accessed by a spiral staircase, featuring a minimalist bed arrangement with soft linens, lots of throw pillows, and a view over the living space",
+        "options": {
+          "quality": "standard",
+          "size": "1024x1024",
+          "returnImageUrls": false,
+          "binaryPropertyOutput": "data"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -640,
+        920
+      ],
+      "id": "d3c1aa82-e292-4e35-b1cf-b2541d1d9232",
+      "name": "Generate Ad Image",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Typeform Trigger').item.json[\"Upload THE BEST raw listing photo.\"] }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        240
+      ],
+      "id": "387af8e4-93db-4f87-bf49-38d928a2aa3e",
+      "name": "Download Ad Image"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ JSON.stringify( $node[\"Typeform Trigger\"].json  ) }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=\nYou are an experienced Facebook real estate marketer and professional copywriter. You’ve been given specific details about a single property listing (address, price, features, etc.). Your task is to write a high-converting Facebook ad in a scroll-stopping style. The campaign name must be “PROPERTY ADDRESS New Listing Ad,” and the ad copy should emphasize urgency, unique features, and the property’s best selling points. Focus on driving qualified leads to a lead form.\n\nYour output must be valid JSON with the following structure (using the property names exactly as shown, and nothing else):\n\n{\n  \"campaignName\": \"Simple Campaign Name\",\n  \"adSetName\": \"Simple Ad Set Name\",\n  \"urlSlug\": \"Simple URL Slug for Hot List Redirect URL\",\n  \"leadFormName\": \"Simple Lead Form Name\",\n  \"adName\": \"Simple Ad Name\",\n  \"headline\": [\n    \"Headline 1\",\n    \"Headline 2\",\n    \"Headline 3\"\n  ],\n  \"primaryText\": [\n    \"Primary text 1\",\n    \"Primary text 2\",\n    \"Primary text 3\"\n  ],\n  \"formQuestions\": [\n    {\n      \"question\": \"Form question 1\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    },\n    {\n      \"question\": \"Form question 2\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    },\n    {\n      \"question\": \"Form question 3\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    }\n  ]\n}\n\nDetailed Requirements\ncampaignName\nMust be: “PROPERTY ADDRESS New Listing Ad”\nExample: “190 Rustic Hills Crescent #8 New Listing Ad”\n\nadSetName\nA short name describing the target audience or property type.\nE.g., “First-Time Buyers,” “Top-Floor Condo Audience,” “Move-Up Buyers.”\n\nurlSlug\nA simple, memorable URL slug for the landing page.\nE.g., “/190-rustic-hills-condo” or “/new-listing-190-rustic-hills.”\n\nleadFormName\nA short, descriptive name for the form.\nE.g., “Rustic Hills Lead Form” or “Condo Inquiry Form.”\n\nadName\nBriefly reference the property or theme.\nE.g., “190 Rustic Hills Ad #1,” “Penthouse Condo Ad #1.”\n\nheadline (an array of at least 3 headlines)\n\nGrab attention with the property’s best features.\nMention time sensitivity or uniqueness.\nUse short, punchy phrases (ideal for Facebook and Instagram).\nE.g., “Top-Floor Condo Under PRICE in CITY,” “Spacious 2-Bed Gem with No Upstairs Neighbors!”\nprimaryText (an array of at least 3 short paragraphs or sentences)\n\nYou need 3 distinct variations of ad copy.\nEach version must highlight the property’s unique benefits and create urgency.\nUse emotional hooks, bullet points or emojis if desired, and end with a clear CTA (e.g., “Click Learn More to schedule a showing!”).\nIf the user said “Show Price in Ad,” include the listing price. If not, omit it in the copy.\nformQuestions (an array of at least 3 objects, each with “question” and “options”)\n\nQualify leads with relevant buyer questions (timeline, price range, property type, etc.).\n\nStyle & Tone for Facebook Marketing\nWrite scroll-stopping first lines—ask a question, use an emotional hook, or highlight a unique, eye-catching feature.\nKeep sentences short and snappy; reading level should be quick to digest.\nIncorporate benefits and urgency (“Don’t miss your chance,” “Limited opportunity,” etc.).\nInclude a direct CTA at the end (“Click ‘Learn More’ now!” or “Message us to book a tour!”).\nFeel free to use light emojis or bullet points to break up text if it suits the property’s vibe.\nImportant\nNo extra fields beyond those in the JSON specification.\nInclude exactly 3 headlines, 3 primary texts, and 3 form questions—each question must have 3 options.\nEnsure the campaignName is “[ADDRESS] New Listing Ad.”\nRespect the user’s choice about whether to show the price in the ad copy or not."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        720,
+        240
+      ],
+      "id": "2cc227e7-a31f-4afe-8755-c3694322613d",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"campaignName\": \"Simple Campaign Name\",\n  \"adSetName\": \"Simple Ad Set Name\",\n  \"urlSlug\": \"Simple URL Slug for Hot List Redirect URL\",\n  \"leadFormName\": \"Simple Lead Form Name\",\n  \"adName\": \"Simple Ad Name\",\n  \"headline\": [\n    \"Headline 1\",\n    \"Headline 2\",\n    \"Headline 3\"\n  ],\n  \"primaryText\": [\n    \"Primary text 1\",\n    \"Primary text 2\",\n    \"Primary text 3\"\n  ],\n  \"formQuestions\": [\n    {\n      \"question\": \"Form question 1\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    },\n    {\n      \"question\": \"Form question 2\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    },\n    {\n      \"question\": \"Form question 3\",\n      \"options\": [\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\"\n      ]\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        900,
+        520
+      ],
+      "id": "9e00437d-28e4-4230-95c6-f65854edd897",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        540,
+        640
+      ],
+      "id": "64d730f5-2afa-4c86-9031-b74c40315e43",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "vvRYzeVE6A8mYyNt",
+          "name": "Anthropic - Claude"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "o3-mini-2025-01-31"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        720,
+        520
+      ],
+      "id": "7b4b207c-7883-430a-b10a-fe3ba80ae05c",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "vujZTuzj"
+      },
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -140,
+        260
+      ],
+      "id": "cdc94698-aa8b-4dc1-96c5-c249fc24d619",
+      "name": "Typeform Trigger",
+      "webhookId": "5984e396-029d-45c1-b995-2b969c0750a0",
+      "credentials": {
+        "typeformApi": {
+          "id": "hZKxcP6jseCjV38y",
+          "name": "Typeform account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Typeform Trigger').item.json['Enter Branded Photo Tour / 3D Tour URL '] }}5",
+        "additionalFields": {
+          "keyword": "={{ $('AI Agent').item.json.output.urlSlug }}5"
+        }
+      },
+      "type": "n8n-nodes-base.yourls",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        240
+      ],
+      "id": "608923a7-1fa6-460f-a85c-fe0d52f455fe",
+      "name": "URL ReDirect",
+      "credentials": {
+        "yourlsApi": {
+          "id": "dObnySYjD1OI38EY",
+          "name": "Yourls account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').first().json.property_ad_account_number }}/adsets",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"{{ $('AI Agent').first().json.output.campaignName }} - Ad Set\",\n  \"is_dynamic_creative\": true,\n  \"campaign_id\": \"{{ $('Create Campaign').first().json.id }}\",\n  \"daily_budget\": 1000,\n  \"start_time\": \"{{ new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 3, 6, 0, 0).toISOString() }}\",\n  \"billing_event\": \"IMPRESSIONS\",\n  \"optimization_goal\": \"LEAD_GENERATION\",\n  \"bid_strategy\": \"LOWEST_COST_WITHOUT_CAP\",\n  \"targeting\": {\n    \"geo_locations\": {\n      \"cities\": [\n        {\n          \"key\": \"296875\",\n          \"radius\": 15,\n          \"distance_unit\": \"mile\"\n        }\n      ]\n    }\n  },\n  \"promoted_object\": {\n    \"page_id\": \"{{ $('Find Client Details1').first().json.property_facebook_page_id }}\"\n  },\n  \"status\": \"PAUSED\",  \n  \"destination_type\": \"ON_AD\"\n\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        240
+      ],
+      "id": "663ddff3-b0c2-48c3-a73f-bad1157be8dc",
+      "name": "Create Ad Set - Dynamic Creative",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').first().json.property_ad_account_number }}/adcreatives",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"168 king st e #1212 New Listing Ad - Creative\",\n  \"object_story_spec\": {\n    \"page_id\": \"102691959562800\",\n    \"link_data\": {\n      \"call_to_action\": {\n        \"type\": \"SIGN_UP\",\n        \"value\": {\n          \"lead_gen_form_id\": \"565363066552147\"\n        }\n      },\n      \"image_hash\": \"6ed95540568b540e1377c8dfe0905a10\",\n      \"link\": \"http://fb.me/\",\n      \"message\": \"Begin Your Adventure\"\n    }\n  }\n}"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        240
+      ],
+      "id": "ef74bf1d-97a1-4862-a1bc-25150afc78a7",
+      "name": "Create Ad Creative1",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/adsets",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"{{ $('AI Agent').item.json.output.campaignName }} - Ad Set\",\n  \"is_dynamic_creative\": true,\n  \"campaign_id\": \"{{ $('Create Campaign').item.json.id }}\",\n  \"daily_budget\": 1000,\n  \"start_time\": \"{{ new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1, 6, 0, 0).toISOString() }}\",\n  \"billing_event\": \"IMPRESSIONS\",\n  \"optimization_goal\": \"LEAD_GENERATION\",\n  \"bid_strategy\": \"LOWEST_COST_WITHOUT_CAP\",\n  \"targeting\": {\n    \"geo_locations\": {\n      \"cities\": [\n        {\n          \"key\": \"296875\",\n          \"radius\": 15,\n          \"distance_unit\": \"mile\"\n        }\n      ]\n    },\n    \"publisher_platforms\": [\"instagram\"],\n    \"instagram_positions\": [\"stream\"]\n  },\n  \"promoted_object\": {\n    \"page_id\": \"{{ $('Find Client Details1').item.json.property_facebook_page_id }}\"\n  },\n  \"status\": \"PAUSED\",  \n  \"destination_type\": \"ON_AD\"\n\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        -160
+      ],
+      "id": "c735106f-b1be-46df-91b6-8ce7a147c323",
+      "name": "Create Ad Set - Dynamic Creative1",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details').item.json.property_ad_account_number }}/adcreatives",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"Dynamic Creative\",\n  \"object_story_spec\": {\n    \"page_id\": \"{{ $('Find Client Details1').item.json.property_facebook_page_id }}\"\n  },\n\"asset_feed_spec\": {\n    \"images\": [\n      {\n        \"hash\": \"{{ $json.images[\"303d3c687788-dsc00309.jpg\"].hash }}\"\n      }\n    ],\n    \"bodies\": [\n      {\n        \"text\": \"Begin Your Adventure\"\n      },\n      {\n        \"text\": \"Once a Trainer, always a Trainer.\"\n      }\n    ],\n    \"titles\": [\n      {\n        \"text\": \"Level Up\"\n      },\n      {\n        \"text\": \"Swipe to evolve\"\n      }\n    ],\n    \"descriptions\": [\n      {\n        \"text\": \"First Dynamic Ad Creative Sample\"\n      }\n    ],\n    \"ad_formats\": [\n      \"SINGLE_IMAGE\"\n    ],\n    \"call_to_action_types\": [\n      \"LEARN_MORE\"\n    ],\n      \"call_to_action\": {\n        \"type\": \"LEARN_MORE\",\n        \"value\": {\n          \"lead_gen_form_id\": \"{{ $('Create Lead Form').item.json.id }}\"\n        }\n      },\n    \"link_urls\": [\n      {\n        \"website_url\": \"https://www.example.com/\"\n      }\n    ]\n  }\n}"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        -220
+      ],
+      "id": "8540e88d-c0ec-4bb4-84f9-a99ee84fdd04",
+      "name": "Create Ad Creative2",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "=1305585670701036",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1740,
+        0
+      ],
+      "id": "3ee78ad8-75d1-4c4e-aafd-ac95263d340d",
+      "name": "Create Ad Creative3",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v22.0",
+        "node": "={{ $('Find Client Details1').item.json.property_facebook_page_id }}/leadgen_forms",
+        "options": {
+          "queryParametersJson": "={\n  \"name\": \"{{ $('AI Agent').item.json.output.campaignName }} 4\",  \n  \"allow_organic_lead_retrieval\": true,\n  \"block_display_for_non_targeted_viewer\": false,\n  \"follow_up_action_url\": \"{{ $json.shorturl }}\",\n  \"is_for_canvas\": false,\n  \"is_optimized_for_quality\": true,\n  \"locale\": \"EN_US\",\n  \n  \"privacy_policy\": {\n    \"url\": \"{{ $('If').item.json.property_privacy_policy }}\",\n    \"link_text\": \"Privacy Policy\"\n  },\n  \"question_page_custom_headline\": \"Get Instant Access to the Hot List Now\",\n  \"questions\": [\n    {\n      \"key\": \"question1\",\n      \"type\": \"FULL_NAME\",\n      \"inline_context\": \"Enter your complete name.\"\n    },\n    {\n      \"key\": \"question2\",\n      \"type\": \"EMAIL\",\n      \"inline_context\": \"Enter your primary email.\"\n    },\n    {\n      \"key\": \"question3\",\n      \"type\": \"PHONE\",\n      \"inline_context\": \"Include country code.\"\n    },\n    {\n      \"key\": \"question4\",\n      \"label\": \"{{ $('AI Agent').item.json.output.formQuestions[0].question }}\",\n      \"type\": \"CUSTOM\",\n      \"inline_context\": \"{{ $('AI Agent').item.json.output.formQuestions[0].question }}\",\n      \"options\": [\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[0].options[0] }}\", \"key\": \"option1\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[0].options[1] }}\", \"key\": \"option2\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[0].options[2] }}\", \"key\": \"option3\" }\n      ]\n    },\n    {\n      \"key\": \"question5\",\n      \"label\": \"{{ $('AI Agent').item.json.output.formQuestions[1].question }}\",\n      \"type\": \"CUSTOM\",\n      \"inline_context\": \"{{ $('AI Agent').item.json.output.formQuestions[1].question }}\",\n      \"options\": [\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[1].options[0] }}\", \"key\": \"option1\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[1].options[1] }}\", \"key\": \"option2\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[1].options[2] }}\", \"key\": \"option3\" }\n      ]\n    },\n    {\n      \"key\": \"question6\",\n      \"label\": \"{{ $('AI Agent').item.json.output.formQuestions[2].question }}\",\n      \"type\": \"CUSTOM\",\n      \"inline_context\": \"{{ $('AI Agent').item.json.output.formQuestions[2].question }}\",\n      \"options\": [\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[2].options[0] }}\", \"key\": \"option1\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[2].options[1] }}\", \"key\": \"option2\" },\n        { \"value\": \"{{ $('AI Agent').item.json.output.formQuestions[2].options[2] }}\", \"key\": \"option3\" }\n      ]\n    }\n  ],\n  \"thank_you_page\": {\n    \"title\": \"Check Your Email!\",\n    \"body\": \"I've just sent you something you're going to love...\",\n    \"short_message\": \"{{ $('AI Agent').item.json.output.adName }}\",\n    \"button_text\": \"View Hot List Now\",\n    \"button_description\": \"Get Instant Access Now\",\n    \"enable_messenger\": false,\n    \"website_url\": \"{{ $json.shorturl }}\",\n    \"button_type\": \"VIEW_WEBSITE\",\n    \"country_code\": \"CA\"\n  },\n  \"tracking_parameters\": {\n    \"campaign\": \"{{ $('AI Agent').item.json.output.campaignName }}\",\n    \"source\": \"salesgenius\"\n  }\n}\n"
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        -460
+      ],
+      "id": "0b4431d7-f0f7-4b16-981b-cef7698ee917",
+      "name": "Create Lead Form1",
+      "retryOnFail": false,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-03-06T19:51:30.264Z",
+      "updatedAt": "2025-03-06T19:51:30.264Z",
+      "role": "workflow:owner",
+      "workflowId": "Zkv66iVKQLcGBcRg",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": {
+    "node:Typeform Trigger": {
+      "webhookId": "n8n-abnr5otv2g"
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-03-06T20:32:16.000Z",
+  "versionId": "0d01aba2-918a-4a95-9b9a-8fc539818e80"
+}
