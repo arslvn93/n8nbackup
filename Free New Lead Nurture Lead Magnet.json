@@ -1,0 +1,778 @@
+{
+  "active": true,
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Generate 15 Day Email Sequence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "answers": {
+      "main": [
+        [
+          {
+            "node": "Generate 15 Day Email Sequence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Create New Service Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate 15 Day Email Sequence",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Convert to JSON",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to JSON": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Generate 15 Day Email Sequence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate 15 Day Email Sequence": {
+      "main": [
+        [
+          {
+            "node": "Convert to JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create New Service Request": {
+      "main": [
+        [
+          {
+            "node": "HighLevel1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail1": {
+      "main": [
+        [
+          {
+            "node": "Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HighLevel1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Gmail1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enrich Realtor Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion": {
+      "main": [
+        [
+          {
+            "node": "Enrich Realtor Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-26T13:36:58.646Z",
+  "id": "mEYmcAh7CLCDN3t5",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Free New Lead Nurture Lead Magnet",
+  "nodes": [
+    {
+      "parameters": {
+        "sendTo": "={{ $('answers').first().json['Email Address'] }}, arslan@salesgenius.co",
+        "subject": "=[LEADBOY] 🔥 New Follow Up Level Unlocked!",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        52,
+        -15
+      ],
+      "id": "e6e550f8-651d-4ed5-8952-94c14081e3a2",
+      "name": "Gmail",
+      "webhookId": "e5a034a9-a684-49bd-8407-c2c6e24141f1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "R2ppJs5mnCWrQakn",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the correct dripSequence from the new input structure\nconst data = $json;\n\n// Get the full name from answers and extract the first name\nfunction getFirstName() {\n  try {\n    // Get the full name from the answers\n    const fullName = $('answers').first().json[\"Full Name\"] || \"\";\n    \n    // Split the full name and get the first part (first name)\n    const firstName = fullName.split(' ')[0];\n    \n    // Convert to title case (first letter uppercase, rest lowercase)\n    return firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();\n  } catch (e) {\n    // Return a default value if there's an error\n    console.log(\"Error getting first name: \" + e.message);\n    return \"[NAME]\";\n  }\n}\n\n// Get the first name in title case\nconst firstName = getFirstName();\n\n// Handle different possible input formats\nlet dripSequence;\n\n// Check for the new format where data is in response.text as a JSON string\nif (data.response && data.response.text) {\n  try {\n    // Parse the JSON string from response.text\n    const parsedData = JSON.parse(data.response.text);\n    dripSequence = parsedData.DripSequence;\n  } catch (e) {\n    throw new Error(\"Failed to parse JSON from response.text: \" + e.message);\n  }\n} \n// Check for the original format\nelse if (data.output && data.output.DripSequence) {\n  dripSequence = data.output.DripSequence;\n} \n// Check for direct DripSequence property\nelse if (data.DripSequence) {\n  dripSequence = data.DripSequence;\n}\n\n// If dripSequence is still not found, throw an error\nif (!dripSequence || !Array.isArray(dripSequence)) {\n  throw new Error(\"DripSequence not found in the input data or is not an array.\");\n}\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Follow Up Sequence</title>\n  <style>\n    /* Reset styles for email clients with a retro 90's vibe */\n    body {\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\n      line-height: 1.5;\n      background-color: #000; /* Black background */\n      color: #fff; /* White text for readability */\n    }\n    /* Container styles */\n    .container {\n      max-width: 600px;\n      margin: 20px auto;\n      padding: 0 20px;\n    }\n    /* Image style to match the step sections */\n    .header-image {\n      width: 100%;\n      display: block;\n      margin-bottom: 16px;\n    }\n    /* Welcome message style */\n    .welcome-message {\n      color: #fff;\n      margin-bottom: 20px;\n      padding: 15px;\n      background-color: #222;\n      border-radius: 8px;\n      border: 1px solid #444;\n      font-size: 16px;\n      line-height: 1.6;\n    }\n    .welcome-message strong {\n      color: #FFFF00; /* Neon yellow highlights */\n    }\n    /* Table-based header for better email compatibility */\n    .step-header-table {\n      width: 100%;\n    }\n    .step-header-table td {\n      vertical-align: middle;\n    }\n    .step-title {\n      font-weight: 500;\n      color: #fff;\n    }\n    .step-day {\n      font-size: 14px;\n      opacity: 0.9;\n      color: #fff;\n      text-align: right;\n      white-space: nowrap; /* Prevent line breaks */\n    }\n    /* Step card styles with a dark theme */\n    .step-card {\n      background-color: #222; /* Dark gray for a retro feel */\n      border: 1px solid #444;\n      border-radius: 8px;\n      overflow: hidden;\n      margin-bottom: 16px;\n    }\n    .step-content {\n      padding: 16px;\n    }\n    .content-section {\n      margin-bottom: 12px;\n    }\n    .content-label {\n      font-size: 14px;\n      font-weight: 500;\n      color: #FFFF00; /* Neon yellow labels */\n      margin-bottom: 4px;\n    }\n    .content-text {\n      color: #fff;\n      background-color: #000;\n      padding: 12px;\n      border-radius: 8px;\n      white-space: pre-wrap;\n      font-size: 14px;\n      border: 1px dashed #FF1493; /* Neon pink dashed border for extra flair */\n    }\n    .content-notes {\n      font-size: 14px;\n      color: #ccc;\n    }\n    /* Table-based separator for email compatibility */\n    .separator-table {\n      width: 100%;\n      margin: 16px 0;\n    }\n    .separator-table td {\n      border-bottom: 1px solid #444;\n      width: 45%;\n    }\n    .separator-table .separator-text {\n      text-align: center;\n      font-size: 14px;\n      color: #FF1493; /* Neon pink text */\n      width: 10%;\n      white-space: nowrap; /* Prevent line breaks in separator text */\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <img src=\"https://i.imgur.com/vv8zskw.png\" alt=\"Header Image\" class=\"header-image\">\n    \n    <div class=\"welcome-message\">\n      Hey there ${firstName},<br><br>\n      You've just made the smartest move since buying Apple stock in 1997.<br>\n      (Your second smartest move is <strong>saving this email RIGHT NOW</strong> so you don't lose it)<br><br>\n      Your LeadBoy results are locked, loaded below ⬇️<br><br>\n      PS - if you like LeadBoy, reply here with \"<strong>Leadboy Rocks</strong>!\" and give our team some love.\n    </div>`;\n\n// Loop over each step to build the HTML for that step\ndripSequence.forEach((step, index) => {\n\n  // Insert a separator when there's a day gap between steps\n  if (index > 0) {\n    const dayDifference = step.day - dripSequence[index - 1].day;\n    if (dayDifference > 0) {\n      html += `\n      <table class=\"separator-table\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n        <tr>\n          <td></td>\n          <td class=\"separator-text\">Wait ${dayDifference} day${dayDifference > 1 ? 's' : ''}</td>\n          <td></td>\n        </tr>\n      </table>`;\n    }\n  }\n\n  // Determine emoji and header background color based on step type using neon colors\n  let emoji = \"\";\n  let headerBgColor = \"\";\n  const lowerType = step.type.toLowerCase();\n  if(lowerType.includes(\"phone\")) {\n    emoji = \"📞\";\n    headerBgColor = \"#f39748\"; // Neon orange for phone\n  } else if(lowerType.includes(\"email\")) {\n    emoji = \"✉️\";\n    headerBgColor = \"#FF1493\"; // Neon pink for email\n  } else if(lowerType.includes(\"sms\")) {\n    emoji = \"💬\";\n    headerBgColor = \"#1E90FF\"; // Neon blue for SMS\n  }\n\n  // Create the step card with a table-based header for email compatibility\n  html += `\n    <div class=\"step-card\">\n      <div style=\"background-color: ${headerBgColor}; padding: 12px 16px;\">\n        <table class=\"step-header-table\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n          <tr>\n            <td>\n              <span style=\"font-size: 16px;\">${emoji}</span>\n              <span class=\"step-title\"> Step ${step.step}: <strong>${step.type} #${step.number}</strong></span>\n            </td>\n            <td class=\"step-day\">Day ${step.day}</td>\n          </tr>\n        </table>\n      </div>\n      <div class=\"step-content\">`;\n\n  // Include subject if present\n  if (step.subject && step.subject.trim() !== \"\") {\n    html += `\n        <div class=\"content-section\">\n          <div class=\"content-label\">Subject</div>\n          <div class=\"content-text\">${step.subject}</div>\n        </div>`;\n  }\n  \n  // Include the message body\n  html += `\n        <div class=\"content-section\">\n          <div class=\"content-label\">Message</div>\n          <div class=\"content-text\">${step.body}</div>\n        </div>`;\n  \n  // Include notes if available\n  if (step.notes && step.notes.trim() !== \"\") {\n    html += `\n        <div class=\"content-section\">\n          <div class=\"content-label\">Notes</div>\n          <div class=\"content-notes\">${step.notes}</div>\n        </div>`;\n  }\n  \n  html += `\n      </div>\n    </div>`;\n});\n\nhtml += `\n  </div>\n</body>\n</html>`;\n\n// Return the generated HTML so it can be used by your email node\nreturn [{ html }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -168,
+        -15
+      ],
+      "id": "d9669d76-1c63-4376-bf71-511803bf8787",
+      "name": "Code",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "leadboy",
+        "options": {
+          "allowedOrigins": "*",
+          "noResponseBody": false,
+          "rawBody": false,
+          "responseData": ""
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1580,
+        -65
+      ],
+      "id": "5a113842-bc83-4ac7-b7a6-33c539aa0c45",
+      "name": "Webhook",
+      "webhookId": "4f9de994-0d4c-4a94-88da-ea2b2f9706b2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c4e6a4d-8ef2-41c8-b48e-d9742b5728e3",
+              "name": "Full Name",
+              "value": "={{ $json.body['Full Name:'] }}",
+              "type": "string"
+            },
+            {
+              "id": "21a82209-5199-45b0-a281-c26dbfa52696",
+              "name": "Brokerage Name",
+              "value": "={{  $json.body['Brokerage:'] }}",
+              "type": "string"
+            },
+            {
+              "id": "671cfbd4-f642-4b03-885d-908199c0e6b4",
+              "name": "Email Address",
+              "value": "={{  $json.body['Email Address:'] }}",
+              "type": "string"
+            },
+            {
+              "id": "3fa7bda9-0ba9-4cc1-b3d9-d65afea6a3bb",
+              "name": "Primary Market Location",
+              "value": "={{ $json.body['Primary Market Location:'] }}",
+              "type": "string"
+            },
+            {
+              "id": "88e8d9fe-a3a6-4d57-9a7a-5b3f4e1ba966",
+              "name": "How do you typically attract new potential clients? (Select all that apply)",
+              "value": "={{ $json.body[\"How do you typically attract new potential clients?\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "06cfcea5-bd35-4c59-bebb-600d00f72bd9",
+              "name": "What specific offer or lead magnet do you use in your ads?",
+              "value": "={{  $json.body['What specific offer or lead magnet do you use in your ads?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "09e2d55f-8067-4a2c-bb63-85f4265510a5",
+              "name": "What type of information do visitors typically request on your website?",
+              "value": "={{  $json.body['What type of information do visitors typically request on your website?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "36f1bc61-9d03-457b-b3d3-4b0f9dc3db73",
+              "name": "What valuable information do you currently provide to attract new clients?",
+              "value": "={{  $json.body['What type of information do visitors typically request on your website?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "7677d27c-0b68-4656-bdde-33e4f733913c",
+              "name": "What type of properties are your new leads typically interested in? (Select all that apply)",
+              "value": "={{ $json.body[\"What type of properties are your new leads typically interested in?\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "143c78c0-1395-4664-a99a-33bafc40e7da",
+              "name": "What is your preferred communication style with new leads?",
+              "value": "={{ $json.body['What is your preferred communication style with new leads?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "06053360-5292-4e28-adcc-8b9b383486cd",
+              "name": "What are the most common objections you receive from new leads?",
+              "value": "={{  $json.body['What are the most common objections you receive from new leads?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "897c7f44-2e6f-4633-850f-85a06b878f46",
+              "name": "What local resources or information do new leads typically request?",
+              "value": "={{  $json.body['What local resources or information do new leads typically request?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "5aec6224-9b38-48d6-a020-2916bd7957a4",
+              "name": "What stage of the buying/selling process are most of your leads in when they first contact you?",
+              "value": "={{  $json.body['What stage of the buying/selling process are most of your leads in when they first contact you?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "d6a60edb-dbfe-4d03-a4a9-1989dcb5a1e3",
+              "name": "What is your biggest challenge when converting new leads?",
+              "value": "={{  $json.body['What is your biggest challenge when converting new leads?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "48b56071-db86-4176-b797-550cef1a9ba1",
+              "name": "What CRM or follow-up system do you currently use?",
+              "value": "={{  $json.body['What CRM or follow-up system do you currently use?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "6ad6d786-9305-4d93-b885-7d27ed0ca7c4",
+              "name": "How many new leads do you typically generate per month?",
+              "value": "={{  $json.body['How many new leads do you typically generate per month?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "4d3c1e03-6277-4de7-a165-190ec5bbfc38",
+              "name": "What is your current lead response time?",
+              "value": "={{ $json.body['What is your current lead response time?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "98c70e43-1de8-4001-83fa-0ccacd2b0250",
+              "name": "How many transactions did you close in the past 12 months?",
+              "value": "={{  $json.body['How many transactions did you close in the past 12 months?'] }}",
+              "type": "string"
+            },
+            {
+              "id": "de1b36cf-b2e6-4f6b-9114-6a16f8263cbe",
+              "name": "Phone Number",
+              "value": "={{  $json.body['Phone Number:'] }}",
+              "type": "string"
+            },
+            {
+              "id": "06142eea-b7c6-463b-a3a9-a024f8c4474d",
+              "name": "In the next 12 months, would it help your  business to improve lead flow and lead conversion?",
+              "value": "={{ $json.body['In the next 12 months, would it help your business to improve lead flow and lead conversion?'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        -60
+      ],
+      "id": "6ba27d77-cb32-4c6a-b1ca-1ab7f90ca879",
+      "name": "answers"
+    },
+    {
+      "parameters": {
+        "content": "\n## leadboy.salesgenius.co",
+        "height": 80,
+        "width": 300
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -580,
+        -320
+      ],
+      "id": "bb0cc4f9-dee6-4aa2-99b2-5ac220c75286",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "jsCode": "// This function processes the input data to clean up line breaks in field names and values\n// N8n expects items to be properly returned from this function\n\n// Using the correct code pattern for n8n Code nodes\nconst cleanFormData = items => {\n  // Process each item in the input array\n  return items.map(item => {\n    // Get the body from the current item\n    const originalBody = item.json.body;\n    \n    // Create a new clean body object\n    const cleanBody = {};\n    \n    // Process each field in the body\n    for (const [key, value] of Object.entries(originalBody)) {\n      // Clean up key by removing line breaks and extra spaces\n      const cleanKey = key.replace(/\\n\\s*/g, ' ').trim();\n      \n      // Clean up value if it's a string\n      let cleanValue = value;\n      if (typeof value === 'string') {\n        cleanValue = value.replace(/\\n\\s*/g, ' ').trim();\n      }\n      \n      // Add the cleaned key-value pair to the new body\n      cleanBody[cleanKey] = cleanValue;\n    }\n    \n    // Create a new item with the cleaned body\n    return {\n      json: {\n        ...item.json,\n        body: cleanBody\n      }\n    };\n  });\n};\n\n// This is the entry point for n8n\nreturn cleanFormData($input.all());"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1360,
+        -65
+      ],
+      "id": "b65e21ab-5513-41ed-b98d-6a6a984e6678",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer ntn_y77938235783grxbphRwEazxtixxh4eENsIdl2RRJyW9fy"
+            },
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Code2').item.json.notionData }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        492,
+        -15
+      ],
+      "id": "26de9c6f-151a-4b2f-ba00-3060f8a72298",
+      "name": "Create New Service Request",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the answers data from the previous node\nconst answersData = $node[\"answers\"].json;\n\n// Process the entire array of answers\nconst processedItems = Array.isArray(answersData) ? answersData.map(processAnswer) : [processAnswer(answersData)];\n\n// Process each answer into a Notion page\nfunction processAnswer(data) {\n  try {\n    // Extract data for page title and properties\n    const fullName = data[\"Full Name\"] || \"Unknown Agent\";\n    \n    // Create content blocks for Notion\n    const contentBlocks = [];\n    \n    // Add page title\n    contentBlocks.push({\n      object: \"block\",\n      type: \"heading_1\",\n      heading_1: {\n        rich_text: [{\n          type: \"text\",\n          text: { content: `Agent Profile: ${fullName}` }\n        }]\n      }\n    });\n    \n    // Add divider after title\n    contentBlocks.push({\n      object: \"block\",\n      type: \"divider\",\n      divider: {}\n    });\n    \n    // Track current section\n    let currentSection = \"\";\n    \n    // Process all fields in the data object\n    Object.keys(data).forEach(field => {\n      // Skip empty fields or the empty string field\n      if (!data[field] || data[field].trim() === \"\" || field === \"\") {\n        return;\n      }\n      \n      // Determine section based on field content\n      let newSection = \"\";\n      \n      if ([\"Full Name\", \"Brokerage Name\", \"Email Address\", \"Primary Market Location\"].includes(field)) {\n        newSection = \"Basic Information\";\n      } else if (field.includes(\"potential clients\") || \n                field.includes(\"lead magnet\") || \n                field.includes(\"visitors typically request\") ||\n                field.includes(\"valuable information\")) {\n        newSection = \"Lead Generation & Marketing\";\n      } else if (field.includes(\"properties are your new leads\") || \n                field.includes(\"communication style\") ||\n                field.includes(\"value propositions\") ||\n                field.includes(\"common objections\") ||\n                field.includes(\"local resources\") ||\n                field.includes(\"stage of the buying/selling process\")) {\n        newSection = \"Client Engagement\";\n      } else if (field.includes(\"biggest challenge\") ||\n                field.includes(\"CRM\") ||\n                field.includes(\"leads do you typically generate\") ||\n                field.includes(\"lead response time\") ||\n                field.includes(\"transactions did you close\")) {\n        newSection = \"Business Metrics & Operations\";\n      } else {\n        newSection = \"Additional Information\";\n      }\n      \n      // If we've switched to a new section, add a section header\n      if (newSection !== currentSection) {\n        // Add a divider if this isn't the first section\n        if (currentSection !== \"\") {\n          contentBlocks.push({\n            object: \"block\",\n            type: \"divider\",\n            divider: {}\n          });\n        }\n        \n        // Add the new section header\n        contentBlocks.push({\n          object: \"block\",\n          type: \"heading_2\",\n          heading_2: {\n            rich_text: [{\n              type: \"text\",\n              text: { content: newSection }\n            }]\n          }\n        });\n        \n        currentSection = newSection;\n      }\n      \n      // Add the field as a paragraph with bold question\n      contentBlocks.push({\n        object: \"block\",\n        type: \"paragraph\",\n        paragraph: {\n          rich_text: [\n            {\n              type: \"text\",\n              text: { content: formatQuestionLabel(field) + \": \" },\n              annotations: { bold: true }\n            },\n            {\n              type: \"text\",\n              text: { content: formatAnswer(data[field]) }\n            }\n          ]\n        }\n      });\n    });\n    \n    // Prepare the complete data for Notion API\n    return {\n      json: {\n        notionData: {\n          parent: {\n            database_id: \"1c31d08c4f5a801f9b45ce1f49d8b97f\"\n          },\n          properties: {\n            // Name property (required for Notion databases)\n            \"Name\": {\n              title: [\n                {\n                  text: {\n                    content: fullName\n                  }\n                }\n              ]\n            },\n            // Email property\n            \"Email\": {\n              email: data[\"Email Address\"] || \"\"\n            },\n            // Phone Number property\n            \"Phone Number\": {\n              phone_number: data[\"Phone Number\"] || \"\"\n            },\n            // Submission Date property\n            \"Submission Date\": {\n              date: {\n                start: new Date().toISOString()\n              }\n            }\n          },\n          children: contentBlocks\n        }\n      }\n    };\n  } catch (error) {\n    // Handle errors gracefully\n    console.error('Error processing answer data:', error.message);\n    return {\n      json: {\n        error: error.message\n      }\n    };\n  }\n}\n\n// Helper function to format question labels to be more concise\nfunction formatQuestionLabel(question) {\n  // Remove trailing question patterns and parenthetical notes\n  return question\n    .replace(/ \\(Select all that apply\\)$/i, '')\n    .replace(/\\?$/, '')\n    .trim();\n}\n\n// Helper function to format answer values properly\nfunction formatAnswer(answer) {\n  if (answer === undefined || answer === null) {\n    return 'Not provided';\n  } else if (Array.isArray(answer)) {\n    return answer.join(', ');\n  } else if (typeof answer === 'object') {\n    return Object.entries(answer)\n      .map(([key, val]) => `${key}: ${val}`)\n      .join(', ');\n  } else if (typeof answer === 'boolean') {\n    return answer ? 'Yes' : 'No';\n  } \n  return String(answer);\n}\n\n// Return the processed items\nreturn processedItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        272,
+        -15
+      ],
+      "id": "170b9c43-18d7-4786-8fb9-abc718779bd1",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini",
+          "mode": "list",
+          "cachedResultName": "o3-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -456,
+        80
+      ],
+      "id": "2f6183bc-0b9f-4414-ac9b-3072a33ffda1",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=your jobs to format the input into this:\n\n{\n  \"DripSequence\": [\n    {\n      \"step\": 1,\n      \"day\": 0,\n      \"type\": \"Phone Call\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"[Live phone call – no voicemail]\",\n      \"notes\": \"Trigger a double-dial attempt within 5 minutes of receiving the lead.\"\n    },\n    {\n      \"step\": 2,\n      \"day\": 0,\n      \"type\": \"SMS\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"Hey [First Name]! [Agent Name] here from [Brand Name]. I've got an exclusive tip on [property_type] in [market_location] that might be perfect for you. Got a minute?\",\n      \"notes\": \"Personalized to lead_source and property_types\"\n    },\n    {\n      \"step\": 3,\n      \"day\": 0,\n      \"type\": \"Email\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"[Compelling subject line based on lead_magnet]\",\n      \"body\": \"Hey [First Name],\\n\\n[Email body with personalized content addressing their specific interests, objections, and providing value]\\n\\n[Call to action based on lead_stage]\",\n      \"notes\": \"First email should reference the lead magnet that attracted them\"\n    }\n  ]\n\n}\n"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        -544,
+        -140
+      ],
+      "id": "7e1e96f4-e110-4006-8d8e-17d46488aa5c",
+      "name": "Convert to JSON",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## System Role\n\nYou are an elite real estate marketing specialist with deep expertise in lead conversion, behavioral psychology, and direct response copywriting. You create high-converting, personalized nurture sequences for real estate agents based on their specific lead sources, communication preferences, and business details. Your sequences combine elements from top conversion experts including Dean Jackson, Alex Hormozi, Ryan Serhant, Cole Gordon, and Dan Kennedy.\n\n## Context\n\nThis prompt uses data collected from a real estate agent's form submission to generate a personalized 15-day nurture sequence. The sequence will include strategic phone calls, text messages, and emails designed to convert new leads based on the agent's specific lead sources, property types, and communication style.\n\n## Instructions\n\nCreate a 15-day nurture sequence for a real estate agent based on the input variables below. The sequence must include:\n\n- At least 6 phone calls in the first 7 days (no voicemails)\n- Strategic text messages with high response rates\n- Compelling emails with engaging subject lines\n- A consistent tone matching the agent's preferred communication style\n- Value-driven content addressing the lead's specific interests and objections\n- Clear call-to-actions in each communication\n\n## Input Variables\n\n- **lead_source**: {{ $('answers').first().json['How do you typically attract new potential clients? (Select all that apply)'] }}\n- **lead_magnet**: {{ $('answers').first().json['What specific offer or lead magnet do you use in your ads?'] }}\n- **website_request_type**: {{ $('answers').first().json['What type of information do visitors typically request on your website?'] }}\n- **valuable_information**: {{ $('answers').first().json['What valuable information do you currently provide to attract new clients?'] }}\n- **property_types**: {{ $('answers').first().json['What type of properties are your new leads typically interested in? (Select all that apply)'] }}\n- **communication_style**: {{ $('answers').first().json['What is your preferred communication style with new leads?'] }}\n\n- **common_objections**: {{ $('answers').first().json['What are the most common objections you receive from new leads?'] }}\n- **requested_resources**: {{ $('answers').first().json['What local resources or information do new leads typically request?'] }}\n- **lead_stage**: {{ $('answers').first().json['What stage of the buying/selling process are most of your leads in when they first contact you?'] }}\n- **conversion_challenge**: {{ $('answers').first().json['What is your biggest challenge when converting new leads?'] }}\n- **agent_full_name**: {{ $('answers').first().json['Full Name'] }}\n- **agent_brand**: {{ $('answers').first().json['Brokerage Name'] }}\n- **market_location**: {{ $('answers').first().json['Primary Market Location'] }}\n\n\n## Output Format\n\nGenerate a JSON response with the following structure:\n\n\n{\n  \"DripSequence\": [\n    {\n      \"step\": 1,\n      \"day\": 0,\n      \"type\": \"Phone Call\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"[Live phone call – no voicemail]\",\n      \"notes\": \"Trigger a double-dial attempt within 5 minutes of receiving the lead.\"\n    },\n    {\n      \"step\": 2,\n      \"day\": 0,\n      \"type\": \"SMS\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"Hey [First Name]! [Agent Name] here from [Brand Name]. I've got an exclusive tip on [property_type] in [market_location] that might be perfect for you. Got a minute?\",\n      \"notes\": \"Personalized to lead_source and property_types\"\n    },\n    {\n      \"step\": 3,\n      \"day\": 0,\n      \"type\": \"Email\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"[Compelling subject line based on lead_magnet]\",\n      \"body\": \"Hey [First Name],\\n\\n[Email body with personalized content addressing their specific interests, objections, and providing value]\\n\\n[Call to action based on lead_stage]\",\n      \"notes\": \"First email should reference the lead magnet that attracted them\"\n    }\n  ]\n}\n\n\n\n## Sequence Structure Guidelines\n\n### Day 0 (First Day)\n\n- Initial phone call (double-dial attempt)\n- First text message with a hook related to their property interest\n- Welcome email referencing the lead magnet they engaged with\n\n### Days 1-7\n\n- At least 5 more phone calls\n- 3-4 text messages with increasing value/urgency\n- 2-3 emails addressing common objections and delivering value\n\n### Days 8-15\n\n- 1-2 phone calls\n- 2-3 text messages\n- 2-3 emails focused on building trust and driving action\n\n## Content Guidelines\n\n### Phone Call Scripts\n\n- No voicemails allowed\n- Reference \"Value Contact Point\" instead of \"check-in\"\n- Focus on delivering specific value in each call\n- Address the lead's property interests directly\n\n### Text Messages\n\n- Keep under 160 characters when possible\n- Include a clear question to drive response\n- Reference specific properties or market insights\n- Use the agent's communication style\n\n### Emails\n\n- Compelling subject lines using curiosity, urgency, or value\n- Opening that acknowledges their specific situation\n- Body that delivers valuable information related to their property interests\n- Content that addresses their most likely objections\n- Clear call-to-action\n- Professional signature\n\n## Special Instructions\n\n1. For leads from Meta/Google Ads: Reference the specific lead magnet in early communications\n2. For website leads: Address the specific information they requested\n3. Match the tone exactly to the agent's preferred communication style\n4. Use terminology and references specific to the property types they focus on\n5. Incorporate the agent's value propositions naturally throughout the sequence\n6. Address the common objections they typically receive\n7. Tailor the sequence to the lead's buying/selling stage\n\n## Example Phone Call Notes:\n\n- \"Initial contact: Express enthusiasm about helping with [property_type] in [market_location], reference [lead_magnet]\"\n- \"Follow-up call: Share a specific market insight related to [property_type] and [value_proposition_1]\"\n- \"Value Contact Point: Address [common_objection] with specific examples and data\"\n\n## Example Text Messages:\n\n- \"Hey [First Name]! Found a [property_type] in [market_location] that matches what you're looking for. Quick question - are you looking for [specific feature]?\"\n- \"Just got insider info on [market_location]'s [property_type] market that could save you thousands. When's a good time to chat?\"\n\n## Example Email Subjects:\n\n- \"[market_location]: The Hidden Truth About [property_type] Prices This Month\"\n- \"Did You Know This About [specific feature] in [market_location]?\"\n- \"I Found 3 [property_type] Options That Match Your Criteria\"\n\n## Content Tone Variations:\n\n- **Direct and to-the-point**: Focus on facts, numbers, and clear action steps. Minimal small talk.\n- **Warm and relationship-focused**: More personal touches, asking about their situation, building rapport.\n- **Educational and informative**: Focus on market data, trends, and educational content.\n- **Statistics and data-driven**: Heavy emphasis on market statistics, performance data, and analytical insights.\n\n## IMPORTANT REMINDERS:\n\n- Replace all placeholder variables with the actual form inputs\n- Ensure phone calls occur within the first 7 days\n- Never recommend leaving voicemails\n- Use \"Value Contact Point\" instead of \"check-in\"\n- Create content that directly addresses the lead source and property types\n- Maintain the agent's preferred communication style throughout\n\nYou must respond ONLY with the requested JSON and no other text. Do not include explanations, introductions, or anything other than the JSON object.",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "661593d9-6237-41f4-a812-2de855e4c1a4",
+      "name": "Generate 15 Day Email Sequence",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -920,
+        -65
+      ],
+      "notesInFlow": true,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "notes": "\n---\n\n### **What’s Improved in This Version?**  \n✅ **Ensures strict JSON output** – AI will **only generate JSON**, making it parser-friendly.  \n✅ **Integrated Output Parser Compliance** – No deviations from the required format.  \n✅ **Stronger Automation Readiness** – CRM-friendly structure for direct implementation.  \n✅ **Optimized for Performance** – Structured prompts ensure high-converting messaging.  \n\nThis guarantees **flawless, structured AI-generated drip sequences** that seamlessly integrate into your workflow. 🚀 Let me know if you need further refinements!\n"
+    },
+    {
+      "parameters": {
+        "email": "={{ $('answers').first().json[\"Email Address\"] }}",
+        "phone": "={{ $('answers').first().json[\"Phone Number\"] }}",
+        "additionalFields": {
+          "name": "={{ $('answers').first().json[\"Full Name\"] }}",
+          "notes": "=Completed Leadboy Form, See Answers Here: {{ $json.url }}\n",
+          "tags": "leadboy"
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.highLevel",
+      "typeVersion": 2,
+      "position": [
+        712,
+        -15
+      ],
+      "id": "67309480-75e3-4137-81a3-013cd896dad8",
+      "name": "HighLevel1",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "highLevelOAuth2Api": {
+          "id": "YNMivyiUaWc28Elo",
+          "name": "HighLevel account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "sendTo": "=ryan@salesgenius.co, arslan@salesgenius.co",
+        "subject": "=[LEADBOY] New Qualified Lead to Call",
+        "emailType": "text",
+        "message": "=Name: {{ $('answers').first().json[\"Full Name\"] }}\nEmail: {{ $('answers').first().json[\"Email Address\"] }}\nPhone: {{ $('answers').first().json[\"Phone Number\"] }}\nAnswers to Questions: {{ $('Create New Service Request').first().json.url }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1152,
+        -15
+      ],
+      "id": "48f997d7-f84f-4fef-abb1-73654c107b37",
+      "name": "Gmail1",
+      "webhookId": "e5a034a9-a684-49bd-8407-c2c6e24141f1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "R2ppJs5mnCWrQakn",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "261be0bf-8dcc-4f1d-8deb-dde6584e0760",
+              "leftValue": "={{ $('answers').first().json[\"How many transactions did you close in the past 12 months?\"] }}",
+              "rightValue": "0-5",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "d22ea087-9822-4025-b905-930090c46885",
+              "leftValue": "={{ $('answers').first().json[\"In the next 12 months, would it help your  business to improve lead flow and lead conversion?\"] }}",
+              "rightValue": "Yes",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        940,
+        -20
+      ],
+      "id": "72337988-3833-4e34-b643-eb0392fd0f95",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Create New Service Request').first().json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Qualification|select",
+              "selectValue": "HOT"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1372,
+        -15
+      ],
+      "id": "259cbe1b-3238-41d6-bd20-96f9d73c0ab6",
+      "name": "Notion",
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.salesgenius.co/webhook/createRealtor",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer TU_TOKEN_AQUI"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Name",
+              "value": "={{ $('answers').first().json[\"Full Name\"] }}"
+            },
+            {
+              "name": "Phone",
+              "value": "={{ $('answers').first().json[\"Phone Number\"] }}"
+            },
+            {
+              "name": "Email",
+              "value": "={{ $('answers').first().json[\"Email Address\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1580,
+        -20
+      ],
+      "id": "80ba1006-cd96-423e-ad98-c65934ecd718",
+      "name": "Enrich Realtor Data"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-03-26T13:36:58.652Z",
+      "updatedAt": "2025-03-26T13:36:58.652Z",
+      "role": "workflow:owner",
+      "workflowId": "mEYmcAh7CLCDN3t5",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-21T17:21:41.750Z",
+      "updatedAt": "2025-02-21T17:21:41.750Z",
+      "id": "hCxs00bYB7kqJnEo",
+      "name": "WORKING"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-04-07T17:58:54.000Z",
+  "versionId": "77d06d51-8883-4183-9972-324d55021c7e"
+}
