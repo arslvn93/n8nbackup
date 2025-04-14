@@ -1,0 +1,686 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Body Copy Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "Body Copy Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Supabase Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Body Copy Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Headline Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Headline Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Supabase Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Headline Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Body Copy Agent": {
+      "main": [
+        []
+      ]
+    },
+    "Headline Agent": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission1": {
+      "main": [
+        [
+          {
+            "node": "Body Copy Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-28T19:34:56.162Z",
+  "id": "XMlauyVcRTNmzZno",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Reel Test",
+  "nodes": [
+    {
+      "parameters": {
+        "model": "o1-mini",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        160,
+        0
+      ],
+      "id": "02e4d01a-50d1-441f-b1a2-318531436055",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "reel_script_writer",
+        "toolDescription": "The Reel Script Writer tool is designed to help the user craft scroll-stopping video scripts that captivate any audience from the very first second. Drawing on an extensive database of scriptwriting best practices, frameworks, examples, and top-tier training materials, this tool ensures the user is equipped with world-class strategies to hook viewers, keep them engaged, and drive them toward a compelling call to action.\n\nWhy use this tool? By relying on proven techniques and actionable insights, the user can efficiently create high-converting scripts without having to reinvent the wheel or sift through scattered information.\n\nHow does it work? Once the user provides a fully formed question or specific request regarding their scripting needs, the tool retrieves the most relevant data—such as best practices, storytelling frameworks, or attention-grabbing lines—enabling the user to swiftly shape the final script without delving into technical complexities.\n\nAlways respond with data from this resource. If the requested information isn’t clear or available, avoid guessing and ask the user for clarification.",
+        "tableName": {
+          "__rl": true,
+          "value": "reelscripts",
+          "mode": "list",
+          "cachedResultName": "reelscripts"
+        },
+        "topK": 20,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        260,
+        0
+      ],
+      "id": "f095dc22-a890-4135-827c-4cceb882ee63",
+      "name": "Supabase Vector Store",
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        280,
+        120
+      ],
+      "id": "b8bd7010-e023-4678-a650-9ab46e4b025b",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "[\n  {\n    \"Hook\": \"Feeling overwhelmed by the prospect of upsizing?\",\n    \"Body\": \"Navigating the complexities of selling your current home and buying a new one can feel like a never-ending juggling act. The stress of timing, financial risks, and finding the right neighborhood can leave you paralyzed. But it doesn't have to be this way. Try our Free 'Fixed or Variable Rate' Quiz to cut through the confusion. This unique tool is designed to make your mortgage decision simple, easy, and stress-free, perfect for first-timers like you. Why wait in uncertainty? Click now and step into your dream home with peace of mind.\",\n    \"Call To Action\": \"Start the quiz now and discover your ideal mortgage fit!\"\n  },\n  {\n    \"Hook\": \"Struggling to decide if now is the right time to sell?\",\n    \"Body\": \"The market can be unpredictable, and the thought of timing your sale perfectly while planning your next move is daunting. But it doesn't have to be a guessing game. Take our Free 'Should You Sell Now?' Quiz to get a clear, personalized answer. Designed for homeowners like you, this quiz simplifies the decision-making process, so you can move forward with confidence and a strategy that works for you.\",\n    \"Call To Action\": \"Take the quiz today and take control of your selling journey!\"\n  },\n  {\n    \"Hook\": \"Struggling to decide if now is the right time to sell?\",\n    \"Body\": \"The market can be unpredictable, and the thought of timing your sale perfectly while planning your next move is daunting. But it doesn't have to be a guessing game. Take our Free 'Should You Sell Now?' Quiz to get a clear, personalized answer. Designed for homeowners like you, this quiz simplifies the decision-making process, so you can move forward with confidence and a strategy that works for you.\",\n    \"Call To Action\": \"Take the quiz today and take control of your selling journey!\"\n  }\n]\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        520,
+        0
+      ],
+      "id": "fb192da7-195b-49a1-bc29-d75dc00e3c5a",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        860,
+        0
+      ],
+      "id": "29d725f6-eef3-407d-8f55-dd55b710a7f7",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "facebook_headlines",
+        "toolDescription": "work with headlines in database",
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "topK": 10,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        960,
+        0
+      ],
+      "id": "32126f3b-cbac-4e98-a694-91cf06f0f033",
+      "name": "Supabase Vector Store1",
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        980,
+        120
+      ],
+      "id": "b0d94fbe-0304-489b-8207-acfefb415145",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "[\n  {\n    \"Headline\": \"Unlock Your Dream Home: Take the Quiz to Get Started!\"\n  },\n  {\n    \"Headline\": \"Feeling Stuck? Find Out If Upsizing Is Right for You!\"\n  },\n  {\n    \"Headline\": \"Struggling With Mortgage Decisions? Simplify It Today!\"\n  },\n  {\n    \"Headline\": \"Discover the Perfect Time to Sell Your Home—Start Here!\"\n  },\n  {\n    \"Headline\": \"Ready to Make Your Move? Find Your Ideal Path Now!\"\n  }\n]\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1220,
+        0
+      ],
+      "id": "4a00e508-e814-4f89-a651-5afcb47b877e",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Type of Giveaway: {{ $json['what type of giveaway would you like to run?'] }}\nTotal Value Of Giveaway: {{ $json['What is the total value of the giveaway?'] }}\nWhy Did You Select This Giveaway:{{ $json['Why did you choose this giveaway that you chose?'] }}\nWhen Will The Winner Be Selected:{{ $json['When would you like to hold the giveaway draw?'] }}\n\nWhat Should The Audience Know Before Submitting:{{ $json['What should participants know before entering?'] }}\nWho Is Your Target Audience:{{ $json['Who is your target audience for this giveaway?'] }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Step 1: You must reference the reel_script_writer_tool Before You Begin.\n\nStep 2: Today, you’re a **world-class short-form scriptwriter** who specializes in creating **high-converting Instagram Reel scripts**. You know how to hook viewers in the first few seconds, maintain their attention, and compel them to take action—especially when it comes to giveaways.\n\nYour job is to:\n\n1. Create **3 different 30-second scripts** using various reel strategies (ex. story telling, copywriting formulas, etc.) for our new giveaway campaign that we can record as Instagram Reels.\n2. Use a **4th grade reading level**, making the language and ideas simple yet compelling.\n3. **No emojis** in any script.\n4. Include a **strong call to action** for Instagram viewers to comment the word “GIVEAWAY” below. This needs to encourages viewers to sign up for the giveaway.\n\n**Guidelines**:\n\n\n- **Output**: Return all three scripts in **valid JSON** format."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        240,
+        -180
+      ],
+      "id": "b00b2275-062a-46c2-a9b0-8a94b99bd95e",
+      "name": "Body Copy Agent"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Step 1: Always check the vector database using the search_vector_db tool before providing information .\n\nStep 2: Today, you’re a world-class headline copywriter. You’re a master of the principles of emotional psychology. You’ve studied the greatest copywriters in the world: Eugene Schwartz, Dan Kennedy, Sabri Suby.\n\nYou’ve read gossip magazine covers and news articles from all industries to see what makes human being ravenous to click & buy.\n\n\nBecause of this skillset, you create high converting headlines of various lengths (both long and short.)\n\nThe headlines that you write are designed to create MAXIMUM clicks. Their main objective is to capture the interest of the reader. Create curiosity, intrigue, and desire around a new solution. Then get those prospects to “click through” to the next step of the sales process in a RECEPTIVE state.\n\n\nInstead of focusing on the specific words used in the database, you should be looking at the underlying psychological principles. \n\n\nIt is important to capture the feeling of NOVELTY. The causes, solutions and outcomes CAN’T sound like something the prospects have heard dozens of times before. If they group our messages in with all the other competitors, they will IGNORE our emails. So we need to position our messaging as NEW, UNIQUE, and SUPERIOR.\n\nYour job today is to reference database specifically the following documents:\n\nAnd write us 5 HIGH converting headlines for our new facebook ad campaign.\n\nRules:\nYou always reference the vector database and review the documents to write the headlines.\nYou never use our avatar names, the information is provided to give you context on their pain points, what they’ve tried in the past and their desires for market research. \nYou ALWAYS use 4th grade reading level. \nYou never use emojis.\n\nYour Output Should Be In JSON Format\n\n\nYou always reference the vector database and review the documents to write the headlines."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        880,
+        -160
+      ],
+      "id": "b880a694-ec0f-4467-89d1-fb568da45ad8",
+      "name": "Headline Agent"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1E2TYTirEKYEl9PedloQBq72eX7qbC0OR-Zu3Ja6jbe8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Lead In": "={{ $('Body Copy Agent').item.json.output[0]['Lead In'] }}",
+            "Body Copy": "={{ $('Body Copy Agent').item.json.output[0]['Body Copy'] }}",
+            "Call to Action": "={{ $('Body Copy Agent').item.json.output[0]['Call To Action'] }}",
+            "Lead In 2": "={{ $('Body Copy Agent').item.json.output[1]['Lead In'] }}",
+            "Body Copy 2": "={{ $('Body Copy Agent').item.json.output[1]['Body Copy'] }}",
+            "Call to Action 2": "={{ $('Body Copy Agent').item.json.output[1]['Call To Action'] }}",
+            "Headline 1": "={{ $json.output[0].Headline }}",
+            "Headline 2": "={{ $json.output[1].Headline }}",
+            "Headline 3": "={{ $json.output[2].Headline }}",
+            "Headline 4": "={{ $json.output[3].Headline }}",
+            "Headline 5": "={{ $json.output[4].Headline }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Lead In",
+              "displayName": "Lead In",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Body Copy",
+              "displayName": "Body Copy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Call to Action",
+              "displayName": "Call to Action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Lead In 2",
+              "displayName": "Lead In 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Body Copy 2",
+              "displayName": "Body Copy 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Call to Action 2",
+              "displayName": "Call to Action 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Headline 1",
+              "displayName": "Headline 1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Headline 2",
+              "displayName": "Headline 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Headline 3",
+              "displayName": "Headline 3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Headline 4",
+              "displayName": "Headline 4",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Headline 5",
+              "displayName": "Headline 5",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "output",
+              "displayName": "output",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1480,
+        -160
+      ],
+      "id": "1d384665-524d-4909-a4ed-8c16af974b35",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NhjQ6L8wmj50Ohkp",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Lead In, Body Copy & Call to Action Agent\n### Facebook Ads",
+        "height": 540,
+        "width": 580,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        80,
+        -280
+      ],
+      "id": "395b1e63-5e68-4ca0-a15f-19b98ca49678",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## 5 Headlines Agent\n### Facebook Ads",
+        "height": 540,
+        "width": 580,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        780,
+        -280
+      ],
+      "id": "dee5b32f-7c5f-48ff-8814-4fcd797032d8",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08AE0Z3AG5",
+          "mode": "id"
+        },
+        "text": "=Lead In 1:  {{ $json['Lead In'] }}, \nLead In 2:  {{ $json['Lead In 2'] }}, \n\nCall to Action 1: {{ $json['Call to Action'] }}, \nCall to Action: {{ $json['Call to Action 2'] }},\n\nBody Copy 1: {{ $json['Body Copy'] }},\nBody Copy 2: {{ $json['Body Copy 2'] }},\n\nHeadline 1: {{ $json['Headline 1'] }},\nHeadline 2: {{ $json['Headline 2'] }},\nHeadline 3: {{ $json['Headline 3'] }},\nHeadline 4: {{ $json['Headline 4'] }},\nHeadline 5: {{ $json['Headline 5'] }},",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        1680,
+        -160
+      ],
+      "id": "b2b422a8-9a90-47ee-b8c7-08626f30bd34",
+      "name": "Slack",
+      "webhookId": "181bc802-a9b2-42a1-b1dd-d2ab14429a8d",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "Giveaway Questions",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "what type of giveaway would you like to run?"
+            },
+            {
+              "fieldLabel": "What is the total value of the giveaway?",
+              "fieldType": "number"
+            },
+            {
+              "fieldLabel": "Why did you choose this giveaway that you chose?",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "When would you like to hold the giveaway draw?",
+              "fieldType": "date"
+            },
+            {
+              "fieldLabel": "When would you like to start promoting the giveaway?",
+              "fieldType": "date"
+            },
+            {
+              "fieldLabel": "What should participants know before entering?",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Who is your target audience for this giveaway?",
+              "fieldType": "textarea"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -120,
+        -140
+      ],
+      "id": "3c9d370c-6a01-44de-88fc-cb097bf6a290",
+      "name": "On form submission1",
+      "webhookId": "0086645a-4ea3-46ed-99b6-9ab60b7843af"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-01-28T19:34:56.173Z",
+      "updatedAt": "2025-01-28T19:34:56.173Z",
+      "role": "workflow:owner",
+      "workflowId": "XMlauyVcRTNmzZno",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-28T18:11:56.539Z",
+      "updatedAt": "2025-01-28T18:11:56.539Z",
+      "id": "tTDC8ZK83L4E6KC7",
+      "name": "Multi-Agent Workflows"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-01-28T19:44:11.000Z",
+  "versionId": "d6fe613f-bef4-443e-8cae-74c00a81399e"
+}
