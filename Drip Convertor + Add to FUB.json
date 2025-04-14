@@ -1,0 +1,1144 @@
+{
+  "active": true,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Add Email Template to Follow Up Boss",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-26T18:07:18.475Z",
+  "id": "EVQMFUCw9OnDQJCk",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Drip Convertor + Add to FUB",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Nurture Sequence Agent",
+        "formDescription": "This takes a PDF of a nurture sequence and formats it for a specific crm.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name of Client",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Enter the Name of the Nurture Sequence",
+              "placeholder": "New Listing - 58 Hobart Crescent - Ashley",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Name of City",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Attach the Nurture Sequence PDF",
+              "fieldType": "file",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Enter the URL for the Nurture Sequence",
+              "placeholder": "HotList URL, or E-Book URL"
+            },
+            {
+              "fieldLabel": "What CRM are they using",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Follow Up Boss"
+                  },
+                  {
+                    "option": "Lofty"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "buttonLabel": "Submit",
+          "path": "drip",
+          "respondWithOptions": {
+            "values": {
+              "respondWith": "redirect",
+              "redirectUrl": "https://docs.google.com/spreadsheets/d/1JsJzF23OHQPxmvA7pL1HBTYJTQ80OC19dNTXPTGIfEA/edit?usp=sharing"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "9bf7e355-7966-4560-a20e-a4a01fd101f7",
+      "name": "On form submission",
+      "webhookId": "3c5cc2d9-4631-455a-8290-0215cfdb5228"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "binaryPropertyName": "Attach_the_Nurture_Sequence_PDF",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "2c40a910-c808-4856-bd48-fb335587a16b",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Your task is to convert the content of these email steps into properly formatted HTML suitable for a simple email.\n\nRequirements:\n\nHTML Formatting:\n\nConvert plain text email content into properly formatted HTML.\nUse <p> tags for paragraphs.\nUse <br> tags for line breaks.\nWhere applicable, format lists using <ul> and <li> tags.\nVariable Replacements:\nReplace the following placeholders within the email content:\n\nReplace {{contact.first_name}} with %contact_first_name%\nReplace {{contact.email}} with %contact_email%\nReplace {{user.name}} with %agent_name%\nReplace {{company_name}} with %company_name%\nReplace {{user.calendar_link}} with %agent_merge_field_1%\nReplace any CTA URL with {{ $('On form submission').item.json[\"Enter the URL for the Nurture Sequence\"] }}\nReplace CITY or CITY NAME with {{ $('On form submission').item.json[\"Name of City\"] }}\n\nEnsure That:\nThe content is transformed into clean HTML as shown.\nAll variable placeholders are replaced as specified.\n\nExample Output:\n{\n    \"step_number\": 1,\n    \"step_type\": \"Email\",\n    \"ste_name\": \"Email #1\",\n    \"day\": \"Monday\",\n    \"days_after_last_step\": 0,\n    \"subject\": \"Welcome Email\",\n    \"content\": \"<p>Hello,</p><p>Welcome to our service! We're excited to have you on board.</p>\"\n  }\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1600,
+        -420
+      ],
+      "id": "315aecbf-f9bf-4bf1-a7fc-9ba2e08ea95e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Nurture Sequence: {{ $json.text }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are provided with a nurture sequence text that outlines a series of communications—such as phone calls, text messages, reminders, and emails—that will be sent to a client. The overall campaign (drip) name remains the same for all steps. Your task is to convert this text into a structured JSON object that includes a top-level drip_name and a nested array of steps.\n\n\nOutput Requirements:\n\nEnsure every step from the nurture sequence is included and that the details are clearly captured.\nThe output must be a valid JSON object with a top-level drip name and an array of steps.\n\n\nExample of the Expected JSON Structure:\n\n[\n  {\n    \"step_number\": 1,\n    \"step_type\": \"Email\",\n    \"ste_name\": \"Email #1\",\n    \"day\": \"Monday\",\n    \"days_after_last_step\": 0,\n    \"subject\": \"Welcome Email\",\n    \"content\": \"<p>Hello,</p><p>Welcome to our service! We're excited to have you on board.</p>\"\n  },\n  {\n    \"step_number\": 2,\n    \"step_type\": \"Text\",\n    \"ste_name\": \"Text #1\",\n    \"day\": \"Tuesday\",\n    \"days_after_last_step\": 1,\n    \"subject\": null,\n    \"content\": \"Hi, just checking in to see if you have any questions.\"\n  },\n  {\n    \"step_number\": 3,\n    \"step_type\": \"Call\",\n    \"ste_name\": \"Call #1\",\n    \"day\": \"Wednesday\",\n    \"days_after_last_step\": 1,\n    \"subject\": null,\n    \"content\": \"Call to discuss our services and answer any queries you might have.\"\n  },\n  {\n    \"step_number\": 4,\n    \"step_type\": \"Reminder\",\n    \"ste_name\": \"Reminder #1\",\n    \"day\": \"Thursday\",\n    \"days_after_last_step\": 1,\n    \"subject\": null,\n    \"content\": \"Reminder to schedule a follow-up call.\"\n  },\n  {\n    \"step_number\": 5,\n    \"step_type\": \"Email\",\n    \"ste_name\": \"Email #2\",\n    \"day\": \"Friday\",\n    \"days_after_last_step\": 1,\n    \"subject\": \"Follow-Up Email\",\n    \"content\": \"<p>Hi again,</p><p>Just following up on our previous conversation. Let us know if you have any further questions.</p>\"\n  },\n  {\n    \"step_number\": 6,\n    \"step_type\": \"Text\",\n    \"ste_name\": \"Text #2\",\n    \"day\": \"Saturday\",\n    \"days_after_last_step\": 1,\n    \"subject\": null,\n    \"content\": \"Final reminder to check your inbox for our follow-up email.\"\n  }\n]\n\n\nImportant: ONLY respond with the JSON, nothing else, use output formatter\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        460,
+        0
+      ],
+      "id": "fe4612f1-c14b-40ad-8a00-b45410768641",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "[\n  {\n    \"step_number\": 1,\n    \"step_type\": \"Email\",\n    \"ste_name\": \"Email #1\",\n    \"day\": \"Monday\",\n    \"days_after_last_step\": 0,\n    \"subject\": \"Welcome Email\",\n    \"content\": \"<p>Hello,</p><p>Welcome to our service! We're excited to have you on board.</p>\"\n  },\n  {\n    \"step_number\": 2,\n    \"step_type\": \"Text\",\n    \"ste_name\": \"Text #1\",\n    \"day\": \"Tuesday\",\n    \"days_after_last_step\": 1,\n    \"subject\": null,\n    \"content\": \"Hi, just checking in to see if you have any questions.\"\n  },\n  {\n    \"step_number\": 3,\n    \"step_type\": \"Call\",\n    \"ste_name\": \"Call #1\",\n    \"day\": \"Wednesday\",\n    \"days_after_last_step\": 1,\n    \"subject\": null,\n    \"content\": \"Call to discuss our services and answer any queries you might have.\"\n  },\n  {\n    \"step_number\": 4,\n    \"step_type\": \"Reminder\",\n    \"ste_name\": \"Reminder #1\",\n    \"day\": \"Thursday\",\n    \"days_after_last_step\": 1,\n    \"subject\": null,\n    \"content\": \"Reminder to schedule a follow-up call.\"\n  },\n  {\n    \"step_number\": 5,\n    \"step_type\": \"Email\",\n    \"ste_name\": \"Email #2\",\n    \"day\": \"Friday\",\n    \"days_after_last_step\": 1,\n    \"subject\": \"Follow-Up Email\",\n    \"content\": \"<p>Hi again,</p><p>Just following up on our previous conversation. Let us know if you have any further questions.</p>\"\n  },\n  {\n    \"step_number\": 6,\n    \"step_type\": \"Text\",\n    \"ste_name\": \"Text #2\",\n    \"day\": \"Saturday\",\n    \"days_after_last_step\": 1,\n    \"subject\": null,\n    \"content\": \"Final reminder to check your inbox for our follow-up email.\"\n  }\n]\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        620,
+        220
+      ],
+      "id": "ee36ea73-4a68-4132-8014-35867d78a03f",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "o3-mini-2025-01-31"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        460,
+        220
+      ],
+      "id": "9fd59111-2470-42b0-b6f3-049df1c92d79",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('On form submission').first().json[\"What CRM are they using\"] }}",
+                    "rightValue": "Follow Up Boss",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Follow Up Boss"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "38ace4b4-429d-40f5-98ce-c9aa440d4816",
+                    "leftValue": "={{ $('On form submission').first().json[\"What CRM are they using\"] }}",
+                    "rightValue": "Lofty",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Lofty"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7ac1e616-17aa-4663-8e3e-913d8eda0fdb",
+                    "leftValue": "={{ $json }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "No Output"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        840,
+        0
+      ],
+      "id": "e769ed0e-e8f1-42d7-8012-39d5f6f90c82",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n    \"step_number\": 1,\n    \"step_type\": \"Email\",\n    \"ste_name\": \"Email #1\",\n    \"day\": \"Monday\",\n    \"days_after_last_step\": 0,\n    \"subject\": \"Welcome Email\",\n    \"content\": \"<p>Hello,</p><p>Welcome to our service! We're excited to have you on board.</p>\"\n  }"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1780,
+        -200
+      ],
+      "id": "8ae192b9-0189-4c97-a323-d9e2a9a86caf",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        -120
+      ],
+      "id": "60ea2638-6fb1-4d63-b87b-0866b1ac7807",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "033d85f0-9eac-4861-9778-fe17da81f059",
+              "leftValue": "={{ $json.step_type }}",
+              "rightValue": "Email",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1320,
+        -120
+      ],
+      "id": "3f1d3393-e6d4-4c1b-bd56-a19cd9823f7c",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1JsJzF23OHQPxmvA7pL1HBTYJTQ80OC19dNTXPTGIfEA",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JsJzF23OHQPxmvA7pL1HBTYJTQ80OC19dNTXPTGIfEA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "HTML/Content": "={{ $json.content }}",
+            "Step Type": "={{ $json.step_type }}",
+            "Day": "={{ $json.day }}",
+            "Days After Last Step": "={{ $json.days_after_last_step }}",
+            "Email Number": "={{ $json.ste_name }}",
+            "Subject": "={{ $json.subject }}",
+            "Step Number": "={{ $json.step_number }}",
+            "Drip Name": "={{ $('On form submission').item.json[\"Name of Client\"] }} - {{ $('On form submission').item.json[\"Enter the Name of the Nurture Sequence\"] }} - {{ $('On form submission').item.json[\"Name of City\"] }} "
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Drip Name",
+              "displayName": "Drip Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Step Number",
+              "displayName": "Step Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Step Type",
+              "displayName": "Step Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Day",
+              "displayName": "Day",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Days After Last Step",
+              "displayName": "Days After Last Step",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email Number",
+              "displayName": "Email Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Subject",
+              "displayName": "Subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "HTML/Content",
+              "displayName": "HTML/Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2420,
+        -120
+      ],
+      "id": "235fefc9-dd0e-4b51-b5c9-ab48b94d8695",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NhjQ6L8wmj50Ohkp",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2000,
+        -120
+      ],
+      "id": "b9f6df05-2a14-4e5e-9557-4c2ecabf1dd4",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1580,
+        -200
+      ],
+      "id": "d7a6bbe0-1823-4f84-a60d-bedf02f503d2",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// First, flatten the items so that if there is an \"output\" property, use its contents.\nconst flattenedItems = items.map(item => {\n  if (item.json && item.json.output) {\n    return { json: item.json.output };\n  }\n  return item;\n});\n\n// Then, sort the items based on the step_number property.\nflattenedItems.sort((a, b) => {\n  return a.json.step_number - b.json.step_number;\n});\n\nreturn flattenedItems;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2200,
+        -120
+      ],
+      "id": "d610d573-8730-4ddc-b4af-5d2e614efcb6",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You will receive 2 types of items, text messages and emails. You need to do different things for each.\n\nEmail Step: Your task is to convert the content of these email steps into properly formatted HTML suitable for a simple email.\n\nRequirements:\n\nHTML Formatting:\n\nConvert plain text email content into properly formatted HTML.\nUse <p> tags for paragraphs.\nUse <br> tags for line breaks.\nWhere applicable, format lists using <ul> and <li> tags.\nVariable Replacements:\nReplace the following placeholders within the email content:\n\nReplace {{contact.first_name}} with #lead_first_name#\nReplace {{contact.email}} with #lead_email#\nReplace {{user.name}} with #agent_name#\nReplace {{company_name}} with #Assigned_Agent_Company_Name#\nReplace {{user.calendar_link}} with #Assigned_Agent_Website#\nReplace any CTA URL with {{ $('On form submission').item.json[\"Enter the URL for the Nurture Sequence\"] }}\n\nEnsure That:\nThe content is transformed into clean HTML as shown.\nAll variable placeholders are replaced as specified.\n\nExample Output:\n{\n    \"step_number\": 1,\n    \"step_type\": \"Email\",\n    \"ste_name\": \"Email #1\",\n    \"day\": \"Monday\",\n    \"days_after_last_step\": 0,\n    \"subject\": \"Welcome Email\",\n    \"content\": \"<p>Hello,</p><p>Welcome to our service! We're excited to have you on board.</p>\"\n  }\n\n\nText Step: Your job is to make sure it is plain text and in a single line and to replace any variables with the following:\nReplace {{contact.first_name}} with #lead_first_name#\nReplace {{contact.email}} with #lead_email#\nReplace {{user.name}} with #agent_name#\nReplace {{company_name}} with #Assigned_Agent_Company_Name#\nReplace {{user.calendar_link}} with #Assigned_Agent_Website#\n\nExample Output:\n  {\n    \"step_number\": 2,\n    \"step_type\": \"Text\",\n    \"ste_name\": \"Text #1\",\n    \"day\": \"Tuesday\",\n    \"days_after_last_step\": 1,\n    \"subject\": null,\n    \"content\": \"Hi #lead_first_name#, just checking in to see if you have any questions.\"\n  }\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1580,
+        320
+      ],
+      "id": "81f8c237-bd4a-4cc8-a099-7ab3455a61a1",
+      "name": "AI Agent2"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "[\n   {\n    \"step_number\": 1,\n    \"step_type\": \"Email\",\n    \"ste_name\": \"Email #1\",\n    \"day\": \"Monday\",\n    \"days_after_last_step\": 0,\n    \"subject\": \"Welcome Email\",\n    \"content\": \"<p>Hello,</p><p>Welcome to our service! We're excited to have you on board.</p>\"\n  }, \n{\n    \"step_number\": 2,\n    \"step_type\": \"Text\",\n    \"ste_name\": \"Text #1\",\n    \"day\": \"Tuesday\",\n    \"days_after_last_step\": 1,\n    \"subject\": null,\n    \"content\": \"Hi, just checking in to see if you have any questions.\"\n  }\n]"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1780,
+        160
+      ],
+      "id": "b46d59d8-d639-49d0-9a58-fe8200052f3a",
+      "name": "Structured Output Parser2"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        60
+      ],
+      "id": "1a6447c6-dab6-4bf1-bb05-309916e26e5d",
+      "name": "Split Out1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "033d85f0-9eac-4861-9778-fe17da81f059",
+              "leftValue": "={{ $json.step_type }}",
+              "rightValue": "Email",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "d46f8e7c-0f03-48d1-8a04-51c9e0a5b57b",
+              "leftValue": "={{ $json.step_type }}",
+              "rightValue": "Text",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1320,
+        60
+      ],
+      "id": "298c0d00-b8db-42d4-a126-cab6a3547e6e",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1JsJzF23OHQPxmvA7pL1HBTYJTQ80OC19dNTXPTGIfEA",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JsJzF23OHQPxmvA7pL1HBTYJTQ80OC19dNTXPTGIfEA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "HTML/Content": "={{ $json.content }}",
+            "Step Type": "={{ $json.step_type }}",
+            "Day": "={{ $json.day }}",
+            "Days After Last Step": "={{ $json.days_after_last_step }}",
+            "Email Number": "={{ $json.ste_name }}",
+            "Subject": "={{ $json.subject }}",
+            "Step Number": "={{ $json.step_number }}",
+            "Drip Name": "={{ $('On form submission').first().json[\"Name of Client\"] }} - {{ $('On form submission').first().json[\"Enter the Name of the Nurture Sequence\"] }} - {{ $('On form submission').first().json[\"Name of City\"] }} "
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Drip Name",
+              "displayName": "Drip Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Step Number",
+              "displayName": "Step Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Step Type",
+              "displayName": "Step Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Day",
+              "displayName": "Day",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Days After Last Step",
+              "displayName": "Days After Last Step",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email Number",
+              "displayName": "Email Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Subject",
+              "displayName": "Subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "HTML/Content",
+              "displayName": "HTML/Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2420,
+        60
+      ],
+      "id": "dd24ee95-8871-4186-86c6-8fcef3698c6f",
+      "name": "Google Sheets1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NhjQ6L8wmj50Ohkp",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2000,
+        60
+      ],
+      "id": "42e83d26-06b0-4a8d-a7fc-03523f7f27d9",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1580,
+        160
+      ],
+      "id": "865631fe-1b91-4e13-af32-dce58e400f5b",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Create an array to store flattened items\nlet flattenedItems = [];\n\n// Iterate over each item in the input\nitems.forEach(item => {\n  // If the item has an \"output\" property\n  if (item.json && item.json.output) {\n    // If \"output\" is an array, add each element as a separate item\n    if (Array.isArray(item.json.output)) {\n      item.json.output.forEach(subItem => {\n        flattenedItems.push({ json: subItem });\n      });\n    } else {\n      // Otherwise, push the single output object\n      flattenedItems.push({ json: item.json.output });\n    }\n  } else {\n    // If there's no \"output\", push the item as is\n    flattenedItems.push(item);\n  }\n});\n\n// Sort the flattened items by the \"step_number\" property\nflattenedItems.sort((a, b) => a.json.step_number - b.json.step_number);\n\nreturn flattenedItems;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2200,
+        60
+      ],
+      "id": "c2f77d9d-aba7-4372-8d5d-d2e09f90592f",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.followupboss.com/v1/templates",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-System",
+              "value": "salesgenuis"
+            },
+            {
+              "name": "X-System-Key",
+              "value": "17534c5dd9d4fab4253bbad424d8d1cc"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "={{ $('On form submission').item.json[\"Name of Client\"] }} - {{ $('On form submission').item.json[\"Enter the Name of the Nurture Sequence\"] }} - {{ $('On form submission').item.json[\"Name of City\"] }} - {{ $json.output.ste_name }}"
+            },
+            {
+              "name": "subject",
+              "value": "={{ $json.output.subject }}"
+            },
+            {
+              "name": "body",
+              "value": "={{ $json.output.content }}"
+            },
+            {
+              "name": "=isShared",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        -420
+      ],
+      "id": "0585a222-b925-4bd6-8700-69feb0218a3e",
+      "name": "Add Email Template to Follow Up Boss",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "4zqjNsy9BYj1BgBL",
+          "name": "Apify Credentials"
+        },
+        "httpBasicAuth": {
+          "id": "SgRP4NXxD6MloRQ9",
+          "name": "Emma FUB"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-26T18:07:18.483Z",
+      "updatedAt": "2025-02-26T18:07:18.483Z",
+      "role": "workflow:owner",
+      "workflowId": "EVQMFUCw9OnDQJCk",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-21T17:21:41.750Z",
+      "updatedAt": "2025-02-21T17:21:41.750Z",
+      "id": "hCxs00bYB7kqJnEo",
+      "name": "WORKING"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-03-05T21:58:30.000Z",
+  "versionId": "528a5b57-1242-4b06-acef-db3904b4595d"
+}
