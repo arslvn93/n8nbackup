@@ -1,0 +1,1371 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Create New Onboarding in Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create New Onboarding in Notion": {
+      "main": [
+        [
+          {
+            "node": "New Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New Contact": {
+      "main": [
+        [
+          {
+            "node": "Organize Client Data for Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New Client": {
+      "main": [
+        [
+          {
+            "node": "Prep Onboarding Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Commence Realtor Enrichment": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack": {
+      "main": [
+        [
+          {
+            "node": "SendGrid1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New Leadsie Credentials": {
+      "main": [
+        [
+          {
+            "node": "Commence Realtor Enrichment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prep Onboarding Email": {
+      "main": [
+        [
+          {
+            "node": "SendGrid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Organize Client Data for Notion": {
+      "main": [
+        [
+          {
+            "node": "New Client",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Add to Skool1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add to Skool2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Client folder url Prime": {
+      "main": [
+        [
+          {
+            "node": "Define subfolders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Client folder url Pro": {
+      "main": [
+        [
+          {
+            "node": "Notify new folder Pro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create folder Pro": {
+      "main": [
+        [
+          {
+            "node": "Update Client folder url Pro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create folder Prime": {
+      "main": [
+        [
+          {
+            "node": "Update Client folder url Prime",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Define subfolders": {
+      "main": [
+        [
+          {
+            "node": "Prime Subfolders generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prime Subfolders generator": {
+      "main": [
+        [
+          {
+            "node": "Get Image data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SendGrid": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SendGrid1": {
+      "main": [
+        [
+          {
+            "node": "New Leadsie Credentials",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Image data1": {
+      "main": [
+        [
+          {
+            "node": "Client Image Enhancement1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Client Image Enhancement1": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Update Client Images_bg1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Image data2": {
+      "main": [
+        [
+          {
+            "node": "Client Image Enhancement2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Client Image Enhancement2": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "Update Client Images_bg2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify new folder Pro": {
+      "main": [
+        [
+          {
+            "node": "Get Image data2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add to Skool1": {
+      "main": [
+        [
+          {
+            "node": "Create folder Prime",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add to Skool2": {
+      "main": [
+        [
+          {
+            "node": "Create folder Pro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-07T13:45:20.698Z",
+  "id": "fzcudTZ5hFHu0RVt",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "SalesGenius Onboarding - Clean",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "onboarding",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -140,
+        -940
+      ],
+      "id": "0403980b-c70e-4a9f-ac22-a630190f9d2c",
+      "name": "Webhook",
+      "webhookId": "59f03b3a-82d7-43e6-a64e-ece50443d21e"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "include": "specifiedFields",
+        "fieldsToInclude": "body",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        80,
+        -940
+      ],
+      "id": "669f3032-2052-444b-9c40-de1a8bfee486",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Custom node for n8n that creates proper Notion page with blocks for each field\n// This node transforms incoming data into Notion API-compatible format\n\n// Get the input data from the workflow\nlet items = [];\nif (Array.isArray($input.all())) {\n  items = $input.all();\n} else {\n  items = [$input.item];\n}\n\n// Process each input item\nconst processedItems = items.map(item => {\n  try {\n    const data = item.json || item;\n    \n    // Construct full name from first_name and last_name fields\n    const firstName = data.first_name || \"\";\n    const lastName = data.last_name || \"\";\n    const fullName = firstName && lastName ? `${firstName} ${lastName}` : \n                    firstName ? firstName : \n                    lastName ? lastName : \"Unknown Contact\";\n    \n    // Create content blocks for the Notion page\n    const blocks = [];\n    \n    // Add page title\n    blocks.push({\n      object: \"block\",\n      type: \"heading_1\",\n      heading_1: {\n        rich_text: [{\n          type: \"text\",\n          text: { content: `Contact Profile: ${fullName}` }\n        }]\n      }\n    });\n    \n    // Add divider after title\n    blocks.push({\n      object: \"block\",\n      type: \"divider\",\n      divider: {}\n    });\n    \n    // Define sections to organize the data\n    const sections = [\n      {\n        title: \"Personal Details\",\n        fields: [\n          \"first_name\", \"last_name\", \"phone\", \"email\", \"date_of_birth\", \n          \"timezone\", \"clothing_size\", \"address\", \"address_unit\", \"city\", \n          \"state\", \"postal_code\", \"country\"\n        ]\n      },\n      {\n        title: \"Brokerage Information\",\n        fields: [\n          \"brokerage_name\", \"brokerage_address\", \"brokerage_unit\",\n          \"brokerage_city\", \"brokerage_state\", \"brokerage_postal_code\", \"brokerage_country\"\n        ]\n      },\n      {\n        title: \"Business Information\",\n        fields: [\n          \"business_type\", \"team_name\", \"team_size\", \"linkedin_url\", \"growth_obstacles\", \n          \"other_growth_obstacle\", \"deal_types\", \"other_deal_type\", \"lead_sources\", \n          \"other_lead_source\", \"transaction_types\", \"other_transaction_type\"\n        ]\n      },\n      {\n        title: \"Goals and Needs\",\n        fields: [\n          \"business_help\", \"program_expectations\", \"target_market\"\n        ]\n      },\n      {\n        title: \"Online Presence\",\n        fields: [\n          \"personal_instagram_handle\", \"has_business_instagram\", \"business_instagram_handle\",\n          \"personal_facebook_url\", \"has_facebook_page\", \"facebook_page_url\", \n          \"has_personal_website\", \"personal_website_url\", \"has_business_website\", \"business_website_url\", \n          \"using_crm\", \"crm_name\", \"crm_connected_to_meta\"\n        ]\n      },\n      {\n        title: \"Branding\",\n        fields: [\n          \"primary_color\", \"logo_url\", \"headshot_url\"\n        ]\n      },\n      {\n        title: \"Real Estate Stats (Current Year)\",\n        fields: [\n          \"current_year_gci\", \"current_year_average_price\", \"current_year_listings\", \n          \"current_year_buyer_deals\", \"current_year_lease_deals\", \"current_year_commission_percentage\"\n        ]\n      },\n      {\n        title: \"Real Estate Stats (Next Year Goals)\",\n        fields: [\n          \"next_year_gci_goal\", \"next_year_target_deal_size\", \"next_year_target_commission_percentage\"\n        ]\n      },\n      {\n        title: \"Metadata\",\n        fields: [\n          \"submission_date\", \"source\"\n        ]\n      }\n    ];\n    \n    // Track fields that have been added to sections\n    const processedFields = new Set();\n    \n    // Process each section\n    sections.forEach(section => {\n      // Check if this section has any fields in the data\n      const sectionFields = section.fields.filter(field => {\n        return field in data && \n               data[field] !== undefined && \n               data[field] !== null && \n               !(typeof data[field] === 'string' && data[field].trim() === \"\");\n      });\n      \n      if (sectionFields.length > 0) {\n        // Add section header\n        blocks.push({\n          object: \"block\",\n          type: \"heading_2\",\n          heading_2: {\n            rich_text: [{\n              type: \"text\",\n              text: { content: section.title }\n            }]\n          }\n        });\n        \n        // Add each field in this section\n        sectionFields.forEach(field => {\n          // Mark field as processed\n          processedFields.add(field);\n          \n          // Add the field as a paragraph block\n          blocks.push({\n            object: \"block\",\n            type: \"paragraph\",\n            paragraph: {\n              rich_text: [\n                {\n                  type: \"text\",\n                  text: { content: formatLabel(field) + \": \" },\n                  annotations: { bold: true }\n                },\n                {\n                  type: \"text\",\n                  text: { content: formatValue(data[field]) }\n                }\n              ]\n            }\n          });\n        });\n        \n        // Add divider after section\n        blocks.push({\n          object: \"block\",\n          type: \"divider\",\n          divider: {}\n        });\n      }\n    });\n    \n    // Handle any remaining fields not covered by defined sections\n    const remainingFields = Object.keys(data).filter(field => \n      !processedFields.has(field) && \n      data[field] !== undefined && \n      data[field] !== null && \n      !(typeof data[field] === 'string' && data[field].trim() === \"\")\n    );\n    \n    if (remainingFields.length > 0) {\n      // Add additional info section header\n      blocks.push({\n        object: \"block\",\n        type: \"heading_2\",\n        heading_2: {\n          rich_text: [{\n            type: \"text\",\n            text: { content: \"Additional Information\" }\n          }]\n        }\n      });\n      \n      // Add each remaining field\n      remainingFields.forEach(field => {\n        blocks.push({\n          object: \"block\",\n          type: \"paragraph\",\n          paragraph: {\n            rich_text: [\n              {\n                type: \"text\",\n                text: { content: formatLabel(field) + \": \" },\n                annotations: { bold: true }\n              },\n              {\n                type: \"text\",\n                text: { content: formatValue(data[field]) }\n              }\n            ]\n          }\n        });\n      });\n      \n      // Add final divider\n      blocks.push({\n        object: \"block\",\n        type: \"divider\",\n        divider: {}\n      });\n    }\n    \n    // Add image blocks at the bottom for logo and headshot if they exist\n    if (data.logo_url || data.headshot_url) {\n      // Add an Images header\n      blocks.push({\n        object: \"block\",\n        type: \"heading_2\",\n        heading_2: {\n          rich_text: [{\n            type: \"text\",\n            text: { content: \"Images\" }\n          }]\n        }\n      });\n      \n      // Add logo image block if exists\n      if (data.logo_url && typeof data.logo_url === 'string') {\n        blocks.push({\n          object: \"block\",\n          type: \"heading_3\",\n          heading_3: {\n            rich_text: [{\n              type: \"text\",\n              text: { content: \"Logo\" }\n            }]\n          }\n        });\n        \n        // Use proper format for Notion API image block with URL encoding\n        blocks.push({\n          object: \"block\",\n          type: \"image\",\n          image: {\n            type: \"external\",\n            external: {\n              url: encodeURI(data.logo_url.trim())\n            }\n          }\n        });\n      }\n      \n      // Add headshot image block if exists\n      if (data.headshot_url && typeof data.headshot_url === 'string') {\n        blocks.push({\n          object: \"block\",\n          type: \"heading_3\",\n          heading_3: {\n            rich_text: [{\n              type: \"text\",\n              text: { content: \"Headshot\" }\n            }]\n          }\n        });\n        \n        // Use proper format for Notion API image block with URL encoding\n        blocks.push({\n          object: \"block\",\n          type: \"image\",\n          image: {\n            type: \"external\",\n            external: {\n              url: encodeURI(data.headshot_url.trim())\n            }\n          }\n        });\n      }\n      \n      // Add final divider after images\n      blocks.push({\n        object: \"block\",\n        type: \"divider\",\n        divider: {}\n      });\n    }\n    \n    // Create visual summary blocks for key metrics\n    blocks.push({\n      object: \"block\",\n      type: \"heading_2\",\n      heading_2: {\n        rich_text: [{\n          type: \"text\",\n          text: { content: \"Performance Summary\" }\n        }]\n      }\n    });\n    \n    // Add table for current vs goal metrics\n    if (data.current_year_gci || data.next_year_gci_goal) {\n      // Add a callout with key performance indicators\n      blocks.push({\n        object: \"block\",\n        type: \"callout\",\n        callout: {\n          icon: {\n            type: \"emoji\",\n            emoji: \"📊\"\n          },\n          rich_text: [{\n            type: \"text\",\n            text: { \n              content: `Current GCI: ${formatCurrency(data.current_year_gci)} → Goal: ${formatCurrency(data.next_year_gci_goal)}` \n            },\n            annotations: { bold: true }\n          }]\n        }\n      });\n    }\n    \n    // Prepare database properties\n    const properties = {\n      // Required title property for Notion\n      \"Name\": {\n        title: [\n          {\n            text: {\n              content: fullName\n            }\n          }\n        ]\n      }\n    };\n    \n    // Add common database properties\n    // Only add properties that actually exist in your Notion database\n    if (data.email) {\n      properties[\"Email\"] = { email: data.email };\n    }\n    \n    if (data.phone) {\n      properties[\"Phone\"] = { phone_number: data.phone };\n    }\n    \n    if (data.submission_date) {\n      properties[\"Submission Date\"] = {\n        date: {\n          start: data.submission_date\n        }\n      };\n    }\n    \n    // Prepare final Notion API payload\n    return {\n      json: {\n        notionData: {\n          parent: {\n            database_id: \"1c81d08c4f5a807db365eb187c072ec1\" // Set to the correct database ID\n          },\n          // Set icon to a person emoji\n          icon: {\n            type: \"emoji\",\n            emoji: \"👤\"\n          },\n          // Set cover image to the headshot if it exists\n          cover: data.headshot_url ? {\n            type: \"external\",\n            external: { \n              url: encodeURI(data.headshot_url.trim())\n            }\n          } : undefined,\n          properties: properties,\n          children: blocks\n        }\n      }\n    };\n  } catch (error) {\n    // Error handling\n    return {\n      json: {\n        error: `Error processing item: ${error.message}`,\n        input: item\n      }\n    };\n  }\n});\n\n// Helper function to format field labels to be more readable\nfunction formatLabel(fieldName) {\n  return fieldName\n    .replace(/_/g, ' ')\n    .split(' ')\n    .map(word => word.charAt(0).toUpperCase() + word.slice(1))\n    .join(' ');\n}\n\n// Helper function to format business type values\nfunction formatBusinessType(type) {\n  const businessTypes = {\n    'solo': 'Solo Agent',\n    'leader': 'Team Leader',\n    'member': 'Team Member'\n  };\n  \n  return businessTypes[type] || type;\n}\n\n// Helper function to format currency values\nfunction formatCurrency(value) {\n  if (value === undefined || value === null) {\n    return '$0';\n  }\n  \n  return new Intl.NumberFormat('en-US', {\n    style: 'currency',\n    currency: 'USD',\n    maximumFractionDigits: 0\n  }).format(value);\n}\n\n// Helper function to format field values appropriately based on type\nfunction formatValue(value) {\n  if (value === undefined || value === null) {\n    return 'Not provided';\n  }\n  \n  if (typeof value === 'boolean') {\n    return value ? 'Yes' : 'No';\n  }\n  \n  if (typeof value === 'number') {\n    // Format currency values\n    if (String(value).length > 3 && \n        ['gci', 'price', 'deal', 'commission'].some(term => \n          String(value).toLowerCase().includes(term))) {\n      return formatCurrency(value);\n    }\n    return value.toString();\n  }\n  \n  if (typeof value === 'string') {\n    // Handle dates\n    if (value.match(/^\\d{4}-\\d{2}-\\d{2}T/)) {\n      try {\n        // Format ISO date strings\n        const date = new Date(value);\n        return date.toLocaleDateString('en-US', { \n          year: 'numeric', \n          month: 'long', \n          day: 'numeric',\n          hour: '2-digit',\n          minute: '2-digit'\n        });\n      } catch (e) {\n        return value;\n      }\n    }\n    \n    // Format simple dates (without time)\n    if (value.match(/^\\d{4}-\\d{2}-\\d{2}$/)) {\n      try {\n        const date = new Date(value);\n        return date.toLocaleDateString('en-US', {\n          year: 'numeric',\n          month: 'long',\n          day: 'numeric'\n        });\n      } catch (e) {\n        return value;\n      }\n    }\n    \n    // Format business_type values to be more readable\n    if (value === 'solo') {\n      return 'Solo Agent';\n    } else if (value === 'leader') {\n      return 'Team Leader';\n    } else if (value === 'member') {\n      return 'Team Member';\n    }\n    \n    return value;\n  }\n  \n  if (Array.isArray(value)) {\n    return value.join(', ');\n  }\n  \n  if (typeof value === 'object') {\n    return JSON.stringify(value);\n  }\n  \n  return String(value);\n}\n\n// Return processed items\nreturn processedItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -120,
+        -700
+      ],
+      "id": "075093c3-e32e-4419-a4cc-405c3b8d757e",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer ntn_y77938235783grxbphRwEazxtixxh4eENsIdl2RRJyW9fy"
+            },
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Code').item.json.notionData }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        100,
+        -700
+      ],
+      "id": "da82ac01-f943-4712-9b77-0df698284e08",
+      "name": "Create New Onboarding in Notion",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"1761d08c4f5a801689ddf81384652240\"\n  },\n\"icon\": \n{\n\"type\": \n\"emoji\",\n\"emoji\": \n\"👤\"\n},\n\n  \"properties\": {\n      \"Client Name\": {\n        \"title\": [\n          {\n            \"text\": {\n              \"content\": \"{{ $('Edit Fields').item.json.first_name }} {{ $('Edit Fields').item.json.last_name }}\"\n            }\n          }\n        ]\n      },\n      \"email\": {\n        \"email\": \"{{ $('Edit Fields').item.json.email }}\"\n      },\n      \"Cell\": {\n        \"phone_number\": \"{{ $('Edit Fields').item.json.phone }}\"\n      },\n      \"Start Date\": {\n        \"date\": {\n          \"start\": \"{{ $('Edit Fields').item.json.submission_date }}\"\n        }\n      },\n      \"Address\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": \"{{ $('Edit Fields').item.json.address }}, {{ $('Edit Fields').item.json.city }}, {{ $('Edit Fields').item.json.state }}, {{ $('Edit Fields').item.json.postal_code }}, {{ $('Edit Fields').item.json.country }}\"\n            }\n          }\n        ]\n      },\n      \"Brokerage\": {\n        \"select\": {\n          \"name\": \"{{ $('Edit Fields').item.json.brokerage_name }}\"\n        }\n      },\n      \"Last Update\": {\n        \"date\": {\n          \"start\": \"{{ $('Edit Fields').item.json.submission_date }}\"\n        }\n      },\n      \"Onboarding Forms\": {\n        \"relation\": [\n          {\n            \"id\": \"{{ $json.id }}\"\n          }\n        ]\n      },\n      \"Brokerage Address\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": \"{{ $('Edit Fields').item.json.brokerage_address }}, {{ $('Edit Fields').item.json.brokerage_unit }}, {{ $('Edit Fields').item.json.brokerage_city }}, {{ $('Edit Fields').item.json.brokerage_state }}, {{ $('Edit Fields').item.json.brokerage_postal_code }}, {{ $('Edit Fields').item.json.brokerage_country }}\"\n            }\n          }\n        ]\n      }\n    }\n  }",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        -700
+      ],
+      "id": "ba6d48e4-9fdf-46a9-a06d-e7b4c9b302fb",
+      "name": "New Contact",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.notionData }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        -700
+      ],
+      "id": "d645a142-8773-494e-bb07-21338cb72e52",
+      "name": "New Client",
+      "retryOnFail": true,
+      "notesInFlow": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      },
+      "notes": "The Leadsie value is automatically generated for the new customer, where LeadsieId is the customer ID and LeadsieUrl is the one sent by email."
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.salesgenius.co/webhook/createRealtor",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Name",
+              "value": "={{ $('Edit Fields').item.json.first_name }} {{ $('Edit Fields').item.json.last_name }}"
+            },
+            {
+              "name": "Email",
+              "value": "={{ $('Edit Fields').item.json.email }}"
+            },
+            {
+              "name": "Phone",
+              "value": "={{ $('Edit Fields').item.json.phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        940,
+        -460
+      ],
+      "id": "d6d85219-8ff3-4f54-a3ca-7891b6fb2f23",
+      "name": "Commence Realtor Enrichment"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08MBR35VBJ",
+          "mode": "list",
+          "cachedResultName": "tests"
+        },
+        "messageType": "block",
+        "blocksUi": "={\n  \"text\": \"New registration received\",\n  \"blocks\": [\n    {\n      \"type\": \"header\",\n      \"text\": {\n        \"type\": \"plain_text\",\n        \"text\": \"New Registration\",\n        \"emoji\": true\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"*:bust_in_silhouette: Personal Information:*\\n• *Name:* {{ $('Edit Fields').item.json.first_name ?? '' }} {{ $('Edit Fields').item.json.last_name ?? '' }}\\n• *Email:* <mailto:{{ $('Edit Fields').item.json.email ?? '' }}|{{ $('Edit Fields').item.json.email ?? '' }}>\\n• *Phone:* {{ $('Edit Fields').item.json.phone ?? '' }}\\n• *Timezone:* {{ $('Edit Fields').item.json.timezone ?? '' }}\\n• *Clothing Size:* {{ $('Edit Fields').item.json.clothing_size ?? '' }}\\n• *Address:* {{ $('Edit Fields').item.json.address ?? '' }}{{ $('Edit Fields').item.json.address_unit ? ', Unit ' + ($('Edit Fields').item.json.address_unit ?? '') : '' }} {{ $('Edit Fields').item.json.city ?? '' }} {{ $('Edit Fields').item.json.state ?? '' }} {{ $('Edit Fields').item.json.postal_code ?? '' }} {{ $('Edit Fields').item.json.country ?? '' }}\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"*:office: Brokerage + Business Info:*\\n• *Name:* {{ $('Edit Fields').item.json.brokerage_name ?? '' }}\\n• *Address:* {{ $('Edit Fields').item.json.brokerage_address ?? '' }}{{ $('Edit Fields').item.json.brokerage_unit ? ', Unit ' + ($('Edit Fields').item.json.brokerage_unit ?? '') : '' }} {{ $('Edit Fields').item.json.brokerage_city ?? '' }} {{ $('Edit Fields').item.json.brokerage_state ?? '' }} {{ $('Edit Fields').item.json.brokerage_postal_code ?? '' }} {{ $('Edit Fields').item.json.brokerage_country ?? '' }}\\n• *Business Type:* {{ $('Edit Fields').item.json.business_type ?? '' }}\\n• *Team Name:* {{ $('Edit Fields').item.json.team_name ? ($('Edit Fields').item.json.team_name ?? 'N/A') : 'N/A' }}\\n• *Team Size:* {{ $('Edit Fields').item.json.team_size ? ($('Edit Fields').item.json.team_size ?? 'N/A') : 'N/A' }}\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"*:computer: Socials:*\\n• *Personal Instagram:*<{{ $('Edit Fields').item.json.personal_instagram_handle ? 'https://instagram.com/' + $('Edit Fields').item.json.personal_instagram_handle : '' }}|@{{ $('Edit Fields').item.json.personal_instagram_handle ?? '' }}>\\n• *Business Instagram:*<{{ $('Edit Fields').item.json.business_instagram_handle ? 'https://instagram.com/' + $('Edit Fields').item.json.business_instagram_handle : '' }}|@{{ $('Edit Fields').item.json.business_instagram_handle ?? '' }}>\\n• *Personal Facebook:* {{ $('Edit Fields').item.json.personal_facebook_url ? '<' + ( $('Edit Fields').item.json.personal_facebook_url.startsWith('https://') ? $('Edit Fields').item.json.personal_facebook_url : 'https://' + $('Edit Fields').item.json.personal_facebook_url ) + '|View>' : 'No' }}\\n• *Facebook Page:* {{ $('Aggregate').item.json.data[0].body.facebook_page_url ? '<' + ( $('Aggregate').item.json.data[0].body.facebook_page_url.startsWith('https://') ? $('Aggregate').item.json.data[0].body.facebook_page_url : 'https://' + $('Aggregate').item.json.data[0].body.facebook_page_url ) + '|View>' : 'No' }}\\n• *Personal Website:* {{ $('Edit Fields').item.json.personal_website_url ? '<' + $('Edit Fields').item.json.personal_website_url + '|Visit>' : 'No' }}\\n• *Business Website:* {{ $('Aggregate').item.json.data[0].body.business_website_url ? '<' + $('Aggregate').item.json.data[0].body.business_website_url + '|Visit>' : 'No' }}\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"*:computer: CRM Information:*\\n• *Using CRM:* {{ $('Edit Fields').item.json.using_crm ? 'Yes' : 'No' }}\\n• *CRM Name:* {{ $('Edit Fields').item.json.using_crm ? ($('Edit Fields').item.json.crm_name ?? 'N/A') : 'N/A' }}\\n• *CRM Connected to Meta:* {{ $('Edit Fields').item.json.crm_connected_to_meta ? 'Yes' : 'No' }}\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"*:moneybag: Financial Information:*\\n• *Current GCI:* ${{ $('Edit Fields').item.json.current_year_gci ?? 0 }}\\n• *Average Deal Size:* ${{ $('Edit Fields').item.json.current_year_average_price ?? 0 }}\\n• *Commission %:* {{ $('Edit Fields').item.json.current_year_commission_percentage ?? 0 }}%\\n• *Listings:* {{ $('Edit Fields').item.json.current_year_listings ?? 0 }}\\n• *Buyer Deals:* {{ $('Edit Fields').item.json.current_year_buyer_deals ?? 0 }}\\n• *Lease Deals:* {{ $('Edit Fields').item.json.current_year_lease_deals ?? 0 }}\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"*:dart: Next Year Goals:*\\n• *GCI Goal:* ${{ $('Edit Fields').item.json.next_year_gci_goal ?? 0 }}\\n• *Target Deal Size:* ${{ $('Edit Fields').item.json.next_year_target_deal_size ?? 0 }}\\n• *Target Commission %:* {{ $('Edit Fields').item.json.next_year_target_commission_percentage ?? 0 }}%\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"*:clipboard: Additional Information:*\\n• *Primary Color:* {{ $('Edit Fields').item.json.primary_color ?? '' }}\\n• *Submission Date:* {{ $('Edit Fields').item.json.submission_date ?? '' }}\\n• *Source:* {{ $('Edit Fields').item.json.source ?? '' }}\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"*:frame_with_picture: Profile Picture:*\\n{{ $('Edit Fields').item.json.headshot ? '<' + ($('Edit Fields').item.json.headshot ?? '#') + '|View Picture>' : 'No profile picture available' }}\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"*:link: Quick Links:*\\n• *Client Notion Page:* <{{ $('New Client').item.json.url ?? '#' }}|View>\\n• *Contact Notion Page:* <{{ $('New Contact').item.json.url ?? '#' }}|View>\\n• *Onboarding Notion Page:* <{{ $('Create New Onboarding in Notion').item.json.url ?? '#' }}|View>\"\n      }\n    }\n  ]\n}\n",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": false,
+          "unfurl_links": false,
+          "unfurl_media": true,
+          "sendAsUser": ""
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        320,
+        -460
+      ],
+      "id": "1930b568-7082-4112-94f7-f962c97736f0",
+      "name": "Slack",
+      "webhookId": "d09c0473-fc06-4eba-9422-7b9aa2806707",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"1cb1d08c4f5a80feb64ccef98d2359b4\"\n  },\n  \"properties\": {\n      \"Client\": {\n        \"relation\": [\n          {\n            \"id\": \"{{ $('New Client').item.json.id }}\"\n          }\n        ]\n      }\n    }\n  }",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        740,
+        -460
+      ],
+      "id": "2ae25260-75b9-450b-a30f-6d4cf78d96ea",
+      "name": "New Leadsie Credentials",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Create Notion Pages",
+        "height": 240,
+        "width": 1080
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        -760
+      ],
+      "id": "f666558e-183c-4e3f-9c78-36e19ad74d0b",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Send Notifications",
+        "height": 240,
+        "width": 1260,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        -520
+      ],
+      "id": "41a83386-908e-4226-a832-60644533bf6e",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Get & Organize Data",
+        "height": 200,
+        "width": 660,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        -1000
+      ],
+      "id": "3c77cb75-b6ac-43b2-bc37-0806515298aa",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Function node code\nconst inputData = $input.item.json.data[0].body;\n\n// Create a new object with all the fields\nreturn {\n  json: {\n    first_name: inputData.first_name,\n    last_name: inputData.last_name,\n    email: inputData.email,\n    phone: inputData.phone,\n    date_of_birth: inputData.date_of_birth,\n    timezone: inputData.timezone,\n    clothing_size: inputData.clothing_size,\n    address: inputData.address,\n    address_unit: inputData.address_unit,\n    city: inputData.city,\n    state: inputData.state,\n    postal_code: inputData.postal_code,\n    country: inputData.country,\n    brokerage_name: inputData.brokerage_name,\n    brokerage_address: inputData.brokerage_address,\n    brokerage_unit: inputData.brokerage_unit,\n    brokerage_city: inputData.brokerage_city,\n    brokerage_state: inputData.brokerage_state,\n    brokerage_postal_code: inputData.brokerage_postal_code,\n    brokerage_country: inputData.brokerage_country,\n    linkedin_url: inputData.linkedin_url,\n    business_type: inputData.business_type,\n    team_name: inputData.team_name,\n    team_size: inputData.team_size,\n    growth_obstacles: Array.isArray(inputData.growth_obstacles) ? inputData.growth_obstacles.join(', ') : inputData.growth_obstacles,\n    other_growth_obstacle: inputData.other_growth_obstacle,\n    deal_types: Array.isArray(inputData.deal_types) ? inputData.deal_types.join(', ') : inputData.deal_types,\n    other_deal_type: inputData.other_deal_type,\n    lead_sources: Array.isArray(inputData.lead_sources) ? inputData.lead_sources.join(', ') : inputData.lead_sources,\n    other_lead_source: inputData.other_lead_source,\n    transaction_types: Array.isArray(inputData.transaction_types) ? inputData.transaction_types.join(', ') : inputData.transaction_types,\n    other_transaction_type: inputData.other_transaction_type,\n    business_help: inputData.business_help,\n    program_expectations: inputData.program_expectations,\n    target_market: inputData.target_market,\n    personal_instagram_handle: inputData.personal_instagram_handle,\n    has_business_instagram: inputData.has_business_instagram,\n    business_instagram_handle: inputData.business_instagram_handle,\n    personal_facebook_url: inputData.personal_facebook_url,\n    has_facebook_page: inputData.has_facebook_page,\n    facebook_page_url: inputData.facebook_page_url,\n    has_personal_website: inputData.has_personal_website,\n    personal_website_url: inputData.personal_website_url,\n    has_business_website: inputData.has_business_website,\n    business_website_url: inputData.business_website_url,\n    using_crm: inputData.using_crm,\n    crm_name: inputData.crm_name,\n    crm_connected_to_meta: inputData.crm_connected_to_meta,\n    primary_color: inputData.primary_color,\n    logo_url: inputData.logo_url,\n    headshot_url: inputData.headshot_url,\n    current_year_gci: inputData.current_year_gci,\n    current_year_average_price: inputData.current_year_average_price,\n    current_year_listings: inputData.current_year_listings,\n    current_year_buyer_deals: inputData.current_year_buyer_deals,\n    current_year_lease_deals: inputData.current_year_lease_deals,\n    current_year_commission_percentage: inputData.current_year_commission_percentage,\n    next_year_gci_goal: inputData.next_year_gci_goal,\n    next_year_target_deal_size: inputData.next_year_target_deal_size,\n    next_year_target_commission_percentage: inputData.next_year_target_commission_percentage,\n    submission_date: inputData.submission_date,\n    source: inputData.source,\n    sourceLabel: inputData.source.replace('_onboarding', '').replace(/^./, str => str.toUpperCase()) === \"Pro\" ? \"LeadGenius\" : inputData.source.replace('_onboarding', '').replace(/^./, str => str.toUpperCase())\n  }\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        300,
+        -940
+      ],
+      "id": "17a020a7-ed93-4604-99e2-a7936ea1bb5f",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Simple JavaScript node to prepare email content for Gmail node\n// This version has minimal complexity to avoid syntax errors\n\n// Get data directly from the Edit Fields node with fallback\nconst data = $('Edit Fields').item ? $('Edit Fields').item.json : {};\n\n// Format name for subject and greeting with fallback\nconst firstName = data.first_name || '';\nconst lastName = data.last_name || '';\nconst clientName = (firstName + ' ' + lastName).trim() || 'New Client';\n\n// Get logo and headshot URLs with fallbacks\nconst logoUrl = data.logo_url || 'https://via.placeholder.com/150?text=No+Logo';\nconst headshotUrl = data.headshot_url || 'https://via.placeholder.com/100?text=No+Photo';\n\n// Format currency values\nfunction formatCurrency(value) {\n  if (!value) return '$0';\n  const numValue = parseFloat(value);\n  return isNaN(numValue) ? '$0' : '$' + numValue.toLocaleString('en-US');\n}\n\n// Format basic date\nfunction formatDate(dateStr) {\n  if (!dateStr) return 'N/A';\n  try {\n    const date = new Date(dateStr);\n    return date.toLocaleDateString('en-US');\n  } catch (e) {\n    return dateStr || 'N/A';\n  }\n}\n\n// Format address\nfunction formatAddress(address, unit) {\n  if (!address) return 'N/A';\n  return address + (unit ? ', Unit ' + unit : '');\n}\n\n// Create the HTML content for the email - using simple string concatenation\nconst htmlContent = `\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>New Onboarding</title>\n  <style>\n    body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }\n    .container { max-width: 600px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); margin: auto; }\n    h2 { background: #007bff; color: white; padding: 10px; border-radius: 5px; text-align: center; }\n    .section { margin-bottom: 20px; }\n    .section-title { font-size: 18px; font-weight: bold; border-bottom: 2px solid #007bff; padding-bottom: 5px; margin-bottom: 10px; }\n    .data-item { margin-bottom: 5px; }\n    .label { font-weight: bold; display: inline-block; width: 150px; color: #333; }\n    .value { display: inline-block; color: #555; }\n    .logo { text-align: center; margin-bottom: 20px; }\n    .logo img { max-width: 150px; }\n    .headshot img { max-width: 100px; display: block; margin: 10px auto; }\n    .button-section { text-align: center; margin-top: 20px; }\n    .button { display: inline-block; margin: 10px; padding: 10px 20px; background-color: #007bff; color: #FFFFFF !important; text-decoration: none; border-radius: 5px; font-weight: bold; }\n    .button:hover { background-color: #0056b3; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>New Onboarding</h2>\n\n    <div class=\"section\">\n      <div class=\"section-title\">Personal Information</div>\n      <div class=\"data-item\"><span class=\"label\">Name:</span> <span class=\"value\">${firstName || ''} ${lastName || ''}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Email:</span> <span class=\"value\">${data.email || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Phone:</span> <span class=\"value\">${data.phone || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">DOB:</span> <span class=\"value\">${formatDate(data.date_of_birth)}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Timezone:</span> <span class=\"value\">${data.timezone || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Clothing Size:</span> <span class=\"value\">${data.clothing_size || 'N/A'}</span></div>\n    </div>\n\n    <div class=\"section\">\n      <div class=\"section-title\">Address</div>\n      <div class=\"data-item\">\n        <span class=\"label\">Address:</span>\n        <span class=\"value\">${formatAddress(data.address, data.address_unit)}</span>\n      </div>\n      <div class=\"data-item\"><span class=\"label\">City:</span> <span class=\"value\">${data.city || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">State:</span> <span class=\"value\">${data.state || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Postal Code:</span> <span class=\"value\">${data.postal_code || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Country:</span> <span class=\"value\">${data.country || 'N/A'}</span></div>\n    </div>\n\n    <div class=\"section\">\n      <div class=\"section-title\">Brokerage Info</div>\n      <div class=\"data-item\"><span class=\"label\">Name:</span> <span class=\"value\">${data.brokerage_name || 'N/A'}</span></div>\n      <div class=\"data-item\">\n        <span class=\"label\">Address:</span>\n        <span class=\"value\">${formatAddress(data.brokerage_address, data.brokerage_unit)}</span>\n      </div>\n      <div class=\"data-item\"><span class=\"label\">City:</span> <span class=\"value\">${data.brokerage_city || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">State:</span> <span class=\"value\">${data.brokerage_state || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Postal Code:</span> <span class=\"value\">${data.brokerage_postal_code || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Country:</span> <span class=\"value\">${data.brokerage_country || 'N/A'}</span></div>\n    </div>\n\n    <div class=\"section\">\n      <div class=\"section-title\">Business Details</div>\n      <div class=\"data-item\"><span class=\"label\">Business Type:</span> <span class=\"value\">${data.business_type || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Team Name:</span> <span class=\"value\">${data.team_name || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Team Size:</span> <span class=\"value\">${data.team_size || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Personal Instagram:</span> <span class=\"value\">@${data.personal_instagram_handle || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Business Instagram:</span> <span class=\"value\">@${data.business_instagram_handle || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Facebook page:</span> <span class=\"value\">${data.facebook_page_url ? 'Yes' : 'No'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Personal Facebook:</span> <span class=\"value\">${data.personal_facebook_url ? 'Yes' : 'No'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Personal Website:</span> <span class=\"value\">${data.personal_website_url || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Business Website:</span> <span class=\"value\">${data.business_website_url || 'N/A'}</span></div>\n    </div>\n\n    <div class=\"section\">\n      <div class=\"section-title\">CRM Information</div>\n      <div class=\"data-item\"><span class=\"label\">Using CRM:</span> <span class=\"value\">${data.using_crm ? 'Yes' : 'No'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">CRM Name:</span> <span class=\"value\">${data.crm_name || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Connected to Meta:</span> <span class=\"value\">${data.crm_connected_to_meta ? 'Yes' : 'No'}</span></div>\n    </div>\n\n    <div class=\"section\">\n      <div class=\"section-title\">Business Growth</div>\n      <div class=\"data-item\"><span class=\"label\">Growth Obstacles:</span> <span class=\"value\">${data.growth_obstacles || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Deal Types:</span> <span class=\"value\">${data.deal_types || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Lead Sources:</span> <span class=\"value\">${data.lead_sources || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Transaction Types:</span> <span class=\"value\">${data.transaction_types || 'N/A'}</span></div>\n    </div>\n\n    <div class=\"section\">\n      <div class=\"section-title\">Goals and Expectations</div>\n      <div class=\"data-item\"><span class=\"label\">Business Help:</span> <span class=\"value\">${data.business_help || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Program Expectations:</span> <span class=\"value\">${data.program_expectations || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Target Market:</span> <span class=\"value\">${data.target_market || 'N/A'}</span></div>\n    </div>\n\n    <div class=\"section\">\n      <div class=\"section-title\">Financial Information</div>\n      <div class=\"data-item\"><span class=\"label\">Current GCI:</span> <span class=\"value\">${formatCurrency(data.current_year_gci)}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Average Deal Size:</span> <span class=\"value\">${formatCurrency(data.current_year_average_price)}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Commission %:</span> <span class=\"value\">${data.current_year_commission_percentage || '0'}%</span></div>\n      <div class=\"data-item\"><span class=\"label\">Listings:</span> <span class=\"value\">${data.current_year_listings || '0'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Buyer Deals:</span> <span class=\"value\">${data.current_year_buyer_deals || '0'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Lease Deals:</span> <span class=\"value\">${data.current_year_lease_deals || '0'}</span></div>\n    </div>\n\n    <div class=\"section\">\n      <div class=\"section-title\">Next Year Goals</div>\n      <div class=\"data-item\"><span class=\"label\">GCI Goal:</span> <span class=\"value\">${formatCurrency(data.next_year_gci_goal)}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Target Deal Size:</span> <span class=\"value\">${formatCurrency(data.next_year_target_deal_size)}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Target Commission %:</span> <span class=\"value\">${data.next_year_target_commission_percentage || '0'}%</span></div>\n    </div>\n\n    <div class=\"section\">\n      <div class=\"section-title\">Additional Information</div>\n      <div class=\"data-item\"><span class=\"label\">Primary Color:</span> <span class=\"value\">${data.primary_color || 'N/A'}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Submission Date:</span> <span class=\"value\">${formatDate(data.submission_date)}</span></div>\n      <div class=\"data-item\"><span class=\"label\">Source:</span> <span class=\"value\">${data.source || 'N/A'}</span></div>\n    </div>\n\n    <div class=\"section headshot\">\n      <div class=\"section-title\">Headshot</div>\n      <img src=\"${headshotUrl}\" alt=\"Headshot\">\n    </div>\n    \n    <div class=\"section logo\">\n      <div class=\"section-title\">Logo</div>\n      <img src=\"${logoUrl}\" alt=\"Company Logo\">\n    </div>\n\n    <!-- Simple buttons section -->\n    <div class=\"button-section\">\n      <a href=\"#\" class=\"button\">View Client Notion Page</a>\n      <a href=\"#\" class=\"button\">View Contact Notion Page</a>\n      <a href=\"#\" class=\"button\">View Onboarding Form</a>\n    </div>\n  </div>\n</body>\n</html>\n`;\n\n// Create a simple plain text version for email clients that don't support HTML\nconst textContent = `\nNew Onboarding: ${clientName}\n\nPersonal Information:\n- Name: ${firstName || ''} ${lastName || ''}\n- Email: ${data.email || 'N/A'}\n- Phone: ${data.phone || 'N/A'}\n- DOB: ${formatDate(data.date_of_birth)}\n\nBusiness Details:\n- Business Type: ${data.business_type || 'N/A'}\n- Team Name: ${data.team_name || 'N/A'}\n- Team Size: ${data.team_size || 'N/A'}\n\nFinancial Information:\n- Current GCI: ${formatCurrency(data.current_year_gci)}\n- Next Year GCI Goal: ${formatCurrency(data.next_year_gci_goal)}\n\nSubmission Date: ${formatDate(data.submission_date)}\n`;\n\n// Return object with formatted content for Gmail node\nreturn {\n  to: ['team@example.com'], // Replace with your actual recipient email\n  cc: ['manager@example.com'], // Optional\n  bcc: [], // Optional\n  subject: `New Onboarding: ${clientName}`,\n  text: textContent,\n  html: htmlContent\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -120,
+        -460
+      ],
+      "id": "c1e2015f-36c3-4e87-a67b-3dbd5583eb1c",
+      "name": "Prep Onboarding Email"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Clean N8N code for mapping client data to Notion database fields\n// Only maps fields that definitely exist in the data without any dummy values\n\n// Helper function to validate non-empty values\nfunction isValid(value) {\n  return value !== null && value !== undefined && value !== \"\" && value !== \"null\";\n}\n\n// Get all input items from the previous node (Edit Fields)\nconst items = $('Edit Fields').all();\n\n// Array to store results\nconst results = [];\n\nfor (const item of items) {\n  // Get data from JSON of each item\n  const inputData = item.json;\n  \n  // Build properties object dynamically for this item\n  const properties = {};\n  \n  // --- BASIC INFORMATION ---\n  \n  // \"Client\" using first_name and last_name (title field)\n  if (isValid(inputData.first_name) || isValid(inputData.last_name)) {\n    properties.Client = {\n      title: [\n        {\n          text: {\n            content: `${inputData.first_name || \"\"} ${inputData.last_name || \"\"}`.trim(),\n          },\n        },\n      ],\n    };\n  }\n  \n  // \"Contacts\" as relation using input ID\n  if (isValid($input.first().json.id)) {\n    properties.Contacts = {\n      relation: [\n        {\n          id: $input.first().json.id, // Use ID from first input item\n        },\n      ],\n    };\n  }\n  \n  // --- DIGITAL PRESENCE FIELDS ---\n  \n  // \"Facebook Business Page\" (url field)\n  if (isValid(inputData.facebook_page_url)) {\n    properties[\"Facebook Business Page\"] = {\n      url: inputData.facebook_page_url,\n    };\n  }\n  \n  // \"Instagram\" (url field) - Handling both handle and full URL\n  if (isValid(inputData.personal_instagram_handle)) {\n    properties.Instagram = {\n      url: inputData.personal_instagram_handle.startsWith('http') \n        ? inputData.personal_instagram_handle \n        : `https://instagram.com/${inputData.personal_instagram_handle}`,\n    };\n  } else if (isValid(inputData.business_instagram_handle)) {\n    properties.Instagram = {\n      url: inputData.business_instagram_handle.startsWith('http') \n        ? inputData.business_instagram_handle \n        : `https://instagram.com/${inputData.business_instagram_handle}`,\n    };\n  }\n  \n  // \"Website\" (url field)\n  if (isValid(inputData.personal_website_url)) {\n    properties.Website = {\n      url: inputData.personal_website_url,\n    };\n  } else if (isValid(inputData.business_website_url)) {\n    properties.Website = {\n      url: inputData.business_website_url,\n    };\n  }\n  \n  // --- CRM INFORMATION ---\n  \n  // \"CRM\" (select field)\n  if (isValid(inputData.crm_name)) {\n    properties.CRM = {\n      select: {\n        name: inputData.crm_name,\n      },\n    };\n  }\n  \n  // --- DELIVERABLES AND METRICS ---\n  \n  // \"Next Deliverable\" (text field)\n  if (isValid(inputData.next_year_gci_goal)) {\n    properties[\"Next Deliverable\"] = {\n      rich_text: [\n        {\n          text: {\n            content: inputData.next_year_gci_goal.toString(),\n          },\n        },\n      ],\n    };\n  }\n  \n  // \"Term Length\" (number field)\n  if (isValid(inputData.current_year_listings)) {\n    properties[\"Term Length\"] = {\n      number: parseFloat(inputData.current_year_listings),\n    };\n  }\n  \n  // \"Completion\" (number field)\n  if (isValid(inputData.current_year_buyer_deals)) {\n    properties.Completion = {\n      number: parseFloat(inputData.current_year_buyer_deals),\n    };\n  }\n  \n  // --- CONTACT INFORMATION ---\n  \n  // \"Email\" (email field)\n  if (isValid(inputData.email)) {\n    properties.Email = {\n      email: inputData.email,\n    };\n  }\n  \n  // \"Phone\" (phone field)\n  if (isValid(inputData.phone)) {\n    properties.Phone = {\n      phone_number: inputData.phone,\n    };\n  }\n  \n  // --- BRANDING ASSETS ---\n  \n  // \"HeadshotBG\" (url field)\n  if (isValid(inputData.headshot_url)) {\n    properties.HeadshotBG = {\n      url: inputData.headshot_url,\n    };\n  }\n  \n  // \"LogoBG\" (url field)\n  if (isValid(inputData.logo_url)) {\n    properties.LogoBG = {\n      url: inputData.logo_url,\n    };\n  }\n  \n  // \"NotionImage\" and \"NotionBanner\" - Using actual headshot/logo\n  if (isValid(inputData.headshot_url)) {\n    properties.NotionImage = {\n      url: inputData.headshot_url,\n    };\n  }\n  \n  if (isValid(inputData.logo_url)) {\n    properties.NotionBanner = {\n      url: inputData.logo_url,\n    };\n  }\n  \n  // --- BRANDING DETAILS ---\n  \n  // \"Brand color\" (text field)\n  if (isValid(inputData.primary_color)) {\n    properties[\"Brand color\"] = {\n      rich_text: [\n        {\n          text: {\n            content: inputData.primary_color,\n          },\n        },\n      ],\n    };\n  }\n  \n  // --- DATES ---\n  \n  // \"Start Date\" (date field) - Always use current date\n  properties[\"Start Date\"] = {\n    date: {\n      start: new Date().toISOString(),\n    },\n  };\n  \n  // --- NOTES AND SUMMARY ---\n  \n  // \"Notes\" (text field) - Using business_help field\n  if (isValid(inputData.business_help)) {\n    properties.Notes = {\n      rich_text: [\n        {\n          text: {\n            content: inputData.business_help,\n          },\n        },\n      ],\n    };\n  }\n  \n  // \"Summary\" (text field) - Using program_expectations\n  if (isValid(inputData.program_expectations)) {\n    properties.Summary = {\n      rich_text: [\n        {\n          text: {\n            content: inputData.program_expectations,\n          },\n        },\n      ],\n    };\n  }\n// \"Plan\" (select field) - Directly assign the value of sourceLabel\nif ($('Edit Fields').first() && $('Edit Fields').first().json && $('Edit Fields').first().json.sourceLabel) {\n  // Obtener el valor de sourceLabel desde el campo 'Edit Fields'\n  let sourceValue = $('Edit Fields').first().json.sourceLabel;\n\n  // Asignar el valor directamente al campo Plan\n  properties.Plan = {\n    select: {\n      name: sourceValue,\n    },\n  };\n}\n  \n  // Add complete object (parent + properties) wrapped in notionData to results array\n  results.push({\n    notionData: {\n      parent: { database_id: \"1491d08c4f5a80888995c96c2350b25d\" },\n      properties: properties,\n    },\n  });\n}\n\n// Return array with all complete objects\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        540,
+        -700
+      ],
+      "id": "cdcf7205-3b67-4f8f-9c6c-cc6441d2b891",
+      "name": "Organize Client Data for Notion"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Edit Fields').first().json.sourceLabel }}",
+                    "rightValue": "Premiere",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "6bbe7390-05f5-49ae-885e-1f63196a5a6f"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Premiere"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "60c690df-1ed5-4577-a336-0caa8b0618f4",
+                    "leftValue": "={{ $('Edit Fields').first().json.sourceLabel }}",
+                    "rightValue": "=LeadGenius",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "LeadGenius"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -380,
+        -200
+      ],
+      "id": "61049d00-248b-4f22-84ee-a72fd68b30a7",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "tests",
+          "mode": "name"
+        },
+        "text": "=:gear: *Automation Update:* Pro Client Google Drive Folder Created for {{ $json.properties.Client.title[0].text.content }} *<{{ $json.properties['Client Folder'].url }}| Click Here to Access>*",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "unfurl_links": false
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        540,
+        20
+      ],
+      "id": "49e2087a-6ef7-43d8-be0e-e006101f43f3",
+      "name": "Notify new folder Pro",
+      "webhookId": "ce742f32-520f-409e-8b06-27356ddfef30",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('New Client').item.json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Client Folder\": {\n      \"type\": \"url\",\n      \"url\": \"https://drive.google.com/drive/u/0/folders/{{ $json.id }}\"\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        -220
+      ],
+      "id": "55046a83-4161-4e51-8d3b-deb6429e2140",
+      "name": "Update Client folder url Prime",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('New Client').item.json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Client Folder\": {\n      \"type\": \"url\",\n      \"url\": \"https://drive.google.com/drive/u/0/folders/{{ $json.id }}\"\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        20
+      ],
+      "id": "fd286fc7-0fd0-4641-8299-0d1c88a6cd4d",
+      "name": "Update Client folder url Pro",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $json.properties.Client.title[0].text.content }} | PRO CLIENT FOLDER",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1ear_RBIU9cwx2Sjx6AL3O6hxezTNflAk",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        100,
+        20
+      ],
+      "id": "187ad79f-1e10-41be-be81-492ebc1b706e",
+      "name": "Create folder Pro",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "tEDUQKIOBAWPpPPb",
+          "name": "Google Drive account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $json.properties.Client.title[0].text.content }} | Internal Premiere Folder",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "17HHpbY45hfLzz9n9619xp6ZbQN7dLTYj",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        100,
+        -220
+      ],
+      "id": "351351ce-a6b9-4dff-a0ed-4b1358d5cd7f",
+      "name": "Create folder Prime",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "tEDUQKIOBAWPpPPb",
+          "name": "Google Drive account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"clientId\": \"{{ $('New Client').item.json.id }}\",\n  \"folders\": [\n    {\n      \"name\": \"Client Deliverables\",\n      \"parentfolder\": \"{{ $('Create folder Prime').item.json.id }}\",\n      \"sf\": 1,\n      \"subfolders\": [\n        { \"name\": \"01. Client Avatar\" },\n        {\n          \"name\": \"02. Marketing Hub\",\n          \"subfolders\": [\n            { \"name\": \"VSL\" },\n            { \"name\": \"Case Study\" }\n          ]\n        },\n        { \"name\": \"03. Property Promotion\" },\n        {\n          \"name\": \"04. Awareness Content\",\n          \"subfolders\": [\n            { \"name\": \"Giveaways\" },\n            { \"name\": \"6 Pillar Videos\" }\n          ]\n        },\n        { \"name\": \"05. Lead Generation Content\" },\n        { \"name\": \"06. Book A Call Traffic Campaign\" },\n        { \"name\": \"07. Past Client Automation Campaign\" }\n      ]\n    },\n    {\n      \"name\": \"{{ $('Update Client folder url Prime').item.json.properties.Client.title[0].text.content }} | Premiere Client Folder\",\n      \"parentfolder\": \"{{ $('Create folder Prime').item.json.id }}\",\n      \"sf\": 1,\n      \"subfolders\": [\n        {\n          \"name\": \"Brand Awareness\",\n          \"subfolders\": [\n            { \"name\": \"VSL Video\" },\n            { \"name\": \"Case Study\" },\n            { \"name\": \"Video Call To Actions Videos\" },\n            { \"name\": \"6 Pillar Videos\" }\n          ]\n        },\n        { \"name\": \"Testimonials\" },\n        { \"name\": \"Avatar\" },\n        { \"name\": \"Logo & Branding\" },\n        { \"name\": \"Giveaways\" },\n        {\n          \"name\": \"Properties\",\n          \"subfolders\": [\n            { \"name\": \"Just Sold\" },\n            { \"name\": \"Open House\" }\n          ]\n        }\n      ]\n    },\n    {\n      \"name\": \"Contract & Documents\",\n      \"parentfolder\": \"{{ $('Create folder Prime').item.json.id }}\",\n      \"sf\": 0\n    }\n  ]\n}\n",
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        540,
+        -220
+      ],
+      "id": "c67fce8d-b0f1-4b91-8023-bc04b98913bb",
+      "name": "Define subfolders",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "dMfn4k6AI7l93VDS",
+          "mode": "list",
+          "cachedResultName": "My Sub-Workflow 1"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        760,
+        -220
+      ],
+      "id": "44e4a843-4118-4122-b73d-450ebf123b5e",
+      "name": "Prime Subfolders generator"
+    },
+    {
+      "parameters": {
+        "content": "## LeadGenius Client",
+        "height": 240,
+        "width": 1780,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -160,
+        -40
+      ],
+      "typeVersion": 1,
+      "id": "a3f82a52-8bc8-4f82-960d-02205524f838",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Premiere Client",
+        "height": 240,
+        "width": 2020,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -160,
+        -280
+      ],
+      "typeVersion": 1,
+      "id": "bf757e6d-ccdc-4ed8-b3c2-ea0feb62d506",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "resource": "mail",
+        "fromEmail": "clientcare@salesgenius.co",
+        "fromName": "SalesGenius Client Care",
+        "toEmail": "arslan@salesgenius.co",
+        "subject": "Onboarding Complete",
+        "contentType": "text/html",
+        "contentValue": "={{ $json.html }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.sendGrid",
+      "typeVersion": 1,
+      "position": [
+        100,
+        -460
+      ],
+      "id": "0bc799ac-746d-47e8-91ea-a19fadebd57e",
+      "name": "SendGrid",
+      "credentials": {
+        "sendGridApi": {
+          "id": "X3QRDGbXl1XPwNCI",
+          "name": "SendGrid account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "mail",
+        "fromEmail": "clientcare@salesgenius.co",
+        "fromName": "SalesGenius",
+        "toEmail": "arslan@salesgenius.co",
+        "subject": "=Onboarding Completed - {{ $('Edit Fields').item.json.first_name }} {{ $('Edit Fields').item.json.last_name }}",
+        "contentType": "text/html",
+        "contentValue": "=<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Onboarding Completed + Connect Account</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; background-color: #ffffff; color: #000000; padding: 20px;\">\n\n  <div style=\"max-width: 600px; margin: auto; padding: 20px; border: 1px solid #000; background-color: #000000; color: #ffffff;\">\n    \n    <!-- Logo -->\n    <div style=\"text-align: center; margin-bottom: 20px;\">\n      <img src=\"https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/zpjvSoJ3TMkdq8pcj7VJ/media/6499bf999db2c32f4ad9391e.png\" alt=\"Sales Genius Logo\" width=\"150\" style=\"background-color: #000; padding: 10px;\">\n    </div>\n\n    <!-- Onboarding Confirmation -->\n    <div style=\"text-align: left; font-size: 16px;\">\n      <h2 style=\"color: #ffffff;\">Your onboarding process has been successfully completed!</h2>\n      <p>Dear {{ $('Edit Fields').item.json.first_name }} {{ $('Edit Fields').item.json.last_name }},</p>\n      <p>We are pleased to inform you that we have received and processed your onboarding form. Our team is already working to take your experience to the next level.</p>\n    </div>\n\n    <!-- Leadsie Call-to-Action -->\n    <div style=\"text-align: left; font-size: 16px; margin-top: 30px;\">\n      <h2 style=\"color: #ffffff;\">Action Required – Connect Your Account</h2>\n      <p>To complete the setup, please connect your account with Sales Genius via Leadsie. Simply click the button below:</p>\n      \n      <p style=\"text-align: center;\">\n        <a href=\"https://app.leadsie.com/connect/salesgenius/manage?customUserId={{ $('Edit Fields').item.json.first_name }}_{{ $('Edit Fields').item.json.last_name }}-{{ $('Create New Onboarding in Notion').item.json.id }}\" \n           style=\"background-color: #188bf6; color: #ffffff; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 4px;\">\n          Connect Now\n        </a>\n      </p>\n\n      <p>If you have any questions or need assistance, feel free to contact us.</p>\n    </div>\n\n    <!-- Signature -->\n    <div style=\"text-align: left; font-size: 16px; margin-top: 20px;\">\n      <p>Thank you for trusting Sales Genius!</p>\n      <p>Best regards,<br>The Sales Genius Team</p>\n    </div>\n\n    <!-- Footer -->\n    <div style=\"margin-top: 20px; text-align: center; font-size: 12px;\">\n      <p>&copy; {{$now.format('yyyy')}} Sales Genius. All rights reserved.</p>\n    </div>\n  </div>\n</body>\n</html>\n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.sendGrid",
+      "typeVersion": 1,
+      "position": [
+        540,
+        -460
+      ],
+      "id": "dabd79e0-36d8-4706-a76d-134a7c72a536",
+      "name": "SendGrid1",
+      "credentials": {
+        "sendGridApi": {
+          "id": "X3QRDGbXl1XPwNCI",
+          "name": "SendGrid account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6a0a3e23-aff9-49ba-981b-bd9c202d81c9",
+              "name": "Headshot",
+              "value": "={{ $('Edit Fields').first().json.headshot_url }}",
+              "type": "string"
+            },
+            {
+              "id": "62fddea6-4311-4226-b543-e19905bf9559",
+              "name": "Logo",
+              "value": "={{ $('Edit Fields').first().json.logo_url }}",
+              "type": "string"
+            },
+            {
+              "id": "e1ac7d7a-a826-4bc1-afd3-c3d43a2161f1",
+              "name": "Client ID",
+              "value": "={{ $('New Client').first().json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "f35b8bf2-d3a2-41a7-a36e-71b3e21232ee",
+              "name": "First Name",
+              "value": "={{ $('Edit Fields').first().json.first_name }}",
+              "type": "string"
+            },
+            {
+              "id": "66acb3c0-07bd-4062-862a-1fb9703c8cd9",
+              "name": "Last Name",
+              "value": "={{ $('Edit Fields').first().json.last_name }}",
+              "type": "string"
+            },
+            {
+              "id": "100795ab-6f45-42a7-897c-78ad1c29c294",
+              "name": "Email",
+              "value": "={{ $('Edit Fields').first().json.email }}",
+              "type": "string"
+            },
+            {
+              "id": "82943a95-4acd-4dd1-8436-44d033fef68e",
+              "name": "Phone",
+              "value": "={{ $('Edit Fields').first().json.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "5f46c7cd-b180-472e-8914-b150fb57a040",
+              "name": "Type",
+              "value": "={{ $('Edit Fields').first().json.sourceLabel }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        980,
+        -220
+      ],
+      "id": "31603342-f4eb-45b1-9ded-1044bc4228d5",
+      "name": "Get Image data1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "JMc3xPZAwmu8HiUx",
+          "mode": "list",
+          "cachedResultName": "Client Image Enhancement"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1200,
+        -220
+      ],
+      "id": "32afa082-1e5d-4ea1-a7eb-9a19c8ff7710",
+      "name": "Client Image Enhancement1"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('Get Image data1').item.json[\"Client ID\"] }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1640,
+        -220
+      ],
+      "id": "95490bd9-e91d-4357-a3ad-e9a431213e39",
+      "name": "Update Client Images_bg1",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Crear el objeto final que se va a retornar\nlet result = {\n  output: {}  // Todo el resultado se coloca dentro de \"output\"\n};\n\n// Verificar y agregar los valores a las propiedades solo si no están vacíos\nif ($json.notion_banner && $json.notion_banner !== '') {\n  result.output.cover = {\n    type: \"external\",\n    external: {\n      url: $json.notion_banner\n    }\n  };\n}\n\nif ($json.headshot_bg && $json.headshot_bg !== '') {\n  result.output.properties = result.output.properties || {};  // Inicializar si no existe\n  result.output.properties.HeadshotBG = { \"url\": $json.headshot_bg };\n}\n\nif ($json.logo_bg && $json.logo_bg !== '') {\n  result.output.properties = result.output.properties || {};  // Inicializar si no existe\n  result.output.properties.LogoBG = { \"url\": $json.logo_bg };\n}\n\nif ($json.notion_image && $json.notion_image !== '') {\n  result.output.properties = result.output.properties || {};  // Inicializar si no existe\n  result.output.properties.NotionImage = { \"url\": $json.notion_image };\n}\n\nif ($json.notion_banner && $json.notion_banner !== '') {\n  result.output.properties = result.output.properties || {};  // Inicializar si no existe\n  result.output.properties.NotionBanner = { \"url\": $json.notion_banner };\n}\n\n// Devolver el objeto resultante con todo dentro de \"output\"\nreturn result;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        -220
+      ],
+      "id": "c056e904-8bd5-40ee-8c01-13c3054e0c50",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6a0a3e23-aff9-49ba-981b-bd9c202d81c9",
+              "name": "Headshot",
+              "value": "={{ $('Edit Fields').item.json.headshot_url }}",
+              "type": "string"
+            },
+            {
+              "id": "62fddea6-4311-4226-b543-e19905bf9559",
+              "name": "Logo",
+              "value": "={{ $('Edit Fields').item.json.logo_url }}",
+              "type": "string"
+            },
+            {
+              "id": "e1ac7d7a-a826-4bc1-afd3-c3d43a2161f1",
+              "name": "Client ID",
+              "value": "={{ $('New Client').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "f35b8bf2-d3a2-41a7-a36e-71b3e21232ee",
+              "name": "First Name",
+              "value": "={{ $('Edit Fields').item.json.first_name }}",
+              "type": "string"
+            },
+            {
+              "id": "66acb3c0-07bd-4062-862a-1fb9703c8cd9",
+              "name": "Last Name",
+              "value": "={{ $('Edit Fields').item.json.last_name }}",
+              "type": "string"
+            },
+            {
+              "id": "100795ab-6f45-42a7-897c-78ad1c29c294",
+              "name": "Email",
+              "value": "={{ $('Edit Fields').item.json.email }}",
+              "type": "string"
+            },
+            {
+              "id": "82943a95-4acd-4dd1-8436-44d033fef68e",
+              "name": "Phone",
+              "value": "={{ $('Edit Fields').item.json.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "3a5440f9-1c85-4b37-9f34-1fdfa695d259",
+              "name": "Type",
+              "value": "={{ $('Edit Fields').item.json.sourceLabel }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        20
+      ],
+      "id": "bfbeb5a0-463c-4ca4-bdbb-30c04eca557d",
+      "name": "Get Image data2"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "JMc3xPZAwmu8HiUx",
+          "mode": "list",
+          "cachedResultName": "Client Image Enhancement"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        980,
+        20
+      ],
+      "id": "cd7e1bdf-886b-4674-bf14-0c50c99ef94b",
+      "name": "Client Image Enhancement2"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('Get Image data2').item.json[\"Client ID\"] }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1420,
+        20
+      ],
+      "id": "cba6c4f7-60b7-4457-a6aa-9c6474f29aa0",
+      "name": "Update Client Images_bg2",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Crear el objeto final que se va a retornar\nlet result = {\n  output: {}  // Todo el resultado se coloca dentro de \"output\"\n};\n\n// Verificar y agregar los valores a las propiedades solo si no están vacíos\nif ($json.notion_banner && $json.notion_banner !== '') {\n  result.output.cover = {\n    type: \"external\",\n    external: {\n      url: $json.notion_banner\n    }\n  };\n}\n\nif ($json.headshot_bg && $json.headshot_bg !== '') {\n  result.output.properties = result.output.properties || {};  // Inicializar si no existe\n  result.output.properties.HeadshotBG = { \"url\": $json.headshot_bg };\n}\n\nif ($json.logo_bg && $json.logo_bg !== '') {\n  result.output.properties = result.output.properties || {};  // Inicializar si no existe\n  result.output.properties.LogoBG = { \"url\": $json.logo_bg };\n}\n\nif ($json.notion_image && $json.notion_image !== '') {\n  result.output.properties = result.output.properties || {};  // Inicializar si no existe\n  result.output.properties.NotionImage = { \"url\": $json.notion_image };\n}\n\nif ($json.notion_banner && $json.notion_banner !== '') {\n  result.output.properties = result.output.properties || {};  // Inicializar si no existe\n  result.output.properties.NotionBanner = { \"url\": $json.notion_banner };\n}\n\n// Devolver el objeto resultante con todo dentro de \"output\"\nreturn result;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        20
+      ],
+      "id": "ce16c9c0-048e-419a-ba5f-1cc659dc07e5",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.skool.com/groups/salesgenius-pro-membership-9143/webhooks/aefc1b79e45f441ab8a8521c295c0ac5?email={{ $('Edit Fields').first().json.email }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -120,
+        -220
+      ],
+      "id": "81709f8b-4b99-465e-9e92-c21eb6b2d5f0",
+      "name": "Add to Skool1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.skool.com/groups/salesgenius-pro-membership-9143/webhooks/aefc1b79e45f441ab8a8521c295c0ac5?email={{ $('Edit Fields').first().json.email }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -120,
+        20
+      ],
+      "id": "96bc28e9-ce11-4d59-9d9e-f4fb92034436",
+      "name": "Add to Skool2"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-04-07T13:45:20.708Z",
+      "updatedAt": "2025-04-07T13:45:20.708Z",
+      "role": "workflow:owner",
+      "workflowId": "fzcudTZ5hFHu0RVt",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-04-10T19:18:00.000Z",
+  "versionId": "936c3b7d-7705-49ef-ad3d-91e0e6adc4a4"
+}
