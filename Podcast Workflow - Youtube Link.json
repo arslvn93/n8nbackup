@@ -1,0 +1,1404 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "OpenAI - Grouping and Enumation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - Grouping and Enumation": {
+      "main": [
+        [
+          {
+            "node": "OpenAI - For 3 Blogs",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI1 - For 3 Podcast",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI - For 5 Reel Video Ideas Script",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI - For 3 Email Newsletters",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI - 9 Social Media Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - For 3 Blogs": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI - 9 Social Media Posts": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "OpenAI1 - For 3 Podcast": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - For 3 Email Newsletters": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "AWS S3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Extract Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Transcript": {
+      "main": [
+        [
+          {
+            "node": "Apify4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify4": {
+      "main": [
+        [
+          {
+            "node": "Apify1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "OpenAI - Grouping and Enumation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - For 5 Reel Video Ideas Script": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI - Grouping and Enumation1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - Grouping and Enumation1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI - Case Study Direct Mail Writer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI1 - Case Study Reel Script Writer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI - Case Study Email Writer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 3
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML1": {
+      "main": [
+        [
+          {
+            "node": "AWS S31",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "HTML1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Extract Transcript1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract from File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Transcript1": {
+      "main": [
+        [
+          {
+            "node": "Apify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify": {
+      "main": [
+        [
+          {
+            "node": "Apify2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI - Grouping and Enumation1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1 - Case Study Reel Script Writer": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - Case Study Direct Mail Writer": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI - Case Study Email Writer": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-12T18:11:37.510Z",
+  "id": "eJOKcvLaMtBrsCWZ",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Podcast Workflow - Youtube Link",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "5aa7b1f5-2880-426e-9637-ab36620201a6",
+        "options": {
+          "binaryPropertyName": "data"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -640,
+        320
+      ],
+      "id": "3652d19d-a2ed-404d-bd6c-665c6cae47b6",
+      "name": "Webhook",
+      "webhookId": "5aa7b1f5-2880-426e-9637-ab36620201a6"
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "binaryPropertyName": "data0",
+        "options": {
+          "keepSource": "json"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        0,
+        440
+      ],
+      "id": "9a56dc43-6478-4428-a9bc-e467d37a8b68",
+      "name": "Extract from File",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "O3-MINI-2025-01-31"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "From this text, create:\n- 03 Podcast outlines.\n\nThe sum of all podcasts must cover all enumerated points.\nWell explained and ready to recording.\n\nAlso create by each:\n- Podcast content.\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1020,
+        0
+      ],
+      "id": "797f52b6-78dc-4e34-a5bc-be6196460bc2",
+      "name": "OpenAI1 - For 3 Podcast",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "O3-MINI-2025-01-31"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.data }}"
+            },
+            {
+              "content": "I have this text, remove time and group it by topics and enumerate. Try to explain it better with simple terms.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        540,
+        340
+      ],
+      "id": "925be5d0-625f-4df8-9a2f-8cb77b17df1f",
+      "name": "OpenAI - Grouping and Enumation",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "O3-MINI-2025-01-31"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "From this text, create:\n- 03 Blog drafts.\nThe sum of all blog draft must cover all enumerated points.\nWell explained and ready to publish.\nAlso create by each:\n- Blog content.\n",
+              "role": "system"
+            },
+            {
+              "content": "Brand:\nThis content should reflect a professional yet engaging tone, written for a broad audience and incorporating SEO best practices. The style should be authoritative, informative, and conversational when necessary.\n\nRole:\nAssume the role of an SEO content strategist and expert blog writer who understands both search engine algorithms and human psychology, ensuring content is highly discoverable and enjoyable to read.\n\nInstruction:\nWrite three unique, 1000-word SEO-optimized blog posts on the given topic(s). Each post must follow a structured format with proper headings (H1, H2, H3, etc.), bullet points, numbered lists, and strong introductions and conclusions.\n\nEach blog should include:\n\nTitle (H1): A compelling, SEO-rich blog post title.\nMeta Description: A 150-160 character meta description optimized for search engines and click-through rates.\nIntroduction (150-200 words): An engaging hook, the relevance of the topic, and a clear thesis statement.\nMain Content (structured with H2s and H3s): Detailed sections with natural keyword integration, real-life examples, statistics, and engaging storytelling.\nLists & Bullet Points: For scannability, wherever needed.\nInternal & External Links: At least one internal link (to another relevant post) and one credible external source.\nConclusion (150-200 words): A summary, final thoughts, and a call-to-action if relevant.\nGoal:\nThe objective is to create engaging, valuable, and SEO-friendly content that ranks well on Google while being enjoyable and easy to read for users. The content should avoid fluff and generic, AI-sounding phrasing.\n\nHow:\n\nUse the PAS (Problem-Agitate-Solution) or AIDA (Attention-Interest-Desire-Action) framework for storytelling.\nIncorporate long-tail keywords naturally throughout.\nKeep paragraphs concise (2-4 sentences each).\nUse conversational yet authoritative language.\nMaintain a Flesch Reading Ease score above 60 for readability.\nEnsure zero fluff, 100% original, natural-sounding content.\nTarget Audience:\n\nPeople searching for in-depth insights on the topic.\nReaders looking for actionable takeaways and well-researched information.\nBlog owners and content marketers aiming to improve organic traffic.\nTopics:\n(Specify your topics here, or I can generate trending SEO-friendly topics for you.)"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1020,
+        140
+      ],
+      "id": "d0238b33-6962-4e30-bed1-35a18822ffb6",
+      "name": "OpenAI - For 3 Blogs",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "O3-MINI-2025-01-31"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "From this text, create:\n- 03 Email newsletters.\nThe sum of all email newsletters must cover all enumerated points.\nWell explained and ready to send.\nAlso create by each:\n- Call to Actions buttons.\n",
+              "role": "system"
+            },
+            {
+              "content": "=Role: You are an expert email copywriter and direct response marketer specializing in high-converting newsletters that drive engagement, clicks, and sales.\n\nInstruction: Analyze the long-form video transcript and craft a compelling email newsletter based on the best insights. The email should:\n\nSubject Line: Write 3 subject line options (curiosity-driven, benefit-driven, or emotionally compelling).\nPreview Text: A short preview that complements the subject line.\nOpening Hook (First Line): Must grab attention within one sentence (e.g., surprising fact, personal story, bold statement).\nMain Body (Concise & Value-Packed):\nExtract a key insight from the podcast and turn it into an engaging email story or lesson.\nKeep paragraphs short (2-3 lines max) for readability.\nUse a conversational tone to connect with the reader.\nCall-to-Action (CTA): Drive the next step (click a link, reply to the email, watch the full podcast, etc.).\nP.S. (Optional): Reinforce urgency, add a secondary CTA, or include a personal note.\nExample Output Format:\n\nSubject Line Options:\n\n“This small mindset shift changed everything for me”\n“Most people get this WRONG about success”\n“How I turned my biggest failure into my biggest win”\nPreview Text: This lesson changed my approach forever. It might do the same for you…\n\nOpening Hook: \"I was doing everything right… yet nothing was working.\"\n\nMain Body: I thought if I worked harder, I’d finally get the breakthrough I wanted. But after years of effort, I was still stuck.\n\nThen I realized something… I wasn’t failing because I wasn’t working hard enough—I was failing because I was focused on the wrong thing.\n\nIn a recent podcast, we talked about [key lesson from transcript] and how this small change completely transformed my approach.\n\nWhen I started [applying insight], things finally clicked. My business grew. My stress dropped. And opportunities started flowing in.\n\nCall-to-Action (CTA): Want to hear the full story? Watch the full episode here: [insert link]\nOr reply to this email and let me know if you’ve ever felt the same way.\n\nP.S.: Most people never realize they’re making this mistake. Don’t be one of them. Watch the episode now: [insert link]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1020,
+        460
+      ],
+      "id": "3a4710dc-d7b4-4ef8-a262-c46cca5c2040",
+      "name": "OpenAI - For 3 Email Newsletters",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "O3-MINI-2025-01-31"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "From this text, create:\n- 03 for tweets, Facebook, Instagram carousels.\nThe sum of all the text generated by each social network must cover all the points listed.\nWell explained and ready to post.\nAlso consider by each:\n- Small messages due to social networks guidelines.\n",
+              "role": "system"
+            },
+            {
+              "content": "Role:\nYou are a social media strategist and viral content curator who specializes in extracting the most high-impact, scroll-stopping insights from long-form podcast content. Your goal is to craft short, powerful, and shareable social media posts that grab attention immediately.\n\nInstruction:\nAnalyze the long-form video transcript and generate 9 high-impact text-based social media posts optimized for Twitter/X, Instagram static posts, or Instagram Reels captions.\n\nEach post should:\n\nBe short, direct, and high-impact—punchy statements, mic-drop insights, or counterintuitive truths.\nBe either a direct quote (if impactful) or a rewritten, sharper version of a key insight.\nHook the reader immediately—make them stop scrolling.\nBe formatted for easy reading (short lines, dramatic pauses, or emojis where needed).\nOutput Format:\n\nPost 1 (Twitter/X or Instagram Caption)\n\"Most people fail not because they lack talent, but because they quit too soon.\"\n\nPost 2 (Twitter/X or Instagram Caption)\nIf you’re waiting for motivation to take action, you’ve already lost.\n\nPost 3 (Twitter/X or Instagram Caption)\nNobody cares how hard you work. They care about results.\n\nPost 4 (Text for Instagram Static Post)\nTitle: The truth about success nobody tells you…\n\nHard work isn’t enough.\nIdeas alone won’t save you.\nPerfection is the enemy of progress.\nStart before you’re ready. That’s how real success happens.\nPost 5 (Twitter/X or Instagram Caption)\n\"Your comfort zone is your prison. Step outside it, or stay stuck.\"\n\nPost 6 (Text for Instagram Reel Overlay)\n\"The biggest regret successful people have?\"\n• Playing it safe.\n• Caring what others think.\n• Waiting too long to start.\nGet moving. Time won’t wait for you.\n\nPost 7 (Twitter/X or Instagram Caption)\nFear of failure kills more dreams than failure ever will.\n\nPost 8 (Text for Instagram Static Post)\n5 Harsh Truths You Need to Hear Today:\n\nNo one is coming to save you.\nDiscipline > Motivation.\nYou won’t always feel ready—do it anyway.\nNo risk, no reward.\nThe world owes you nothing.\nPost 9 (Twitter/X or Instagram Caption)\n\"The biggest flex? Moving in silence and letting your results do the talking.\""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1020,
+        620
+      ],
+      "id": "3eb0c209-92f5-491a-a690-d4fdb3defb26",
+      "name": "OpenAI - 9 Social Media Posts",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 5
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1420,
+        260
+      ],
+      "id": "81409f32-224b-4500-9d7f-9cb3a5f2b9de",
+      "name": "Merge",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "html": "{{ $json.html }}"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1780,
+        300
+      ],
+      "id": "b7aa8978-b5c5-437d-9d64-7dde3289ee61",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Define el encabezado y pie del documento HTML\nconst htmlHeader = `<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Extracted Messages</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      margin: 20px;\n    }\n    h1 {\n      color: #5563de;\n    }\n    .message-item {\n      border: 1px solid #ccc;\n      padding: 10px;\n      margin-bottom: 10px;\n      border-radius: 4px;\n      background-color: #f9f9f9;\n    }\n  </style>\n</head>\n<body>\n`;\n\nconst htmlFooter = `\n</body>\n</html>\n`;\n\n// Inicializa el cuerpo del HTML\nlet htmlBody = \"\";\n\n// Recorre cada item del array y extrae el contenido\nitems.forEach((item, index) => {\n  // Se asume que cada objeto tiene la estructura:\n  // { json: { message: { content: \"...\" } } }\n  let content = \"\";\n  if (item.json.message && item.json.message.content) {\n    content = item.json.message.content;\n  } else {\n    content = \"No content available\";\n  }\n  \n  // Agrega un bloque para cada mensaje con su índice\n  htmlBody += `<div class=\"message-item\">\n    <h2>Message ${index + 1}</h2>\n    <p>${content}</p>\n  </div>\n`;\n});\n\n// Combina encabezado, cuerpo y pie\nconst fullHtml = htmlHeader + htmlBody + htmlFooter;\n\n// Devuelve el resultado en un objeto JSON con la propiedad \"html\"\nreturn [{ json: { html: fullHtml } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        300
+      ],
+      "id": "284dcb84-38b2-465d-9a3c-8b4cfd722ce0",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "salesgenius",
+        "fileName": "=reports/report{{ new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0,12) }}.html",
+        "binaryData": false,
+        "fileContent": "={{ $json.html }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.awsS3",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        300
+      ],
+      "id": "706b1783-04f5-4f81-9fc5-668e71c66bc5",
+      "name": "AWS S3",
+      "credentials": {
+        "aws": {
+          "id": "WORJPXV9jAxr4ytJ",
+          "name": "AWS account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.youtubeUrl }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Youtube URL"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cebcc212-490d-43d4-8b05-d6877acb7b7a",
+                    "leftValue": "={{ $json.body.youtubeUrl }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notExists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "TXT FILE"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -420,
+        320
+      ],
+      "id": "fb5873c6-80a5-4d51-8943-70fd1a70f5f5",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "resource": "Actors",
+        "operation": "With input",
+        "actorId": {
+          "__rl": true,
+          "value": "1s7eXiaukVuOr4Ueg",
+          "mode": "list",
+          "cachedResultName": "youtube-transcripts",
+          "cachedResultUrl": "https://console.apify.com/actors/undefined/input"
+        },
+        "build": "",
+        "webhooks": "=",
+        "useCustomBody": true,
+        "customBody": "={\n    \"maxRetries\": 6,\n    \"proxyOptions\": {\n        \"useApifyProxy\": true,\n        \"apifyProxyGroups\": [\n            \"BUYPROXIES94952\"\n        ]\n    },\n    \"urls\": [\n        \"{{ $json.body.youtubeUrl }}\"\n    ]\n} ",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        -200,
+        200
+      ],
+      "id": "894d6300-a02c-4bff-8c6f-1596029e2694",
+      "name": "Extract Transcript",
+      "retryOnFail": true,
+      "credentials": {
+        "apifyApi": {
+          "id": "4yAxb5EoNDU0em0q",
+          "name": "Apify account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Actors",
+        "operation": "Get last run",
+        "actorId": {
+          "__rl": true,
+          "value": "1s7eXiaukVuOr4Ueg",
+          "mode": "list",
+          "cachedResultName": "youtube-transcripts",
+          "cachedResultUrl": "https://console.apify.com/actors/undefined/input"
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        -40,
+        200
+      ],
+      "id": "976585c4-1c3f-4c97-8406-f15d469fd209",
+      "name": "Apify4",
+      "credentials": {
+        "apifyApi": {
+          "id": "4yAxb5EoNDU0em0q",
+          "name": "Apify account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Datasets",
+        "operation": "Get items",
+        "datasetId": "={{ $json.data.defaultDatasetId }}",
+        "clean": true,
+        "fields": "",
+        "omit": "",
+        "unwind": "",
+        "flatten": "",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        120,
+        200
+      ],
+      "id": "d6abce00-6249-4795-a348-e7c825a984a0",
+      "name": "Apify1",
+      "credentials": {
+        "apifyApi": {
+          "id": "4yAxb5EoNDU0em0q",
+          "name": "Apify account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"data\": \"{{ $json[\"data\"][0][\"captions\"].join(' ') }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        280,
+        200
+      ],
+      "id": "c9168f3f-38fd-48a4-b9ce-6bbb42095924",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "O3-MINI-2025-01-31"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "From this text, create:\n- 03 video scripts.\nThe sum of all video scripts must cover all enumerated points.\nWell explained and ready to generate.\nAlso create by each:\n- Background, colors, and actors prompt\n",
+              "role": "system"
+            },
+            {
+              "content": "Brand:\nThis should maintain the authentic, conversational style of the podcast while refining raw moments into engaging, high-converting short-form content. The goal is to maximize engagement while keeping the speaker’s voice natural and impactful.\n\nRole:\nYou are a short-form content strategist and expert podcast clip curator who understands how to extract compelling, viral-worthy moments from unscripted conversations.\n\nInstruction:\nAnalyze the long-form video transcript and identify five high-performing Instagram Reels opportunities. Because this is from an unscripted podcast, the speaker may not have spoken in a perfectly concise 30-60 second format. Therefore, the output should include:\n\nTimestamp Start & End (e.g., 00:12:45 - 00:14:02) – Aim for a 30-60 second segment, but allow flexibility for trimming or slight restructuring.\nCore Idea / Why This Moment Stands Out – Explain why this is a high-impact moment (e.g., emotional reaction, strong opinion, humor, counterintuitive insight, storytelling).\nHow to Refine the Clip – If needed, suggest slight trimming, reordering, or cutting filler words to make it flow better.\nHook / First Line to Use – Suggest a strong hook that grabs attention within 3 seconds (even if it needs to be restructured from the transcript).\nSuggested On-Screen Text (if relevant) – A catchy overlay text to reinforce engagement.\nPotential CTA / Engagement Booster – If the clip lends itself to a CTA, suggest one (e.g., “Save this for later,” “Tag a friend,” “Drop a 🔥 if you agree”).\nGoal:\nExtract and refine five compelling podcast clips that will:\n\nStop the scroll with an engaging opening.\nBe clear and valuable even if the original speech is unstructured.\nFit 30-60 seconds while maintaining coherence.\nUse a mix of storytelling, emotion, controversy, relatability, and insight to drive views.\nHow:\n\nLook for five natural energy shifts in the conversation—moments where the speaker gets animated, excited, or passionate (these moments perform best).\nFind the “aha” moment—where a key insight lands or a strong opinion is made.\nIdentify memorable phrases—short, impactful lines that could be restructured as strong hooks.\nTrim filler words and tangents if necessary for clarity.\nRestructure where needed—sometimes the best part is midway through a response; suggest opening with that line instead of the actual start.\nExample Output Format:\n\nClip 1:\nTimestamp: 00:08:12 - 00:09:05\nCore Idea: The speaker shares a personal failure that led to massive success, creating relatability and inspiration.\nHow to Refine: Trim the first 10 seconds where they ramble; start instead with the emotional moment.\nHook: \"I lost everything… but here’s what changed my life.\"\nSuggested On-Screen Text: “Rock bottom teaches you the best lessons”\nPotential CTA: “Ever had a moment like this? Comment below!”\n\nClip 2:\nTimestamp: 00:22:33 - 00:23:15\nCore Idea: A counterintuitive statement about success that challenges the audience’s assumptions.\nHow to Refine: Start mid-sentence where they drop the controversial take, then add context after.\nHook: \"Hard work isn’t the key to success. Here’s why…\"\nSuggested On-Screen Text: “You’ve been lied to about success”\nPotential CTA: “Do you agree or disagree? Let’s debate.”\n\n(Repeat for all 5 clips)"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1020,
+        300
+      ],
+      "id": "0d907620-b797-4f74-adaa-0aa88769e0c0",
+      "name": "OpenAI - For 5 Reel Video Ideas Script",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "5aa7b1f5-2880-426e-9637-ab36620201a6",
+        "options": {
+          "binaryPropertyName": "data"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -620,
+        1220
+      ],
+      "id": "94cd23cf-4298-421e-9abc-c79cc2f9f5e9",
+      "name": "Webhook1",
+      "webhookId": "5aa7b1f5-2880-426e-9637-ab36620201a6"
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "binaryPropertyName": "data0",
+        "options": {
+          "keepSource": "json"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        20,
+        1340
+      ],
+      "id": "d8df0258-213b-4970-985d-e2ac941fac2f",
+      "name": "Extract from File1",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "O3-MINI-2025-01-31"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.data }}"
+            },
+            {
+              "content": "I have this text, remove time and group it by topics and enumerate. Try to explain it better with simple terms.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        600,
+        1280
+      ],
+      "id": "15d7167c-56d2-434a-9cae-50aa93017d97",
+      "name": "OpenAI - Grouping and Enumation1",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 5
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1440,
+        1160
+      ],
+      "id": "f44273a8-cf41-4411-9fd1-f9359e0e832b",
+      "name": "Merge1",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "html": "{{ $json.html }}"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1800,
+        1200
+      ],
+      "id": "4d2546b6-9cd7-432c-b7b9-8e62a921a000",
+      "name": "HTML1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Define el encabezado y pie del documento HTML\nconst htmlHeader = `<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Extracted Messages</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      margin: 20px;\n    }\n    h1 {\n      color: #5563de;\n    }\n    .message-item {\n      border: 1px solid #ccc;\n      padding: 10px;\n      margin-bottom: 10px;\n      border-radius: 4px;\n      background-color: #f9f9f9;\n    }\n  </style>\n</head>\n<body>\n`;\n\nconst htmlFooter = `\n</body>\n</html>\n`;\n\n// Inicializa el cuerpo del HTML\nlet htmlBody = \"\";\n\n// Recorre cada item del array y extrae el contenido\nitems.forEach((item, index) => {\n  // Se asume que cada objeto tiene la estructura:\n  // { json: { message: { content: \"...\" } } }\n  let content = \"\";\n  if (item.json.message && item.json.message.content) {\n    content = item.json.message.content;\n  } else {\n    content = \"No content available\";\n  }\n  \n  // Agrega un bloque para cada mensaje con su índice\n  htmlBody += `<div class=\"message-item\">\n    <h2>Message ${index + 1}</h2>\n    <p>${content}</p>\n  </div>\n`;\n});\n\n// Combina encabezado, cuerpo y pie\nconst fullHtml = htmlHeader + htmlBody + htmlFooter;\n\n// Devuelve el resultado en un objeto JSON con la propiedad \"html\"\nreturn [{ json: { html: fullHtml } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        1280
+      ],
+      "id": "f08d8b89-0486-49f4-b04e-01226956212c",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "salesgenius",
+        "fileName": "=reports/report{{ new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0,12) }}.html",
+        "binaryData": false,
+        "fileContent": "={{ $json.html }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.awsS3",
+      "typeVersion": 2,
+      "position": [
+        2060,
+        1280
+      ],
+      "id": "7b0c9434-85ed-40b6-a45a-faf2e2180631",
+      "name": "AWS S31",
+      "credentials": {
+        "aws": {
+          "id": "WORJPXV9jAxr4ytJ",
+          "name": "AWS account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.youtubeUrl }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Youtube URL"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cebcc212-490d-43d4-8b05-d6877acb7b7a",
+                    "leftValue": "={{ $json.body.youtubeUrl }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notExists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "TXT FILE"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -400,
+        1220
+      ],
+      "id": "2da04fe1-f8e1-45fc-abb4-b0e7953902ce",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "resource": "Actors",
+        "operation": "With input",
+        "actorId": {
+          "__rl": true,
+          "value": "1s7eXiaukVuOr4Ueg",
+          "mode": "list",
+          "cachedResultName": "youtube-transcripts",
+          "cachedResultUrl": "https://console.apify.com/actors/undefined/input"
+        },
+        "build": "",
+        "webhooks": "=",
+        "useCustomBody": true,
+        "customBody": "={\n    \"maxRetries\": 6,\n    \"proxyOptions\": {\n        \"useApifyProxy\": true,\n        \"apifyProxyGroups\": [\n            \"BUYPROXIES94952\"\n        ]\n    },\n    \"urls\": [\n        \"{{ $json.body.youtubeUrl }}\"\n    ]\n} ",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        -180,
+        1100
+      ],
+      "id": "309f3904-867c-4996-b49f-f0e03963c92e",
+      "name": "Extract Transcript1",
+      "retryOnFail": true,
+      "credentials": {
+        "apifyApi": {
+          "id": "4yAxb5EoNDU0em0q",
+          "name": "Apify account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Actors",
+        "operation": "Get last run",
+        "actorId": {
+          "__rl": true,
+          "value": "1s7eXiaukVuOr4Ueg",
+          "mode": "list",
+          "cachedResultName": "youtube-transcripts",
+          "cachedResultUrl": "https://console.apify.com/actors/undefined/input"
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        1100
+      ],
+      "id": "4fd28e64-fd0c-4f64-9348-b6f3edab1e1e",
+      "name": "Apify",
+      "credentials": {
+        "apifyApi": {
+          "id": "4yAxb5EoNDU0em0q",
+          "name": "Apify account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Datasets",
+        "operation": "Get items",
+        "datasetId": "={{ $json.data.defaultDatasetId }}",
+        "clean": true,
+        "fields": "",
+        "omit": "",
+        "unwind": "",
+        "flatten": "",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        140,
+        1100
+      ],
+      "id": "e82efea9-8efb-430a-bdc2-581a0cdc4fdf",
+      "name": "Apify2",
+      "credentials": {
+        "apifyApi": {
+          "id": "4yAxb5EoNDU0em0q",
+          "name": "Apify account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"data\": \"{{ $json[\"data\"][0][\"captions\"].join(' ') }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        300,
+        1100
+      ],
+      "id": "b5f77547-fd8f-4c19-bcfa-09685588410b",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "content": "Case Study Workflow",
+        "height": 880,
+        "width": 3180
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -680,
+        840
+      ],
+      "id": "73ca09b8-996e-49e6-a71c-ccf1191136ea",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "O3-MINI-2025-01-31"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "**Brand:** You are a high-impact marketing strategist specializing in real estate content that drives engagement and positions realtors as industry leaders. Your focus is on leveraging big wins into compelling social media posts that attract clients and build authority.\n\n**Role:** Act as a world-class direct-response copywriter, taking inspiration from Alex Hormozi, Daniel Iles, and other top-performing content creators. Your writing should follow proven copywriting frameworks (e.g., PAS—Problem, Agitate, Solution; AIDA—Attention, Interest, Desire, Action) while maintaining a natural and authentic tone.\n\n**Instruction:** Write three high-converting social media scripts for a realtor who has recently achieved a major win (e.g., record-breaking sale, unbelievable deal for a buyer, rapid turnaround on a listing). Each script should follow this structure:\n\n- **Hook:** A bold, curiosity-driven first line designed to stop the scroll (use shock, surprise, or an intriguing question).\n- **Story:** A concise but engaging breakdown of the success, highlighting key details (stats, unique strategy, or client transformation).\n- **CTA:** A strong, direct call to action that drives engagement (comment, share, inquire).\n\n**Goal:** Create compelling, story-driven posts that capture attention, showcase results without sounding salesy or forced, and generate leads by positioning the realtor as the go-to expert.\n\n**How:**\n\n- Use sharp, natural, and confident language—no fluff, no robotic phrasing.\n- Avoid unnecessary formatting like **, ##, or emojis.\n- Write with the energy and authenticity of top content creators while ensuring the content feels tailored to the realtor’s personal brand.\n\n**Target Audience:** Home buyers, sellers, and potential clients scrolling social media. The content should be easy to read, engaging, and persuasive without being overly promotional.",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1040,
+        1020
+      ],
+      "id": "98669643-e1df-407a-aeb7-f890b0d08122",
+      "name": "OpenAI1 - Case Study Reel Script Writer",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "O3-MINI-2025-01-31"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "**Brand:** You are a world-class direct-response copywriter, specializing in real estate marketing that drives action. Your goal is to craft physical mailers that homeowners can’t ignore—letters that feel personal, compelling, and make sellers take immediate action.\n\n**Role:** Act as a master direct-response marketer, channeling the timeless persuasion principles of Dan Kennedy, David Ogilvy, and Perry Belcher. Your copy should follow classic direct mail strategies: personalization, urgency, storytelling, and a clear call to action.\n\n**Instruction:** Write a direct mail letter for a realtor who just had a major win in a specific neighborhood (e.g., record-high sale, multiple offers, sold-over-asking). The letter should be structured as follows:\n\n- **Headline:** A powerful, curiosity-driven or benefit-focused opening line to hook the reader (e.g., “Your neighbor just sold their home for top dollar—are you next?”).\n- **Story:** A natural, engaging breakdown of the win—what happened, how the realtor made it possible, and why it’s relevant to the recipient.\n- **Proof:** Use real numbers, timeframes, or client testimonials to reinforce credibility.\n- **Call to Action:** A clear, direct next step—encourage the reader to call, text, or email if they’re even *considering* selling their home.\n- **P.S. (Optional):** A secondary hook to reinforce urgency or scarcity (e.g., “I’m already speaking with other homeowners in your area—let’s chat before the market shifts.”).\n\n**Goal:**\n\n- Create an emotional and logical case for why now is the best time to sell.\n- Position the realtor as the trusted expert who gets results.\n- Drive immediate responses from motivated sellers in the neighborhood.\n\n**How:**\n\n- Write conversationally—like a trusted friend, not a corporate ad.\n- Keep sentences punchy, clear, and compelling.\n- Use storytelling, credibility, and urgency to drive action.\n- Avoid corporate jargon or AI-sounding phrasing—this should feel personal and real.\n\n**Target Audience:** Homeowners in the same neighborhood as the recent sale, who may be on the fence about selling. The letter should make them feel like they could be the *next* success story.",
+              "role": "system"
+            },
+            {
+              "content": "Brand:\nThis content should reflect a professional yet engaging tone, written for a broad audience and incorporating SEO best practices. The style should be authoritative, informative, and conversational when necessary.\n\nRole:\nAssume the role of an SEO content strategist and expert blog writer who understands both search engine algorithms and human psychology, ensuring content is highly discoverable and enjoyable to read.\n\nInstruction:\nWrite three unique, 1000-word SEO-optimized blog posts on the given topic(s). Each post must follow a structured format with proper headings (H1, H2, H3, etc.), bullet points, numbered lists, and strong introductions and conclusions.\n\nEach blog should include:\n\nTitle (H1): A compelling, SEO-rich blog post title.\nMeta Description: A 150-160 character meta description optimized for search engines and click-through rates.\nIntroduction (150-200 words): An engaging hook, the relevance of the topic, and a clear thesis statement.\nMain Content (structured with H2s and H3s): Detailed sections with natural keyword integration, real-life examples, statistics, and engaging storytelling.\nLists & Bullet Points: For scannability, wherever needed.\nInternal & External Links: At least one internal link (to another relevant post) and one credible external source.\nConclusion (150-200 words): A summary, final thoughts, and a call-to-action if relevant.\nGoal:\nThe objective is to create engaging, valuable, and SEO-friendly content that ranks well on Google while being enjoyable and easy to read for users. The content should avoid fluff and generic, AI-sounding phrasing.\n\nHow:\n\nUse the PAS (Problem-Agitate-Solution) or AIDA (Attention-Interest-Desire-Action) framework for storytelling.\nIncorporate long-tail keywords naturally throughout.\nKeep paragraphs concise (2-4 sentences each).\nUse conversational yet authoritative language.\nMaintain a Flesch Reading Ease score above 60 for readability.\nEnsure zero fluff, 100% original, natural-sounding content.\nTarget Audience:\n\nPeople searching for in-depth insights on the topic.\nReaders looking for actionable takeaways and well-researched information.\nBlog owners and content marketers aiming to improve organic traffic.\nTopics:\n(Specify your topics here, or I can generate trending SEO-friendly topics for you.)"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1040,
+        1220
+      ],
+      "id": "43d48fb0-7df2-468f-b7f7-5472f2ed397a",
+      "name": "OpenAI - Case Study Direct Mail Writer",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "O3-MINI-2025-01-31"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.message.content }}"
+            },
+            {
+              "content": "**Brand:** You are a top-tier direct-response email copywriter, specializing in real estate marketing that turns past clients and leads into active buyers and sellers. Your focus is on crafting high-converting, authority-building emails that make the realtor stand out.\n\n**Role:** Act as a master email marketer, channeling the persuasion techniques of Dan Kennedy, Frank Kern, and Ben Settle. The email should be engaging, results-driven, and positioned as a success story that builds credibility and gets readers to take action.\n\n**Instruction:** Write a high-converting email announcing a major real estate win (e.g., record-breaking sale, multiple offers, an amazing deal secured for a buyer). The email should follow this structure:\n\n- **Subject Line:** Short, curiosity-driven, and impossible to ignore (e.g., “This home sold in 48 hours—yours could be next” or “The craziest real estate deal I’ve ever closed”).\n- **Opening Hook:** A bold, attention-grabbing first sentence that immediately pulls the reader in.\n- **Story:** A concise but compelling breakdown of the success—what happened, how the realtor made it possible, and why it matters.\n- **Social Proof:** Include real numbers, a client testimonial, or a unique strategy used to make the deal happen.\n- **Call to Action:** A direct, results-focused CTA that encourages readers to reply, book a consultation, or request a home valuation.\n- **P.S. (Optional):** A secondary hook that reinforces urgency or FOMO (e.g., “I’m already speaking with other homeowners—if you’re thinking about selling, let’s talk before the market shifts.”).\n\n**Goal:**\n\n- Establish the realtor as the go-to expert.\n- Make potential buyers and sellers feel like *now* is the best time to act.\n- Drive replies, consultations, and engagement from the database.\n\n**How:**\n\n- Write conversationally, like a trusted advisor—not like a corporate newsletter.\n- Keep the tone natural, confident, and engaging—no robotic AI phrasing.\n- Use proven psychological triggers (scarcity, social proof, urgency) to encourage action.\n- Avoid unnecessary formatting—this should feel like a personal email from a real person.\n\n**Target Audience:** The realtor’s email database (past clients, leads, potential sellers and buyers). The email should feel personal, relevant, and valuable to them.",
+              "role": "system"
+            },
+            {
+              "content": "Brand:\nThis should maintain the authentic, conversational style of the podcast while refining raw moments into engaging, high-converting short-form content. The goal is to maximize engagement while keeping the speaker’s voice natural and impactful.\n\nRole:\nYou are a short-form content strategist and expert podcast clip curator who understands how to extract compelling, viral-worthy moments from unscripted conversations.\n\nInstruction:\nAnalyze the long-form video transcript and identify five high-performing Instagram Reels opportunities. Because this is from an unscripted podcast, the speaker may not have spoken in a perfectly concise 30-60 second format. Therefore, the output should include:\n\nTimestamp Start & End (e.g., 00:12:45 - 00:14:02) – Aim for a 30-60 second segment, but allow flexibility for trimming or slight restructuring.\nCore Idea / Why This Moment Stands Out – Explain why this is a high-impact moment (e.g., emotional reaction, strong opinion, humor, counterintuitive insight, storytelling).\nHow to Refine the Clip – If needed, suggest slight trimming, reordering, or cutting filler words to make it flow better.\nHook / First Line to Use – Suggest a strong hook that grabs attention within 3 seconds (even if it needs to be restructured from the transcript).\nSuggested On-Screen Text (if relevant) – A catchy overlay text to reinforce engagement.\nPotential CTA / Engagement Booster – If the clip lends itself to a CTA, suggest one (e.g., “Save this for later,” “Tag a friend,” “Drop a 🔥 if you agree”).\nGoal:\nExtract and refine five compelling podcast clips that will:\n\nStop the scroll with an engaging opening.\nBe clear and valuable even if the original speech is unstructured.\nFit 30-60 seconds while maintaining coherence.\nUse a mix of storytelling, emotion, controversy, relatability, and insight to drive views.\nHow:\n\nLook for five natural energy shifts in the conversation—moments where the speaker gets animated, excited, or passionate (these moments perform best).\nFind the “aha” moment—where a key insight lands or a strong opinion is made.\nIdentify memorable phrases—short, impactful lines that could be restructured as strong hooks.\nTrim filler words and tangents if necessary for clarity.\nRestructure where needed—sometimes the best part is midway through a response; suggest opening with that line instead of the actual start.\nExample Output Format:\n\nClip 1:\nTimestamp: 00:08:12 - 00:09:05\nCore Idea: The speaker shares a personal failure that led to massive success, creating relatability and inspiration.\nHow to Refine: Trim the first 10 seconds where they ramble; start instead with the emotional moment.\nHook: \"I lost everything… but here’s what changed my life.\"\nSuggested On-Screen Text: “Rock bottom teaches you the best lessons”\nPotential CTA: “Ever had a moment like this? Comment below!”\n\nClip 2:\nTimestamp: 00:22:33 - 00:23:15\nCore Idea: A counterintuitive statement about success that challenges the audience’s assumptions.\nHow to Refine: Start mid-sentence where they drop the controversial take, then add context after.\nHook: \"Hard work isn’t the key to success. Here’s why…\"\nSuggested On-Screen Text: “You’ve been lied to about success”\nPotential CTA: “Do you agree or disagree? Let’s debate.”\n\n(Repeat for all 5 clips)"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1040,
+        1440
+      ],
+      "id": "6e41fe2f-f917-49d7-9ab8-11c1f010dcc6",
+      "name": "OpenAI - Case Study Email Writer",
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-12T18:11:37.520Z",
+      "updatedAt": "2025-02-12T18:11:37.520Z",
+      "role": "workflow:owner",
+      "workflowId": "eJOKcvLaMtBrsCWZ",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-02-13T17:56:57.000Z",
+  "versionId": "02f6656e-482a-4eec-993d-809c372bba73"
+}
