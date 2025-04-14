@@ -1,0 +1,1080 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "get notion data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Facebook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Linkedin",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Instagram",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Facebook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Linkedin": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instagram": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instagram Profile": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request5": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Instagram Profile",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request6": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request7": {
+      "main": [
+        [
+          {
+            "node": "Salve FAcebook profile",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "salve Linkedin Profile": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get notion data": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Salve FAcebook profile": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "result": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request8": {
+      "main": [
+        [
+          {
+            "node": "Wait3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait3": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request9": {
+      "main": [
+        [
+          {
+            "node": "salve Linkedin Profile",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-31T17:08:17.566Z",
+  "id": "MxXCyb2V0uTEKi8g",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Realtor Enrichment - Mauricios Part 2",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "c055762a-8fe7-4141-a639-df2372f30060",
+      "typeVersion": 1.1,
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -1680,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1300,
+        -360
+      ],
+      "id": "bdc033bb-67c6-42bd-a7b5-1ee023b1d20f",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        -240
+      ],
+      "id": "e763efda-0398-40a0-a429-ec510956f8ca",
+      "name": "Wait",
+      "webhookId": "1fc39fdf-b003-4afc-b254-f55bcac4272e"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "eb8f2cb5-9e76-4532-8630-dfe4410b8ca7",
+              "leftValue": "={{ $json.title }}",
+              "rightValue": "={{ $json.Name }}",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1660,
+        -500
+      ],
+      "id": "d14307fc-1511-4109-8574-16852d236c19",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('result').item.json.origin }}",
+                    "rightValue": "Facebook",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "aca82d93-6004-4b8b-93aa-d728a5ae784a"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Facebook"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6840e813-c0ef-4672-9f46-b1cb3d6b6aca",
+                    "leftValue": "={{ $('result').item.json.origin }}",
+                    "rightValue": "LinkedIn",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Linkedin"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2945e20f-8466-46f7-93b3-85a8b80a42c1",
+                    "leftValue": "={{ $('result').item.json.origin }}",
+                    "rightValue": "Instagram",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Instagram"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1200,
+        -1040
+      ],
+      "id": "7f4cf709-867a-41d1-bd0f-f2ada6edfc61",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/shu8hvrXbJbY3Eb9W/runs",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "apifyApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "directUrls",
+              "value": "={{ $json.profile }}"
+            },
+            {
+              "name": "resultsType",
+              "value": "details"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        -740
+      ],
+      "id": "588570c3-2843-4169-a2ef-bd270b80c8da",
+      "name": "HTTP Request",
+      "credentials": {
+        "apifyApi": {
+          "id": "4yAxb5EoNDU0em0q",
+          "name": "Apify account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "95ed7a31-5b95-4cd5-b5ef-ac588d084806",
+              "name": "profile",
+              "value": "={{ [$('If').item.json.url] }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -380,
+        -740
+      ],
+      "id": "f84f789b-49de-4c58-a948-f60c9efd1694",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/datasets/{{ $json.data.defaultDatasetId }}/items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        140,
+        -740
+      ],
+      "id": "40667969-2c38-4ec9-9a9a-1b88e5870c51",
+      "name": "HTTP Request1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "amount": 25
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -40,
+        -740
+      ],
+      "id": "413af3f4-5b7f-4d3d-b94f-ea512a4191f4",
+      "name": "Wait1",
+      "webhookId": "a1a0d053-55c2-437c-9f80-af564a5287cc"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b27bb038-9af7-42b5-ab97-2a11d04bc822",
+              "leftValue": "={{ $('get notion data').item.json.properties[\"Facebook Profile\"].url }}",
+              "rightValue": "^(https?:\\/\\/)?(www\\.)?facebook\\.com\\/([A-Za-z0-9\\.](?:(?:[A-Za-z0-9\\.\\-]|(?:\\.(?!\\.))){0,50}(?:[A-Za-z0-9\\.]))?)\\/?$",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -740,
+        -1080
+      ],
+      "id": "be9c0085-ccda-47ab-ab95-9a6bc53cd732",
+      "name": "Facebook"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b27bb038-9af7-42b5-ab97-2a11d04bc822",
+              "leftValue": "={{ $('get notion data').item.json.properties[\"Linkedin Profile\"].url }}",
+              "rightValue": "^(https?:\\/\\/)?(www\\.)?linkedin\\.(com|ca)\\/in\\/([A-Za-z0-9\\-_](?:(?:[A-Za-z0-9\\-_]|(?:\\.(?!\\.))){0,78}(?:[A-Za-z0-9\\-_]))?)\\/?$",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -560,
+        -980
+      ],
+      "id": "03171cd1-ba17-451d-8e51-e6a824c26f9e",
+      "name": "Linkedin"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "55fc2d6d-d7e7-4c56-a8f3-2469b928ce5e",
+              "leftValue": "={{ $('get notion data').item.json.properties[\"Instagram Profile\"].url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -740,
+        -720
+      ],
+      "id": "9b64ec1b-799c-4987-8b36-f2187fe48304",
+      "name": "Instagram"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('Instagram').item.json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Instagram Profile\": {\n      \"url\": \"{{ $('HTTP Request1').item.json.inputUrl }}\"\n    },\n    \"Followers\": {\n      \"number\": {{ $json.followersCount ?? 0 }}\n    },\n    \"Follows\": {\n      \"number\": {{ $json.followsCount ?? 0 }}\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        560,
+        -740
+      ],
+      "id": "f53f903c-4879-4174-a21c-88efb934c8ff",
+      "name": "Instagram Profile",
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"1c81d08c-4f5a-8029-9105-f32e7b1889b2\"\n  },\n  \"properties\": {\n    \"Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('If').item.json.origin }} - {{ $('If').item.json.Name }}\"\n          }\n        }\n      ]\n    },\n    \"Realtor Enrichment\": {\n      \"relation\": [\n        {\n          \"id\": \"{{ $('If').item.json.Id }}\"\n        }\n      ]\n    },\n    \"Description\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('If').item.json.description }}\"\n          }\n        }\n      ]\n    },\n    \"URL\": {\n      \"url\": \"{{ $('If').item.json.url }}\"\n    },\n    \"Created time\": {\n      \"date\": {\n        \"start\": \"{{$now}}\"\n      }\n    }\n  }\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        60,
+        -20
+      ],
+      "id": "04fe8c10-4162-4d01-a025-111c05ac0735",
+      "name": "HTTP Request5",
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6ce6f7d4-da64-4f6a-859c-ca117377cdec",
+              "name": "followersCount",
+              "value": "={{ $json.followersCount }}",
+              "type": "number"
+            },
+            {
+              "id": "fce75996-a2cb-4050-987c-d06085183390",
+              "name": "followsCount",
+              "value": "={{ $json.followsCount }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        360,
+        -740
+      ],
+      "id": "9e489cc1-c5b0-417b-9631-d5fdca533d7f",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/4Hv5RhChiaDk6iwad/runs",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "apifyApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $('result').item.json.url }}\",\n            \"method\": \"GET\"\n        }\n    ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -260,
+        -1200
+      ],
+      "id": "83e7108f-9a01-433f-a419-77bafd238a39",
+      "name": "HTTP Request6",
+      "credentials": {
+        "apifyApi": {
+          "id": "4yAxb5EoNDU0em0q",
+          "name": "Apify account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/datasets/{{ $json.data.defaultDatasetId }}/items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        420,
+        -1200
+      ],
+      "id": "e6cbb7dc-29d8-4fe3-bf53-acb63a3656df",
+      "name": "HTTP Request7",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "amount": 25
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        80,
+        -1200
+      ],
+      "id": "26ddde8c-c63c-421f-bf68-8c62de0518e7",
+      "name": "Wait2",
+      "webhookId": "a1a0d053-55c2-437c-9f80-af564a5287cc"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('get notion data').item.json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Linkedin Profile\": {\n      \"url\": \"{{ $json.linkedinUrl }}\"\n    },\n    \"FollowersLinkedin\": {\n      \"number\": {{ parseInt($json.followers) || 0 }}\n    },\n    \"Connections\": {\n      \"number\": {{ parseInt($json.connections) || 0 }}\n    },\n    \"JobTitle\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json.jobTitle == null ? '' : $json.jobTitle }}\"\n          }\n        }\n      ]\n    },\n    \"CompanyName\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json.companyName == null ? '' : $json.companyName }}\"\n          }\n        }\n      ]\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        -940
+      ],
+      "id": "0765da2e-10ae-471b-a33e-f923988cd0a7",
+      "name": "salve Linkedin Profile",
+      "retryOnFail": true,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.notion.com/v1/pages/{{ $json.Id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1400,
+        -700
+      ],
+      "id": "999bcc97-fd52-4160-b609-d644c01c7045",
+      "name": "get notion data",
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('get notion data').item.json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Facebook Profile\": {\n      \"url\": \"{{ $json.facebookUrl }}\"\n    },\n    \"FollowersFB\": {\n      \"number\": {{ $json.followers }}\n    },\n    \"Likes\": {\n      \"number\": {{ $json.likes }}\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        680,
+        -1040
+      ],
+      "id": "7dd3cee4-4d05-4c5c-9601-d791f447ebba",
+      "name": "Salve FAcebook profile",
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "37a9ba9c-3a8f-4ba6-b5b5-74527ccb8561",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "dd0d1e3f-6bf9-411d-a8b4-50891be21f5c",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "fb4090cb-df95-4a26-bdd6-a11f6f86f93e",
+              "name": "description",
+              "value": "={{ $json.description }}",
+              "type": "string"
+            },
+            {
+              "id": "79ba5583-32cc-4ab7-9b8f-9f330d4e64fc",
+              "name": "origin",
+              "value": "={{ $json.profile.name }}",
+              "type": "string"
+            },
+            {
+              "id": "7c624ff9-5f59-48c0-9e5d-73ff5288ed69",
+              "name": "Name",
+              "value": "={{ $json.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "17238cd2-fa4e-49ac-a3d7-560108f26d7a",
+              "name": "Id",
+              "value": "={{ $json.Id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1860,
+        -500
+      ],
+      "id": "1eee35dc-c7c2-4b1e-b29f-f146081a981d",
+      "name": "result"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/2SyF0bVxmgGr8IVCZ/runs",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "apifyApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"profileUrls\": [\n        \"{{ $('result').item.json.url }}\"\n    ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -300,
+        -1560
+      ],
+      "id": "e5f22799-2534-4b60-9945-d516c96fb343",
+      "name": "HTTP Request8",
+      "credentials": {
+        "apifyApi": {
+          "id": "4yAxb5EoNDU0em0q",
+          "name": "Apify account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/datasets/{{ $json.data.defaultDatasetId }}/items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        -1560
+      ],
+      "id": "53ea96d9-e4dc-4e7e-a352-3bc4c6b477af",
+      "name": "HTTP Request9",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "amount": 25
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        40,
+        -1560
+      ],
+      "id": "48aa4ba9-5dd6-43da-b26c-2d522f1aff97",
+      "name": "Wait3",
+      "webhookId": "a1a0d053-55c2-437c-9f80-af564a5287cc"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-03-31T17:08:17.572Z",
+      "updatedAt": "2025-03-31T17:08:17.572Z",
+      "role": "workflow:owner",
+      "workflowId": "MxXCyb2V0uTEKi8g",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-08T15:04:01.000Z",
+  "versionId": "5810f04d-4ec2-4f91-a6bd-c91a2d68204b"
+}
