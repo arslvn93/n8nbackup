@@ -1,0 +1,743 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Combine & Clean",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine & Clean": {
+      "main": [
+        [
+          {
+            "node": "Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-07T21:14:36.531Z",
+  "id": "qQiQhCwMZla9jvQ4",
+  "meta": null,
+  "name": "My workflow 10",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -280,
+        80
+      ],
+      "id": "e5a470d1-2863-48c4-bb45-88666729047e",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "1af1d08c-4f5a-8013-a4cb-ed1633f9429c",
+          "mode": "list",
+          "cachedResultName": "Ad Content Generations",
+          "cachedResultUrl": "https://www.notion.so/1af1d08c4f5a8013a4cbed1633f9429c"
+        },
+        "title": "=New",
+        "simple": false,
+        "blockUi": {
+          "blockValues": [
+            {
+              "type": "heading_1",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "=New Ad Content for 168 King St E",
+                    "annotationUi": {}
+                  }
+                ]
+              }
+            },
+            {
+              "type": "heading_2",
+              "textContent": "=Headlines"
+            },
+            {
+              "type": "heading_3",
+              "textContent": "=All Headlines"
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_headlines[0].headline }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_headlines[0].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_headlines[1].headline }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_headlines[1].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_headlines[2].headline }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_headlines[2].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_headlines[3].headline }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_headlines[3].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_headlines[4].headline }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_headlines[4].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_headlines[5].headline }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_headlines[5].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_headlines[6].headline }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_headlines[6].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_headlines[7].headline }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_headlines[7].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_headlines[8].headline }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_headlines[8].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_headlines[9].headline }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_headlines[9].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "heading_2",
+              "textContent": "=Lead-ins"
+            },
+            {
+              "type": "heading_3",
+              "textContent": "=First-Time Buyer (FTB) Lead-ins"
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[0].lead_ins[0].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[0].lead_ins[0].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[0].lead_ins[1].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[0].lead_ins[1].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[0].lead_ins[2].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[0].lead_ins[2].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[0].lead_ins[3].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[0].lead_ins[3].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[0].lead_ins[4].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[0].lead_ins[4].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "heading_3",
+              "textContent": "=Investor Lead-ins"
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[1].lead_ins[0].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[1].lead_ins[0].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[1].lead_ins[1].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[1].lead_ins[1].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[1].lead_ins[2].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[1].lead_ins[2].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[1].lead_ins[3].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[1].lead_ins[3].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[1].lead_ins[4].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[1].lead_ins[4].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "heading_3",
+              "textContent": "=Upsizer Lead-ins"
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[2].lead_ins[0].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[2].lead_ins[0].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[2].lead_ins[1].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[2].lead_ins[1].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[2].lead_ins[2].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[2].lead_ins[2].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[2].lead_ins[3].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[2].lead_ins[3].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bulleted_list_item",
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $json.ad_lead_ins[2].lead_ins[4].lead_in }} ",
+                    "annotationUi": {}
+                  },
+                  {
+                    "text": "({{ $json.ad_lead_ins[2].lead_ins[4].style }})",
+                    "annotationUi": {
+                      "italic": true,
+                      "color": "gray"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "heading_2",
+              "textContent": "=Body Copies"
+            },
+            {
+              "type": "heading_3",
+              "textContent": "=Body Copy 1: {{ $json.ad_body_copies[0].buyer_profile }}"
+            },
+            {
+              "textContent": "={{ $json.ad_body_copies[0].body_copy }}"
+            },
+            {
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "Call To Action: ",
+                    "annotationUi": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "text": "={{ $json.ad_body_copies[0].cta }}",
+                    "annotationUi": {}
+                  }
+                ]
+              }
+            },
+            {
+              "type": "heading_3",
+              "textContent": "=Body Copy 2: {{ $json.ad_body_copies[1].buyer_profile }}"
+            },
+            {
+              "textContent": "={{ $json.ad_body_copies[1].body_copy }}"
+            },
+            {
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "Call To Action: ",
+                    "annotationUi": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "text": "={{ $json.ad_body_copies[1].cta }}",
+                    "annotationUi": {}
+                  }
+                ]
+              }
+            },
+            {
+              "type": "heading_3",
+              "textContent": "=Body Copy 3: {{ $json.ad_body_copies[2].buyer_profile }}"
+            },
+            {
+              "textContent": "={{ $json.ad_body_copies[2].body_copy }}"
+            },
+            {
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "Call To Action: ",
+                    "annotationUi": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "text": "={{ $json.ad_body_copies[2].cta }}",
+                    "annotationUi": {}
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        580,
+        260
+      ],
+      "id": "25740d89-644f-4b4a-a7ca-13725ac9f52b",
+      "name": "Notion",
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Transform multiple items into a single clean JSON object\nfunction transformToCleanJson() {\n  // Initialize our new structure\n  const cleanJson = {};\n  \n  // Process all items\n  $input.all().forEach(item => {\n    // Make sure we have an item with output property\n    if (item && item.json && item.json.output) {\n      // Get the key from this item's output (assuming each item has a different key)\n      const outputKeys = Object.keys(item.json.output);\n      \n      // Add each key-value pair to our clean JSON\n      outputKeys.forEach(key => {\n        cleanJson[key] = item.json.output[key];\n      });\n    }\n  });\n  \n  // Return as a single item\n  return [{ json: cleanJson }];\n}\n\n// Process all input items\nreturn transformToCleanJson();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        340,
+        260
+      ],
+      "id": "d25fc1b4-24d4-4974-8cb1-2cf53a0d14e7",
+      "name": "Combine & Clean"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-03-07T21:14:36.539Z",
+      "updatedAt": "2025-03-07T21:14:36.539Z",
+      "role": "workflow:owner",
+      "workflowId": "qQiQhCwMZla9jvQ4",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-07T21:35:21.000Z",
+  "versionId": "1516eae7-76b1-4cbd-816a-4274d27ce5f6"
+}
