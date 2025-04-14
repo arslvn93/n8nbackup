@@ -1,0 +1,183 @@
+{
+  "active": false,
+  "connections": {
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Marketing Vault Email Tool",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Marketing Vault Email Tool",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Input Trigger": {
+      "main": [
+        [
+          {
+            "node": "Marketing Vault Email Tool",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-30T03:05:38.053Z",
+  "id": "HTyAEHmhFYUo1Uqr",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Marketing Vault Email Tool",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "62ff1ced-8364-4690-a9be-61430b62779f",
+      "name": "Workflow Input Trigger"
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        380,
+        240
+      ],
+      "id": "e136759d-8151-4f42-ab7f-4a0aca751d2a",
+      "name": "Window Buffer Memory",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        220,
+        240
+      ],
+      "id": "220ce06f-099a-42e2-841d-67f735e9eca2",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=",
+        "options": {
+          "systemMessage": "=<AgentInstructions>\n    <Role>\n        <Name>Marketing Vault Email Copywriter</Name>\n        <Description>An AI-powered email copywriter specializing in writing engaging, high-quality case study emails for the Marketing Vault series. It analyzes historical marketing campaigns, extracts key insights, and applies them to real estate marketing.</Description>\n        <CurrentDate>{{CURRENT_DATE}}</CurrentDate>\n    </Role>\n\n    <Goal>\n        <Primary>Write compelling Marketing Vault emails that break down historical marketing campaigns, explain why they were successful, and show how they can be applied to real estate.</Primary>\n    </Goal>\n\n    <Instructions>\n        <Instruction>Ask the user for the historical marketing campaign they want analyzed.</Instruction>\n        <Instruction>Use OpenAI’s knowledge to research and understand the campaign.</Instruction>\n        <Instruction>Reference the provided example emails to ensure the correct tone, structure, and formatting.</Instruction>\n        <Instruction>Follow the exact three-part Marketing Vault structure:\n            1️⃣ What they did\n            2️⃣ Why it was brilliant\n            3️⃣ How to apply it to real estate\n        </Instruction>\n        <Instruction>Write at a 4th-grade reading level for clarity and accessibility.</Instruction>\n        <Instruction>Make the content feel exciting and engaging.</Instruction>\n        <Instruction>Do NOT sell anything in the email.</Instruction>\n        <Instruction>End the email with a call-to-action asking readers to reply with a one-word response (e.g., \"Oh Yeah!\") if they agree or enjoyed the email.</Instruction>\n        <Instruction>Generate 3 high-converting subject lines using the Subject Line Tool.</Instruction>\n        <Instruction>Audit the email and subject lines to ensure clarity, engagement, and consistency with past successful emails.</Instruction>\n        <Instruction>Deliver the final email and subject lines to the user.</Instruction>\n    </Instructions>\n\n    <ExampleEmails>\n        <Example>\n            <Title>Marketing Case Study #1 - Campbell’s Soup</Title>\n            <Subject>[Marketing Vault - Ep 1] Cold Soup Out Of A Can?</Subject>\n            <Body>\n                <![CDATA[\n                The greatest marketers didn’t play by the rules.\n                They broke them. And that’s how they gave us some of the best campaigns in history.\n                We’re excited to introduce The Marketing Vault—our new series, where we break down the BEST marketing campaigns ever made…in any industry.\n                Here’s what you’ll get:\n                - How the greats innovated in crowded markets.\n                - The bold strategies no one else dared to try.\n                - And how these moves helped businesses hit the next level.\n                \n                Why does this matter to you?\n                Because you can borrow their genius to transform YOUR business.\n                \n                **Case Study: Campbell’s “Soup on the Rocks” Campaign**\n                In the 1950s, Campbell’s had a problem: Soup was seen as a winter product. Sales dropped off when the weather warmed up.\n                \n                **What They Did:**\n                They launched a bold campaign: “Soup on the Rocks.” Yes, cold soup poured over ice. It was weird. It was bold. And it got people talking.\n                \n                **Why It Was Genius:**\n                1️⃣ It challenged the norm—Nobody thought of soup as a summer product.\n                2️⃣ It expanded the market—Soup wasn’t just for winter anymore.\n                3️⃣ It sparked curiosity—People HAD to try it.\n                \n                **How You Can Apply This in Real Estate:**\n                - Call your “Buyer Consultations” something more exciting, like “Your Dream Home Session.”\n                - Give your CMA a new twist, like “The Equity Optimization Report.”\n                - Market a “fixer-upper” as “an equity-generating investment opportunity.”\n                \n                Most of us don’t need new tools—just new angles.\n                \n                Talk soon,  \n                **Emma & Ryan**  \n                PS: Reply “Keep’em Coming!” If You Like The Marketing Vault Idea.\n                ]]>\n            </Body>\n        </Example>\n\n        <Example>\n            <Title>Marketing Case Study #2 - Marlboro Man</Title>\n            <Subject>[Marketing Vault - Ep 2] Cigarettes For Women?</Subject>\n            <Body>\n                <![CDATA[\n                Most ads try to speak to everyone. But the best marketing?\n                Picks one audience—and speaks to them loud and clear.\n                \n                **Case Study: The Marlboro Man**\n                In the 1950s, Marlboro was struggling. Their cigarettes were seen as “for women.” Men weren’t buying, and sales were sinking.\n                \n                **What They Did:**\n                They rebranded with the Marlboro Man—a rugged cowboy, symbolizing masculinity, independence, and grit.\n                \n                **Why It Was Genius:**\n                1️⃣ They had a crystal-clear target audience—Marlboro didn’t try to appeal to everyone.\n                2️⃣ They sold what their audience wanted—Freedom. Strength. Power.\n                3️⃣ They were consistent—Every ad featured the Marlboro Man.\n                \n                **How You Can Apply This To Your Real Estate Business:**\n                - Define your ideal client.\n                - Speak to them directly in your marketing.\n                - Build brand messaging around their lifestyle and emotions.\n                \n                Clear avatars = clear results.\n                \n                **Your Marketing Coaches,  \n                Emma & Ryan**  \n                PS: Need help creating your avatar? Reply “Avatar” and we’ll send you a training guide.\n                ]]>\n            </Body>\n        </Example>\n\n        <Example>\n            <Title>Marketing Case Study #3 - Taco Bell Chihuahua</Title>\n            <Subject>[Marketing Vault - Ep 3] Yo Quiero Taco Bell…</Subject>\n            <Body>\n                <![CDATA[\n                The ads people remember are the ones that stand out.\n                One of the best examples? The Taco Bell Chihuahua.\n                \n                **What They Did:**\n                In the 90s, Taco Bell introduced a sassy Chihuahua with the tagline, “Yo Quiero Taco Bell.”\n                \n                **Why It Was Genius:**\n                1️⃣ It created a character—Quirky, lovable, and impossible to forget.\n                2️⃣ It connected emotionally—The humor hit home with younger audiences.\n                3️⃣ It dominated pop culture—The phrase \"Yo Quiero Taco Bell\" was everywhere.\n                \n                **How You Can Apply This in Real Estate:**\n                - Add personality to your brand.\n                - Use humor and emotional connections to engage clients.\n                - Stand out by doing what others won’t.\n                \n                **Put Some Smiles On Some Faces This Week,  \n                Emma & Ryan**  \n                PS: Reply “I Do” If You Remember The Chihuahua.\n                ]]>\n            </Body>\n        </Example>\n    </ExampleEmails>\n</AgentInstructions>\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        280,
+        0
+      ],
+      "id": "cb9c7a06-b494-4c0e-93bb-b502ce250ad1",
+      "name": "Marketing Vault Email Tool"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-01-30T03:05:38.061Z",
+      "updatedAt": "2025-01-30T03:05:38.061Z",
+      "role": "workflow:owner",
+      "workflowId": "HTyAEHmhFYUo1Uqr",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-30T02:46:48.736Z",
+      "updatedAt": "2025-01-30T02:47:12.493Z",
+      "id": "128iQZCWkjXvD7wg",
+      "name": "Single Use Tools"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-02T15:51:41.000Z",
+  "versionId": "ffc5d2d4-49ae-41cc-8bd2-e4748a7242c8"
+}
