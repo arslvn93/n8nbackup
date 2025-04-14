@@ -1,0 +1,327 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Instagram Script Writer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Email Writing Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Writing Agent": {
+      "main": [
+        [
+          {
+            "node": "Trojan Horse Question Writer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Trojan Horse Question Writer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instagram Script Writer": {
+      "main": [
+        [
+          {
+            "node": "Email Writing Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Instagram Script Writer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Instagram Script Writer",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "Instagram Script Writer",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-24T20:53:17.986Z",
+  "id": "WjlGqbgCsC8TOOvy",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Premiere Client Giveaway Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -560,
+        0
+      ],
+      "id": "bc9a4534-861e-4ade-8b75-95d7bcef7817",
+      "name": "When chat message received",
+      "webhookId": "0d8d0cc4-bafd-4530-bfad-277251622aef"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        160,
+        180
+      ],
+      "id": "36025ecf-2d23-4f76-ae64-88de7b8ce642",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('When chat message received').item.json.chatInput }}",
+        "options": {
+          "systemMessage": "=You are a professional email copywriter who understand human psychology and specializes in getting extremely high open rates, and click through rates.\n\nYour job today is to create a high converting email for our new marketing campaign. Please read the associated Instagram Video script & following details about the giveaway BEFORE writing your email: {{ $json.output }}\n\n\n\nHere is a little bit about our target audience & the giveaway: \n{{ $('When chat message received').item.json.chatInput }}\n\n\nOnce you've read these scripts, you can write your email.\n\nYour email should be: easy to read, extremely interesting & it should get our email recipients excited to sign up for our giveaway.\n\nFollow these rules When Structuring Your Email:\nSalutation\nShocking Statement/Thought Provoking Question/Intriguing Hook\nThree Bullet Points: either intriguing \"open loops\" that make the reader want to proceed with the call to action OR statement with \"what this means for the reader\"\nStrong Call To Action\n& A Strong PS\n\nTHE FINAL OUTPUT:\nYou must provide JUST the email in text format without any emojis.\nThis must be at grade 4 reading level\nPlease make sure you have made our reader feel understood.\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        160,
+        0
+      ],
+      "id": "d66d82bf-e001-41ab-860c-21c8f9817e6a",
+      "name": "Email Writing Agent"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('When chat message received').item.json.chatInput }}",
+        "options": {
+          "systemMessage": "=You’re a world class direct response copywriter who specializes in writing attention-grabbing, high-curiosity quizzes. You’re a master of the underlying principles of human psychology.\nWe will be hosting free giveaways to affluent audiences, they can answer 4 questions to enter into the draw in exchange for their contact information. \n\nYour job today is to craft me questions for my giveaway funnel that will help me identify highly qualified prospects through my questions. These questions MUST be \"trojan horse\" questions. Meaning the SOLE purpose of the questions is that the prospect will be answering questions that they don't know are qualification questions.\n\nWe are looking for people who could be qualified to purchase or sell a home. \n\nExamples could be: People who are members or a private golf course, if we were giving away a golf experience. People who have traveled to vineyards, if we were giving away a wine package. Etc.\nHere is some important information about our current giveaway to help you craft the quiz questions.\n[Giveaway] = 3 Passes to “Othership” a cold plunge and sauna experience in Toronto.\n[Promise] = The ultimate relaxation and reset package.\n[Dream Target Audience] = Entrepreneurs, or people with high paying, high stress jobs\n\nWrite me 4 “trojan” horse questions to find me qualified prospects through the entry form prospects will fill out.\n\nYou can review my the giveaway details, instagram script & email here:\n\n{{ $('When chat message received').item.json.chatInput }}\n{{ $('Instagram Script Writer').item.json.output }}\n{{ $json.output }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        680,
+        0
+      ],
+      "id": "a8c7056a-c63b-40ac-bca2-a2711280140c",
+      "name": "Trojan Horse Question Writer"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        700,
+        200
+      ],
+      "id": "cbcfd4e8-74c5-4be4-bd0e-8071c0e1472f",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=You are a MASTER content creator who has a deep understanding of human psychology, behavioural economics and social media. You know exactly how to get our target audience engaged to consume our content from start to finish.\n\nYou have studied copywriting from the greatest historical copywriters like Eugene Schwartz, David Oglivy, Claude Hopkins & Gary Halbert.\n\nBut you also have studied modern marketing experts like Sabri Suby, Alex Hormozi & Alex Becker.\n\nYou actively watch Mosseri's instagram account to see what Instagram is prioritizing & which scripts are working best.\n\nToday you will be writing me highly engaging Instagram captions & scripts for reels.\n\nYou will always use a proven copywriting framework such as AIDA, PAS, FAB, BAB, 4Ps, HSO (Hook Story Offer.) \n\nYour goal is to give me the EXACT output that I can copy and paste. These captions will mesmerize my audience.\n\nHere's how you do it:\nYou will review our giveaway details from the:{{ $json.chatInput }}\nYou will then begin writing your scripts. You will write me three different scripts using three different copywriting frameworks.You write at 4th grade reading level. \nYou always use short punchy sentences, no long paragraphs. Ideally one sentence per line. \nYou never use emojis.\nYou use analogys, pop culture references and current trends to make the information relevant and easy to consume.\n\n",
+          "maxIterations": 10
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -280,
+        0
+      ],
+      "id": "666c49d0-5d4a-4440-a386-41d752612ab1",
+      "name": "Instagram Script Writer"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        -420,
+        200
+      ],
+      "id": "dab8bc7a-07f6-4fb7-8095-39097e50de72",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -280,
+        260
+      ],
+      "id": "d148e761-1200-424d-beb8-4d4943a52d74",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "facebook_ads",
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "topK": 12,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        280
+      ],
+      "id": "90a81071-fd4f-44b7-9226-4336ea04dc24",
+      "name": "Supabase Vector Store",
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-01-24T20:53:17.995Z",
+      "updatedAt": "2025-01-24T20:53:17.995Z",
+      "role": "workflow:owner",
+      "workflowId": "WjlGqbgCsC8TOOvy",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-27T17:47:33.000Z",
+  "versionId": "b329c3f9-2a20-444a-bb4d-952848ef3b91"
+}
