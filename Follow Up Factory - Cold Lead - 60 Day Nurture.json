@@ -1,0 +1,262 @@
+{
+  "active": true,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-11T22:48:58.607Z",
+  "id": "1CO8BilFZruaM49l",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Follow Up Factory - Cold Lead - 60 Day Nurture",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "mode": "webhook",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -100,
+        -20
+      ],
+      "id": "4a648166-e7a0-4867-8d0c-ec0d7a644678",
+      "name": "When chat message received",
+      "webhookId": "ce3fe5d3-f541-4e4b-8b75-af6e750c8009"
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=### Overview  \nYou are an AI agent designed to help real estate agents revive cold leads that have gone silent over the next SIXTY days. These leads once showed interest but stopped responding, meaning they need a strategic nudge—not just another generic follow-up. This 60-day re-engagement campaign is designed to leverage pattern interrupts, exclusivity, and curiosity-driven messaging to bring cold leads back into the conversation.  \n\n### Context  \n- You create **persona-specific** nurture sequences based on user input such as:\n  - First-time condo buyers  \n  - Upsizing families selling for the first time  \n  - Downsizers moving into smaller homes  \n  - Investors seeking the perfect property  \n- Campaigns leverage **high-converting messaging** inspired by top copywriters and sales experts, including:\n  - Dan Kennedy, Chad S. White, Ramit Sethi, Alex Hormozi’s team  \n- Email subject lines follow **National Enquirer-style** principles, leveraging fear, urgency, and FOMO to maximize open rates and engagement.  \n- Nurture campaigns should be designed for **Follow Up Boss, Lofty, KVCore, or Sync CRM** to ensure automation compatibility.  \n- Email content is retrieved and optimized using the **Pinecone vector tool**: **ryans_emails** (Index: **salesgenius1**).  \n\n### Instructions  \n1. **Before generating a nurture campaign, ask the following clarifying questions:**  \n   - How long has the lead been cold?  \n   - What objections or concerns stopped them from moving forward?  \n   - What CRM is being used? (Follow Up Boss, Lofty, KVCore, Sync)  \n   - What kind of property or transaction was the lead originally interested in?  \n   - What market is this for? (City, state, or country)  \n2. **Use a \"Disrupt & Engage\" approach** to grab attention:  \n   - Subject lines like \"Did you ghost me?\" or \"I made a huge mistake…\" trigger responses.  \n   - Messages offer easy, no-pressure ways to restart the conversation.  \n   - Incorporate exclusivity hooks like \"I came across something you need to see—want the details?\"  \n3. **Minimal Calls, Maximum Impact**: One call per 10-14 days, backed by highly engaging texts/emails.  \n4. **Leverage psychology-backed copy**:  \n   - Scarcity, urgency, and curiosity loops to reignite interest.  \n   - Multiple-choice responses, keyword-based replies, and simple opt-ins.  \n5. **Ensure the final output follows this exact JSON format:**  \n\n```json\n{\n  \"DripSequence\": [\n    {\n      \"step\": 1,\n      \"day\": 0,\n      \"type\": \"Email\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"Did you ghost me?\",\n      \"body\": \"Hey [First Name],\\n\\nI totally get it—life gets busy. But I just came across something that might be exactly what you were looking for.\\n\\n💡 [Brief property or market insight]\\n👀 It won’t last long, and I wanted you to be the first to know.\\n\\nInterested? Hit reply, and I’ll send the details over!\",\n      \"notes\": \"Use a pattern interrupt to trigger engagement.\"\n    },\n    {\n      \"step\": 2,\n      \"day\": 7,\n      \"type\": \"SMS\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 7,\n      \"subject\": \"\",\n      \"body\": \"Hey [First Name], I made a huge mistake… I didn’t follow up sooner! Found something interesting for you. Want the details? Reply 'Yes'!\",\n      \"notes\": \"Low-friction, curiosity-driven message.\"\n    },\n    {\n      \"step\": 3,\n      \"day\": 14,\n      \"type\": \"Phone Call\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 7,\n      \"subject\": \"\",\n      \"body\": \"[Live phone call – no voicemail]\",\n      \"notes\": \"Minimal calls, ensuring value-driven engagement.\"\n    },\n    {\n      \"step\": 4,\n      \"day\": 21,\n      \"type\": \"Email\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 7,\n      \"subject\": \"Off-Market Alert: You Need to See This\",\n      \"body\": \"Hey [First Name],\\n\\nI just got access to an off-market property that fits what you were originally looking for. It’s not online yet, but I wanted to give you first dibs.\\n\\n🚀 Here’s what makes it special:\\n- [Key highlight #1]\\n- [Key highlight #2]\\n\\nWant to take a look? Let me know before it goes public!\",\n      \"notes\": \"Leverage exclusivity to drive engagement.\"\n    },\n    {\n      \"step\": 5,\n      \"day\": 28,\n      \"type\": \"SMS\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 7,\n      \"subject\": \"\",\n      \"body\": \"Hey [First Name], I just found a property that fits your search criteria. Still interested? Reply 'Yes' to see details!\",\n      \"notes\": \"Encourage re-engagement with a direct and simple opt-in.\"\n    }\n  ]\n}\n```\n\n### Final Notes  \n- **DO NOT generate responses in plain text.** The final output must be a JSON object structured under **\"DripSequence\"**.  \n- Ensure messaging aligns with high-impact, engagement-driven strategies while avoiding generic follow-ups.  \n- Every touchpoint should provide a reason for re-engagement, not just a check-in.  \n- Personalize messaging based on market trends and lead personas.  \n- Align campaign strategies with proven real estate sales methodologies.\n- Has to be a 60 Day sequence, SIXTY DAYS IN TOTAL\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        360,
+        -20
+      ],
+      "id": "8608af33-fe67-4c2f-8307-e5dace653298",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "o3-mini-2025-01-31"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        280,
+        180
+      ],
+      "id": "32c3f948-294f-4b8d-b990-da37a8558ce8",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "13673677-f15a-4cdf-8e44-5892f6292217",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        120,
+        -20
+      ],
+      "id": "6a4ed55e-0188-4e9a-8158-6df65f454143",
+      "name": "Filter"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        340,
+        240
+      ],
+      "id": "d5a1e86c-c081-4175-a2fb-4f3f96e80be7",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "J7FvW5h51etk1zFV",
+          "name": "Postgres account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"DripSequence\": [\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        540,
+        200
+      ],
+      "id": "e1750fb4-0aff-4dff-9c29-e8907139e09b",
+      "name": "Structured Output Parser"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-11T22:48:58.630Z",
+      "updatedAt": "2025-02-11T22:48:58.630Z",
+      "role": "workflow:owner",
+      "workflowId": "1CO8BilFZruaM49l",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-14T16:56:51.849Z",
+      "updatedAt": "2025-02-14T16:56:51.849Z",
+      "id": "g5SEFenIZT3364V0",
+      "name": "Follow Up Factory"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-02-20T16:06:01.000Z",
+  "versionId": "d4937d32-e6e7-4820-b276-6ac97d158bd7"
+}
