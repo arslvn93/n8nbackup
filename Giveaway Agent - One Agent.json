@@ -1,0 +1,400 @@
+{
+  "active": true,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Giveaway Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI3": {
+      "ai_embedding": [
+        [
+          {
+            "node": "reel_scripts_tool",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "email_copywriting_tool",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "landing_page_tool",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Giveaway Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "email_copywriting_tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Giveaway Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "reel_scripts_tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Giveaway Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "landing_page_tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Giveaway Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Giveaway Agent": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-02T01:32:50.520Z",
+  "id": "3XJV3uu33yAb6fLB",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Giveaway Agent - One Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Giveaway Questions",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "what type of giveaway would you like to run?"
+            },
+            {
+              "fieldLabel": "What is the total value of the giveaway?",
+              "fieldType": "number"
+            },
+            {
+              "fieldLabel": "Why did you choose this giveaway that you chose?",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "When would you like to hold the giveaway draw?",
+              "fieldType": "date"
+            },
+            {
+              "fieldLabel": "When would you like to start promoting the giveaway?",
+              "fieldType": "date"
+            },
+            {
+              "fieldLabel": "What should participants know before entering?",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Who is your target audience for this giveaway?",
+              "fieldType": "textarea"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -220,
+        1220
+      ],
+      "id": "148da28e-a5f0-4867-8b6b-f5fa004d93a4",
+      "name": "On form submission",
+      "webhookId": "433222ac-d6c7-42f9-bc99-0764dd8d5d75"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "0b2ca7e4-b5a3-4076-8c90-5ee31a64719a",
+      "name": "Embeddings OpenAI3",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        360,
+        1800
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "arslan@salesgenius.co",
+        "subject": "Giveaway",
+        "emailType": "text",
+        "message": "={{ $json.output }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        660,
+        1220
+      ],
+      "id": "a65fa472-8766-444b-903f-61d37d76187c",
+      "name": "Gmail",
+      "webhookId": "9d73771c-0cf3-457e-808a-64a9eb547ab2",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "R2ppJs5mnCWrQakn",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o1",
+          "mode": "list",
+          "cachedResultName": "o1"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        120,
+        1340
+      ],
+      "id": "e4020fbe-34bb-4458-91a1-b3746b206525",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "email_copywriting_tool",
+        "toolDescription": "Call this tool to retrieve information for email copywriting",
+        "tableName": {
+          "__rl": true,
+          "value": "email_copywriting",
+          "mode": "list",
+          "cachedResultName": "email_copywriting"
+        },
+        "topK": 20,
+        "options": {
+          "queryName": "match_email_copywriting"
+        }
+      },
+      "id": "bff0c3d3-7f7a-4aa9-a2d2-67fd46c65ed0",
+      "name": "email_copywriting_tool",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        340,
+        1600
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "reel_script_tool",
+        "toolDescription": "Call this tool to retrieve information for scripts ",
+        "tableName": {
+          "__rl": true,
+          "value": "reelscripts",
+          "mode": "list",
+          "cachedResultName": "reelscripts"
+        },
+        "options": {
+          "queryName": "match_reelscripts"
+        }
+      },
+      "id": "f4230818-ec46-4920-8ed9-e9dda30ac652",
+      "name": "reel_scripts_tool",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        60,
+        1600
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "landing_page_tool",
+        "toolDescription": "=Call this tool to retrieve information for Landing Page design",
+        "tableName": {
+          "__rl": true,
+          "value": "landingpages",
+          "mode": "list",
+          "cachedResultName": "landingpages"
+        },
+        "topK": 20,
+        "options": {
+          "queryName": "match_landingpages"
+        }
+      },
+      "id": "6cb0cf60-6894-45ac-b293-2e945598e1b6",
+      "name": "landing_page_tool",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        620,
+        1600
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={\n  \"type_of_giveaway\": \"{{ $json['what type of giveaway would you like to run?'] }}\",\n  \"total_value_of_giveaway\": \"{{ $json['What is the total value of the giveaway?'] }}\",\n  \"reason_for_giveaway\": \"{{ $json['Why did you choose this giveaway that you chose?'] }}\",\n  \"winner_selection_date\": \"{{ $json['When would you like to hold the giveaway draw?'] }}\",\n  \"promotion_start_date\": \"{{ $json['When would you like to start promoting the giveaway?'] }}\",\n  \"audience_instructions\": \"{{ $json['What should participants know before entering?'] }}\",\n  \"target_audience\": \"{{ $json['Who is your target audience for this giveaway?'] }}\"\n}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an AI agent specializing in creating high-converting marketing campaigns for giveaways. Your primary task is to generate three types of content assets for a new giveaway campaign: Instagram Reel scripts, email campaigns, and landing page copy. Your work will ensure the campaign effectively engages the target audience (young professionals and couples) while adhering to a simple 4th-grade reading level and clear call-to-action guidelines.\n\nContext\n\nAvailable Tools:\n\nreel_scripts_tool – This tool generates high-engagement Instagram Reel scripts designed to capture attention quickly. It creates structured 30-second scripts using proven marketing techniques such as storytelling, problem-agitate-solution, and direct offers. The scripts include clear messaging, a strong hook, and an actionable call to encourage participation.\n\nemail_copywriting_tool – A specialized tool that crafts persuasive email campaigns aimed at maximizing open and sign-up rates. It generates compelling subject lines, engaging body content, and clear calls to action. This tool is optimized for achieving a 50% open rate and a 5% sign-up rate by leveraging audience insights and persuasive writing techniques.\n\nlanding_page_tool – This tool generates complete landing page copy, ensuring clear and persuasive messaging for high conversion rates. It produces attention-grabbing eyebrow text, compelling headlines, supporting subheadlines, and benefit-driven bullet points. It ensures that all elements align with the campaign’s goals and resonate with the target audience.\n\nObjective:\n\nCreate three different Instagram Reel scripts, each exactly 30 seconds long, three email campaigns, and a detailed set of landing page copy that collectively promote the giveaway effectively.\n\nInstructions\n\nPart 1: Instagram Reel Scripts\n\nCall reel_scripts_tool first before generating scripts.\n\nGenerate three distinct 30-second scripts using different strategies:\n\nStorytelling\n\nProblem-Agitate-Solution\n\nDirect Approach\n\nEnsure scripts are exactly 30 seconds long:\n\nClearly explain the giveaway (a spa day at The Ritz-Carlton valued at $500).\n\nHighlight key details: amenities (sauna, steam rooms, RMTS), target audience (young professionals/couples), and other specifics.\n\nInclude a strong call to action instructing viewers to comment “GIVEAWAY” below.\n\nMaintain a 4th-grade reading level with no emojis.\n\nPart 2: Email Campaigns\n\nCall email_copywriting_tool separately before generating emails.\n\nCreate three high-converting email campaigns that:\n\nFeature an irresistible subject line designed to achieve a 50% open rate.\n\nHave body copy written at a 4th-grade reading level.\n\nClearly outline the giveaway benefits (spa day experience, relaxation, quality time).\n\nEnd with a strong call to action, encouraging recipients to click the sign-up link and enter their details to participate.\n\nMaintain a friendly, concise, and engaging tone that drives a 5% sign-up rate.\n\nPart 3: Landing Page Copy\n\nCall landing_page_tool separately before generating landing page content.\n\nGenerate the following landing page components:\n\nEyebrow Copy – A short teaser that hooks the audience.\n\nThree Headline Options – Eye-catching and benefit-driven.\n\nThree Subheadline Options – Clearly communicate the offer details.\n\nThree Benefit-Driven Bullet Points – Highlight the giveaway benefits (free spa day, relaxing amenities, perfect for couples and young professionals).\n\nAll content must be:\n\nWritten at a 4th-grade reading level.\n\nEmoji-free.\n\nTools\n\nreel_scripts_tool – Generates Instagram Reel scripts with engaging storytelling and persuasive techniques.\n\nemail_copywriting_tool – Creates email campaigns with compelling subject lines, engaging body content, and strong calls to action for high conversion rates.\n\nlanding_page_tool – Produces optimized landing page copy, ensuring a clear and persuasive message that drives sign-ups.\n\nExamples\n\nExample Input for the Campaign:\n\nType of Giveaway: Spa Day\n\nTotal Value of Giveaway: $500\n\nWhy This Giveaway? The Ritz-Carlton is my favorite spa. I have been going there with my family for years. It is the best place to relax with amenities like a sauna, steam rooms, and RMTS.\n\nWinner Selection Date: 2025-01-31\n\nPromotion Start Date: 2025-01-01\n\nSubmission Requirements: It's free and for two people\n\nTarget Audience: Young Professionals / Couples\n\nExpected Outputs:\n\nInstagram Reel Scripts: Three distinct 30-second scripts using various creative approaches, each with a call to action (\"Comment GIVEAWAY below\").\n\nEmails: Three engaging emails targeting the existing database, with strong subject lines and clear body text that drive sign-ups.\n\nLanding Page Copy: A set of eyebrow copy, three headline options, three subheadline options, and three benefit bullet points, all designed to promote the spa day giveaway effectively.\n\nSOP (Standard Operating Procedure)\n\nExtract giveaway campaign details (offer specifics, target audience, timeline, and key features).\n\nCall each relevant tool one at a time:\n\nFirst, call reel_scripts_tool to generate Instagram Reel scripts.\n\nThen, call email_copywriting_tool to generate email campaigns.\n\nFinally, call landing_page_tool to generate landing page copy.\n\nGenerate content for:\n\nInstagram Reel Scripts (three unique scripts).\n\nEmail Campaigns (three engaging emails).\n\nLanding Page Copy (eyebrow copy, headline options, subheadline options, and benefit bullet points).\n\nEnsure that all content:\n\nIs written at a 4th-grade reading level.\n\nDoes not include emojis.\n\nIncludes a strong call to action.\n\n\n\nFinal Notes\n\nThe AI must call all relevant tools separately before responding with final content.\n\nEach content asset should be clear, concise, and aligned with the target audience's interests and preferences.\n\nPrioritize simplicity, directness, and a compelling call to action across all marketing channels.\n\nMaintain a friendly and engaging tone, ensuring the content is easy to understand.\n\nThink of this as crafting a high-conversion giveaway campaign, similar to designing a detailed itinerary for a trip."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        320,
+        1220
+      ],
+      "id": "e318a345-baa1-48a2-b01b-1ac5e0a810df",
+      "name": "Giveaway Agent",
+      "alwaysOutputData": true
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-02T01:32:50.527Z",
+      "updatedAt": "2025-02-02T01:32:50.527Z",
+      "role": "workflow:owner",
+      "workflowId": "3XJV3uu33yAb6fLB",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-28T18:11:56.539Z",
+      "updatedAt": "2025-01-28T18:11:56.539Z",
+      "id": "tTDC8ZK83L4E6KC7",
+      "name": "Multi-Agent Workflows"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-02-02T19:43:30.000Z",
+  "versionId": "5fdacdc0-cc6e-4d5f-95c9-892d09eacfe2"
+}
