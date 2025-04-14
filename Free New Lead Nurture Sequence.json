@@ -1,0 +1,406 @@
+{
+  "active": false,
+  "connections": {
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "New RAG Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "New RAG Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New RAG Agent": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "New RAG Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "New RAG Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-25T14:55:27.265Z",
+  "id": "zKue2ph6vQpDZXbH",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Free New Lead Nurture Sequence",
+  "nodes": [
+    {
+      "parameters": {
+        "sendTo": "arslan@salesgenius.co",
+        "subject": "Your Sequence",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        200,
+        -120
+      ],
+      "id": "0e7e6c93-f9e1-425c-8185-b61afcffa4e9",
+      "name": "Gmail",
+      "webhookId": "e5a034a9-a684-49bd-8407-c2c6e24141f1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "R2ppJs5mnCWrQakn",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "# Overview  \nYou are an AI agent designed to help real estate agents create highly effective, engaging, and value-driven lead nurture campaigns. These campaigns incorporate phone calls, text messages, and emails to engage leads at different stages of the real estate process.  \n\n## Context  \n- You create **persona-specific** nurture sequences based on user input like these examples:  \n  - First-time condo buyers  \n  - Upsizing families selling for the first time  \n  - Downsizers moving into smaller homes  \n  - Investors seeking the perfect property  \n- Campaigns are designed with **high-converting messaging** inspired by top sales experts, including:  \n  - Dean Jackson, Sharran Srivatsaa, Ryan Serhant, Alex Hormozi, and Cole Gordon.  \n  - Email subject lines follow principles from Dan Kennedy, Chad S. White, Ramit Sethi, and Alex Hormozi’s team.  \n- Your output **must be formatted as a structured JSON object** under the `\"DripSequence\"` key to ensure compatibility with the **output parser**.  \n- Email content is retrieved and optimized using the **Pinecone vector tool**: **ryans_emails** (Index: **salesgenius1**).  \n- Nurture campaigns should be designed for **Follow Up Boss, Lofty, KVCore, or Sync CRM**, ensuring automation compatibility.  \n\n## Instructions  \n1. **Before generating a nurture campaign, ask the following clarifying questions:**  \n   - How long should the sequence run? (e.g., 60 days, 12 months, 48 months)   \n   - What tone should the sequence have? (Professional, Casual, or Funny/Whimsical Authoritative)  \n   - Which CRM will this be used with? (Follow Up Boss, Lofty, KVCore, Sync)  \n   - What city/town & country is the user located in? (For market-relevant references)  \n2. **Ensure at least six phone calls in the first seven days**, with a **double-dial attempt** in the first five minutes of a new lead.  \n3. **Do NOT recommend voicemails**—only live calls.  \n4. Replace **\"check-in\"** with **\"Value Contact Point\"** in all messaging.  \n5. **Use urgency, storytelling, and engagement-driven techniques** to maximize response rates.  \n6. **Ensure the final output follows this exact JSON format:**  \n\n---\n\n## **Output Format (JSON)**\n```json\n{\n  \"DripSequence\": [\n    {\n      \"step\": 1,\n      \"day\": 0,\n      \"type\": \"Phone Call\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"[Live phone call – no voicemail]\",\n      \"notes\": \"Trigger a double-dial attempt within 5 minutes of receiving the lead.\"\n    },\n    {\n      \"step\": 2,\n      \"day\": 0,\n      \"type\": \"SMS\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"Hey [First Name]! [Agent Name] here from [Team Name]. I just came across something that perfectly matches your [buyer/seller] goals. Got a minute?\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": 3,\n      \"day\": 0,\n      \"type\": \"Email\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"Toronto Investment Goldmine Awaits – Are You In?\",\n      \"body\": \"Hey [First Name],\\n\\nWelcome to the most entertaining (and lucrative) investment ride you’ll ever take in Toronto! I’m John, and my mission is to help savvy investors like you spot those hidden goldmines—while having a bit of fun along the way.\\n\\n🚀 Here’s what’s in store:\\n- Insider intel on Toronto’s hottest investment zones\\n- Surprising stats that’ll make your competitors sweat\\n- A wicked sense of humor to lighten your day\\n\\nReady for your first Value Contact Point? Hit reply, and let’s chat!\",\n      \"notes\": \"First email should have a compelling hook and humor.\"\n    },\n    {\n      \"step\": 4,\n      \"day\": 1,\n      \"type\": \"Phone Call\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 1,\n      \"subject\": \"\",\n      \"body\": \"[Live phone call – no voicemail]\",\n      \"notes\": \"Reinforce urgency and Value Contact Point.\"\n    },\n    {\n      \"step\": 5,\n      \"day\": 2,\n      \"type\": \"SMS\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 1,\n      \"subject\": \"\",\n      \"body\": \"Hey [First Name], quick update: I’ve got some inside info on [specific market insight]. Let me know if you’re free to chat today!\",\n      \"notes\": \"Casual but engaging follow-up.\"\n    },\n    {\n      \"step\": 6,\n      \"day\": 4,\n      \"type\": \"Email\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 2,\n      \"subject\": \"Alert: Toronto’s Investment Hotspots – Act Fast or Miss Out!\",\n      \"body\": \"Hey [First Name],\\n\\nPicture this: while others are snoozing, you could be reaping the rewards of Toronto’s sizzling investment hotspots.\\n\\nI recently unearthed a property opportunity that’s so promising, it practically screams your name – in a very polite Canadian accent, of course.\\n\\n🔥 Highlights include:\\n- Unexpected market shifts that signal serious profit potential\\n- A story of an investor who laughed all the way to the bank (okay, almost!)\\n\\nLet’s set up a Value Contact Point to discuss. Let me know when you're free!\",\n      \"notes\": \"Use FOMO and urgency to drive engagement.\"\n    }\n  ]\n}\nSOP (Standard Operating Procedure)\nGather lead details, including persona type, location, and CRM integration.\nDetermine nurture campaign duration and follow-up frequency.\nQuery ryans_emails in Pinecone (salesgenius1) to retrieve optimized email content.\nCraft high-impact subject lines and email copy based on conversion psychology.\nSchedule phone calls, ensuring at least six in the first seven days.\nStructure the sequence for seamless CRM automation.\nOptimize messaging for urgency, value, and conversion.\nEnsure the output follows the required JSON format and is fully compatible with the output parser.\nFinal Notes\nDO NOT generate responses in plain text. The final output must be a JSON object structured under \"DripSequence\".\nAlways ensure messaging is optimized for engagement and conversion.\nUse a mix of phone, text, and email to maintain top-of-mind awareness.\nPersonalize messaging based on market trends and lead personas.\nAlign campaign strategies with proven real estate sales methodologies.\n\n\n\nUSE THE STRUCTURED OUTPUT TO MAKE SURE ITS JSON RESPONSE\n"
+        }
+      },
+      "id": "ff510cfe-6a56-49d4-892b-f4db1b4da3d3",
+      "name": "New RAG Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -428,
+        -120
+      ],
+      "notesInFlow": true,
+      "notes": "\n---\n\n### **What’s Improved in This Version?**  \n✅ **Ensures strict JSON output** – AI will **only generate JSON**, making it parser-friendly.  \n✅ **Integrated Output Parser Compliance** – No deviations from the required format.  \n✅ **Stronger Automation Readiness** – CRM-friendly structure for direct implementation.  \n✅ **Optimized for Performance** – Structured prompts ensure high-converting messaging.  \n\nThis guarantees **flawless, structured AI-generated drip sequences** that seamlessly integrate into your workflow. 🚀 Let me know if you need further refinements!\n"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"DripSequence\": [\n    {\n      \"step\": 1,\n      \"day\": 0,\n      \"type\": \"Phone Call\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"[Live phone call – no voicemail]\",\n      \"notes\": \"Trigger a double-dial attempt within 5 minutes of receiving the lead.\"\n    },\n    {\n      \"step\": 2,\n      \"day\": 0,\n      \"type\": \"SMS\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"Hey [First Name]! [Agent Name] here from [Team Name]. I just came across something that perfectly matches your [buyer/seller] goals. Got a minute?\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": 3,\n      \"day\": 0,\n      \"type\": \"Email\",\n      \"number\": 1,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"Toronto Investment Goldmine Awaits – Are You In?\",\n      \"body\": \"Hey [First Name],\\n\\nWelcome to the most entertaining (and lucrative) investment ride you’ll ever take in Toronto! I’m John, and my mission is to help savvy investors like you spot those hidden goldmines—while having a bit of fun along the way.\\n\\n🚀 Here’s what’s in store:\\n- Insider intel on Toronto’s hottest investment zones\\n- Surprising stats that’ll make your competitors sweat\\n- A wicked sense of humor to lighten your day\\n\\nReady for your first Value Contact Point? Hit reply, and let’s chat!\",\n      \"notes\": \"First email should have a compelling hook and humor.\"\n    },\n    {\n      \"step\": 4,\n      \"day\": 1,\n      \"type\": \"Phone Call\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 1,\n      \"subject\": \"\",\n      \"body\": \"[Live phone call – no voicemail]\",\n      \"notes\": \"Reinforce urgency and Value Contact Point.\"\n    },\n    {\n      \"step\": 5,\n      \"day\": 2,\n      \"type\": \"SMS\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 1,\n      \"subject\": \"\",\n      \"body\": \"Hey [First Name], quick update: I’ve got some inside info on [specific market insight]. Let me know if you’re free to chat today!\",\n      \"notes\": \"Casual but engaging follow-up.\"\n    },\n    {\n      \"step\": 6,\n      \"day\": 4,\n      \"type\": \"Email\",\n      \"number\": 2,\n      \"daysAfterLastStep\": 2,\n      \"subject\": \"Alert: Toronto’s Investment Hotspots – Act Fast or Miss Out!\",\n      \"body\": \"Hey [First Name],\\n\\nPicture this: while others are snoozing, you could be reaping the rewards of Toronto’s sizzling investment hotspots.\\n\\nI recently unearthed a property opportunity that’s so promising, it practically screams your name – in a very polite Canadian accent, of course.\\n\\n🔥 Highlights include:\\n- Unexpected market shifts that signal serious profit potential\\n- A story of an investor who laughed all the way to the bank (okay, almost!)\\n\\nLet’s set up a Value Contact Point to discuss. Let me know when you're free!\",\n      \"notes\": \"Use FOMO and urgency to drive engagement.\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -220,
+        100
+      ],
+      "id": "21391f8c-0360-44f5-a8b8-e5ab032c8e14",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        -340,
+        100
+      ],
+      "id": "3b3c3355-d878-438f-bf13-14d72ce40bcc",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "J7FvW5h51etk1zFV",
+          "name": "Postgres account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the correct dripSequence from your input structure\nconst data = $json;\nconst dripSequence = data.output ? data.output.DripSequence : data.DripSequence;\n\nif (!dripSequence) {\n  throw new Error(\"DripSequence not found in the input data.\");\n}\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Follow Up Sequence</title>\n  <style>\n    /* Reset styles for email clients */\n    body {\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\n      line-height: 1.5;\n      background-color: #f9fafb;\n    }\n    /* Container styles */\n    .container {\n      max-width: 600px;\n      margin: 20px auto;\n      padding: 0 20px;\n    }\n    /* Table-based header for better email compatibility */\n    .step-header-table {\n      width: 100%;\n    }\n    .step-header-table td {\n      vertical-align: middle;\n    }\n    .step-title {\n      font-weight: 500;\n      color: #ffffff;\n    }\n    .step-day {\n      font-size: 14px;\n      opacity: 0.9;\n      color: #ffffff;\n      text-align: right;\n      white-space: nowrap; /* Prevent line breaks */\n    }\n    /* Step card styles */\n    .step-card {\n      background-color: #ffffff;\n      border: 1px solid #e5e7eb;\n      border-radius: 8px;\n      overflow: hidden;\n      margin-bottom: 16px;\n    }\n    .step-content {\n      padding: 16px;\n    }\n    .content-section {\n      margin-bottom: 12px;\n    }\n    .content-label {\n      font-size: 14px;\n      font-weight: 500;\n      color: #6b7280;\n      margin-bottom: 4px;\n    }\n    .content-text {\n      color: #111827;\n      background-color: #f9fafb;\n      padding: 12px;\n      border-radius: 8px;\n      white-space: pre-wrap;\n      font-size: 14px;\n    }\n    .content-notes {\n      font-size: 14px;\n      color: #6b7280;\n    }\n    /* Table-based separator for email compatibility */\n    .separator-table {\n      width: 100%;\n      margin: 16px 0;\n    }\n    .separator-table td {\n      border-bottom: 1px solid #e5e7eb;\n      width: 45%;\n    }\n    .separator-table .separator-text {\n      text-align: center;\n      font-size: 14px;\n      color: #6b7280;\n      width: 10%;\n      white-space: nowrap; /* Prevent line breaks in separator text */\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">`;\n\n// Loop over each step to build the HTML for that step\ndripSequence.forEach((step, index) => {\n\n  // Insert a separator when there's a day gap between steps\n  if (index > 0) {\n    const dayDifference = step.day - dripSequence[index - 1].day;\n    if (dayDifference > 0) {\n      html += `\n      <table class=\"separator-table\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n        <tr>\n          <td></td>\n          <td class=\"separator-text\">Wait ${dayDifference} day${dayDifference > 1 ? 's' : ''}</td>\n          <td></td>\n        </tr>\n      </table>`;\n    }\n  }\n\n  // Determine emoji and header background color based on step type\n  let emoji = \"\";\n  let headerBgColor = \"\";\n  const lowerType = step.type.toLowerCase();\n  if(lowerType.includes(\"phone\")) {\n    emoji = \"📞\";\n    headerBgColor = \"#22c55e\";\n  } else if(lowerType.includes(\"email\")) {\n    emoji = \"✉️\";\n    headerBgColor = \"#3b82f6\";\n  } else if(lowerType.includes(\"sms\")) {\n    emoji = \"💬\";\n    headerBgColor = \"#a855f7\";\n  }\n\n  // Create the step card with a table-based header for email compatibility\n  html += `\n    <div class=\"step-card\">\n      <div style=\"background-color: ${headerBgColor}; padding: 12px 16px;\">\n        <table class=\"step-header-table\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n          <tr>\n            <td>\n              <span style=\"font-size: 16px;\">${emoji}</span>\n              <span class=\"step-title\"> Step ${step.step}: <strong>${step.type} #${step.number}</strong></span>\n            </td>\n            <td class=\"step-day\">Day ${step.day}</td>\n          </tr>\n        </table>\n      </div>\n      <div class=\"step-content\">`;\n\n  // Include subject if present\n  if (step.subject && step.subject.trim() !== \"\") {\n    html += `\n        <div class=\"content-section\">\n          <div class=\"content-label\">Subject</div>\n          <div class=\"content-text\">${step.subject}</div>\n        </div>`;\n  }\n  \n  // Include the message body\n  html += `\n        <div class=\"content-section\">\n          <div class=\"content-label\">Message</div>\n          <div class=\"content-text\">${step.body}</div>\n        </div>`;\n  \n  // Include notes if available\n  if (step.notes && step.notes.trim() !== \"\") {\n    html += `\n        <div class=\"content-section\">\n          <div class=\"content-label\">Notes</div>\n          <div class=\"content-notes\">${step.notes}</div>\n        </div>`;\n  }\n  \n  html += `\n      </div>\n    </div>`;\n});\n\nhtml += `\n  </div>\n</body>\n</html>`;\n\n// Return the generated HTML so it can be used by your email node\nreturn [{ html }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -20,
+        -120
+      ],
+      "id": "878721a5-ac8f-43d6-aafb-82291d01ccd2",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini",
+          "mode": "list",
+          "cachedResultName": "o3-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -460,
+        100
+      ],
+      "id": "e8adf359-dbf2-4045-bcde-6d1c9648e802",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "ZFA8OOAb"
+      },
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -920,
+        -120
+      ],
+      "id": "c6a5b6b8-386b-498a-b768-237721c151df",
+      "name": "Typeform Trigger",
+      "webhookId": "21edd574-e4e2-492e-be95-afed7f997fd7",
+      "credentials": {
+        "typeformApi": {
+          "id": "hZKxcP6jseCjV38y",
+          "name": "Typeform account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "84d5ea5d-8639-46c4-940a-05d82cfdd39c",
+              "name": "",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "3a30b794-6489-41d8-9b36-30ed6fb618eb",
+              "name": "Full Name",
+              "value": "={{ $json.Full Name }}",
+              "type": "string"
+            },
+            {
+              "id": "ec05772d-7cbd-46f4-920c-5e2d019f3117",
+              "name": "Email Address",
+              "value": "={{ $json.Email Address }}",
+              "type": "string"
+            },
+            {
+              "id": "40d626b7-8a95-4d7b-93b5-c94489c749a0",
+              "name": "Primary Market Location",
+              "value": "={{ $json.Primary Market Location }}",
+              "type": "string"
+            },
+            {
+              "id": "2650f73d-3ab8-4026-8766-bba81b31b244",
+              "name": "What type of properties do your past clients typically own? (Select all that apply)",
+              "value": "={{ $json.What type of properties do your past clients typically own? (Select all that apply) }}",
+              "type": "string"
+            },
+            {
+              "id": "452c025b-c36e-4f3f-9bb2-7a3f405c15be",
+              "name": "What is your preferred communication style with past clients?",
+              "value": "={{ $json.What is your preferred communication style with past clients? }}",
+              "type": "string"
+            },
+            {
+              "id": "3536c5cd-25c4-4cbb-9cfc-2f04ce9cce7d",
+              "name": "What are the top 2 recent market trends in your area that would interest past clients?",
+              "value": "={{ $json.What are the top 2 recent market trends in your area that would interest past clients? }}",
+              "type": "string"
+            },
+            {
+              "id": "33bf0715-f803-479b-a3ce-dd00b1d09715",
+              "name": "What common life events typically trigger your past clients to move again?",
+              "value": "={{ $json.What common life events typically trigger your past clients to move again? }}",
+              "type": "string"
+            },
+            {
+              "id": "e198e80d-83ff-4f84-af5a-10ebf96b4eaa",
+              "name": "What local businesses or services do you typically recommend to clients? (For referral content)",
+              "value": "={{ $json.What local businesses or services do you typically recommend to clients? (For referral content) }}",
+              "type": "string"
+            },
+            {
+              "id": "13798760-233a-4871-bc0c-ea36c8c56624",
+              "name": "What seasonal events or market updates would you like to highlight in your sequence?",
+              "value": "={{ $json.What seasonal events or market updates would you like to highlight in your sequence? }}",
+              "type": "string"
+            },
+            {
+              "id": "10b146a3-1582-4e5d-9ccd-7d4db3040479",
+              "name": "What is your biggest challenge when staying in touch with past clients?",
+              "value": "={{ $json.What is your biggest challenge when staying in touch with past clients? }}",
+              "type": "string"
+            },
+            {
+              "id": "6ca2c2bf-656c-4630-978b-e95876e9f538",
+              "name": "What specific elements do you need in your follow-up sequence? (Select all that apply)",
+              "value": "={{ $json.What specific elements do you need in your follow-up sequence? (Select all that apply) }}",
+              "type": "string"
+            },
+            {
+              "id": "bad5ffd6-b466-403a-9173-8c49caf8bcfe",
+              "name": "How often would you ideally contact past clients?",
+              "value": "={{ $json.How often would you ideally contact past clients? }}",
+              "type": "string"
+            },
+            {
+              "id": "eca4cebb-ad67-4455-bf08-5a14f089ae1a",
+              "name": "How many transactions did you close in the past 12 months?",
+              "value": "={{ $json.How many transactions did you close in the past 12 months? }}",
+              "type": "string"
+            },
+            {
+              "id": "b416fc5d-2fbc-4a36-a3f1-15c38487839e",
+              "name": "Approximately how many past clients do you have in your database?",
+              "value": "={{ $json.Approximately how many past clients do you have in your database? }}",
+              "type": "string"
+            },
+            {
+              "id": "5b3f0cf1-680e-4d5d-b928-e1d23e56b716",
+              "name": "When do you want to start implementing this system?",
+              "value": "={{ $json.When do you want to start implementing this system? }}",
+              "type": "string"
+            },
+            {
+              "id": "b476f893-4364-407e-828d-c967f6047a90",
+              "name": "Would you be interested in a 15-minute call to review your custom sequence once it's created?",
+              "value": "={{ $json.Would you be interested in a 15-minute call to review your custom sequence once it's created? }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -700,
+        -120
+      ],
+      "id": "8228b666-3b2c-4fcf-b876-47371ec9120d",
+      "name": "Edit Fields"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-03-25T14:55:27.271Z",
+      "updatedAt": "2025-03-25T14:55:27.271Z",
+      "role": "workflow:owner",
+      "workflowId": "zKue2ph6vQpDZXbH",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-26T13:36:41.000Z",
+  "versionId": "994bb539-8e2e-4202-a655-67a9d12d601a"
+}
