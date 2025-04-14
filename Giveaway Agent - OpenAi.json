@@ -1,0 +1,804 @@
+{
+  "active": true,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Instagram Script Writer Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Instagram Script Writer Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Instagram Script Writer Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instagram Script Writer Agent": {
+      "main": [
+        [
+          {
+            "node": "Email Copywriter Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI2": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Reelscripts Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reelscripts Vector Store": {
+      "ai_vectorStore": [
+        []
+      ],
+      "ai_tool": [
+        [
+          {
+            "node": "Instagram Script Writer Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Email Copywriter Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Email Copywriter Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Email_Copywriting_Vector_Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email_Copywriting_Vector_Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "Email Copywriter Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Landing Page Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Landing Page Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Landing_Page_Vector_Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Copywriter Agent": {
+      "main": [
+        [
+          {
+            "node": "Landing Page Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Landing_Page_Vector_Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "Landing Page Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Landing Page Agent": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-28T19:00:54.048Z",
+  "id": "wteNJfkCpvgpfIXv",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Giveaway Agent - OpenAi",
+  "nodes": [
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        -40,
+        -20
+      ],
+      "id": "05f00524-3950-492e-b9a8-08a8b17f0875",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"scripts\": [\n    {\n      \"ScriptTitle\": \"Script Title #1\",\n      \"Hook\": \"Want to win something amazing?\",\n      \"Body\": \"Here’s your chance to join our big giveaway. It takes just a moment to enter, and you could walk away with a prize that makes your day better. Don’t miss out!\",\n      \"CallToAction\": \"Hit the link right now to sign up. Let’s get you closer to winning!\"\n    },\n    {\n      \"ScriptTitle\": \"Script Title #2\",\n      \"Hook\": \"Ready to grab a free prize?\",\n      \"Body\": \"Our giveaway is live, and you can enter in seconds. This is your shot at winning something that saves you time or money—or both! You have nothing to lose.\",\n      \"CallToAction\": \"Click the link below and sign up. Hurry—spots are filling up fast!\"\n    },\n    {\n      \"ScriptTitle\": \"Script Title #3\",\n      \"Hook\": \"Could today be your lucky day?\",\n      \"Body\": \"We’re handing out a prize that could make life a little easier. Entering is quick and simple—no tricks, no fuss. It’s all here for you!\",\n      \"CallToAction\": \"Tap the link to join. Don’t let this chance slip away!\"\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        360,
+        0
+      ],
+      "id": "856df4f3-d30b-47d8-a946-3fd8e8c47bb5",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "14pC-2hIUjYONvDn9nkixWDBIoVcUoFqdCxLnd2wwg3I",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/14pC-2hIUjYONvDn9nkixWDBIoVcUoFqdCxLnd2wwg3I/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Instagram Script": "=Title: {{ $('Instagram Script Writer Agent').item.json.output.scripts[0].ScriptTitle }}\n\nHook: {{ $('Instagram Script Writer Agent').item.json.output.scripts[0].Hook }}\n\nBody: {{ $('Instagram Script Writer Agent').item.json.output.scripts[0].Body }}\n\nCall to Action: {{ $('Instagram Script Writer Agent').item.json.output.scripts[0].CallToAction }}",
+            "Instagram Script 2": "=Title: {{ $('Instagram Script Writer Agent').item.json.output.scripts[1].ScriptTitle }}\n\nHook: {{ $('Instagram Script Writer Agent').item.json.output.scripts[1].Hook }}\n\nBody: {{ $('Instagram Script Writer Agent').item.json.output.scripts[1].Body }}\n\nCall to Action: {{ $('Instagram Script Writer Agent').item.json.output.scripts[1].CallToAction }}",
+            "Instagram Script 3": "=Title: {{ $('Instagram Script Writer Agent').item.json.output.scripts[2].ScriptTitle }}\n\nHook: {{ $('Instagram Script Writer Agent').item.json.output.scripts[2].Hook }}\n\nBody: {{ $('Instagram Script Writer Agent').item.json.output.scripts[2].Body }}\n\nCall to Action: {{ $('Instagram Script Writer Agent').item.json.output.scripts[2].CallToAction }}",
+            "Email": "=Subject:  {{ $('Email Copywriter Agent').item.json.output.email.subject }}\nPre Header - {{ $('Email Copywriter Agent').item.json.output.email.preheader }}\n\nBody: {{ $('Email Copywriter Agent').item.json.output.email.body }}\n\nCall to Action: {{ $('Email Copywriter Agent').item.json.output.email.callToAction }}",
+            "Landing Page Copy": "={{ $json.output.landingPageCopy }}",
+            "Giveaway ": "={{ $('On form submission').item.json[\"what type of giveaway would you like to run?\"] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Giveaway ",
+              "displayName": "Giveaway ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Instagram Script",
+              "displayName": "Instagram Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Instagram Script 2",
+              "displayName": "Instagram Script 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Instagram Script 3",
+              "displayName": "Instagram Script 3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Landing Page Copy",
+              "displayName": "Landing Page Copy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2080,
+        -160
+      ],
+      "id": "8f8ae4de-13ac-4153-8033-b67de51c44a7",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NhjQ6L8wmj50Ohkp",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Instagram Script Writer\n### Giveaway Posts\n",
+        "height": 880,
+        "width": 600,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        -280
+      ],
+      "id": "c06e2ce2-f202-42a2-b3c0-9ffb16badcdb",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "formTitle": "Giveaway Questions",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "what type of giveaway would you like to run?"
+            },
+            {
+              "fieldLabel": "What is the total value of the giveaway?",
+              "fieldType": "number"
+            },
+            {
+              "fieldLabel": "Why did you choose this giveaway that you chose?",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "When would you like to hold the giveaway draw?",
+              "fieldType": "date"
+            },
+            {
+              "fieldLabel": "When would you like to start promoting the giveaway?",
+              "fieldType": "date"
+            },
+            {
+              "fieldLabel": "What should participants know before entering?",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Who is your target audience for this giveaway?",
+              "fieldType": "textarea"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -320,
+        -180
+      ],
+      "id": "b83c15ab-a9f3-443e-82c4-4b28fd60100f",
+      "name": "On form submission",
+      "webhookId": "0086645a-4ea3-46ed-99b6-9ab60b7843af"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Type of Giveaway: {{ $json['what type of giveaway would you like to run?'] }}\nTotal Value Of Giveaway: {{ $json['What is the total value of the giveaway?'] }}\nWhy Did You Select This Giveaway:{{ $json['Why did you choose this giveaway that you chose?'] }}\nWhen Will The Winner Be Selected:{{ $json['When would you like to hold the giveaway draw?'] }}\nWhen Do You Want to Start Promoting This Giveaway:{{ $json['When would you like to start promoting the giveaway?'] }}\nWhat Should The Audience Know Before Submitting:{{ $json['What should participants know before entering?'] }}\nWho Is Your Target Audience:{{ $json['Who is your target audience for this giveaway?'] }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Step 1: You must reference the reel_script_tool Before You Begin. \n\nStep 2: Today, you’re a **world-class short-form scriptwriter** who specializes in creating **high-converting Instagram Reel scripts**. You know how to hook viewers in the first few seconds, maintain their attention, and compel them to take action—especially when it comes to giveaways.\n\nYour job is to:\n\n1. Create **3 different 30-second scripts** using various reel strategies (ex. story telling, copywriting formulas, etc.) for our new giveaway campaign that we can record as Instagram Reels.\n2. Use a **4th grade reading level**, making the language and ideas simple yet compelling.\n3. **No emojis** in any script.\n4. Include a **strong call to action** for Instagram viewers to comment the word “GIVEAWAY” below. This needs to encourages viewers to sign up for the giveaway.\n\n**Guidelines**:\n\n- Each script should be concise, **no more than 30 seconds** when read out loud at a normal speaking pace.\n- Write the scripts in a way that feels fresh, unique, and captivating to our audience.\n- **Output**: Return all three scripts in **valid JSON** format.\n\nAlways References the reelscripts table"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        80,
+        -200
+      ],
+      "id": "fb6eb60c-2a2d-4800-b641-cd20b92972c7",
+      "name": "Instagram Script Writer Agent",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "aefbd9c1-05cb-42c2-b849-cca851df7337",
+      "name": "Embeddings OpenAI2",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        140,
+        300
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "reel_script_tool",
+        "toolDescription": "IMPORTANT: This tool MUST ONLY query the [reelscripts] table for knowledge base information. DO NOT use or reference the generic documents table.\n\n\n\n\nThis reel_script_tool uses the data reelscripts table to help create engaging video scripts that capture audience attention instantly. Using proven scriptwriting frameworks and best practices, it generates scripts designed to hook viewers and drive action. When provided with specific scripting requirements, it delivers relevant techniques, frameworks, and attention-grabbing elements to help craft effective scripts. Always responds based on established scriptwriting data; requests clarification when needed. References the reelscripts table",
+        "tableName": {
+          "__rl": true,
+          "value": "reelscripts",
+          "mode": "list",
+          "cachedResultName": "reelscripts"
+        },
+        "options": {
+          "queryName": "match_reelscripts"
+        }
+      },
+      "id": "bf905517-2ead-4e1f-b495-8d1f146dd7b1",
+      "name": "Reelscripts Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        80,
+        120
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        680,
+        20
+      ],
+      "id": "a32e5157-68e9-414b-825f-2165bcf7198e",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"email\": {\n    \"subject\": \"Your Irresistible Subject Line\",\n    \"preheader\": \"Short sneak peek that compels the reader to open\",\n    \"body\": \"Email body copy here. 4th grade reading level, no emojis.\",\n    \"callToAction\": \"Clear, clickable CTA that drives sign-ups.\"\n  }\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1080,
+        40
+      ],
+      "id": "4531acc4-18bf-436d-ad83-4d6a57790e1c",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "759bb856-816b-4570-93b4-124751d5624a",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        860,
+        340
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Email Copywriter\n### Giveaway Emails\n\n",
+        "height": 880,
+        "width": 600,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        620,
+        -280
+      ],
+      "id": "ed678534-cc68-4455-b925-6d39482c8fe8",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Details for the Giveaway:\nType of Giveaway: {{ $('On form submission').item.json['what type of giveaway would you like to run?'] }}\nTotal Value Of Giveaway: {{ $('On form submission').item.json['What is the total value of the giveaway?'] }}\nWhy Did You Select This Giveaway:{{ $('On form submission').item.json['Why did you choose this giveaway that you chose?'] }}\nWhen Will The Winner Be Selected:{{ $('On form submission').item.json['When would you like to hold the giveaway draw?'] }}\nWhat Should The Audience Know Before Submitting:{{ $('On form submission').item.json['What should participants know before entering?'] }}\nWho Is Your Target Audience:{{ $('On form submission').item.json['Who is your target audience for this giveaway?'] }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Step 1: Always call the Supabase database using tool before providing information.\n\nStep 2:\nToday, you’re a world-class email copywriter who knows how to craft powerful subject lines, create compelling body copy, and motivate readers to take immediate action. Your focus is to promote our giveaway in a way that pushes for a 50% open rate and a 5% sign-up rate.\n\nYour job is to: Reference the vector database for any relevant audience pain points, desires, or interests. However, do not use any personal names or identifying details in your final email.\nWrite three high-converting email's designed to get recipients to:\nOpen the email (with an irresistible subject line)\nRead the body (keep it at a 4th grade reading level and no emojis)\nSign up for the giveaway (with a strong call to action)\nKeep the tone fresh, friendly, and concise. Aim for an email that feels exciting and urgent without sounding pushy.\nProvide your final answer in valid JSON.\n\nThis should highlight the benefits & pain points of our target audience."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        800,
+        -160
+      ],
+      "id": "608701c2-bc7f-4177-882a-16aabf4998a4",
+      "name": "Email Copywriter Agent",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "email_copywriting_tool",
+        "toolDescription": "IMPORTANT: This tool MUST ONLY query the email_copywriting table for knowledge base information. DO NOT use or reference the generic documents table.Giveaway Promotion Email Tool\nThis tool is designed to craft high-conversion promotional emails for giveaways using proven copywriting formulas (AIDA, PAS, HSO). It must exclusively query the [email_copywriting] table for all subject lines, body copy, and calls to action—never referencing the generic documents table. Its goal is to maximize entries, leveraging powerful frameworks and persuasive language to ensure readers are motivated to participate.",
+        "tableName": {
+          "__rl": true,
+          "value": "email_copywriting",
+          "mode": "list",
+          "cachedResultName": "email_copywriting"
+        },
+        "topK": 20,
+        "options": {
+          "queryName": "match_email_copywriting"
+        }
+      },
+      "id": "c7260dd3-e224-45eb-84f0-06bd72f0e80d",
+      "name": "Email_Copywriting_Vector_Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        800,
+        160
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1400,
+        20
+      ],
+      "id": "de6b6ffe-7616-47e1-ac1a-a91deea4c073",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"landingPageCopy\": {\n    \"eyebrowCopy\": \"Short teaser statement that quickly hooks your audience\",\n    \"headlines\": [\n      \"Headline Option 1\",\n      \"Headline Option 2\",\n      \"Headline Option 3\"\n    ],\n    \"subheadlines\": [\n      \"Subheadline Option 1\",\n      \"Subheadline Option 2\",\n      \"Subheadline Option 3\"\n    ],\n    \"benefitBullets\": [\n      \"Benefit Bullet 1\",\n      \"Benefit Bullet 2\",\n      \"Benefit Bullet 3\"\n    ]\n  }\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1800,
+        40
+      ],
+      "id": "1edef946-6f2d-4cf1-b1b5-0aebb5ecb4ac",
+      "name": "Structured Output Parser2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e4c32039-a3a7-4d33-8626-32323129e36e",
+      "name": "Embeddings OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1580,
+        340
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Landing Page Copywriter\n### Giveaway Landing Page\n\n",
+        "height": 880,
+        "width": 600,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        -280
+      ],
+      "id": "7339f7d2-ae6e-411f-81e3-7765ad45d18c",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "landing_page_tool",
+        "toolDescription": "=IMPORTANT: This tool MUST ONLY query the landingpages table for knowledge base information. \n\nThis tool is specifically engineered to craft complete landing page copy for eyebrow text, headlines, subheadlines, calls to action, three bullet points, and an “About Me” section. It leverages proven strategies drawn exclusively from the landingpages table, ensuring consistent, high-conversion content. Whether fine-tuning an existing page or building from scratch, the Landing Pages Copy Tool delivers best-in-class copy designed to captivate readers and inspire action. Do not reference the generic documents table.",
+        "tableName": {
+          "__rl": true,
+          "value": "landingpages",
+          "mode": "list",
+          "cachedResultName": "landingpages"
+        },
+        "topK": 20,
+        "options": {
+          "queryName": "match_landingpages"
+        }
+      },
+      "id": "390db3cb-8463-4577-b594-b8ee4f384a11",
+      "name": "Landing_Page_Vector_Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        160
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "BESzs41uaG2Yg4Xi",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Details for the Giveaway:\nType of Giveaway: {{ $('On form submission').item.json['what type of giveaway would you like to run?'] }}\nTotal Value Of Giveaway: {{ $('On form submission').item.json['What is the total value of the giveaway?'] }}\nWhy Did You Select This Giveaway:{{ $('On form submission').item.json['Why did you choose this giveaway that you chose?'] }}\nWhen Will The Winner Be Selected:{{ $('On form submission').item.json['When would you like to hold the giveaway draw?'] }}\nWhat Should The Audience Know Before Submitting:{{ $('On form submission').item.json['What should participants know before entering?'] }}\nWho Is Your Target Audience:{{ $('On form submission').item.json['Who is your target audience for this giveaway?'] }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Prompt #6:\nStep 1: Always call the supabase database using the landingpage tool before providing any information.\n\nStep 2:\nToday, you’re a world-class landing page copywriter who excels at grabbing attention, building intrigue, and compelling users to keep scrolling and take action. You know how to use eye-catching eyebrow copy, powerful headlines, and resonant subheadlines to engage readers instantly. You also know how to craft benefit-driven bullet points that make people want to sign up or purchase right away.\n\nYour job is to:\n\nReference the vector database for audience pain points, desires, and motivations. Avoid using any personal names or specific identifiers in your final output.\nGenerate:\n1 eyebrow copy\n3 headline options\n3 subheadline options\n3 benefit-driven bullet points\nThe copy must be at a 4th grade reading level and should exclude any emojis.\nOutput your final answer in valid JSON. For instance:\njson\nCopy\nEdit\n{\n  \"landingPageCopy\": {\n    \"eyebrowCopy\": \"Short teaser statement that quickly hooks your audience\",\n    \"headlines\": [\n      \"Headline Option 1\",\n      \"Headline Option 2\",\n      \"Headline Option 3\"\n    ],\n    \"subheadlines\": [\n      \"Subheadline Option 1\",\n      \"Subheadline Option 2\",\n      \"Subheadline Option 3\"\n    ],\n    \"benefitBullets\": [\n      \"Benefit Bullet 1\",\n      \"Benefit Bullet 2\",\n      \"Benefit Bullet 3\"\n    ]\n  }\n}\nGuidelines:\n\nKeep language clear, straightforward, and easy to read.\nAvoid sounding like generic “industry speak”; create a sense of uniqueness and superiority.\nFocus on the main benefits or pain points your audience cares about, and show how your offer addresses them immediately.\nNo emojis.\nNo personal or avatar names from the database.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1520,
+        -160
+      ],
+      "id": "d0259a98-6259-4c7f-bf33-1cdd83d1eae4",
+      "name": "Landing Page Agent",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08AE0Z3AG5",
+          "mode": "id"
+        },
+        "text": "=*Giveaway:*\n{{ $('On form submission').item.json[\"what type of giveaway would you like to run?\"] }}\n  \n\n \n*Reel Script 1:*\nTitle: {{ $('Instagram Script Writer Agent').item.json.output.scripts[0].ScriptTitle }}\n\nHook: {{ $('Instagram Script Writer Agent').item.json.output.scripts[0].Hook }}\n\nBody: {{ $('Instagram Script Writer Agent').item.json.output.scripts[0].Body }}\n\nCall to Action: {{ $('Instagram Script Writer Agent').item.json.output.scripts[0].CallToAction }}\n \n\n \n*Reel Script 2:*\nTitle: {{ $('Instagram Script Writer Agent').item.json.output.scripts[1].ScriptTitle }}\n\nHook: {{ $('Instagram Script Writer Agent').item.json.output.scripts[1].Hook }}\n\nBody: {{ $('Instagram Script Writer Agent').item.json.output.scripts[1].Body }}\n\nCall to Action: {{ $('Instagram Script Writer Agent').item.json.output.scripts[1].CallToAction }}\n \n\n \n*Reel Script 3:*\nTitle: {{ $('Instagram Script Writer Agent').item.json.output.scripts[2].ScriptTitle }}\n\nHook: {{ $('Instagram Script Writer Agent').item.json.output.scripts[2].Hook }}\n\nBody: {{ $('Instagram Script Writer Agent').item.json.output.scripts[2].Body }}\n\nCall to Action: {{ $('Instagram Script Writer Agent').item.json.output.scripts[2].CallToAction }}\n \n\n \n*Email:*\nSubject:  {{ $('Email Copywriter Agent').item.json.output.email.subject }}\nPre Header - {{ $('Email Copywriter Agent').item.json.output.email.preheader }}\n\nBody: {{ $('Email Copywriter Agent').item.json.output.email.body }}\n\nCall to Action: {{ $('Email Copywriter Agent').item.json.output.email.callToAction }}\n \n\n \n*Landing Page:*\n{{ $('Landing Page Agent').item.json.output.landingPageCopy.eyebrowCopy }}\n\nheadlines:\n{{ $('Landing Page Agent').item.json.output.landingPageCopy.headlines[0] }}\n{{ $('Landing Page Agent').item.json.output.landingPageCopy.headlines[1] }}\n{{ $('Landing Page Agent').item.json.output.landingPageCopy.headlines[2] }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        2300,
+        -160
+      ],
+      "id": "fffb9262-ec87-4822-9e10-b27fa0f0c127",
+      "name": "Slack",
+      "webhookId": "8f1a69f7-fab7-45fa-9146-85a888fce513",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-01-28T19:00:54.057Z",
+      "updatedAt": "2025-01-28T19:00:54.057Z",
+      "role": "workflow:owner",
+      "workflowId": "wteNJfkCpvgpfIXv",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-28T18:11:56.539Z",
+      "updatedAt": "2025-01-28T18:11:56.539Z",
+      "id": "tTDC8ZK83L4E6KC7",
+      "name": "Multi-Agent Workflows"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-01-28T22:19:04.000Z",
+  "versionId": "10c5a9f8-7663-4398-9935-27545627be37"
+}
