@@ -1,0 +1,1355 @@
+{
+  "active": true,
+  "connections": {
+    "Get All Ad Accounts": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        []
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Weekly Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Campaign Data Weekly Digest1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Get All Ads",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Daily Metrics1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Daily Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Daily Metrics": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Weekly Metrics": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Daily Metrics1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Find Contact on Notion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Contact on Notion1": {
+      "main": [
+        [
+          {
+            "node": "Campaign Data Weekly Digest1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Campaign Data Weekly Digest1": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "Slack2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Ads": {
+      "main": [
+        [
+          {
+            "node": "Are there Active Ads / Ad Sets / Campaigns",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Are there Active Ads / Ad Sets / Campaigns": {
+      "main": [
+        [
+          {
+            "node": "Get Active Campaign",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OpenAI3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Active Campaign": {
+      "main": [
+        [
+          {
+            "node": "Get Daily Metrics2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Daily Metrics2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI3": {
+      "main": [
+        [
+          {
+            "node": "Slack1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack": {
+      "main": [
+        []
+      ]
+    },
+    "Slack1": {
+      "main": [
+        []
+      ]
+    },
+    "OpenAI2": {
+      "main": [
+        [
+          {
+            "node": "Slack3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack3": {
+      "main": [
+        []
+      ]
+    },
+    "Slack2": {
+      "main": [
+        []
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Campaign Data Weekly Digest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Campaign Data Weekly Digest": {
+      "main": [
+        [
+          {
+            "node": "Slack4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get All Ad Accounts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-03T20:42:44.048Z",
+  "id": "tj6qO4cZXdLW89YX",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Facebook Ad Campaigns - Analyze Weekly Metrics & Update Client - Direct Connection",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "ad_accounts",
+        "returnAll": true,
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "is_visible",
+              "condition": "eq",
+              "keyValue": "true"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        -360
+      ],
+      "id": "87c51b0f-0d90-45c3-97db-eb3ad5beacce",
+      "name": "Get All Ad Accounts",
+      "credentials": {
+        "supabaseApi": {
+          "id": "HhO7yCFHyxbzmZWK",
+          "name": "Supabase Ads Database"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "= {{ $('Find Contact on Notion1').item.json.property_email }}, arslan@salesgenius.co, rebecca@salesgenius.co, matyas@salesgenius.co",
+        "subject": "=SalesGenius - {{ $('Find Contact on Notion1').item.json.name }}'s Weekly Ad Performance Digest",
+        "message": "={{ $json.output }}",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "SalesGenius"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2440,
+        -180
+      ],
+      "id": "310732c4-7cd8-4b93-9d3a-30abf6606a4e",
+      "name": "Gmail",
+      "webhookId": "cc29534c-9242-430c-bf7b-be40549e764d",
+      "retryOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "R2ppJs5mnCWrQakn",
+          "name": "Gmail account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        100,
+        -360
+      ],
+      "id": "cc14b463-fd98-4e64-b5a2-4dbca89b2f31",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "model": "claude-3-5-sonnet-20241022",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.2,
+      "position": [
+        1940,
+        -120
+      ],
+      "id": "4c0f37f0-2cff-4a7f-9694-f9c1e14857eb",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "vvRYzeVE6A8mYyNt",
+          "name": "Anthropic - Claude"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Cost Per Lead is Under $25 \n### Send Weekly Summary Email to Client",
+        "height": 320,
+        "width": 1560,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1100,
+        -300
+      ],
+      "typeVersion": 1,
+      "id": "8b809572-0a3c-431b-b21b-5a1c3f6cec50",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08EJJPVC22",
+          "mode": "list",
+          "cachedResultName": "client-ad-performance"
+        },
+        "text": "=:rotating_light: ALERT: Client with HIGH Cost per lead last week: *{{ $('Loop Over Items').item.json.name }}*\nNumber of Leads: *{{ $json.data[0].actions.find(action => action.action_type === 'lead')?.value }}*\nCost Per Lead: *{{ $json.data[0].cost_per_action_type.find(item => item.action_type === 'lead')?.value }}*\n<https://adsmanager.facebook.com/adsmanager/manage/campaigns?act={{ $json.data[0].account_id }}|Click Here to view Ad Account>\n",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": false,
+          "unfurl_links": false,
+          "unfurl_media": true,
+          "sendAsUser": ""
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        1180,
+        -540
+      ],
+      "id": "12f7bf7f-27fd-4d53-8549-cec8f5178e64",
+      "name": "Slack",
+      "webhookId": "09eef158-29e3-4c76-a1a3-bde7ba18b6f3",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.data[0] }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "NO CAMPAIGNS"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "d54f2ae8-7c6c-4d61-8eb4-4305cfbb859e",
+                    "leftValue": "={{ $json.data[0].actions.some(action => action.action_type === 'lead') }}",
+                    "rightValue": "=\"lead\"",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "YES LEAD"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ae601f04-f8c8-4435-ad30-8ac822c878c0",
+                    "leftValue": "={{ $json.data[0].actions.some(action => action.action_type === 'lead') }}",
+                    "rightValue": "=\"lead\"",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "false",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "NO LEAD"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        560,
+        -340
+      ],
+      "id": "8edb6ece-289c-4b05-b0c0-eb7022e209a8",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "3929e0f6-38a7-40ac-8075-e44e1110b2e3",
+              "leftValue": "={{ $('Get Weekly Metrics').item.json.data[0].cost_per_action_type.find(item => item.action_type === 'lead')?.value }}",
+              "rightValue": 25,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            },
+            {
+              "id": "55fccc71-2309-4f4d-8120-8c66e8a31dba",
+              "leftValue": "={{ $json.data[0].cost_per_action_type.find(item => item.action_type === 'lead')?.value }}",
+              "rightValue": 25,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "looseTypeValidation": "=0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        -340
+      ],
+      "id": "0c425c4a-41d1-487b-b824-af7164bac3bf",
+      "name": "If1",
+      "notesInFlow": true,
+      "notes": "If CPL is higher than $25"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v21.0",
+        "node": "=act_{{ $json.data[0].account_id }}/insights/insights?fields=account_id,account_name,action_values,actions,ad_click_actions,ad_id,ad_impression_actions,ad_name,adset_id,adset_name,auction_bid,auction_competitiveness,auction_max_competitor_bid,campaign_id,campaign_name,catalog_segment_actions,catalog_segment_value,clicks,conversion_rate_ranking,conversion_values,conversions,cost_per_action_type,cost_per_conversion,cost_per_inline_link_click,cost_per_inline_post_engagement,cost_per_outbound_click,cpc,cpm,cpp,ctr,engagement_rate_ranking,frequency,full_view_reach,impressions,inline_link_click_ctr,inline_link_clicks,inline_post_engagement,objective,outbound_clicks,outbound_clicks_ctr,quality_ranking,reach,spend,video_30_sec_watched_actions,video_avg_time_watched_actions,video_p25_watched_actions,video_p50_watched_actions,video_p75_watched_actions,video_p95_watched_actions,video_play_actions,video_play_curve_actions,video_thruplay_watched_actions,website_ctr,website_purchase_roas&time_increment=1&level=ad",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "time_range",
+                "value": "={'since':'{{ new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] }}','until':'{{ new Date((Date.now() - 1 * 24 * 60 * 60 * 1000)).toISOString().split('T')[0] }}'}"
+              },
+              {
+                "name": "time_ increment",
+                "value": "1"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        -180
+      ],
+      "id": "cf874911-f582-413d-ae9d-dfc9bc370781",
+      "name": "Get Daily Metrics",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v21.0",
+        "node": "={{ $json.id }}/insights?fields=account_id,account_name,impressions,clicks,spend,ctr,actions,cost_per_action_type",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "time_range",
+                "value": "={'since':'{{ new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] }}','until':'{{ new Date((Date.now() - 1 * 24 * 60 * 60 * 1000)).toISOString().split('T')[0] }}'}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        340,
+        -340
+      ],
+      "id": "fa972ab4-7f93-413a-9001-01459eeceda8",
+      "name": "Get Weekly Metrics",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ JSON.stringify($json.data ) }}"
+            },
+            {
+              "content": "Your job is to find the best performing day for cost per lead from the users ad campaign metric data for this week. Should be a single output in json like this example: {\"best_day_this_week\": \"Our best day was February 02, 2025, with 2 leads and a Cost Per Lead of $11.63. This day gave us the best value for our spend.\"}",
+              "role": "system"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1360,
+        -180
+      ],
+      "id": "5907dc16-0b2e-482b-80ca-60aec69c61a6",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v21.0",
+        "node": "={{ $('Loop Over Items').item.json.id }}/insights/insights?fields=account_id,account_name,action_values,actions,ad_click_actions,ad_id,ad_impression_actions,ad_name,adset_id,adset_name,auction_bid,auction_competitiveness,auction_max_competitor_bid,campaign_id,campaign_name,catalog_segment_actions,catalog_segment_value,clicks,conversion_rate_ranking,conversion_values,conversions,cost_per_action_type,cost_per_conversion,cost_per_inline_link_click,cost_per_inline_post_engagement,cost_per_outbound_click,cpc,cpm,cpp,ctr,engagement_rate_ranking,frequency,full_view_reach,impressions,inline_link_click_ctr,inline_link_clicks,inline_post_engagement,objective,outbound_clicks,outbound_clicks_ctr,quality_ranking,reach,spend,video_30_sec_watched_actions,video_avg_time_watched_actions,video_p25_watched_actions,video_p50_watched_actions,video_p75_watched_actions,video_p95_watched_actions,video_play_actions,video_play_curve_actions,video_thruplay_watched_actions,website_ctr,website_purchase_roas&time_increment=1&level=ad",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "time_range",
+                "value": "={'since':'{{ new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] }}','until':'{{ new Date((Date.now() - 1 * 24 * 60 * 60 * 1000)).toISOString().split('T')[0] }}'}"
+              },
+              {
+                "name": "time_ increment",
+                "value": "1"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        200
+      ],
+      "id": "9f0c14c2-8a7a-4b1c-81ad-da28ab305f20",
+      "name": "Get Daily Metrics1",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ JSON.stringify($json.data ) }}"
+            },
+            {
+              "content": "You are responsible for figuring out why there were no leads for this clients campaign performance metrics data. Was it because the campaign itself is not for leads and has a different outcome, is it because the campaign just recently started and theres not enough data yet, is it because they did spend money and it was for leads but just hasnt been recieving any leads, is it something else? \n\nIt needs to be a single simple paragraph",
+              "role": "system"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1420,
+        200
+      ],
+      "id": "4dd74b8e-31b6-4439-a750-9142343f0030",
+      "name": "OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "1761d08c-4f5a-8016-89dd-f81384652240",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://www.notion.so/1761d08c4f5a801689ddf81384652240"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "ad_account_number|rich_text",
+              "condition": "equals",
+              "richTextValue": "={{ $('Loop Over Items').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1740,
+        -180
+      ],
+      "id": "50bfb906-4382-49af-a557-698db88a82cb",
+      "name": "Find Contact on Notion1",
+      "alwaysOutputData": true,
+      "notesInFlow": false,
+      "credentials": {
+        "notionApi": {
+          "id": "3EhNxVoPGBbOY9vC",
+          "name": "Notion account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Transform the following facebook campaign performance data into an HTML email body in the boilerplate email template below.\n\nThe output should: Be HTML-only (no additional text or explanations).\n\nHere are the Metrics that needs to be put into the email:\nWeekly Stats: \nImpressions: {{ $('Get Weekly Metrics').item.json.data[0].impressions }}\nClicks: {{ $('Get Weekly Metrics').item.json.data[0].clicks }}\nSpend: {{ $('Get Weekly Metrics').item.json.data[0].spend }}\nCTR: {{ $('Get Weekly Metrics').item.json.data[0].ctr }}\nLeads: {{ $('Get Weekly Metrics').item.json.data[0].actions.find(action => action.action_type === 'lead')?.value }}\nCPL: {{ $('Get Weekly Metrics').item.json.data[0].cost_per_action_type.find(item => item.action_type === 'lead')?.value }}\nBest Day: {{ $('OpenAI').item.json.message.content.best_day_this_week }}\n\n\nHere is the email boiler plate: \n\n<!DOCTYPE html>\n<html>\n\n<head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n    <title>Email Report</title>\n    <style>\n        body,\n        table,\n        td {\n            font-family: Arial, sans-serif;\n            font-size: 16px;\n            color: #ffffff;\n        }\n\n        body {\n            margin: 0;\n            padding: 0;\n            background-color: #0d0d0d;\n            /* Full dark background */\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            background-color: #1a1a1a;\n            /* Dark container */\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);\n        }\n\n        .logo {\n            text-align: center;\n            padding: 10px 0;\n        }\n\n        .logo img {\n            width: 180px;\n        }\n\n        .content {\n            text-align: left;\n            padding: 20px;\n        }\n\n        .section {\n            margin-bottom: 20px;\n            padding: 15px;\n            border-radius: 6px;\n        }\n\n        .impressions {\n            background-color: #2a2a72;\n        }\n\n        /* Blue */\n        .clicks {\n            background-color: #1e5631;\n        }\n\n        /* Green */\n        .leads {\n            background-color: #722a2a;\n        }\n\n        /* Red */\n        .highlight {\n            font-weight: bold;\n            color: #ffd700;\n        }\n\n        /* Gold for key data */\n        .footer {\n            text-align: center;\n            font-size: 14px;\n            color: #aaaaaa;\n            padding: 20px;\n        }\n\n        @media screen and (max-width: 480px) {\n            .content {\n                padding: 10px;\n            }\n        }\n    </style>\n</head>\n\n<body>\n    <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n        <tbody>\n            <tr>\n                <td align=\"center\">\n                    <table class=\"container\">\n                        <tbody>\n                            <tr>\n                                <td class=\"logo\"><img src=\"https://assets.cdn.filesafe.space/zpjvSoJ3TMkdq8pcj7VJ/media/6499bf999db2c32f4ad9391e.png\" alt=\"SalesGenius Logo\"></td>\n                            </tr>\n                            <tr>\n                                <td class=\"content \">\n                                    <p>Hello <span class=\"highlight\">{{ $json.property_email_name }}</span>,</p>\n                                    <p>I hope you&apos;re doing well. Last week (<span class=\"highlight\">{{ new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] }} - {{ new Date((Date.now() - 1 * 24 * 60 * 60 * 1000)).toISOString().split('T')[0] }}</span>), we spent <span class=\"highlight\">$[Total Spend]</span> on Facebook ads and generated <span class=\"highlight\">[Total Leads]</span> leads. That means each lead cost us <span class=\"highlight\">$[CPL]</span> (Cost Per Lead).</p>\n                                    <p><strong>How People Moved Through the Funnel:</strong></p><!-- Impressions Section -->\n                                    <div class=\"section impressions\">\n                                        <p><strong>👀 Impressions</strong></p>\n                                        <p>Your ads were shown <span class=\"highlight\">[Number of Impressions]</span> times. An impression is counted every time your ad is displayed on someone&rsquo;s screen in their Facebook or Instagram feed, regardless of whether they click or engage with it.</p>\n                                    </div><!-- Clicks Section -->\n                                    <div class=\"section clicks\">\n                                        <p><strong>☝️ Clicks</strong></p>\n                                        <p>Out of all the people who saw your ad, <span class=\"highlight\">[Number of Clicks]</span> clicked on it. Each click represents a potential lead who was interested enough to take action.</p>\n                                        <p>The <strong>Click-Through Rate (CTR)</strong> was&nbsp;<span class=\"highlight\">[CTR]%</span>. CTR is calculated as (Clicks &divide; Impressions) &times; 100. A higher CTR means more people found your ad engaging and relevant.<br><br>The benchmark we have at SalesGenius for <strong>CTR is 3%</strong>. This means your ad is <span class=\"highlight\"><strong>[Comparison with 3% benchmark, if lower then benchmark, be positive, and say our team is monitoring it].</strong></span></p>\n                                    </div><!-- Leads Section -->\n                                    <div class=\"section leads\">\n                                        <p><strong>👥 Leads</strong></p>\n                                        <p>From those clicks, we ended up with <span class=\"highlight\">[Total Leads]</span> leads. Leads are the most valuable part of our funnel since they show real potential customers.</p>\n                                        <p>The <strong>Cost Per Lead (CPL)</strong> was <span class=\"highlight\">$[CPL]</span>. CPL is calculated as <strong>(Total Spend &divide; Total Leads)</strong>. This means we spent&nbsp;<strong>$[CPL] for each new lead</strong> who showed interest in your offer.&nbsp;<br><br>The benchmark we have at SalesGenius for <strong>CPL is $20</strong>. This means your ad is <span class=\"highlight\"><strong>[Comparison with $20 CPL benchmark, if lower then benchmark, be positive, and say our team is monitoring it].</strong></span></p>\n                                    </div><!-- Best Performing Day -->\n                                    <p><strong>🌟 Best Performing Day</strong></p>\n                                    <p>Our best day was <span class=\"highlight\">[Best Day/Date]</span>, with <span class=\"highlight\">[Best Day Leads]</span> leads and a Cost Per Lead of <span class=\"highlight\">$[Best Day CPL]</span>. This day gave us the best value for our spend.</p>\n                                    <p>Thank you for reading! If you have any questions, feel free to reach out.</p>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td class=\"footer\">\n                                    <p>Best regards,</p>\n                                    <p><strong>The SalesGenius Team</strong></p>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n        </tbody>\n    </table>\n</body>\n\n</html>\n\n\n\nImportant: Do not change the boilerplate, the output should be html nothing else\nImportant: Do not output with any variable names, all variables should be filled out from the data",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        2100,
+        -180
+      ],
+      "id": "12aeadf5-8d84-4d29-b6fa-90573365038a",
+      "name": "Campaign Data Weekly Digest1",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "content": "# Cost Per Lead is OVER $25 🚨\n### Notify Team",
+        "height": 280,
+        "width": 1560,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1100,
+        -640
+      ],
+      "typeVersion": 1,
+      "id": "3281eec8-8221-426d-bfec-714e2c471604",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "# No Leads\n### Check if the campaign was not set for leads",
+        "height": 320,
+        "width": 1560
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1100,
+        80
+      ],
+      "typeVersion": 1,
+      "id": "8e43c5ad-c1b3-4e33-96a9-68330487a1b8",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "# No Campaign Data\n### Check when the last time there was campaign data, and see if theres any active campaigns for the ad account, then check if the active campaigns are different outcome",
+        "height": 440,
+        "width": 1560,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1100,
+        -1140
+      ],
+      "typeVersion": 1,
+      "id": "d6318abb-d82e-4449-ade3-735fa6885a9e",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v21.0",
+        "node": "={{ $('Loop Over Items').item.json.id }}/ads?fields=id,name,effective_status,objective,created_time,updated_time",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        -940
+      ],
+      "id": "77e10f45-4944-47c3-af87-51d74f76d6fb",
+      "name": "Get All Ads",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "3b89c45c-32c4-424a-8c4b-e314892326c2",
+              "leftValue": "={{ $json.data.some(campaign => campaign.effective_status === 'ACTIVE') }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1380,
+        -940
+      ],
+      "id": "b18be062-ea99-47da-8b9e-39acfabd4553",
+      "name": "Are there Active Ads / Ad Sets / Campaigns"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v21.0",
+        "node": "={{ $('Loop Over Items').item.json.id }}/campaigns?fields=id,name,objective,effective_status,created_time,start_time,stop_time,updated_time&filtering=[{\"field\":\"effective_status\",\"operator\":\"IN\",\"value\":[\"ACTIVE\"]}]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        -1020
+      ],
+      "id": "d3e7889b-376c-4528-a3b0-d2e78d6da1cd",
+      "name": "Get Active Campaign",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v21.0",
+        "node": "={{ $json.data[0].id }}/insights?fields=account_id,account_name,action_values,actions,ad_click_actions,ad_id,ad_impression_actions,ad_name,adset_id,adset_name&time_increment=1&level=ad",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "time_range",
+                "value": "={'since':'{{ new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] }}','until':'{{ new Date((Date.now() - 1 * 24 * 60 * 60 * 1000)).toISOString().split('T')[0] }}'}"
+              },
+              {
+                "name": "time_ increment",
+                "value": "1"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        -1020
+      ],
+      "id": "0f2b73b8-f39a-42f2-8a5e-2ced7b9f3b1a",
+      "name": "Get Daily Metrics2",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "AVglZdQLFCBxqHem",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ JSON.stringify($json.data ) }}"
+            },
+            {
+              "content": "When was the last time this campaign ran? Just need a simple date as the output",
+              "role": "system"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        2060,
+        -1020
+      ],
+      "id": "0dfe0776-6819-47ef-a7b8-0e7cc2e71afd",
+      "name": "OpenAI2",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ JSON.stringify($json.data ) }}"
+            },
+            {
+              "content": "=Why did we not have any campaign data this week? What was paused? The Ad Set? The Ad? The Campaign? Find the most recent one that is paused if more than one. Just need a simple answer as the output:  {{ $('Loop Over Items').item.json.name }} Did not have any campaign data this week. { Name of Paused Item } is paused, the last update was { updated date (dont show time) } \n\nalways give it as a json with \"response\" \nif theres more than one item, always choose the most recently updated",
+              "role": "system"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1640,
+        -860
+      ],
+      "id": "d8fee235-312f-4308-9db5-715fd911e3b2",
+      "name": "OpenAI3",
+      "credentials": {
+        "openAiApi": {
+          "id": "OLHtLOP5C47dG8d5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08EJJPVC22",
+          "mode": "list",
+          "cachedResultName": "client-ad-performance"
+        },
+        "text": "=:large_yellow_circle: Client with NO Campaign Data last week: *{{ $('Loop Over Items').item.json.name }}*\n*{{ $json.message.content.response }}* <https://adsmanager.facebook.com/adsmanager/manage/campaigns?act={{ $json.data[0].account_id }}|Click Here to view Ad Account>\n",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": false,
+          "unfurl_links": false,
+          "unfurl_media": true,
+          "sendAsUser": ""
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        2000,
+        -860
+      ],
+      "id": "b5554f6a-708c-49b0-a490-d6faf97fa9d9",
+      "name": "Slack1",
+      "webhookId": "09eef158-29e3-4c76-a1a3-bde7ba18b6f3",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08EJJPVC22",
+          "mode": "list",
+          "cachedResultName": "client-ad-performance"
+        },
+        "text": "=:large_yellow_circle: Client with NO Campaign Data last week: *{{ $('Loop Over Items').item.json.name }}*\n\n{{ $json.message.content.analysis }}",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": false,
+          "unfurl_links": false,
+          "unfurl_media": true,
+          "sendAsUser": ""
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        1820,
+        200
+      ],
+      "id": "c0e608f5-0318-420f-8ea1-4c97d9b482ca",
+      "name": "Slack2",
+      "webhookId": "09eef158-29e3-4c76-a1a3-bde7ba18b6f3",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08EJJPVC22",
+          "mode": "list",
+          "cachedResultName": "client-ad-performance"
+        },
+        "text": "=:large_yellow_circle: Client with NO Campaign Data last week: *{{ $('Loop Over Items').item.json.name }}*\n",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": false,
+          "unfurl_links": false,
+          "unfurl_media": true,
+          "sendAsUser": ""
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        2400,
+        -1020
+      ],
+      "id": "8ec5532d-11d5-4ad2-9f5a-ffa2ec46935d",
+      "name": "Slack3",
+      "webhookId": "09eef158-29e3-4c76-a1a3-bde7ba18b6f3",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "numberInputs": 5
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2860,
+        -300
+      ],
+      "id": "6e0e45f4-bcef-40a6-9908-469d8db10203",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=This is all of our clients that did not get any leads or got leads but it was too high of a cost, your job is to make a very simple update with one line per client.\n\nYour task is to analyze this week’s ad performance data for all our clients and generate a concise, Slack-ready summary for each. Please follow these guidelines:\n\nHTML Entity Encoding: Only encode the following characters:\nReplace the ampersand & with &amp;\nReplace the less-than sign < with &lt;\nReplace the greater-than sign > with &gt;\n(Do not encode any other characters.)\nNewlines: Use explicit newline characters (\\n) to separate each client’s summary.\nURL Encoding: If you include URLs, ensure they are URL-encoded as required.\nSlack Control Sequences: Maintain the integrity of Slack’s control characters (e.g., for linking channels or users) by not modifying their format.\n\nOutput Format:\n\nPresent your findings as a single text string.\nEach client’s summary should be separated by newline characters (\\n).\nUse bullet points or numbering within each client’s section for clarity if needed.\n\nExample Output:\n\npgsql\nCopy\nClient A:\\n- Performance: Good\\n- Metrics: 10,000 impressions, 500 clicks, 5% conversion rate\\n\\nClient B:\\n- Performance: Poor\\n- Issues: Low leads, high cost per click – corrective action required\\n\\nClient C:\\n- Performance: No Data available\nEnsure that your final output complies with Slack’s message formatting rules as described above.\n\nHere is the context, the raw analysis sent to our slack group about the clients with risk:\n\n{{ JSON.stringify($json  ) }}\n\n\nSOP:\n- The top item should be for cleints who got leads but were too high cost \n- Second should be clients who did have active campaigns with lead outcome but no leads\n- then it should be everyone else\n- Remember to format it for slack, do not have any intro message, just get right to client A",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        3320,
+        -260
+      ],
+      "id": "deab5284-775b-4b56-af56-6befba9b08e0",
+      "name": "Campaign Data Weekly Digest",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3120,
+        -260
+      ],
+      "id": "9d781b30-5f3f-40d5-9733-8aed5c3b97bd",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08EJJPVC22",
+          "mode": "list",
+          "cachedResultName": "client-ad-performance"
+        },
+        "text": "={{ $json.output }}",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "mrkdwn": false,
+          "unfurl_links": false,
+          "unfurl_media": false,
+          "sendAsUser": ""
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        3660,
+        -260
+      ],
+      "id": "79a64985-feb0-4e77-9401-57e51f76f62a",
+      "name": "Slack4",
+      "webhookId": "09eef158-29e3-4c76-a1a3-bde7ba18b6f3",
+      "credentials": {
+        "slackApi": {
+          "id": "5goi1ZcCB6TvJ8SQ",
+          "name": "OAuth User"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "content": "## Combine Updates into Single Output\n### Not Ready",
+        "height": 360,
+        "width": 1200,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        -380
+      ],
+      "id": "f456f87a-d934-48d1-8640-99af7ca925e9",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1
+              ],
+              "triggerAtHour": 14,
+              "triggerAtMinute": 3
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -360,
+        -360
+      ],
+      "id": "dfe97f9d-1a58-4ef9-ae45-b55124ae495b",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-03T20:42:44.056Z",
+      "updatedAt": "2025-02-03T20:42:44.056Z",
+      "role": "workflow:owner",
+      "workflowId": "tj6qO4cZXdLW89YX",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2025-02-21T17:21:41.750Z",
+      "updatedAt": "2025-02-21T17:21:41.750Z",
+      "id": "hCxs00bYB7kqJnEo",
+      "name": "WORKING"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-03-31T13:49:56.000Z",
+  "versionId": "98cc1d3a-a927-4ddc-8090-2cec375444b2"
+}
