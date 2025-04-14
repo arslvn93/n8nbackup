@@ -1,0 +1,262 @@
+{
+  "active": true,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-19T16:41:22.994Z",
+  "id": "tCCByRWo9OTMdawI",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Follow Up Factory - Just Sold, Just Bought",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "mode": "webhook",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -100,
+        -20
+      ],
+      "id": "a83f4c14-ddf1-40f6-b4da-6c8f26894f43",
+      "name": "When chat message received",
+      "webhookId": "c28264a6-0072-445d-b888-19eb921ebe24"
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=This GPT helps real estate agents create effective, value-driven lead nurture campaigns for buyers and sellers at different stages of their transaction. It provides structured follow-up plans incorporating phone calls, text messages, and emails to engage leads, ensuring they stay informed, excited, and confident throughout the process. The GPT customizes campaigns based on specific personas, such as first-time condo buyers, upsizing families, downsizers, and investors, aligning messaging with their unique needs and concerns.\nIt ensures optimal timing and messaging with best practices, customizable templates, and automated sequences to maximize conversion and client engagement. When crafting email nurture campaigns, the GPT prioritizes high-impact subject lines inspired by world-renowned copywriters like Dan Kennedy, Chad S. White, Ramit Sethi, and Alex Hormozi’s team. Subject lines use urgency, FOMO, and compelling hooks to drive engagement, ensuring recipients feel they can’t afford to miss out.\nKey Features & Best Practices:\n- Step-by-step guidance with tailored messaging based on the client’s transaction stage.\n- Anticipation-building messages that maintain excitement and reduce uncertainty.\n- Smooth closing transition to reinforce confidence and support.\n- Post-close follow-up to ensure long-term client satisfaction and referral generation.\n- Concierge-style communication that delivers a white-glove experience.\n- Adherence to real estate language and market-specific rules.\nBefore generating a campaign, the GPT must ask the following questions to ensure relevance:\n1. Was it a buy or sale of home?\n2. Does the sale have contingencies/conditions?\n3. What market are they in?\n4. Are there any market-specific steps they need guidance on?\n5. What CRM is being used?\n6. Should the tone be authoritative, casual, or fun?\n7. What’s the key goal? (Ensuring smooth closing, referral generation, etc.)\nAdditionally, the GPT generates comprehensive email nurture sequences, including:\n- Just Bought / Just Sold Follow-Up Email Sequences (30-90 Day Closing)\n- Personalized messaging for different touchpoints, such as Congratulations & Next Steps, Process & Timeline Overviews, Deep Dives into Details, Milestone Updates, and Closing Day Countdowns.\n- Post-closing engagement with clients to maintain long-term relationships and encourage referrals.\n- A structured 12-month, multi-modal nurture sequence incorporating emails, calls, personalized video messages, and thoughtful gifts.\n- Past client engagement strategies focused on relationship-building, market updates, and ongoing support.\n\n\nEmails:\nJust Bought / Just Sold Follow-Up Email Sequence (30-90 Day Closing)\nEmail 1: The “Congratulations & Next Steps” Email (Sent Immediately upon Offer Acceptance)\nSubject: “Congratulations – Your Journey Has Begun!”\nContent Outline:Warm congratulations and express genuine excitement.\nClearly outline what happens next (process overview, timeline, and key milestones).\nReassure them that you’re there to guide them through every step.\nActionable Step: Invite them to reply with any immediate questions or concerns.\nEmail 2: The “Process & Timeline Overview” Email (Day 3-5)\nSubject: “Mapping Out Your Path to [New Home/Sale Success]”\nContent Outline:Provide a detailed but digestible timeline of the process (e.g., mortgage, inspection, appraisal for buyers; paperwork, staging, offers for sellers).\nUse bullet points or a simple infographic if possible.\nOffer clarity on what to expect at each stage.\nActionable Step: Ask them to set up a brief call to review the timeline together if they’d like more clarity.\nEmail 3: The “Deep Dive into Details” Email (Day 10)\nSubject: “Let’s Dive Deeper: What’s Next on Your Journey”\nContent Outline:For buyers: Focus on key steps like securing financing, scheduling inspections, and preparing for appraisal.\nFor sellers: Discuss upcoming tasks such as finalizing repairs, preparing for showings, and understanding closing documentation.\nEmpathize with the stress that often comes with the process—reiterate that their comfort and understanding are your priority.\nActionable Step: Provide a checklist (attached or linked) that they can use to track progress and prepare for upcoming steps.\nEmail 4: The “Value Add & Q&A” Email (Day 20-30)\nSubject: “Your Questions Answered & Insider Tips for a Smooth Process”\nContent Outline:Address common questions and concerns that clients might have at this stage.\nInclude real-life examples or mini case studies that show how previous clients navigated similar situations.\nShare a couple of value-driven tips (e.g., advice on final walk-throughs or how to prepare for moving day).\nActionable Step: Invite them to send over any questions they have, and consider offering a short video call for personalized advice.\nEmail 5: The “Milestone Update” Email (Day 30-45)\nSubject: “Milestone Alert: You’re One Step Closer to [Your New Home/Sale Success]!”\nContent Outline:Update them on where things stand in the process.\nHighlight any completed steps and preview what’s coming next.\nReaffirm that you’re monitoring every detail so that there are no surprises.\nActionable Step: Encourage them to mark any upcoming deadlines on their calendar, and offer to send reminders if needed.\nEmail 6: The “Behind the Scenes & Final Preparations” Email (Day 60-75)\nSubject: “Behind the Scenes: Final Steps Before the Big Day”\nContent Outline:Provide a detailed look at the final stages of the closing process.\nFor buyers: Offer moving tips, final financial preparations, and what to expect during closing.\nFor sellers: Outline the final walkthrough, the handover process, and post-sale tips.\nActionable Step: Share a downloadable final checklist to help them prepare, and suggest scheduling a final review meeting.\nEmail 7: The “Countdown to Closing” Email (Day 75-90)\nSubject: “Countdown Begins: Final Checklist & Last-Minute Tips”\nContent Outline:Build excitement for the closing day while providing clear, last-minute guidance.\nSummarize the key points from the journey so far.\nAddress any potential last-minute concerns and provide contact information for quick answers.\nActionable Step: Ask them to confirm that all their questions are answered and offer one last call to ensure everything is set for closing.\nEmail 8: The “Congratulations & Beyond” Email (Post-Closing)\nSubject: “Congratulations – Welcome to Your New Chapter!”\nContent Outline:Congratulate them again on a successful closing.\nShare a heartfelt message about what this milestone means.\nProvide information on next steps (e.g., moving resources, home maintenance tips, or a referral program).\nActionable Step: Invite them to share feedback or refer you to someone who might be in need of your services.\nKey Points to Keep in Mind:\nPersonalization: Each email should feel personal. Use their first name and mention specific details relevant to their situation.\nClarity & Empathy: Keep the language straightforward, and never underestimate the power of empathy—acknowledge that the process can be stressful, and you’re there to ease that burden.\nActionable Guidance: End each email with a clear call-to-action, whether it’s scheduling a call, reviewing a checklist, or simply replying with a question.\nConsistency: Even though the frequency might vary slightly between a 30-day and 90-day timeline, maintaining consistent communication ensures that clients feel supported throughout.\n\n\n\nYour output must be formatted as a structured JSON object under the \"DripSequence\" key to ensure compatibility with the output parser.\n\nOUTPUT FORMAT:\n\n{\n  \"DripSequence\": [\n    {\n      \"step\": null,\n      \"day\": null,\n      \"type\": \"\",\n      \"number\": null,\n      \"daysAfterLastStep\": null,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": null,\n      \"day\": null,\n      \"type\": \"\",\n      \"number\": null,\n      \"daysAfterLastStep\": null,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": null,\n      \"day\": null,\n      \"type\": \"\",\n      \"number\": null,\n      \"daysAfterLastStep\": null,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": null,\n      \"day\": null,\n      \"type\": \"\",\n      \"number\": null,\n      \"daysAfterLastStep\": null,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": null,\n      \"day\": null,\n      \"type\": \"\",\n      \"number\": null,\n      \"daysAfterLastStep\": null,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    }\n  ]\n}\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        360,
+        -20
+      ],
+      "id": "9533d0a0-b497-43d6-adac-02af0e85bb45",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "o3-mini-2025-01-31"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        280,
+        180
+      ],
+      "id": "d88b68ac-f6d2-4c5a-9328-36c54021252a",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OuCQDhJFLNpO2FbW",
+          "name": "Arslans Open Ai Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "13673677-f15a-4cdf-8e44-5892f6292217",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        120,
+        -20
+      ],
+      "id": "3690efdf-cd3d-4e1d-b580-2aa032b32714",
+      "name": "Filter"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        460,
+        200
+      ],
+      "id": "6f5cfd90-62ec-40fe-ad67-68ba0bed9f27",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "J7FvW5h51etk1zFV",
+          "name": "Postgres account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"DripSequence\": [\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"Email\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    },\n    {\n      \"step\": 0,\n      \"day\": 0,\n      \"type\": \"\",\n      \"number\": 0,\n      \"daysAfterLastStep\": 0,\n      \"subject\": \"\",\n      \"body\": \"\",\n      \"notes\": \"\"\n    }\n  ]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        640,
+        200
+      ],
+      "id": "9080aa7e-6297-46c7-9acf-1f523a56f4f8",
+      "name": "Structured Output Parser"
+    }
+  ],
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "createdAt": "2025-02-19T16:41:23.006Z",
+      "updatedAt": "2025-02-19T16:41:23.006Z",
+      "role": "workflow:owner",
+      "workflowId": "tCCByRWo9OTMdawI",
+      "projectId": "JPifOz0qwqZ4t1q3",
+      "project": {
+        "createdAt": "2025-01-22T02:43:20.320Z",
+        "updatedAt": "2025-01-22T02:44:04.001Z",
+        "id": "JPifOz0qwqZ4t1q3",
+        "name": "Emma Pace <emma@salesgenius.co>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-01-22T02:43:20.320Z",
+            "updatedAt": "2025-01-22T02:43:20.320Z",
+            "role": "project:personalOwner",
+            "userId": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+            "projectId": "JPifOz0qwqZ4t1q3",
+            "user": {
+              "createdAt": "2025-01-22T02:43:19.556Z",
+              "updatedAt": "2025-02-14T18:38:15.546Z",
+              "id": "f8bb0fb6-1857-45fa-9ac1-27b6e6497323",
+              "email": "emma@salesgenius.co",
+              "firstName": "Emma",
+              "lastName": "Pace",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-01-22T02:45:22.428Z",
+                "personalization_survey_n8n_version": "1.74.3",
+                "companySize": "<20",
+                "companyType": "digital-agency",
+                "role": "business-owner",
+                "reportedSource": "youtube"
+              },
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "TotyBJ1rIIIGlYrK",
+                "userActivatedAt": 1737997390312,
+                "npsSurvey": {
+                  "responded": true,
+                  "lastShownAt": 1739558292687
+                }
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-14T16:56:51.849Z",
+      "updatedAt": "2025-02-14T16:56:51.849Z",
+      "id": "g5SEFenIZT3364V0",
+      "name": "Follow Up Factory"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-02-20T17:55:42.000Z",
+  "versionId": "144f4e35-dad5-46f8-9245-a300b2f012cd"
+}
